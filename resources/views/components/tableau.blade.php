@@ -11,6 +11,6 @@
         <x-scores :apiscores="$apiscores" /> 
       </div>
       
-      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">...</div>
+      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">.test.</div>
       
 </div>   
