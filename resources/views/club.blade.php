@@ -19,12 +19,6 @@
   <div id="credit"> Crédit:<a href="{{$club->lien_credit}}">{{$club->auteur_credit}}</a></div>  
 @endif
 
-
-<div class="infot">
-
-   {{-- composant des scores --}}
- <x-scores :apiscores="$club->api_scores" /> 
-
   <div class="logo">
     <a href="<?php echo $club->site_officiel?>" target="_blank">
       <img class="logo1 animate__animated animate__flipInY" src="{{Storage::url('logos/'.$club->nom.'.png')}}" alt="">
@@ -35,6 +29,12 @@
       </a>
     </div>
   </div>
+<div class="infot">
+
+    {{-- composant tableau des scores --}}
+ <x-tableau :apiscores="$club->api_scores" />
+
+
 
 
 </div>
