@@ -1,12 +1,15 @@
 @inject('api', 'App\Api\Apifootball')
 @php
-$lastmatch = $api->getlastmatch($apiscores);
-$nextmatch = $api->getnextmatch($apiscores);
-
+if($api->getlastmatch($apiscores)!= null){
+  $lastmatch = $api->getlastmatch($apiscores);
+};
+if($api->getnextmatch($apiscores)!= null){
+  $nextmatch = $api->getnextmatch($apiscores);
+}
 @endphp
 
 
-
+@if (isset($lastmatch))
 <div>
    <!-- DERNIER MATCH -->
 
@@ -17,8 +20,8 @@ $nextmatch = $api->getnextmatch($apiscores);
             ".$lastmatch['score2']}}</span> <span>{{$lastmatch['equipe2']}}</span> </div>
         <div>Détails</div>
 </div>   
-
-@if (!empty($nextmatch))
+@endif 
+@if (isset($nextmatch))
 <div>
   <!-- PROCHAIN MATCH -->
 
