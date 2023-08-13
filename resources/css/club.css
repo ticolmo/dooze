@@ -173,35 +173,26 @@ li {
     }
 
     div.stade {
-        width: 80%;
-        height: 65%;
-        overflow: hidden;
-        margin-left: auto;
-        margin-right: auto;
+        height: 80%;
         position: relative;
+        
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        
 
     }
 
     div#credit {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 8px;
+        position:absolute;
+        bottom:15px;
+        left:20px;
+        font-size: 12px;
+        color:white
 
     }
 
 
-    .stade2 {
-        position: absolute;
-        top: 0;
-        z-index: 2;
-        width: 100%;
-        height: 100%;
-        background-image: linear-gradient(180deg, transparent 60%, #ffffff 100%);
-        margin-left: auto;
-        margin-right: auto;
 
-    }
 
     img.stade1 {
         display: none
@@ -232,7 +223,7 @@ li {
     }
 
     .tableau {
-        
+
         width: 60%;
         margin-top: 20px;
         margin-left: auto !important;
@@ -240,25 +231,27 @@ li {
         border: 0.5px solid #dee2e6;
     }
 
-    
- .result{
-   
-    display: flex!important;
-    flex-direction: row!important;
-    flex-wrap: wrap!important;
-    font-size: 14px!important;/*
+
+    .result {
+
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        font-size: 14px !important;
+        /*
     box-shadow: 1px 5px 5px rgba(128, 128, 128, 0.182);
     
     padding-bottom:5px;
    
    */
 
-}
-.result div{
-    margin-left: auto!important;
-   margin-right: auto!important;
-   
-} 
+    }
+
+    .result div {
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+    }
 
     .bim {
         /* Calendrier / classement pas encore dans .php */
@@ -274,10 +267,11 @@ li {
 
     .logo {
         position: absolute;
+        bottom: 15px;
         left: 80%;
         z-index: 5;
         width: 20%;
-        transform: translateY(-50%);
+
 
 
 
@@ -339,12 +333,10 @@ li {
     /* .nav-link:hover{
     color: #FFD500!important;
 } */
-    .navbar {
-        /*box-shadow: 1px 5px 5px rgba(128, 128, 128, 0.182);  */
-        border-bottom: 0.5px solid
-            /* #dee2e6; */
-            #1e1a1966;
-    }
+    /* .navbar {
+        box-shadow: 1px 5px 5px rgba(128, 128, 128, 0.182);  
+    
+    }*/
 
     .scrollable-menu {
         height: auto;

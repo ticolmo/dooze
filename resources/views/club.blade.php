@@ -12,13 +12,7 @@
 <div class="stade"
   style="background-image:url('{{Storage::url('stades/'.$club->nom.' stadium.jpg')}}');background-size: cover;{{$club->image_position }}">
   <img class="stade1" src="{{$club->nom}}" alt="{{$club->nom}}">
-  {{-- <div class="stade2"></div> --}}
   
-</div>
-@if (!empty($club->auteur_credit))
-  <div id="credit"> Crédit:<a href="{{$club->lien_credit}}">{{$club->auteur_credit}}</a></div>  
-@endif
-
   <div class="logo">
     <a href="<?php echo $club->site_officiel?>" target="_blank">
       <img class="logo1 animate__animated animate__flipInY" src="{{Storage::url('logos/'.$club->nom.'.png')}}" alt="">
@@ -29,6 +23,13 @@
       </a>
     </div>
   </div>
+  @if (!empty($club->auteur_credit))
+  <div id="credit"> Crédit:<a href="{{$club->lien_credit}}">{{$club->auteur_credit}}</a></div>  
+  @endif
+</div>
+
+
+  
 <div class="infot">
 
     {{-- composant tableau des scores --}}
