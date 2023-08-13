@@ -175,20 +175,19 @@ li {
     div.stade {
         height: 80%;
         position: relative;
-        
+
         background-repeat: no-repeat;
         background-attachment: fixed;
-        
+
 
     }
 
     div#credit {
-        position:absolute;
-        bottom:15px;
-        left:20px;
+        position: absolute;
+        bottom: 15px;
+        left: 20px;
         font-size: 12px;
-        color:white
-
+        color: white
     }
 
 
@@ -203,12 +202,42 @@ li {
 
         position: relative;
         width: 100%;
-
-
-
-
+        height: 40%;
+        background-color: rgba(133, 20, 43, 0.1);
 
     }
+
+    .nav-tabs{
+        border-bottom: none!important;
+    }
+
+    .nav-link.active {
+        background-color: transparent!important;
+        border-color: transparent!important;        
+    }
+    .nav-link:hover {
+       /*  border-bottom: 3px solid!important;
+        border-bottom-color:red!important;     */  
+        text-decoration: underline;
+    }
+
+     table{
+        margin-left: auto !important;
+        margin-right: auto !important;
+        border-collapse: separate; /* Indiquer que les bordures sont séparées */
+      border-spacing: 10px; /* Ajouter un espace de 10px entre les cellules */
+    
+       /* background-color: white;
+        width: 70%;
+         */
+
+    }
+    td{
+        padding: 30px;
+        background-color: white;
+        
+    }
+
 
     .info {
 
@@ -220,15 +249,6 @@ li {
 
 
 
-    }
-
-    .tableau {
-
-        width: 60%;
-        margin-top: 20px;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        border: 0.5px solid #dee2e6;
     }
 
 
@@ -318,12 +338,7 @@ li {
         box-shadow: inset -1px 3px 8px 5px gray, 2px 5px 16px 0px rgb(115, 115, 115), 5px 5px 15px 5px rgba(0, 0, 0, 0);
     }
 
-    .tribune {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
 
-    }
 
     .nav-link {
         color: #1e1a19 !important;

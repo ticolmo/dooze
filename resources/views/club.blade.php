@@ -46,7 +46,7 @@
 
 
 <div class="tribune">
-  <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button 
       {{-- Session flash 'post' active lorsque commentaire est posté --}}

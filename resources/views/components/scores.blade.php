@@ -19,6 +19,7 @@ $nextmatch = $api->getnextmatch($apiscores);
         <div> {{ __('LAST MATCH') }}</div>
         <div> {{$lastmatch['ligue']}} </div>
         <div>{{$lastmatch['journee']}} </div>
+        <div>{{$lastmatch['date']}}</div>
         <div> <span> {{$lastmatch['equipe1']}}</span> <span> {{$lastmatch['score1']." -
             ".$lastmatch['score2']}}</span> <span>{{$lastmatch['equipe2']}}</span> </div>
 
