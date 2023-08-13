@@ -203,9 +203,10 @@ li {
         position: relative;
         width: 100%;
         height: 40%;
-        background-color: rgba(133, 20, 43, 0.1);
+    
 
     }
+
 
     .nav-tabs{
         border-bottom: none!important;
@@ -221,22 +222,7 @@ li {
         text-decoration: underline;
     }
 
-     table{
-        margin-left: auto !important;
-        margin-right: auto !important;
-        border-collapse: separate; /* Indiquer que les bordures sont séparées */
-      border-spacing: 10px; /* Ajouter un espace de 10px entre les cellules */
     
-       /* background-color: white;
-        width: 70%;
-         */
-
-    }
-    td{
-        padding: 30px;
-        background-color: white;
-        
-    }
 
 
     .info {
@@ -253,11 +239,16 @@ li {
 
 
     .result {
-
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
         font-size: 14px !important;
+        padding-top:40px ;
+        padding-left: 20%;
+        padding-right: 20%;
+        
+        
+        
         /*
     box-shadow: 1px 5px 5px rgba(128, 128, 128, 0.182);
     
@@ -268,11 +259,22 @@ li {
     }
 
     .result div {
+        width:40%;
+        
         margin-left: auto !important;
         margin-right: auto !important;
+        background-color: white;
+        text-align: center;            
 
     }
-
+    .result div div {
+        width: 100%;
+    }
+    .result div div:first-child {
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+  
     .bim {
         /* Calendrier / classement pas encore dans .php */
         position: absolute;

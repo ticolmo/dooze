@@ -7,39 +7,30 @@ $nextmatch = $api->getnextmatch($apiscores);
 
 
 
-
-
-<table>
-  <tbody>
-    <tr >
-      <td>
-
-        <!-- DERNIER MATCH -->
+<div>
+   <!-- DERNIER MATCH -->
 
         <div> {{ __('LAST MATCH') }}</div>
-        <div> {{$lastmatch['ligue']}} </div>
-        <div>{{$lastmatch['journee']}} </div>
+        <div> {{$lastmatch['ligue']}} </div>        
         <div>{{$lastmatch['date']}}</div>
         <div> <span> {{$lastmatch['equipe1']}}</span> <span> {{$lastmatch['score1']." -
             ".$lastmatch['score2']}}</span> <span>{{$lastmatch['equipe2']}}</span> </div>
+        <div>Détails</div>
+</div>   
 
-
-
-      </td>
-      <td>
-        <!-- PROCHAIN MATCH -->
+@if (!empty($nextmatch))
+<div>
+  <!-- PROCHAIN MATCH -->
 
         <div>PROCHAIN MATCH</div>
-        @if (!empty($nextmatch))
-        <div>{{$nextmatch['ligue']}}</div>
-        <div>{{$nextmatch['journee']}}</div>
+        
+        <div>{{$nextmatch['ligue']}}</div>        
         <div>{{$nextmatch['date']}}</div>
         <div> <span> {{$nextmatch['equipe1']}}</span> <span> - </span><span>{{$nextmatch['equipe2']}}</span> </div>
-        @endif
+        
+        
+</div>
+@endif    
+        
 
 
-
-      </td>
-    </tr>
-  </tbody>
-</table>

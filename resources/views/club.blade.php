@@ -30,7 +30,7 @@
 
 
   
-<div class="infot">
+<div class="infot" style="background-color:{{$club->couleur_tableauscore}}">
 
     {{-- composant tableau des scores --}}
  <x-tableau :apiscores="$club->api_scores" />
