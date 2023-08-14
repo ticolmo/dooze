@@ -5,8 +5,8 @@
 </div>
 <div class="fans" style="min-height:50vh">
   <div class="supporters">
-    @auth
-      @if (auth()->user()->club_id == $idclub)
+
+    
       {{-- La possibilité de laisser un COMMENTAIRE seulement pour les fans du club --}}
       <form action="{{route('post.commentaireclub')}}" method="post" enctype='multipart/form-data'>
         @csrf
@@ -21,10 +21,26 @@
           
         <div class="text-center submit">
           <label class="image"for="fileInput"><i class="bi bi-image" style="font-size: 20px!important"></i></label>
+      @auth
+        @if (auth()->user()->club_id == $idclub)
           <button class="btn btn-outline-secondary" id="emoji-button" type="submit">{{ __('Post') }}</button>
         </div>
       </form>
-      @endif
+
+      
+        @else
+        {{-- si pas fan du club --}}
+        <div class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#pasfanduclub">{{ __('Post') }}</div>
+          <x-modals.pasfanduclub />
+        @endif   
+      @endauth
+
+      @guest
+        <div class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#connet">{{ __('Post') }}</div>
+        <x-modals.connexion />
+      @endguest
+
+     @auth
         @if ($errors->any())
           <div class="alert alert-danger">
               <ul>
@@ -38,7 +54,7 @@
         @if ((session()->has('signalement')))
           <div class="alert alert-success w-50 m-auto text-center"> Merci pour le signalement de ce commentaire ! Il sera traité dans les meilleurs délais.</div>
         @endif
-    @endauth
+   
 
     {{-- affichage des commentaire des fans du club --}}
     @foreach ($commentaireclub as $commentaire)
