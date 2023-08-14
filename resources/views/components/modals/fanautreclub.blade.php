@@ -1,10 +1,10 @@
 
 <!-- Modal -->
-<div class="modal fade" id="pasfanduclub" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="fanautreclub" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <div class="modal-header" style="border-bottom:none!important"> 
+          
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -12,7 +12,7 @@
           <br>
           Ecris un message dans la section Visiteurs !
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer" style="border-top:none!important">
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Compris</button>
           
         </div>

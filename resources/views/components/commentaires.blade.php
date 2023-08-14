@@ -21,19 +21,20 @@
           
         <div class="text-center submit">
           <label class="image"for="fileInput"><i class="bi bi-image" style="font-size: 20px!important"></i></label>
-      @auth
-        @if (auth()->user()->club_id == $idclub)
-          <button class="btn btn-outline-secondary" id="emoji-button" type="submit">{{ __('Post') }}</button>
-        </div>
+          
+          @auth
+            @if (auth()->user()->club_id == $idclub)
+              <button class="btn btn-outline-secondary" id="emoji-button" type="submit">{{ __('Post') }}</button>
+            </div>     
+          
+            @else
+            {{-- si fan autre club --}}
+            <div class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#fanautreclub">{{ __('Post') }}</div>
+              </div> 
+              <x-modals.fanautreclub />
+            @endif   
+          @endauth
       </form>
-
-      
-        @else
-        {{-- si pas fan du club --}}
-        <div class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#pasfanduclub">{{ __('Post') }}</div>
-          <x-modals.pasfanduclub />
-        @endif   
-      @endauth
 
       @guest
         <div class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#connet">{{ __('Post') }}</div>
@@ -54,6 +55,7 @@
         @if ((session()->has('signalement')))
           <div class="alert alert-success w-50 m-auto text-center"> Merci pour le signalement de ce commentaire ! Il sera traité dans les meilleurs délais.</div>
         @endif
+      @endauth
    
 
     {{-- affichage des commentaire des fans du club --}}
@@ -76,7 +78,7 @@
 
           </div>
           {{-- modals Bootstrap des options --}}
-            <x-options-modals-commentaire :commentaire="$commentaire"/>
+            <x-modals.options-commentaire :commentaire="$commentaire"/>
         
 
           {{-- contenu --}}
@@ -155,7 +157,7 @@
             <x-options-commentaire :commentaire="$reponse"/>
             </div>
             {{-- modals Bootstrap des options --}}
-            <x-options-modals-commentaire :commentaire="$reponse"/>
+            <x-modals.options-commentaire :commentaire="$reponse"/>
 
             <div class="commentairecontenu">{{$reponse->contenu}}</div>
           </div>
@@ -174,7 +176,7 @@
 
   <div class="secteurvisiteurs">
     <img src="{{Storage::url('divers/secteurvisiteurs.jpg')}}" alt="">
-    @auth
+   
  
     <form action="{{route('post.commentairevisiteur')}}" method="post" enctype='multipart/form-data'>
       @csrf
@@ -186,11 +188,16 @@
       <input type="file" id="fileInput1" name="media">
       <div class="close1"><i class="bi bi-x-circle-fill"></i></div>
       <div id="previewContainer1"><div id="telechargement1"></div> </div>
+      @auth
+        <button class="btn btn-outline-secondary" type="submit" type="button">{{ __('Post') }}</button>
+      @endauth
 
-      <button class="btn btn-outline-secondary" type="submit" type="button">{{ __('Post') }}</button>
-
+      @guest
+        <div class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#connet">{{ __('Post') }}</div>
+        <x-modals.connexion />
+      @endguest
     </form>
-    @endauth
+    
     {{-- affichage des commentaires --}}
     @foreach ($commentairevisiteur as $commentaire)
     <div class="comments">
@@ -205,7 +212,7 @@
 
       </div>
       {{-- modals Bootstrap des options --}}
-      <x-options-modals-commentaire :commentaire="$commentaire"/>
+      <x-modals.options-commentaire :commentaire="$commentaire"/>
 
       {{-- contenu --}}
       <a href="{{route('commentaire.pleinepage', $commentaire->publication->id_publication)}}">
@@ -277,7 +284,7 @@
             <x-options-commentaire :commentaire="$reponse"/>        
           </div>
             {{-- modals Bootstrap des options --}}
-            <x-options-modals-commentaire :commentaire="$reponse"/>
+            <x-modals.options-commentaire :commentaire="$reponse"/>
             <div> club: {{$reponse->user->club->nom}}</div>
           <div class="commentairecontenu">{{$reponse->contenu}}</div>
         </div>
