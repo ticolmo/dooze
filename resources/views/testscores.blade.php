@@ -3,20 +3,22 @@
 
 use App\Api\ScoresPageHome;
 use App\Api\ApifootballPageHome;
-$apiscores = "2023-05-12";
+$apiscores = date("Y-m-d");
 $test = new ScoresPageHome($apiscores);
 $api3 = new ApifootballPageHome($apiscores);
 
 echo substr(now(),0,10)."<br>";
 
+
     
 $matchsdujour = $test->matchdujour();
+
 /*var_dump($matchsdujour[]);
 echo"<pre>";
 print_r($matchsdujour);
-echo"<pre>";   */
+echo"<pre>";   
+*/
 
- 
   /*  var_dump($england);
   var_dump($competition);
 
@@ -37,11 +39,18 @@ echo"<pre>";   */
 </head>
 <body>
 
- @if (isset($matchsdujour))
+  @php
+  
+      /* dd($matchsdujour); */
+  @endphp
+
+  @if (isset($matchsdujour))
     @foreach ($matchsdujour as $competition)             
       @if ($competition!=null)
         @foreach ($competition as $matchs)
-          <img src="{{$matchs['0']['league']['logo']}}" alt="">
+       
+          <img src="{{$matchs[0]["league"]["logo"]}}" alt="">      
+          
             @foreach ($matchs as $rencontre)
               <div> 
                 <span> {{$rencontre['teams']['home']['name']}}</span> 
@@ -56,7 +65,10 @@ echo"<pre>";   */
       @endif
     
     @endforeach
-  @endif 
+  @endif   
+
+ 
+
   
 </body>
 </html>

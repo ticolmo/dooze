@@ -36,12 +36,12 @@ class ApifootballPageHome
     private function matchsdujour()
     {
        $response = $this->header()->get("https://v3.football.api-sports.io/fixtures",[
-            'season' => 2022,
+            'season' => 2023,
             'date' => $this->datechoisie
-        ]);
+        ]);       
 
         $rencontres = $response->json();        
-
+        
         foreach ($rencontres['response'] as $match){               
 
             if (in_array($match['league']['id'], $this->europeleague)){
