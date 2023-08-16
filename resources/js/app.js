@@ -11,7 +11,7 @@ app.mount('#app');
 var music = document.getElementById("chant");
 music.volume = 0.05;
 
-$('.supporters').pagination({
+/* $('.supporters').pagination({
   // Options de pagination
  
     dataSource: '.comments', // Utiliser les éléments avec la classe "comments" comme source de données
@@ -24,7 +24,7 @@ $('.supporters').pagination({
   
 
   
-});
+}); */
 
 /* recherche dynamique des clubs - inactif remplacé par Vue.js, #myInput enlevé de la balise input  */
 $(document).ready(function () {

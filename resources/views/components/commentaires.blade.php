@@ -197,10 +197,7 @@
         
       @endguest
     </form>
-      @guest
-        {{-- PROBLEME --}}
-        <x-modals.connexion /> 
-      @endguest
+      
     
     {{-- affichage des commentaires --}}
     @foreach ($commentairevisiteur as $commentaire)

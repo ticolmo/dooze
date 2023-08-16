@@ -3,6 +3,7 @@
 namespace App\Api;
 
 use App\Api\Nomequipe;
+use App\Api\Nomcompetition;
 use Illuminate\Support\Facades\Http;
 
 
@@ -48,6 +49,9 @@ class Apifootball
             $tableau['equipe1'] = $check->setnom($tableau['equipe1']);
             $tableau['equipe2'] = $check->setnom($tableau['equipe2']);
 
+            $check2 = new Nomcompetition();
+            $tableau['ligue'] = $check2->setnom($tableau['ligue']);
+
 
             /*   $check2 = new Nomequipe();
             $check2->setnom($tableau['equipe2']);             
@@ -89,6 +93,11 @@ class Apifootball
             $check = new Nomequipe();
             $tableau['equipe1'] = $check->setnom($tableau['equipe1']);
             $tableau['equipe2'] = $check->setnom($tableau['equipe2']);
+
+            $check2 = new Nomcompetition();
+            $tableau['ligue'] = $check2->setnom($tableau['ligue']);
+
+            
 
             return $tableau;
         }
@@ -178,6 +187,9 @@ class Apifootball
             $check = new Nomequipe();
             $tableau['equipe1'] = $check->setnom($tableau['equipe1']);
             $tableau['equipe2'] = $check->setnom($tableau['equipe2']);
+
+            $check2 = new Nomcompetition();
+            $tableau['ligue'] = $check2->setnom($tableau['ligue']);
         }
 
 
