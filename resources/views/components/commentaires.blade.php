@@ -194,9 +194,13 @@
 
       @guest
         <div class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#connet">{{ __('Post') }}</div>
-        <x-modals.connexion />
+        
       @endguest
     </form>
+      @guest
+        {{-- PROBLEME --}}
+        <x-modals.connexion /> 
+      @endguest
     
     {{-- affichage des commentaires --}}
     @foreach ($commentairevisiteur as $commentaire)
