@@ -48,6 +48,10 @@
     data-show-errors="false"
     data-show-logos="true">
 </div> --}}
+<div id="resultats">
+  <h1>Résultats</h1>
+</div>
+
 
 <div class="dropdown">
   <input id="choose1" class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -64,22 +68,24 @@
 
 
 <div class="essai89"> Choose your club : </div>
-<div class="swiper">
-  <div class="swiper-wrapper">
-    @foreach ($listeclub as $club)
-    <div class="swiper-slide"><a href="http://dooze.test:8089/{{$club->url}}">{{$club->nom}}<img src="{{Storage::url('logos/'.$club->nom.'')}}.png" alt="{{$club->nom}}"></a></div>
-    @endforeach
-  
-  </div>
-  <!-- If we need pagination -->
-  <div class="swiper-pagination"></div>
+<div id="listeclub">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        @foreach ($listeclub as $club)
+        <div class="swiper-slide"><a href="http://dooze.test:8089/{{$club->url}}">{{$club->nom}}<img src="{{Storage::url('logos/'.$club->nom.'')}}.png" alt="{{$club->nom}}"></a></div>
+        @endforeach
+      
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
 
-  <!-- If we need navigation buttons -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
 </div>
-<br><br>
 
+<br><br>
 
 
 

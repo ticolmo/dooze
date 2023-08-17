@@ -469,12 +469,17 @@ li {
 
     }
 
+    #listeclub{
+        position: fixed;
+        bottom:50px;
+        left:40vw;
+        width: 60%;
+    }
+
     .swiper {
         width: 100%;
         height: 25vh;
-        margin: 0;
-        position: absolute;
-        top: 25vh;
+        margin: 0;        
 
     }
 
@@ -530,8 +535,7 @@ li {
     } */
 
     #resultats {
-        position: absolute;
-        top: 70vh;
+        
         width: 100%;
         text-align: center;
         padding-left: 10%;
