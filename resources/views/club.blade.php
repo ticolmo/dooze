@@ -33,7 +33,7 @@
 <div class="infot" style="background-color:{{$club->couleur_tableauscore}}">
 
     {{-- composant tableau des scores --}}
- <x-tableauscores :scoreshomme="$club->scores_homme" :scoresfemme="$club->scores_femme" />
+ <x-scores.tableauscores :scoreshomme="$club->scores_homme" :scoresfemme="$club->scores_femme" />
 
 
 

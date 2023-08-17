@@ -50,6 +50,10 @@
 </div> --}}
 <div id="resultats">
   <h1>Résultats</h1>
+
+  <x-scores.scoreshome />
+ 
+
 </div>
 
 

@@ -47,19 +47,19 @@ $liveactif = false;
   @if ($liveactif)
   <div class="tab-pane fade show active" id="live" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
     {{-- composant des scores --}}
-    <x-livescore :livescoreh="$livescoreH" />
+    <x-scores.livescore :livescoreh="$livescoreH" />
   </div>
   @endif
 
   <div class="tab-pane fade  @if ($liveactif == false ) show active @endif " id="man" role="tabpanel"
     aria-labelledby="profile-tab" tabindex="0">
     {{-- composant des scores Homme--}}
-    <x-scores :apiscores="$scoreshomme" />
+    <x-scores.scoresclub :apiscores="$scoreshomme" />
   </div>
   @if ($scoresfemme !== 0)
   <div class="tab-pane fade " id="women" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
     {{-- composant des scores Femme--}}
-    <x-scores :apiscores="$scoresfemme" />
+    <x-scores.scoresclub :apiscores="$scoresfemme" />
   </div>
   @endif
 

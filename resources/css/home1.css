@@ -471,9 +471,11 @@ li {
 
     #listeclub{
         position: fixed;
-        bottom:50px;
+        background-color: white;
+        bottom:0;
         left:40vw;
         width: 60%;
+        padding-bottom: 30px;
     }
 
     .swiper {

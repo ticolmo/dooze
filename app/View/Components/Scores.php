@@ -25,7 +25,7 @@ class Scores extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.scores');
+        return view('components.scores.scoresclub');
     }
     
 }
