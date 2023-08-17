@@ -12,11 +12,11 @@ echo substr(now(),0,10)."<br>";
 
     
 $matchsdujour = $test->matchdujour();
-
-/*var_dump($matchsdujour[]);
+/*
+var_dump($matchsdujour[0]);
 echo"<pre>";
 print_r($matchsdujour);
-echo"<pre>";   
+echo"<pre>";  
 */
 
   /*  var_dump($england);
@@ -41,15 +41,16 @@ echo"<pre>";   */
 
   @php
   
-      /* dd($matchsdujour); */
+      /* dd($matchsdujour); */ 
   @endphp
+
 
   @if (isset($matchsdujour))
     @foreach ($matchsdujour as $competition)             
-      @if ($competition!=null)
+      @if ($competition!=null)     
         @foreach ($competition as $matchs)
-       
-          <img src="{{$matchs[0]["league"]["logo"]}}" alt="">      
+          @if (isset($matchs[0]["league"]["logo"]))
+            <img src="{{$matchs[0]["league"]["logo"]}}" alt="">      
           
             @foreach ($matchs as $rencontre)
               <div> 
@@ -61,6 +62,7 @@ echo"<pre>";   */
                 <span>{{$rencontre['teams']['away']['name']}}</span> 
               </div>
             @endforeach
+          @endif
         @endforeach
       @endif
     
