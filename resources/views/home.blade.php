@@ -49,7 +49,7 @@
     data-show-logos="true">
 </div> --}}
 <div id="resultats">
-  <h1>Résultats</h1>
+  <h4>Résultats</h4>
 
   <x-scores.scoreshome />
  

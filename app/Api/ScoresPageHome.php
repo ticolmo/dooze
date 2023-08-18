@@ -4,6 +4,8 @@ namespace App\Api;
 
 use App\Api\ApifootballPageHome;
 
+/* mise dans l'ordre des compétitions */
+
 class ScoresPageHome extends ApifootballPageHome
 {
     public function __construct($datechoisie){

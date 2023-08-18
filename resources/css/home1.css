@@ -542,7 +542,46 @@ li {
         text-align: center;
         padding-left: 10%;
         padding-right: 10%;
+        overflow-y: scroll!important;
+        margin-bottom: 25vh;
+        
     }
+    #resultats h4{
+        
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif!important;    
+        
+    }
+
+
+    /* tableau des scores */
+    .namecompet{
+        text-align: start;
+    }
+
+    .logocompet{
+        height:35px;
+        width:auto;
+    }
+    .rencontres {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    .rencontres span:nth-child(1){
+        width: 40%;
+        text-align: right;
+      }
+    .rencontres span:nth-child(2){
+        width: 20%;
+      }
+    .rencontres span:nth-child(3){
+        width: 40%;
+        text-align: left;
+      }
+    .bottomcompet{
+        margin-bottom: 50px;
+    }
+
 
     /*page profil*/
 
