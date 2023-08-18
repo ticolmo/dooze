@@ -27,8 +27,7 @@
                   @endif
                 </span> 
                 <span>{{$rencontre['teams']['away']['name']}}</span>
-              </div>  
-              
+              </div>                  
                   @if ($matchencours)
                   <x-modals.detail-rencontre :idrencontre="$rencontre['fixture']['id']"/>         
                   @endif

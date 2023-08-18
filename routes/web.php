@@ -15,6 +15,7 @@ use App\Http\Controllers\Live\ConfigController;
 use App\Http\Controllers\VerifyemailController;
 use App\Http\Controllers\ProfilpublicController;
 use App\Http\Controllers\Admin\AdminPostController;
+use App\Http\Controllers\RencontreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -139,6 +140,9 @@ Route::prefix('live')->name('live.')->group(function () {
 
 // Affichage d'un commentaire après click sur commentaire sélectionné sur page club ou sur profil public
 Route::get('/features/{idpublication}', [FeatureController::class, 'commentaireunique'])->name('commentaire.pleinepage');
+
+// Détail du match
+Route::get('/detailrencontre/{id}', RencontreController::class)->name('detailrencontre');
 
 /* Page Don */
 

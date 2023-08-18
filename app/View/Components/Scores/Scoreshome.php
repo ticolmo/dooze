@@ -18,11 +18,13 @@ class Scoreshome extends Component
 
 
     public function getscoreshome(){
-     
+             
         $scores = new ScoresPageHome($this->choicedate);
         $matchsdujour = $scores->matchdujour();
 
         return $matchsdujour;
+     
+        
     }
 
     /**

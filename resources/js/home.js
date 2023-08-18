@@ -1,3 +1,6 @@
+function onIframeLoad(iframe) {
+  window.postMessage({height: iframe.contentWindow.document.body.clientHeight}, '*');
+}
 
 
 
