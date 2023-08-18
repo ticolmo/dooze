@@ -1,5 +1,4 @@
 
-
 @if (isset($matchsdujour))
     @foreach ($matchsdujour as $competition)             
       @if ($competition!=null)     
@@ -29,6 +28,7 @@
                 </span> 
                 <span>{{$rencontre['teams']['away']['name']}}</span>
               </div>  
+              
                   @if ($matchencours)
                   <x-modals.detail-rencontre :idrencontre="$rencontre['fixture']['id']"/>         
                   @endif

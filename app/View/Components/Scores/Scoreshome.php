@@ -8,12 +8,18 @@ use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
 class Scoreshome extends Component
-{
+{   
+    public $choicedate;
+
+    public function __construct($choicedate)
+    {
+        $this->choicedate = $choicedate;
+    }
 
 
     public function getscoreshome(){
-        $datedujour = date("Y-m-d");
-        $scores = new ScoresPageHome($datedujour);
+     
+        $scores = new ScoresPageHome($this->choicedate);
         $matchsdujour = $scores->matchdujour();
 
         return $matchsdujour;
