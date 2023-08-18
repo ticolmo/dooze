@@ -10,8 +10,15 @@
               <span>{{$matchs[0]["league"]["name"]}}</span>     
             </div>
             @foreach ($matchs as $rencontre)
-            <a href="">
-              <div class="rencontres">             
+              @php
+                  if (in_array($rencontre['fixture']['status']['short'], ['1H', 'HT', '2H', 'ET', 'BT', 'P', 'SUSP', 'INT', 'FT', 'AET', 'PEN'])){
+                    $matchencours = true;    
+                  } else{
+                    $matchencours = false; 
+                  }  
+              @endphp            
+
+              <div class="rencontres" @if ($matchencours) data-bs-toggle="modal" data-bs-target="#rencontre{{$rencontre['fixture']['id']}}" @endif>             
                 <span> {{$rencontre['teams']['home']['name']}}</span>                  
                 <span>  
                   @if ($rencontre['fixture']['status']['short'] == 'NS')
@@ -21,8 +28,10 @@
                   @endif
                 </span> 
                 <span>{{$rencontre['teams']['away']['name']}}</span>
-              </div> 
-            </a>
+              </div>  
+                  @if ($matchencours)
+                  <x-modals.detail-rencontre :idrencontre="$rencontre['fixture']['id']"/>         
+                  @endif
               <hr>
             @endforeach
             <div class="bottomcompet"></div>

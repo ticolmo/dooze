@@ -2,6 +2,7 @@
 namespace App\Api;
 
 use App\Api\Nomequipe;
+use App\Api\Nomcompetition;
 use Illuminate\Support\Facades\Http;
 
 
@@ -74,10 +75,12 @@ class ApifootballPageHome
         return $matchsdujour;
     }
 
-    public function valideNomEquipe(&$match){
+    private function correctionIntitule(&$match){
         $check = new Nomequipe();       
         $match['teams']['home']['name'] = $check->setnom($match['teams']['home']['name']); 
-        $match['teams']['away']['name'] = $check->setnom($match['teams']['away']['name']);   
+        $match['teams']['away']['name'] = $check->setnom($match['teams']['away']['name']);
+        $check2 = new Nomcompetition();
+        $match['league']['name'] = $check2->setnom($match['league']['name']);   
         return;   
     }
     
@@ -88,7 +91,7 @@ class ApifootballPageHome
        if(isset($matchsdujour['europematch'])){ 
             foreach ($matchsdujour['europematch'] as &$match){
 
-                $this->valideNomEquipe($match);    
+                $this->correctionIntitule($match);    
             };        
             
             return $matchsdujour['europematch'];
@@ -102,7 +105,7 @@ class ApifootballPageHome
        if(isset($matchsdujour['englandmatch'])){
             foreach ($matchsdujour['englandmatch'] as &$match){
 
-                $this->valideNomEquipe($match);     
+                $this->correctionIntitule($match);     
                     
             };        
             return $matchsdujour['englandmatch'];
@@ -117,7 +120,7 @@ class ApifootballPageHome
         if(isset($matchsdujour['spainmatch'])){
             foreach ($matchsdujour['spainmatch'] as &$match){
 
-                $this->valideNomEquipe($match);            
+                $this->correctionIntitule($match);            
                     
             };                    
             return $matchsdujour['spainmatch'];
@@ -131,7 +134,7 @@ class ApifootballPageHome
         if(isset($matchsdujour['italymatch'])){
             foreach ($matchsdujour['italymatch'] as &$match){
 
-                $this->valideNomEquipe($match); 
+                $this->correctionIntitule($match); 
             };        
             
             return $matchsdujour['italymatch'];
@@ -145,7 +148,7 @@ class ApifootballPageHome
         if(isset($matchsdujour['germanymatch'])){
             foreach ($matchsdujour['germanymatch'] as &$match){
 
-                $this->valideNomEquipe($match); 
+                $this->correctionIntitule($match); 
             };        
             
             return $matchsdujour['germanymatch'];
@@ -159,7 +162,7 @@ class ApifootballPageHome
         if(isset($matchsdujour['francematch'])){
             foreach ($matchsdujour['francematch'] as &$match){
 
-                $this->valideNomEquipe($match); 
+                $this->correctionIntitule($match); 
                     
             };        
             
@@ -173,7 +176,7 @@ class ApifootballPageHome
        if(isset($matchsdujour['switzerlandmatch'])){
             foreach ($matchsdujour['switzerlandmatch'] as &$match){
 
-                $this->valideNomEquipe($match);             
+                $this->correctionIntitule($match);             
                 
             }; 
             return $matchsdujour['switzerlandmatch'];        
@@ -187,7 +190,7 @@ class ApifootballPageHome
         if(isset($matchsdujour['matchsamicaux'])){
             foreach ($matchsdujour['matchsamicaux'] as &$match){
 
-                $this->valideNomEquipe($match);         
+                $this->correctionIntitule($match);         
                     
             };     
             return $matchsdujour['matchsamicaux'];
