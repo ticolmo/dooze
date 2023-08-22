@@ -48,9 +48,10 @@ class ScoresPageHome extends ApifootballPageHome
             if($match['league']['id'] == 39){
                 $competition['PremierLeague'][] = $match;
             };
-            if($match['league']['id'] == 45){
+            /* FA Cup les matchs de FA cup ne renvoie pas de résultats */
+           /*  if($match['league']['id'] == 45){
                 $competition['FACup'][] = $match;
-            };
+            }; */
             if($match['league']['id'] == 48){
                 $competition['LeagueCup'][] = $match;
             };

@@ -2,7 +2,7 @@
 @php
 
 use App\Api\ScoresPageHome;
-use App\Api\ApifootballPageHome;
+
 $apiscores = date("Y-m-d");
 $test = new ScoresPageHome($apiscores);
 
@@ -13,11 +13,11 @@ echo substr(now(),0,10)."<br>";
     
 $matchsdujour = $test->matchdujour();
 /*
-var_dump($matchsdujour[0]);
+var_dump($matchsdujour[0]);*/
 echo"<pre>";
 print_r($matchsdujour);
 echo"<pre>";  
-*/
+
 
   /*  var_dump($england);
   var_dump($competition);

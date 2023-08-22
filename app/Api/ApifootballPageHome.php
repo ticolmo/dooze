@@ -10,13 +10,16 @@ use Illuminate\Support\Facades\Http;
 class ApifootballPageHome
 {   
     private $europeleague = [3,2,848,531,525];
-    private $englandleague = [45,39,48,528,670,698,44]; 
+    /* FA Cup supprimé */
+    private $englandleague = [39,48,528,670,698,44]; 
     private $spainleague = [140,142,143,556]; 
     private $italyleague = [135,137,139,547]; 
     private $germanyleague = [78,81,82,529,947]; 
     private $franceleague = [61,64,66,526]; 
     private $switzerlandleague = [207,209,739]; 
     private $matchsamicauxcode = 667;
+
+    private $apiresult = null;
       
     public $datechoisie;
 
@@ -34,45 +37,56 @@ class ApifootballPageHome
         return $response;
     }
 
-    private function matchsdujour()
+    private function apimatchs()
     {
-       $response = $this->header()->get("https://v3.football.api-sports.io/fixtures",[
+        if ($this->apiresult === null){
+            $response = $this->header()->get("https://v3.football.api-sports.io/fixtures",[
             'season' => 2023,
             'date' => $this->datechoisie
-        ]);       
+            ]);       
 
-        $rencontres = $response->json();        
-        
-        foreach ($rencontres['response'] as $match){               
+            $rencontres = $response->json();  
+            
+            foreach ($rencontres['response'] as $match){               
 
-            if (in_array($match['league']['id'], $this->europeleague)){
-                $matchsdujour['europematch'][] = $match;
-                }
-            if (in_array($match['league']['id'], $this->englandleague)){
-                $matchsdujour['englandmatch'][] = $match;
-                }
-            if (in_array($match['league']['id'], $this->spainleague)){
-                $matchsdujour['spainmatch'][] = $match;
-                }
-            if (in_array($match['league']['id'], $this->italyleague)){
-                $matchsdujour['italymatch'][] = $match;
-                }
-            if (in_array($match['league']['id'], $this->germanyleague)){
-                $matchsdujour['germanymatch'][] = $match;
-                }
-            if (in_array($match['league']['id'], $this->franceleague)){
-                $matchsdujour['francematch'][] = $match;
-                }
-            if (in_array($match['league']['id'], $this->switzerlandleague)){
-                $matchsdujour['switzerlandmatch'][] = $match;
-                }
-            if ($match['league']['id'] == $this->matchsamicauxcode){
-                $matchsdujour['matchsamicaux'][] = $match;;
-                }
+                if (in_array($match['league']['id'], $this->europeleague)){
+                    $matchsdujour['europematch'][] = $match;
+                    }
+                if (in_array($match['league']['id'], $this->englandleague)){
+                    $matchsdujour['englandmatch'][] = $match;
+                    }
+                if (in_array($match['league']['id'], $this->spainleague)){
+                    $matchsdujour['spainmatch'][] = $match;
+                    }
+                if (in_array($match['league']['id'], $this->italyleague)){
+                    $matchsdujour['italymatch'][] = $match;
+                    }
+                if (in_array($match['league']['id'], $this->germanyleague)){
+                    $matchsdujour['germanymatch'][] = $match;
+                    }
+                if (in_array($match['league']['id'], $this->franceleague)){
+                    $matchsdujour['francematch'][] = $match;
+                    }
+                if (in_array($match['league']['id'], $this->switzerlandleague)){
+                    $matchsdujour['switzerlandmatch'][] = $match;
+                    }
+                if ($match['league']['id'] == $this->matchsamicauxcode){
+                    $matchsdujour['matchsamicaux'][] = $match;;
+                    }
 
+            };
+
+            $this->apiresult = $matchsdujour;
         };
        
-        return $matchsdujour;
+       
+        return $this->apiresult;
+    }
+
+    private function matchsdujour(){
+
+        return $this->apimatchs();
+
     }
 
     private function correctionIntitule(&$match){
