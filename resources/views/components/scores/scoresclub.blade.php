@@ -1,12 +1,3 @@
-@inject('api', 'App\Api\Apifootball')
-@php
-if($api->getlastmatch($apiscores)!= null){
-  $lastmatch = $api->getlastmatch($apiscores);
-};
-if($api->getnextmatch($apiscores)!= null){
-  $nextmatch = $api->getnextmatch($apiscores);
-}
-@endphp
 
 
 @if (isset($lastmatch))

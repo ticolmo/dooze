@@ -12,45 +12,17 @@
 @auth
    <div class="text-center"><a href="http://dooze.test:8089/{{ auth()->user()->club->url}}">{{__('Go to page')}} {{ auth()->user()->club->nom }} </a></div> 
 @endauth
-{{--  <div id="wg-api-football-games"
-     data-host="v3.football.api-sports.io"
-     data-key="dd8bf5fada55f6377910ef4ee79f7916"
-     data-date="2023-05-03"
-     data-league="39"
-     data-season="2022"
-     data-theme="false"
-     data-refresh="15"
-     data-show-toolbar="true"
-     data-show-errors="false"
-     data-show-logos="true"
-     data-modal-game="true"
-     data-modal-standings="true"
-     data-modal-show-logos="false">
-</div>  --}}
-<br>
-{{-- <div id="wg-api-football-standings"
-    data-host="v3.football.api-sports.io"
-    data-key="dd8bf5fada55f6377910ef4ee79f7916"
-    data-league="39"
-    data-team=""
-    data-season="2022"
-    data-theme="false"
-    data-show-errors="false"
-    data-show-logos="false"
-    class="wg_loader">
-</div> --}}
-{{--  <div id="wg-api-football-game"
-    data-host="v3.football.api-sports.io"
-    data-key="dd8bf5fada55f6377910ef4ee79f7916"
-    data-id="718243"
-    data-theme="gray"
-    data-refresh="15"
-    data-show-errors="false"
-    data-show-logos="true">
-</div>  --}}
+
+{{-- Résultats: hier, aujourd'hui, demain --}}
+
+@php          
+$dateyesterday = date("Y-m-d", strtotime("-1 day"));
+$datetoday = date("Y-m-d");
+$datetomorrow = date("Y-m-d", strtotime("+1 day"));
+@endphp
+
 <div id="resultats">
   <h4>Résultats</h4>
-
   <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link " id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{{ now()->locale(app()->getLocale())->subDay()->format('l j F')}}</button>
@@ -60,18 +32,12 @@
     </li>
     <li class="nav-item" role="presentation">
       <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">{{ now()->addDay()->format('l j F') }}</button>
-    </li>
-    
+    </li>    
   </ul>
-      @php          
-          $dateyesterday = date("Y-m-d", strtotime("-1 day"));
-          $datetoday = date("Y-m-d");
-          $datetomorrow = date("Y-m-d", strtotime("+1 day"));
-      @endphp
+
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-      <x-scores.scoreshome :choicedate="$dateyesterday" /> 
-      
+      <x-scores.scoreshome :choicedate="$dateyesterday" />       
     </div>
     <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
        <x-scores.scoreshome :choicedate="$datetoday"/>
@@ -100,6 +66,8 @@
 <a id="fleche" href="#middleresultats"> <i id="chevron" class="bi bi-chevron-down bounce-top"
     style="font-size: 3rem;"></i></a>
 
+
+{{-- Choix du club --}}
 
 <div class="essai89"> Choose your club : </div>
 <div id="listeclub">

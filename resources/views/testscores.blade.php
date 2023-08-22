@@ -71,6 +71,42 @@ echo"<pre>";   */
 
   --}}
 
+  {{--  <div id="wg-api-football-games"
+     data-host="v3.football.api-sports.io"
+     data-key="dd8bf5fada55f6377910ef4ee79f7916"
+     data-date="2023-05-03"
+     data-league="39"
+     data-season="2022"
+     data-theme="false"
+     data-refresh="15"
+     data-show-toolbar="true"
+     data-show-errors="false"
+     data-show-logos="true"
+     data-modal-game="true"
+     data-modal-standings="true"
+     data-modal-show-logos="false">
+</div>  --}}
+<br>
+{{-- <div id="wg-api-football-standings"
+    data-host="v3.football.api-sports.io"
+    data-key="dd8bf5fada55f6377910ef4ee79f7916"
+    data-league="39"
+    data-team=""
+    data-season="2022"
+    data-theme="false"
+    data-show-errors="false"
+    data-show-logos="false"
+    class="wg_loader">
+</div> --}}
+{{--  <div id="wg-api-football-game"
+    data-host="v3.football.api-sports.io"
+    data-key="dd8bf5fada55f6377910ef4ee79f7916"
+    data-id="718243"
+    data-theme="gray"
+    data-refresh="15"
+    data-show-errors="false"
+    data-show-logos="true">
+</div>  --}}
   
 </body>
 </html>
