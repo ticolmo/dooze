@@ -14,6 +14,7 @@ private function apifootball(){
 
 public function liveactif($scoreshomme, $scoresfemme){ 
     $liveH = $this->apifootball()->getLiveMatch($scoreshomme,date("Y-m-d"));
+    $liveF = null;
     if($scoresfemme !== 0){
         $liveF = $this->apifootball()->getLiveMatch($scoresfemme,date("Y-m-d"));
     }
@@ -47,13 +48,14 @@ public function matchshomme($idteam){
     }
 }
 public function matchsfemme($idteam){
-    $nextmatch ['homme'] = $this->apifootball()->getnextmatch($scoreshomme);
-    if($scoresfemme !== 0){
-        $nextmatch ['femme'] = $this->apifootball()->getnextmatch($scoresfemme);
+    $matchsfemme = null;
+    if($idteam !== 0){
+    $matchsfemme ['lastmatch'] = $this->apifootball()->getlastmatch($idteam);
+    $matchsfemme ['nextmatch'] = $this->apifootball()->getnextmatch($idteam);
     }
     
-    if($nextmatch !== null){
-        return $nextmatch;
+    if($matchsfemme !== null){
+        return $matchsfemme;
     }
 }
 

@@ -56,7 +56,7 @@ class TableauScoresClub extends Component
             'idequipefemme' => $this->scoresfemme,
             'live' => $this->djokovic(),
             'matchshomme' => $this->mec(),
-            'matchshomme'
+            'matchsfemme' => $this->miss()
         ]);
     }
 }

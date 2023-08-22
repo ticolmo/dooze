@@ -41,7 +41,7 @@
   @if ($idequipefemme !== 0)
   <div class="tab-pane fade " id="women" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
     {{-- composant des scores Femme--}}
-    <x-scores.scoresclub :apiscores="$scoresfemme" />
+    <x-scores.scoresclub :lastmatch="$matchsfemme['lastmatch']" :nextmatch="$matchsfemme['nextmatch']"/>
   </div>
   @endif
 
