@@ -5,7 +5,7 @@ use App\Api\ScoresPageHome;
 use App\Api\ApifootballPageHome;
 $apiscores = date("Y-m-d");
 $test = new ScoresPageHome($apiscores);
-$api3 = new ApifootballPageHome($apiscores);
+
 
 echo substr(now(),0,10)."<br>";
 
@@ -45,7 +45,7 @@ echo"<pre>";   */
   @endphp
 
 
-  @if (isset($matchsdujour))
+{{--   @if (isset($matchsdujour))
     @foreach ($matchsdujour as $competition)             
       @if ($competition!=null)     
         @foreach ($competition as $matchs)
@@ -69,7 +69,7 @@ echo"<pre>";   */
     @endforeach
   @endif   
 
- 
+  --}}
 
   
 </body>

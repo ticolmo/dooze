@@ -12,7 +12,7 @@
     data-key="dd8bf5fada55f6377910ef4ee79f7916"
     data-id=""
     data-theme="gray"
-    data-refresh="15"
+    data-refresh="0"
     data-show-errors="false"
     data-show-logos="true">
     </div> 
