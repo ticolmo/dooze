@@ -3,11 +3,14 @@
 
 use App\Api\ScoresPageHome;
 
+
+
 $apiscores = date("Y-m-d");
 $test = new ScoresPageHome($apiscores);
 
 
 echo substr(now(),0,10)."<br>";
+
 
 
     

@@ -19,7 +19,7 @@
 
               <div class="rencontres" @if ($matchencours) data-bs-toggle="modal" data-bs-target="#rencontre{{$rencontre['fixture']['id']}}" @endif>             
                 <span> {{$rencontre['teams']['home']['name']}}</span>                  
-                <span>  
+                <span>                   
                   @if ($rencontre['fixture']['status']['short'] == 'NS')
                   {{date('H:i', $rencontre['fixture']['timestamp'])}}
                   @else
@@ -27,7 +27,7 @@
                   @endif
                 </span> 
                 <span>{{$rencontre['teams']['away']['name']}}</span>
-              </div>                  
+              </div>                      
                   @if ($matchencours)
                   <x-modals.detail-rencontre :idrencontre="$rencontre['fixture']['id']"/>         
                   @endif

@@ -20,6 +20,7 @@ class Apifootball
         return $response;
     }
 
+    
     public function getlastmatch(int $idclub)
     {
         $response = $this->header()->get("https://v3.football.api-sports.io/fixtures", [
