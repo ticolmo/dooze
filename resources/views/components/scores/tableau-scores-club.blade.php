@@ -28,7 +28,13 @@
   @if ($live['etat'])
   <div class="tab-pane fade show active" id="live" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
     {{-- composant des scores --}}
-    <x-scores.livescore :livescoreh="$live['homme']" :livescoref="$live['femme']" />
+    @if(isset($live['homme']))
+      <x-scores.livescore :livescore="$live['homme']" /> 
+    @endif
+    @if(isset($live['femme']))
+    <x-scores.livescore :livescore="$live['femme']" /> 
+    @endif
+
   </div>
   @endif
 

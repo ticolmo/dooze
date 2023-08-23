@@ -13,11 +13,11 @@ echo substr(now(),0,10)."<br>";
     
 $matchsdujour = $test->matchdujour();
 /*
-var_dump($matchsdujour[0]);*/
+var_dump($matchsdujour[0]);
 echo"<pre>";
 print_r($matchsdujour);
 echo"<pre>";  
-
+*/
 
   /*  var_dump($england);
   var_dump($competition);
@@ -43,7 +43,14 @@ echo"<pre>";   */
   
       /* dd($matchsdujour); */ 
   @endphp
-
+<div style="display: inline-block;">
+  <div>girl</div>
+  <div>girl</div>
+</div>
+<div style="display: inline-block;">
+  <div>boy</div>
+  <div>boy</div>
+</div>
 
 {{--   @if (isset($matchsdujour))
     @foreach ($matchsdujour as $competition)             

@@ -70,32 +70,22 @@ class Apifootball
         ]);
 
         $datas = $response->json();
+
+        $tableau = [];
         
         if ($datas['response'] != null) {
             foreach ($datas['response'] as $data) {
 
-                $tableau = [
-                    'date' => date("D d F Y", $data['fixture']['timestamp']),
-                    'ligue' => $data['league']['name'],
-                    'journee' => $data['league']['round'],
-                    'equipe1' => $data['teams']['home']['name'],
-                    'equipe2' => $data['teams']['away']['name'],
-                    'score1' => $data['goals']['home'],
-                    'score2' => $data['goals']['away'],
-                    'idRencontre' => $data['fixture']['id'],
-                    'status' => $data['fixture']['status']['short'],
-                    'time' => $data['fixture']['status']['elapsed'],
-
-                ];
+                $tableau = $data;            
             };
 
-
+            
             $check = new Nomequipe();
-            $tableau['equipe1'] = $check->setnom($tableau['equipe1']);
-            $tableau['equipe2'] = $check->setnom($tableau['equipe2']);
+            $tableau['teams']['home']['name'] = $check->setnom($tableau['teams']['home']['name']);
+            $tableau['teams']['away']['name'] = $check->setnom($tableau['teams']['away']['name']);
 
             $check2 = new Nomcompetition();
-            $tableau['ligue'] = $check2->setnom($tableau['ligue']);
+            $tableau['league']['name'] = $check2->setnom($tableau['league']['name']);
 
             
 
