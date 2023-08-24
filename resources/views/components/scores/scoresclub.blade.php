@@ -1,7 +1,7 @@
 
 
 @if (isset($lastmatch))
-<div>
+<div style="display: inline-block;">
    <!-- DERNIER MATCH -->
 
         <div> {{ __('LAST MATCH') }}</div>
@@ -13,7 +13,7 @@
 </div>   
 @endif 
 @if (isset($nextmatch))
-<div>
+<div style="display: inline-block;">
   <!-- PROCHAIN MATCH -->
 
         <div>PROCHAIN MATCH</div>
@@ -24,7 +24,13 @@
         
         
 </div>
-@endif    
+@endif 
+<div style="display: inline-block;">
+<div>Clasement Championnat</div>
+<div>Calendrier</div>
+        
+        
+</div>   
         
 
 

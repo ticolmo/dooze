@@ -18,7 +18,7 @@
       <!-- AUTHENTIFICATION -->
       <form action="{{route('login')}}" method="post">
         @csrf
-        <h1 class="h3 mb-3 fw-normal m-auto">Dooze</h1>
+        <h1 class="h3 mb-3 fw-normal m-auto">Connexion</h1>
 
         <div class="form-floating">
           <input type="text" class="form-control" id="floatingInput" placeholder="Email" name="email">

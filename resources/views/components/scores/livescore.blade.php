@@ -1,6 +1,5 @@
 
 <div style="display: inline-block;">
-   <!-- DERNIER MATCH -->
 
         <div> {{ $slot }}</div>
         <div> {{$livescore['league']['name']}} </div>        
