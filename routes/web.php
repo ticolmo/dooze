@@ -2,12 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClubController;
+use App\Http\Controllers\Live\LiveController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LangueController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ChoixclubController;
+use App\Http\Controllers\RencontreController;
 use App\Http\Controllers\MessagerieController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\FormcontactController;
@@ -15,7 +17,6 @@ use App\Http\Controllers\Live\ConfigController;
 use App\Http\Controllers\VerifyemailController;
 use App\Http\Controllers\ProfilpublicController;
 use App\Http\Controllers\Admin\AdminPostController;
-use App\Http\Controllers\RencontreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -134,6 +135,7 @@ Route::middleware(['auth','verified','admin'])->prefix('admin')->name('admin.')-
 Route::prefix('live')->name('live.')->group(function () {
     Route::get('/create', [ConfigController::class, 'index'] )->name('create'); 
     Route::post('/config', [ConfigController::class, 'config'] )->name('config'); 
+    Route::get('/get', [LiveController::class, 'index'] )->name('get'); 
 });
  
 /* Fonctionnalités*/
