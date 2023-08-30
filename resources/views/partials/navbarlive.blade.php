@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-light mb-lg-3 entete fontsize16">
+<nav class="navbar navbar-expand-lg bg-light  entete fontsize16">
   <div class="container-fluid">
     <a class="navbar-brand" href="http://dooze.test:8089/">Dooze</a>
  

@@ -97,4 +97,30 @@ li {
     padding: 5px;
     background-color: white
 }
+.navbar{
+    position: fixed;
+    height: 8%;
+}
 
+#form{
+    position: fixed;
+    background-color: aqua;
+    bottom: 0;
+    right: 0;
+    height: 10%;
+    width: 80%;
+}
+#club{
+    position: fixed;
+    background-color: orange;
+    width:20%;
+    height: 92%;
+}
+
+#posts{
+    position: absolute;
+    right:0;
+    width: 80%;
+    min-height:82% ;
+    background-color: yellow;
+}
