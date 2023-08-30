@@ -97,4 +97,16 @@ li {
     padding: 5px;
     background-color: white
 }
+.navbar{
+    position: fixed;
+}
+
+#form{
+    position: fixed;
+    background-color: aqua;
+    bottom: 0;
+    right: 0;
+    height: 10%;
+    width: 80%;
+}
 
