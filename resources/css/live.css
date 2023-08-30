@@ -110,6 +110,15 @@ li {
     height: 10%;
     width: 80%;
 }
+
+#form{
+    position: fixed;
+    background-color: aqua;
+    bottom: 0;
+    right: 0;
+    height: 10%;
+    width: 80%;
+}
 #club{
     position: fixed;
     background-color: orange;
