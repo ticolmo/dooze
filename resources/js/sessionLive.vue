@@ -4,15 +4,15 @@
 
 <list-Post></list-Post>
 
-<form-Post @send-post="message => display(message)"></form-Post>
+<form-Post ></form-Post>
 
 </template>
 
 <script setup>
-
+ /* 
 const display = (message) => {
-    /* console.log(message.value) */
+   console.log(message.value) 
     
 }
-
+*/
 </script>

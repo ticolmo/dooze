@@ -12,7 +12,7 @@
 
 import { ref } from 'vue'
 
-const emit = defineEmits(['sendPost']); 
+/* const emit = defineEmits(['sendPost']);  */
 
 let post = ref([])
 
@@ -28,10 +28,10 @@ function addPost (e) {
       })
        e.target.value = ''
     }
-   
-     
+    console.log(JSON.stringify(post.value))
+    
 }
-console.log(JSON.stringify(post.value))
-emit('sendPost', post) 
+
+/* emit('sendPost', post)  */
 
 </script>
