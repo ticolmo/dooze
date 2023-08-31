@@ -18,7 +18,7 @@
   crossorigin="anonymous"></script>
 
   {{-- emoji --}}
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"></script>
+ {{--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"></script> --}}
   
   <script src="https://unpkg.com/@popperjs/core@2"></script>
   <!-- Bootstrap JavaScript Bundle with Popper -->
@@ -35,8 +35,10 @@
 
   {{-- configuration Vue --}}
   <div id=app>
-   
-    @yield('content')
+    {{-- composant laravel --}}
+   <x-live.encart-club />
+   {{-- composant vue.js --}}
+   <session-live />
 
   </div>
   

@@ -10,6 +10,6 @@ class LiveController extends Controller
     public function index(){        
 
         
-        return view('live.live');
+        return view('layouts.live');
     }
 }
