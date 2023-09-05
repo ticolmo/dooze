@@ -19,6 +19,7 @@ class ApifootballPageHome
     private $switzerlandleague = [207,209,739]; 
     private $matchsamicauxcode = 667;
 
+    /* pour appeler qu'une seule fois l'API */
     private $apiresult = null;
       
     public $datechoisie;
@@ -47,6 +48,7 @@ class ApifootballPageHome
 
             $rencontres = $response->json();  
             
+            $matchsdujour = [];
             foreach ($rencontres['response'] as $match){               
 
                 if (in_array($match['league']['id'], $this->europeleague)){
@@ -83,6 +85,7 @@ class ApifootballPageHome
         return $this->apiresult;
     }
 
+    /* pour appeler qu'une seule fois l'API */
     private function matchsdujour(){
 
         return $this->apimatchs();
