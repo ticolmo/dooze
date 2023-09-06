@@ -31,12 +31,22 @@ class LiveMessageEvent implements ShouldBroadcast
      *
      * @return array<int, \Illuminate\Broadcasting\Channel>
      */
+
+     /* pour écouter le channel */
     public function broadcastOn(): array
     {
+        /* si channel privé:
         return [
             new PrivateChannel('live'),
         ];
     }
+        */
+        return [
+            new Channel('live'),
+        ];
+    }
+
+    
     public function broadcastAs()
     {
         return 'live-message';

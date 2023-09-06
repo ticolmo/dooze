@@ -17,7 +17,7 @@ class LiveController extends Controller
     {        
 
         
-        return view('layouts.live');
+        return view('live.session');
     }
 
     /**
@@ -31,6 +31,8 @@ class LiveController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    
+    /* pour enregistrer en post le message du live */
     public function store(Request $request)
     {        
         event(new LiveMessageEvent($request->name, $request->message));

@@ -1,8 +1,8 @@
 <template>
     <div id="form">
-       <form action="">
+       
         <input type="text" name="" id=""  @keyup.enter="addPost"> <button><i class="bi bi-send"></i></button>
-       </form>
+       
     </div>
     
 
@@ -28,7 +28,7 @@ function addPost (e) {
       })
        e.target.value = ''
     }
-    console.log(JSON.stringify(post.value))
+    /* console.log(JSON.stringify(post.value)) */
     
 }
 
