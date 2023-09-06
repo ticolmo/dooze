@@ -130,7 +130,7 @@ Route::middleware(['auth','verified','admin'])->prefix('admin')->name('admin.')-
     Route::get('/message/restore/{idmessage}', [AdminController::class, 'restoredeletedmail'])->name('restoredeletedmail');
 });
 
-/* Live */
+/* Live  */
 
 Route::prefix('live')->name('live.')->group(function () {
     Route::get('/create', [ConfigController::class, 'index'] )->name('create'); 
