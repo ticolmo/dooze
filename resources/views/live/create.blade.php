@@ -55,7 +55,7 @@
     
 
   {{-- IMAGE --}}
-  <input type="file" id="fileInput" name="media">
+  <input type="file" id="fileInput" name="image">
         <div class="close"><i class="bi bi-x-circle-fill"></i></div>
         <div id="previewContainer"><div id="telechargement"></div> </div>  
           

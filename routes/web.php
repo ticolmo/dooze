@@ -135,7 +135,9 @@ Route::middleware(['auth','verified','admin'])->prefix('admin')->name('admin.')-
 Route::prefix('live')->name('live.')->group(function () {
     Route::get('/create', [ConfigController::class, 'index'] )->name('create'); 
     Route::post('/config', [ConfigController::class, 'config'] )->name('config'); 
-    Route::resource('/get', LiveController::class);
+    Route::resource('/get', LiveController::class)->names([
+        'index' => 'session'
+    ]);
     
 });
  

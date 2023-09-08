@@ -14,4 +14,17 @@ class Live extends Model
     
     protected $primaryKey = 'id';
 
+    protected $fillable = [
+        'name',
+        'type',
+        'description',
+        'image',
+        'password',
+        'user_id',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+        
+    ];
+
 }

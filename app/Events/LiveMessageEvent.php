@@ -16,14 +16,16 @@ class LiveMessageEvent implements ShouldBroadcast
 
     public $pseudo;
     public $message;
+    public $liveid;
 
     /**
      * Create a new event instance.
      */
-    public function __construct(string $pseudo, string $message)
+    public function __construct(string $pseudo, string $message,$liveid)
     {
         $this->pseudo = $pseudo;
         $this->message = $message;
+        $this->liveid = $liveid;
     }
 
     /**
@@ -33,17 +35,15 @@ class LiveMessageEvent implements ShouldBroadcast
      */
 
      /* pour écouter le channel */
-    public function broadcastOn(): array
+    public function broadcastOn()
     {
-        /* si channel privé:
-        return [
-            new PrivateChannel('live'),
-        ];
-    }
-        */
-        return [
+       /* si chaine public */
+        /* return [
             new Channel('live'),
-        ];
+        ]; */
+
+        return new PrivateChannel('live.'.$this->$this->liveid);
+        
     }
 
     

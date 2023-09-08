@@ -46,7 +46,13 @@
 @yield('content')
   
 
-  
+  {{-- ne pas oublier token en haut --}}
+<script >
+
+  window.Live = {
+    id : { optional($live->id)}
+  }
+</script>
 </body>
 
 </html>

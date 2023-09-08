@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Live;
 
+use App\Models\Live;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Events\LiveMessageEvent;
@@ -15,9 +16,11 @@ class LiveController extends Controller
      */
     public function index()
     {        
-
+        $live = new Live();
         
-        return view('live.session');
+        return view('live.session',[
+            'live' => $live
+        ]);
     }
 
     /**
@@ -35,7 +38,7 @@ class LiveController extends Controller
     /* pour enregistrer en post le message du live */
     public function store(Request $request)
     {        
-        event(new LiveMessageEvent($request->name, $request->message));
+        event(new LiveMessageEvent($request->name, $request->message, $request->liveid));
         
         return response()->json([
             'success' => 'Message sent'
