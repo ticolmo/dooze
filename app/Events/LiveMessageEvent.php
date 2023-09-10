@@ -42,7 +42,7 @@ class LiveMessageEvent implements ShouldBroadcast
             new Channel('live'),
         ]; */
 
-        return new PrivateChannel('live.'.$this->$this->liveid);
+        return new PresenceChannel('live.'.$this->liveid);
         
     }
 

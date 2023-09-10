@@ -12,5 +12,20 @@
 
     <div style="min-height: 50vh">
         Liste des salons
+        <br>
+        <br>
+    @foreach ($lives as $live)
+    <div>
+        <div> {{$live->name}} </div>
+        <div> {{$live->description}} </div>
+        <div> Créé le {{ $live->created_at}} par {{$live->user->name}}  </div>
+
+        <a href="{{route('live.signin', $live->id)}}" class="w-20 btn btn-lg btn-primary" style="">Rejoindre le live</a>
+    </div>
+    <hr>
+        
+    @endforeach
+        
+
     </div>
 </div>

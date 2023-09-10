@@ -15,7 +15,8 @@ class Club extends Model
     protected $primaryKey = 'id_club';
 
    
-
+    /* relations un à plusieurs */
+    
     public function users(): HasMany
     {
         return $this->hasMany(User::class);
@@ -26,12 +27,19 @@ class Club extends Model
         return $this->hasMany(Commentaireclub::class);
     }
 
+    public function live(): HasMany
+    {
+        return $this->hasMany(Live::class);
+    }
+
     /* relation un à un (inverse) */
 
     public function questionnaire(): HasOne
     {
         return $this->hasOne(Questionnaire::class);
     }
+
+    
 
 
 }

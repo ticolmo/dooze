@@ -24,7 +24,8 @@ class ConfigController extends Controller
         $request->validate([
             'name' => ['required','string', 'max:50'],
             'description' => ['required','string', 'max:1000'],
-            'password'=> 'required|confirmed',
+            'with_password' => ['required','boolean'],
+            'password'=> 'nullable|confirmed',
             'type' => ['required','string', 'max:5'],
             'image' => ['nullable','mimetypes:image/jpeg,image/png,image/bmp,image/gif','max:10000']
         ]);
@@ -33,9 +34,13 @@ class ConfigController extends Controller
         
         $live->name = $request->name;
         $live->description = $request->description;
-        $live->password = Hash::make($request->password) ;
+        $live->with_password = $request->with_password;
+        if ($request->has('password') && $request->with_password) {
+            $live->password = Hash::make($request->password) ;
+        };         
         $live->type = $request->type;
         $live->user_id = auth()->user()->id;
+        $live->club_id = auth()->user()->club->id_club;
 
         /*si media (image, video) posté */
         if ($request->has('media')) {

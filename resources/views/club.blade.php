@@ -108,7 +108,7 @@
     <div class="tab-pane fade" id="lives" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
       
       {{-- composant des lives --}}       
-      <x-lives :idclub="$club->id_club" />
+     <x-lives :idclub="$club->id_club" /> 
     </div>
   
   </div>

@@ -6,10 +6,10 @@
 
 <form action="{{route('live.config')}}" class="form-signin w-50 m-auto" method="post"> 
   @csrf
-{{-- NOM DU LIVE --}}
+{{-- THEME DU LIVE --}}
   <div class="form-floating @error('name') is-invalid @enderror ">
-      <input type="text" class="form-control @error('name')is-invalid @enderror" id="floatingInput" placeholder="prenom" name="name" value="{{ old('name') }}">
-      <label for="floatingInput">Nom du live</label>
+      <input type="text" class="form-control @error('name')is-invalid @enderror" id="floatingInput" placeholder="Thème" name="name" value="{{ old('name') }}">
+      <label for="floatingInput">Thème / nom du live</label>
       @error('name')
         <div class="invalid-feedback"> {{$message}} </div>
       @enderror
@@ -23,7 +23,26 @@
     @enderror
 </div>  
 
-  {{-- MOT DE PASSE --}}
+<br> 
+
+{{-- TYPE D'ACCESS CHOISI --}}
+<div> Moyen d'accès</div>
+
+<div class="form-check">
+  <input class="form-check-input passwordNoWanted" type="radio" name="with_password" id="flexRadioDefault1" value="1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    Sans mot de passe, ouvert à tous les membres identifiés et fans du club 
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input passwordWanted" type="radio" name="with_password" id="flexRadioDefault2" value="0">
+  <label class="form-check-label " for="flexRadioDefault2" >
+    Avec mot de passe
+  </label>
+</div>
+
+  {{-- si MOT DE PASSE --}}
+<div class="passwordDisplay" style="display:none">
   <div class="form-floating @error('password') is-invalid @enderror">
       <input type="password" class="form-control @error('password') is-invalid @enderror" id="floatingPassword" placeholder="Password" name="password">
       <label for="floatingPassword">Mot de passe</label>
@@ -39,19 +58,24 @@
         <div class="invalid-feedback"> {{$message}} </div>
       @enderror
   </div>
+</div>
+
+<br>
+ 
 
   <div class="form-check">
-      <input class="form-check-input" type="radio" name="type" id="flexRadioDefault1" value="video">
-      <label class="form-check-label" for="flexRadioDefault1">
+      <input class="form-check-input" type="radio" name="type" id="flexRadioDefault3" value="video">
+      <label class="form-check-label" for="flexRadioDefault3">
         Video + chat
       </label>
   </div>
   <div class="form-check">
-      <input class="form-check-input" type="radio" name="type" id="flexRadioDefault2" value="chat">
-      <label class="form-check-label" for="flexRadioDefault2">
+      <input class="form-check-input" type="radio" name="type" id="flexRadioDefault4" value="chat">
+      <label class="form-check-label" for="flexRadioDefault4">
         Chat uniquement
       </label>
   </div>
+  <br> 
     
 
   {{-- IMAGE --}}
