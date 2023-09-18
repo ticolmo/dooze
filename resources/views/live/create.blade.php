@@ -29,13 +29,13 @@
 <div> Moyen d'accès</div>
 
 <div class="form-check">
-  <input class="form-check-input passwordNoWanted" type="radio" name="with_password" id="flexRadioDefault1" value="1">
+  <input class="form-check-input passwordNoWanted" type="radio" name="with_password" id="flexRadioDefault1" value="0">
   <label class="form-check-label" for="flexRadioDefault1">
     Sans mot de passe, ouvert à tous les membres identifiés et fans du club 
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input passwordWanted" type="radio" name="with_password" id="flexRadioDefault2" value="0">
+  <input class="form-check-input passwordWanted" type="radio" name="with_password" id="flexRadioDefault2" value="1">
   <label class="form-check-label " for="flexRadioDefault2" >
     Avec mot de passe
   </label>

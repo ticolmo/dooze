@@ -35,7 +35,7 @@ class ConfigController extends Controller
         $live->name = $request->name;
         $live->description = $request->description;
         $live->with_password = $request->with_password;
-        if ($request->has('password') && $request->with_password) {
+        if ($request->has('password')) {
             $live->password = Hash::make($request->password) ;
         };         
         $live->type = $request->type;

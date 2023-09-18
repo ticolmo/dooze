@@ -47,6 +47,7 @@
 
 <div class="tribune">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
+    
     <li class="nav-item" role="presentation">
       <button 
       {{-- Session flash 'post' active lorsque commentaire est posté --}}
@@ -57,6 +58,7 @@
       @endif
       id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><i class="bi bi-bell"></i> {{ __('News') }}</button>
     </li>
+
     <li class="nav-item" role="presentation">
       <button 
       @if ((session()->has('post'))) 
@@ -67,6 +69,7 @@
       id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button"
         role="tab" aria-controls="profile-tab-pane" aria-selected="false"><i class="bi bi-fire"></i> {{ __('Fans') }}</button>
     </li>
+
     <li class="nav-item" role="presentation">
       <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#lives" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Live</button>
     </li>

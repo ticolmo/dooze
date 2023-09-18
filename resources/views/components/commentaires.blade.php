@@ -37,8 +37,13 @@
       </form>
 
       @guest
-        <div class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#connet">{{ __('Post') }}</div>
-        <x-modals.connexion />
+        @php
+            $modalid = uniqid();
+        @endphp
+        <div class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#connex{{$modalid}}">{{ __('Post') }}</div>
+        <x-modals.connexion>
+            {{$modalid}}        
+        </x-modals.connexion>
       @endguest
 
      @auth
@@ -193,7 +198,7 @@
       @endauth
 
       @guest
-        <div class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#connet">{{ __('Post') }}</div>
+        <div class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#connex{{$modalid }}">{{ __('Post') }}</div>
         
       @endguest
     </form>

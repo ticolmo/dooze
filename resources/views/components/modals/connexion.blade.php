@@ -1,16 +1,16 @@
 <!-- Modal -->
-<div class="modal fade" id="connet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="connex{{ $slot }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header" style="border-bottom:none!important">
 
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="text-align:center!important">
         <div>Bienvenue sur Dooze !</div>
         <div> Identifiez-vous pour publier un post.</div>
         <br>
-        <div type="button" class="btn btn-primary" data-bs-target="#identification" data-bs-toggle="modal">S'identifier</div>
+        <div type="button" class="btn btn-primary" data-bs-target="#identification{{ $slot }}" data-bs-toggle="modal">S'identifier</div>
         <br>  
         <hr>        
         <div> <a href="{{route('createaccount')}}" class="btn btn-light"> Créer un compte</a></div>
@@ -23,14 +23,14 @@
 
 {{-- 2ème Modal - Identification --}}
 
-<div class="modal fade" id="identification" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+<div class="modal fade" id="identification{{ $slot }}" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header" style="border-bottom:none!important">
         
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="text-align:center!important">
         <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Connexion</h1>
         <br>
         <form action="{{route('login')}}" method="post">

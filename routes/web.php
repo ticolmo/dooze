@@ -136,11 +136,11 @@ Route::middleware(['auth','verified','admin'])->prefix('admin')->name('admin.')-
 Route::prefix('live')->name('live.')->group(function () {
     Route::get('/create', [ConfigController::class, 'index'] )->name('create'); 
     Route::post('/config', [ConfigController::class, 'config'] )->name('config'); 
-    Route::get('/live/session/{idlive}', [ConnexionController::class, 'index'] )->name('signin'); 
-    Route::post('/signin', [ConnexionController::class, 'connect'] )->name('signin'); 
+    Route::get('/session/{idlive}', [ConnexionController::class, 'index'] )->name('connexion'); 
+    Route::post('/login', [ConnexionController::class, 'login'] )->name('login'); 
     Route::resource('/get', LiveController::class)->names([
         'index' => 'session'
-    ]);
+    ])->middleware('live');
     
 });
  

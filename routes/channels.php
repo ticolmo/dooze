@@ -19,4 +19,4 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 
 Broadcast::channel('live.{id}', function ($live, $id) {
     return (int) $live->id === (int) $id;
-}, ['guards' => ['web', 'auth','verified']]);
+}, ['guards' => ['web', 'auth','verified','live']]);
