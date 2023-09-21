@@ -1,13 +1,13 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Admin;
 
 use App\Models\Publication;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class AdminVerifComments extends Component
+class VerifComments extends Component
 {
     /**
      * Create a new component instance.
@@ -29,7 +29,7 @@ class AdminVerifComments extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.admin-verif-comments',[
+        return view('components.admin.verif-comments',[
             'publications' => $this->publication(),           
             
             

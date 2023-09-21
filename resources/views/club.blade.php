@@ -50,24 +50,26 @@
     
     <li class="nav-item" role="presentation">
       <button 
-      {{-- Session flash 'post' active lorsque commentaire est posté --}}
-      @if ((session()->has('post'))) 
-      class="nav-link"  
-      @else
-      class="nav-link active"
-      @endif
-      id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><i class="bi bi-bell"></i> {{ __('News') }}</button>
+        {{-- Session flash 'post' active lorsque commentaire est posté --}}
+        @if ((session()->has('post'))) 
+        class="nav-link"  
+        @else
+        class="nav-link active"
+        @endif
+        id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><i class="bi bi-bell"></i> {{ __('News') }}
+      </button>
     </li>
 
     <li class="nav-item" role="presentation">
       <button 
-      @if ((session()->has('post'))) 
-      class="nav-link active"  
-      @else
-      class="nav-link"
-      @endif
-      id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button"
-        role="tab" aria-controls="profile-tab-pane" aria-selected="false"><i class="bi bi-fire"></i> {{ __('Fans') }}</button>
+        @if ((session()->has('post'))) 
+        class="nav-link active"  
+        @else
+        class="nav-link"
+        @endif
+        id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button"
+          role="tab" aria-controls="profile-tab-pane" aria-selected="false"><i class="bi bi-fire"></i> {{ __('Fans') }}
+      </button>
     </li>
 
     <li class="nav-item" role="presentation">
@@ -103,7 +105,7 @@
       @endif
     
       {{-- composant du mur des commentaires --}}
-      <x-commentaires :idclub="$club->id_club" />
+      <x-fans :idclub="$club->id_club" />
        
     </div>
 

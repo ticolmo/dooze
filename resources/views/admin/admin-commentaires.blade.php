@@ -32,15 +32,15 @@
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
       {{-- composant vérification des commentaires --}}
-      <x-admin-verif-comments />
+      <x-admin.verif-comments />
     </div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
       {{-- composant signalement des commentaires --}}
-      <x-admin-signal-comments />
+      <x-admin.signal-comments />
     </div>
     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
       {{-- composant corbeille des messages supprimés --}}
-      <x-admin-corbeille-comments />
+      <x-admin.corbeille-comments />
     </div>
     
   </div>

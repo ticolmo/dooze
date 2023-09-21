@@ -1,4 +1,4 @@
-{{-- Ces liens ouvrent les modals dans le fichier options-modals-commentaires --}}
+{{-- Ces liens ouvrent les modals dans le fichier modals.options-commentaires --}}
 
 <div class="fonctions alter{{$commentaire->publication->id_publication}}" style="display:none">
   

@@ -9,7 +9,7 @@ use App\Models\Commentairevisiteur;
 use Illuminate\Contracts\View\View;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class Commentaires extends Component
+class Fans extends Component
 {
     public $idclub;
     /**
@@ -40,7 +40,7 @@ class Commentaires extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.commentaires',[
+        return view('components.fans',[
             'commentaireclub' => $this->commentaireclub(),
             'commentairevisiteur' => $this->commentairevisiteur(),
             

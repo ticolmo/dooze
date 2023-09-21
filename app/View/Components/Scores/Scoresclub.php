@@ -1,13 +1,13 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Scores;
 
 use App\Api\ApiFootball;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Scores extends Component
+class Scoresclub extends Component
 {
     public $apiscores;
     /**

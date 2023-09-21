@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Admin;
 
 use Closure;
 use App\Models\Publication;
@@ -12,7 +12,7 @@ use App\Models\Reponsevisiteur;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 
-class AdminCorbeilleComments extends Component
+class CorbeilleComments extends Component
 {
     /**
      * Create a new component instance.
@@ -42,7 +42,7 @@ class AdminCorbeilleComments extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.admin-corbeille-comments',[
+        return view('components.admin.corbeille-comments',[
             'corbeille' => $this->corbeille(),
         ]);
     }
