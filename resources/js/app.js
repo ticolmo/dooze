@@ -26,16 +26,6 @@ music.volume = 0.05;
   
 }); */
 
-/* recherche dynamique des clubs - inactif remplacé par Vue.js, #myInput enlevé de la balise input  */
-$(document).ready(function () {
-  $("#myInput").on("keyup", function () {
-    var value = $(this).val().toLowerCase();
-    $(".dropdown-menu li a").filter(function () {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-
 $(function () {
 
   setTimeout(publier, 60000);
@@ -51,31 +41,6 @@ $(function () {
   })
 });
 
-
-$(document).ready(function () {
-
-  $("#emojionearea4").emojioneArea({
-    pickerPosition: "bottom",
-    filtersPosition: "bottom",
-    tonesStyle: "checkbox",
-
-  });
-
-  $("#emojionearea5").emojioneArea({
-    pickerPosition: "top",
-    filtersPosition: "bottom",
-    tones: false,
-    autocomplete: false,
-    inline: true,
-    hidePickerOnBlur: false
-  });
-});
-
-/* emoji - input*/
-$(document).ready(function () {
-  $(".example3").emojioneArea();
-});
-
 /* apparition des réponse des commentaires */
 $(".commentaires").click(function () {
   let id = $(this).attr("data-id");
@@ -87,9 +52,7 @@ $(".commentairesvisiteur").click(function () {
   $('#reponsesvisiteur' + id).toggle();
 });
 
-
 /* masquage de la section visiteur */
-
 let sv = true;
 $(".cachesectionv3").click(function () {
 
@@ -108,7 +71,6 @@ $(".cachesectionv3").click(function () {
 });
 
 /* modal sur les commentaires dans la page club*/
-
 $(".options").click(function () {
   let id = $(this).attr("data-id");
   $('.alter' + id).show();
@@ -120,9 +82,40 @@ $(".options").click(function () {
   });
 });
 
-/*aperçu d'image et de video uploadés dans le formulaire commentaireclub*/
 
 $(document).ready(function () {
+
+/* recherche dynamique des clubs - inactif remplacé par Vue.js, #myInput enlevé de la balise input  */
+  $("#myInput").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $(".dropdown-menu li a").filter(function () {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
+  $("#emojionearea4").emojioneArea({
+    pickerPosition: "bottom",
+    filtersPosition: "bottom",
+    tonesStyle: "checkbox",
+
+  });
+
+  $("#emojionearea5").emojioneArea({
+    pickerPosition: "top",
+    filtersPosition: "bottom",
+    tones: false,
+    autocomplete: false,
+    inline: true,
+    hidePickerOnBlur: false
+  });
+
+
+/* emoji - input*/
+  $(".example3").emojioneArea();
+
+
+/*aperçu d'image et de video uploadés dans le formulaire commentaireclub*/
+
   $("#fileInput").change(function () {
       if (this.files && this.files[0]) {
           var file = this.files[0];
@@ -157,20 +150,17 @@ $(document).ready(function () {
           };
           xhr.send(file);
       }
-  });
-
-  $(document).on("click", ".close", function () {
+ 
       $("#previewContainer").fadeOut();
       $("#previewContainer img").remove();
       $("#previewContainer video").remove();
       $("#fileInput").val("");
       $('.close').hide();
   });
-});
+
 
 /*aperçu d'image et de video uploadés dans le formulaire commentairevisiteur*/
 
-$(document).ready(function () {
   $("#fileInput1").change(function () {
       if (this.files && this.files[0]) {
           var file = this.files[0];
@@ -214,6 +204,16 @@ $(document).ready(function () {
       $("#fileInput1").val("");
       $('.close1').hide();
   });
+
+  /* soumission des formulaires 
+  pour que le bouton submit soit en dehors du formulaire 
+  et que le modal de connexion marche */
+  $("#soumettre").click(function() {
+    const dataid = $(this).attr("data-id");
+    const form = "#" + dataid;
+    $(form).submit();
+  });
+
 });
 
 

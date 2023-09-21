@@ -8,43 +8,32 @@
 
     
       {{-- La possibilité de laisser un COMMENTAIRE seulement pour les fans du club --}}
-      <form action="{{route('post.commentaireclub')}}" method="post" enctype='multipart/form-data'>
+      <form action="{{route('post.commentaireclub')}}" id="commentaireclub" method="post" enctype='multipart/form-data'>
         @csrf
         <div>
-          <input type="text" id="floatingInput" class="example3 form-control" placeholder="Quoi de neuf ?" name="contenu">
-        </div>    
+          <input type="text" id="floatingInput" class="example3 form-control" placeholder="Quoi de neuf ?" name="contenu"/>
+        </div> 
 
-        
-        <input type="file" id="fileInput" name="media">
-        <div class="close"><i class="bi bi-x-circle-fill"></i></div>
-        <div id="previewContainer"><div id="telechargement"></div> </div>  
+        <input type="file" id="fileInput" name="media"/>
+        <div class="close">
+          <i class="bi bi-x-circle-fill"></i>
+        </div>
+        <div id="previewContainer"> 
+          <div id="telechargement"></div> 
+        </div>  
           
         <div class="text-center submit">
           <label class="image"for="fileInput"><i class="bi bi-image" style="font-size: 20px!important"></i></label>
           
-          @auth
-            @if (auth()->user()->club_id == $idclub)
-              <button class="btn btn-outline-secondary" id="emoji-button" type="submit">{{ __('Post') }}</button>
-            </div>     
-          
-            @else
-            {{-- si fan autre club --}}
-            <div class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#fanautreclub">{{ __('Post') }}</div>
-              </div> 
-              <x-modals.fanautreclub />
-            @endif   
-          @endauth
-      </form>
+        </div>  
+      </form>     
 
-      @guest
-        @php
-            $modalid = uniqid();
-        @endphp
-        <div class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#connex{{$modalid}}">{{ __('Post') }}</div>
-        <x-modals.connexion>
-            {{$modalid}}        
-        </x-modals.connexion>
-      @endguest
+      <x-modals.bouton-visiteur :idclub :$idclub submit>            
+        Publier
+        <x-slot:form>
+          commentaireclub
+        </x-slot>
+      </x-modals.bouton-visiteur>
 
      @auth
         @if ($errors->any())
@@ -183,26 +172,31 @@
     <img src="{{Storage::url('divers/secteurvisiteurs.jpg')}}" alt="">
    
  
-    <form action="{{route('post.commentairevisiteur')}}" method="post" enctype='multipart/form-data'>
+    <form action="{{route('post.commentairevisiteur')}}" id="commentairevisiteur" method="post" enctype='multipart/form-data'>
       @csrf
       <div> 
-        <input type="text" id="floatingInput" class="example3 form-control" placeholder="Quoi de neuf ?" name="contenu">
+        <input type="text" id="floatingInput" class="example3 form-control" placeholder="Quoi de neuf ?" name="contenu"/>
       </div>
-      <input type="hidden" name="idclub" value="{{$idclub}}">
-      <label for="fileInput1"><i class="bi bi-image"></i></label>
-      <input type="file" id="fileInput1" name="media">
-      <div class="close1"><i class="bi bi-x-circle-fill"></i></div>
-      <div id="previewContainer1"><div id="telechargement1"></div> </div>
-      @auth
-        <button class="btn btn-outline-secondary" type="submit" type="button">{{ __('Post') }}</button>
-      @endauth
-
-      @guest
-        <div class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#connex{{$modalid }}">{{ __('Post') }}</div>
-        
-      @endguest
-    </form>
+      <input type="hidden" name="idclub" value="{{$idclub}}"/>
+      <label for="fileInput1">
+        <i class="bi bi-image"></i>
+      </label>
+      <input type="file" id="fileInput1" name="media"/>
+      <div class="close1">
+        <i class="bi bi-x-circle-fill"></i>
+      </div>
+      <div id="previewContainer1">
+        <div id="telechargement1"></div> 
+      </div>   
       
+    </form>
+    
+    <x-modals.bouton-visiteur :idclub :$idclub submit>            
+      Publier
+        <x-slot:form>
+          commentairevisiteur
+        </x-slot>
+    </x-modals.bouton-visiteur>
     
     {{-- affichage des commentaires --}}
     @foreach ($commentairevisiteur as $commentaire)

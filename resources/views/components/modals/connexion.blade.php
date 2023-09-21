@@ -60,9 +60,8 @@
         <hr>        
         <div> <a href="{{route('createaccount')}}" class="btn btn-light"> Créer un compte</a></div>
       </div>
-      <div class="modal-footer" style="border-top:none!important">
-      </div>
+      <div class="modal-footer" style="border-top:none!important">      </div>
     </div>
-    </div>
+    
   </div>
 </div>
