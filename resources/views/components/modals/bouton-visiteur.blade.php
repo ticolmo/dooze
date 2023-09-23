@@ -1,7 +1,7 @@
         @auth
             @if (auth()->user()->club_id == $idclub)
                 @if ($attributes->has('submit'))
-                <div class="btn btn-outline-secondary" id="soumettre" data-id="{{$form}}" type="submit">{{$slot}}</div>
+                <div class="btn btn-outline-secondary soumettre" data-id="{{$form}}" type="submit">{{$slot}}</div>
                 @else
                     <a {{$href}} class="w-20 btn btn-lg btn-primary" style="margin-bottom: 16px"> {{$slot}} </a> 
                 @endif

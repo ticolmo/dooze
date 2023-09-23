@@ -4,23 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Models\Publication;
 use App\Models\Reponseclub;
+use App\Models\Signalement;
 use Illuminate\Http\Request;
 use App\Models\Commentaireclub;
 use App\Models\Reponsevisiteur;
 use App\Models\Commentairevisiteur;
-use App\Models\Signalement;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 
 {
     public function storeCommentaireclub(Request $request): RedirectResponse
 {
-    $request->validate([        
+    $validator = Validator::make($request->all(), [      
         'contenu' => ['required', 'max:280'],
         'media' => ['nullable','mimetypes:image/jpeg,image/png,image/bmp,image/gif,image/svg+xml,image/webp,video/mp4,video/x-msvideo,video/quicktime','max:10000']
     ]);
+    if ($validator->fails()) {
+        return back()
+            ->withErrors($validator)
+            ->with('post', 'post');
+    }
    
     $publication = new Publication();
     $commentaire = new Commentaireclub();

@@ -37,8 +37,8 @@
           <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-person"></i> {{ __('Login') }}
           </a>
-          <ul class="dropdown-menu scrollable-menu">
-            {{-- MESSAGE D'ERREUR --}}
+          {{-- <ul class="dropdown-menu scrollable-menu">
+            
               @if ($errors->any())
               <div class="alert alert-danger">
                   <ul>
@@ -57,8 +57,47 @@
               <li><input type=hidden name="visit" value="@php echo $_SERVER['REQUEST_URI']; @endphp" type="text"></li>
               <li style="text-align:center!important"> <button type="submit">OK</button> </li>
               <li style="text-align:center!important"><a href="{{route('createaccount')}}">Créer un compte</a></li>
+
+
             </form>
-          </ul>
+          </ul> --}}
+          <div class="dropdown-menu">
+            @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+            @endif
+            <form class="px-4 py-3" action="{{route('login')}}" method="post">
+             @csrf
+              <div class="mb-3">
+                <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+              </div>
+              <div class="mb-3">
+                <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Mot de passe">
+                <input type=hidden name="visit" value="@php echo $_SERVER['REQUEST_URI']; @endphp" type="text">
+              </div>
+              <div class="mb-3">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                  <label class="form-check-label" for="dropdownCheck">
+                    Remember me
+                  </label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{route('createaccount')}}">Créer un compte</a>
+            <a class="dropdown-item" href="#">Forgot password?</a>
+          </div>  
+          
+
         </li>
       @endguest
 
