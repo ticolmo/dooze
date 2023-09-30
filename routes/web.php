@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ClubController;
+use App\Http\Controllers\HomeClubController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LangueController;
 use App\Http\Controllers\ProfilController;
@@ -38,7 +38,7 @@ Route::view('/scores', 'testscores');
 
 /* Accueil */
 
-Route::get('/', [ClubController::class, 'index'])->name('home');
+Route::get('/', [HomeClubController::class, 'index'])->name('home');
 
 /* Premières étapes de la création de compte */
 
@@ -158,7 +158,7 @@ Route::view('/donate', 'don')->name('don');
 
 /* Pages des clubs */
 
-Route::get('/{club}', [ClubController::class, 'show'])->name('club');
+Route::get('/{club}', [HomeClubController::class, 'show'])->name('club');
 
 
    

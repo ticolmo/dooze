@@ -28,7 +28,7 @@ music.volume = 0.05;
 
 $(function () {
 
-  setTimeout(publier, 60000);
+  setTimeout(publier, 1000);
   function publier() {
     $(".don").animate({ "top": 0 }, 2500)
   }
@@ -36,7 +36,7 @@ $(function () {
   function masquer() {
     $(".don").animate({ "top": "-100%" }, 2000)
   }
-  $(document).click(function() {
+  $("#close1").click(function() {
     masquer();
   })
 });

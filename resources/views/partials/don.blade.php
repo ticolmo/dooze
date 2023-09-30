@@ -1,7 +1,12 @@
 <div class="don">
-    <a href="{{route('don')}}" class="donate">
-      Vous appréciez Dooze ! Faites un don ! Dooze fonctionne uniquement par don.
-      <button class="btn btn-primary rounded-pill"> PayPal</button>
-    </a>
+    
+    <div class="donate">
+      <div id="close0"> <i id="close1" class="bi bi-x-lg"></i> </div>
+      Vous appréciez Dooze ! Dooze ne vend pas vos données. Soutenez le projet en 
+      <a href="" class="clique">  regardant une pub </a> , ou en  
+      <a href="" class="clique"> faisant un don </a> . 
+      [ <a href="{{route('don')}}" class="clique"> En savoir plus... </a> ]
+     
+    </div>
 
   </div>
