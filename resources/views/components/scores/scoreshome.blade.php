@@ -1,4 +1,6 @@
-
+@php
+    date_default_timezone_set($timezone)
+@endphp
 @if (isset($matchsdujour))
     @foreach ($matchsdujour as $competition)             
       @if ($competition!=null)     

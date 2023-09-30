@@ -9,12 +9,8 @@ use Illuminate\Support\Facades\App;
 
 class HomeClubController extends Controller
 {   
-    public function index(Request $request){        
-   
-        $ip = $request->ip();
-        
-       
-
+    public function index(){       
+           
         $listeclub = Club::where('en_ligne',true)->select(['nom','url','site_officiel'])->orderBy('nom')->get();
 
         return view('home',[
