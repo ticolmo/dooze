@@ -15,7 +15,8 @@
 
 {{-- Résultats: hier, aujourd'hui, demain --}}
 
-@php          
+@php    
+date_default_timezone_set($timezone);      
 $dateyesterday = date("Y-m-d", strtotime("-1 day"));
 $datetoday = date("Y-m-d");
 $datetomorrow = date("Y-m-d", strtotime("+1 day"));
@@ -37,13 +38,13 @@ $datetomorrow = date("Y-m-d", strtotime("+1 day"));
 
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-      <x-scores.scoreshome :choicedate="$dateyesterday" />       
+      <x-scores.scoreshome :choicedate="$dateyesterday" > {{$timezone}} </x-scores.scoreshome>        
     </div>
     <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-       <x-scores.scoreshome :choicedate="$datetoday"/>
+       <x-scores.scoreshome :choicedate="$datetoday" >{{$timezone}} </x-scores.scoreshome> 
     </div>
     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-      <x-scores.scoreshome :choicedate="$datetomorrow"/>
+      <x-scores.scoreshome :choicedate="$datetomorrow" >{{$timezone}} </x-scores.scoreshome> 
     </div>
   </div>
 

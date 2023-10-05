@@ -1,5 +1,5 @@
 @php
-    date_default_timezone_set($timezone)
+    date_default_timezone_set($slot)
 @endphp
 @if (isset($matchsdujour))
     @foreach ($matchsdujour as $competition)             

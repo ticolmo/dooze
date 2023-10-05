@@ -38,7 +38,7 @@ Route::view('/scores', 'testscores');
 
 /* Accueil */
 
-Route::get('/', [HomeClubController::class, 'index'])->name('home');
+Route::get('/', [HomeClubController::class, 'home'])->name('home');
 
 /* Premières étapes de la création de compte */
 
@@ -158,7 +158,7 @@ Route::view('/donate', 'don')->name('don');
 
 /* Pages des clubs */
 
-Route::get('/{club}', [HomeClubController::class, 'show'])->name('club');
+Route::get('/{club}', [HomeClubController::class, 'club'])->name('club');
 
 
    
