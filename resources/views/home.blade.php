@@ -21,10 +21,12 @@ $dateyesterday = date("Y-m-d", strtotime("-1 day"));
 $datetoday = date("Y-m-d");
 $datetomorrow = date("Y-m-d", strtotime("+1 day"));
 @endphp
-
+ 
 <div id="resultats">
   <h4>Résultats</h4>
-  <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+ <div id="timezone"></div>
+ <div>{{ date("G:i")}} </div>
+ {{--  <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link " id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{{ now()->locale(app()->getLocale())->subDay()->format('l j F')}}</button>
     </li>
@@ -46,7 +48,7 @@ $datetomorrow = date("Y-m-d", strtotime("+1 day"));
     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
       <x-scores.scoreshome :choicedate="$datetomorrow" >{{$timezone}} </x-scores.scoreshome> 
     </div>
-  </div>
+  </div> --}}
 
   
  
