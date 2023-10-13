@@ -20,13 +20,20 @@ class HomeClubController extends Controller
         return $timezone;
     }
 
-    public function home(){       
+    public function home(Request $request){       
            
         $listeclub = Club::where('en_ligne',true)->select(['nom','url','site_officiel'])->orderBy('nom')->get();
+        $query = $request->query("fuseau");
+        if (!empty($query)) {
+            $fuseau = $query;
+           
+        }else{
+            $fuseau = $this->getTimezone();
+        }
 
         return view('home',[
             'listeclub'=> $listeclub,
-            'timezone' => $this->getTimezone()  
+            'timezone' => $fuseau 
         ]);
     }
 

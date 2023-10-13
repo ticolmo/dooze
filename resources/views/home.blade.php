@@ -16,7 +16,13 @@
 {{-- Résultats: hier, aujourd'hui, demain --}}
 
 @php    
-date_default_timezone_set($timezone);      
+/* if($timezone !== "Europe/Zurich"){
+dd($timezone);
+} */
+ 
+date_default_timezone_set($timezone); 
+
+
 $dateyesterday = date("Y-m-d", strtotime("-1 day"));
 $datetoday = date("Y-m-d");
 $datetomorrow = date("Y-m-d", strtotime("+1 day"));
@@ -25,6 +31,7 @@ $datetomorrow = date("Y-m-d", strtotime("+1 day"));
 <div id="resultats">
   <h4>Résultats</h4>
  <div id="timezone"></div>
+ <div> {{ $timezone}} </div>
  <div>{{ date("G:i")}} </div>
  {{--  <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
