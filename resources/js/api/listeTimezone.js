@@ -1,4 +1,4 @@
-export default function Timezone(){
+export default function listeTimezone(){
 
     const timezone = [
         {
