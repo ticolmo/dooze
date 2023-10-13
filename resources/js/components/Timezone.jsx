@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react"
 import listeTimezone from "../api/listeTimezone.js"
+<<<<<<< HEAD
 import axios from 'axios';
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+=======
+import axios from "axios"
+>>>>>>> 531a7dc4d7862febc66c76e81314b6cb037f5dee
 
 export default function Timezone({fuseauHoraire, heureActuelle}) {
   const [timezone, setTimezone] = useState(fuseauHoraire)

@@ -13,8 +13,24 @@ class TimezoneController extends Controller
      */
     public function index(Request $request) 
     {
+<<<<<<< HEAD
         
         
         return ;
+=======
+        dd($request->fuseau);
+     /*    
+        if ($request->has('fuseau')) {
+
+            $fuseau = $request->fuseau;
+            
+            $request->session()->put('fuseau', "$fuseau");
+
+            return back();
+        } else {
+            abort(403);
+        } */
+        
+>>>>>>> 531a7dc4d7862febc66c76e81314b6cb037f5dee
     }
 }
