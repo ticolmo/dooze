@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Api\Listepays;
+use App\Mail\NewUser;
 use App\Models\Langue;
 use App\Models\Message;
 use App\Models\Publication;
@@ -13,6 +14,7 @@ use App\Models\Commentaireclub;
 use App\Models\Reponsevisiteur;
 use App\Models\Suppressioncompte;
 use App\Models\Commentairevisiteur;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -34,12 +36,16 @@ class ProfilController extends Controller
    $fan->derniere_connexion = now();
    $fan->save();
    
-   // Message de bienvenue
-   if ($request->session()->has('bienvenue')) {    
+   // Si nouveau utilisateur
+   if ($request->session()->has('bienvenue')) {        
+      //Message de bienvenue
       //la valeur de la session est placée dans une session flash et est détruit pour être affichée seulement une seule fois
       $bienvenue = $request->session()->get('bienvenue');    
       session()->now('new', "$bienvenue");
       $request->session()->forget('bienvenue');  
+      
+      //Email de bienvenue
+      Mail::to($fan->email)->send(new NewUser($fan));
     }
 
     // Notification nouveau message non lu

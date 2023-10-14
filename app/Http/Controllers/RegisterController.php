@@ -31,28 +31,5 @@ class RegisterController extends Controller
         ]);
     }
 
-    /*--- fonction à supprimer transféré sur Profilcontroller edit*/
-    public function edit(Request $request){
-        
-        $fan = User::with(['club','langue'])->findOrFail(auth()->user()->id);
-        $langue = Langue::select(['id_langue','intitule'])->get();
-        
-        $pays = new Listepays();
-        $liste = $pays->getlist();   
-        
-         // Message de modification d'email
-            if ($request->session()->has('email')) {
-                //la valeur de la session est placée dans un message flash et est détruit pour être affichée seulement une seule fois
-                $message = $request->session()->get('email');    
-                session()->now('modifemail', "$message");
-                $request->session()->forget('email');
-            }
-
-        return view('auth.edit',[
-            'langues'=> $langue,
-            'fan'=> $fan,            
-            'listepays'=> $liste,
-            
-        ]);
-    }
+   
 }
