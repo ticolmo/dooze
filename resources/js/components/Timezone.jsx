@@ -15,13 +15,32 @@ export default function Timezone({fuseauHoraire, heureActuelle}) {
     setTimezone(e.currentTarget.getAttribute('data-id'))
     setProposition(!proposition)
 
-    axios.get('/api/timezone', {
+    axios.get('/', {
       params: {
-        fuseau: decodeURIComponent(e.currentTarget.getAttribute('data-id')),
+        fuseau: e.currentTarget.getAttribute('data-id'),
       },
     })
       .then((response) => {
-        console.log(response.status)
+         // Cibler l'élément avec l'ID "creme" dans la page
+         const cremeElementDansLaPage = document.getElementById('creme');
+
+         // Vérifier si l'élément dans la page existe
+         if (cremeElementDansLaPage) {
+           // Cibler l'élément avec l'ID "creme" dans la réponse
+           const div = document.createElement('div');
+           div.innerHTML = response.data;
+           const cremeElementDansLaReponse = div.querySelector('#creme');
+ 
+           // Vérifier si l'élément dans la réponse existe
+           if (cremeElementDansLaReponse) {
+             // Remplacer le contenu de l'élément dans la page par le contenu de l'élément dans la réponse
+             cremeElementDansLaPage.innerHTML = cremeElementDansLaReponse.innerHTML;
+           } else {
+             console.log("Élément 'creme' dans la réponse non trouvé");
+           }
+         } else {
+           console.log("Élément 'creme' non trouvé dans la page");
+         }
       })
       .catch((error) => {
         console.log(error);

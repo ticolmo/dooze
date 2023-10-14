@@ -23,7 +23,7 @@ class HomeClubController extends Controller
     public function home(Request $request){       
            
         $listeclub = Club::where('en_ligne',true)->select(['nom','url','site_officiel'])->orderBy('nom')->get();
-        $query = $request->query("fuseau");
+        $query = $request->fuseau;
         if (!empty($query)) {
             $fuseau = $query;
            
