@@ -98,30 +98,17 @@ class ProfilController extends Controller
     ]); 
 
     // Suppression des commentaires postés par l'utilisateur
-      $commentaireclub = Commentaireclub::withTrashed()->where('user_id',auth()->user()->id)->get();
-      foreach ($commentaireclub as $item){
+    $commentaires = ["Commentaireclub","Commentairevisiteur","Reponseclub", "Reponsevisiteur"];
+
+    foreach ($commentaires as $commentaire){
+      $model = app("App\\Models\\".$commentaire);
+      $table = $model::withTrashed()->where('user_id',auth()->user()->id)->get();
+      foreach ($table as $item){
         $model = $item->getMorphClass();
         Publication::withTrashed()->where('post_id', $item->id)->where('post_type', $model)->forceDelete();  
         $item->forceDelete();
       }
-      $commentairevisiteur = Commentairevisiteur::withTrashed()->where('user_id',auth()->user()->id)->get();
-      foreach ($commentairevisiteur as $item){
-        $model = $item->getMorphClass();
-        Publication::withTrashed()->where('post_id', $item->id)->where('post_type', $model)->forceDelete();  
-        $item->forceDelete();
-      }
-      $reponseclub = Reponseclub::withTrashed()->where('user_id',auth()->user()->id)->get();
-      foreach ($reponseclub as $item){
-        $model = $item->getMorphClass();
-        Publication::withTrashed()->where('post_id', $item->id)->where('post_type', $model)->forceDelete();  
-        $item->forceDelete();
-      }
-      $reponsevisiteur = Reponsevisiteur::withTrashed()->where('user_id',auth()->user()->id)->get();
-      foreach ($reponsevisiteur as $item){
-        $model = $item->getMorphClass();
-        Publication::withTrashed()->where('post_id', $item->id)->where('post_type', $model)->forceDelete();  
-        $item->forceDelete();
-      }
+    };     
 
     // Suppression des messages
     Message::withTrashed()->where('destinataire_id', auth()->user()->id)->orWhere('expediteur_id', auth()->user()->id)->forceDelete();
