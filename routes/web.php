@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeClubController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LangueController;
-use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ChoixclubController;
@@ -63,15 +63,15 @@ Route::get('/email/verify', [VerifyemailController::class, 'index'])->middleware
 
 Route::get('/login', function () {return view('auth.login');})->name('login');
 
-Route::get('/home', [ProfilController::class, 'index'])->middleware(['auth','verified'])->name('profil');
+Route::get('/home', [AccountController::class, 'index'])->middleware(['auth','verified'])->name('profil');
 
-Route::get('/home/edit', [ProfilController::class, 'edit'])->middleware(['auth','verified'])->name('modificationprofil');
+Route::get('/home/edit', [AccountController::class, 'edit'])->middleware(['auth','verified'])->name('modificationprofil');
 
 Route::get('/forgot-password', function () {return view('auth.forgot-password');})->name('forgot-password');
 
 Route::get('/reset-password', function () {return view('auth.reset-password');})->name('reset-password');
 
-Route::post('/account/delete', [ProfilController::class, 'delete'])->middleware(['auth','verified'])->name('suppressioncompte');
+Route::post('/account/delete', [AccountController::class, 'delete'])->middleware(['auth','verified'])->name('suppressioncompte');
 
 /* Profil public*/
 

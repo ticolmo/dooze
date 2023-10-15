@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Api\Listepays;
+use App\Events\AccountLogInEvent;
 use App\Mail\NewUser;
 use App\Models\Langue;
 use App\Models\Message;
@@ -18,17 +19,11 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 
-class ProfilController extends Controller
+class AccountController extends Controller
 {
   public function index(Request $request){
 
-    // Si l'utilisateur est administrateur
-    if (auth()->user()->is_admin) {
-        $admin = User::findOrFail(auth()->user()->id);
-        $admin->derniere_connexion = now();
-        $admin->save();
-        return redirect()->route('admin.index');
-      }
+    event(new AccountLogInEvent(auth()->user()));    
 
    $fan = User::with(['club','langue'])->findOrFail(auth()->user()->id);   
 
