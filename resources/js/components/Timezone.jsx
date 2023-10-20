@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import listeTimezone from "../api/listeTimezone.js"
 import axios from "axios"
 
-export default function Timezone({fuseauHoraire, heureActuelle}) {
+export default function Timezone({fuseauHoraire}) {
   const [timezone, setTimezone] = useState(fuseauHoraire)
   const [proposition, setProposition] = useState(false)
   const visibleProposition = () => {
@@ -22,14 +22,14 @@ export default function Timezone({fuseauHoraire, heureActuelle}) {
     })
       .then((response) => {
          // Cibler l'élément avec l'ID "creme" dans la page
-         const cremeElementDansLaPage = document.getElementById('creme');
+         const cremeElementDansLaPage = document.getElementById('tableauScores');
 
          // Vérifier si l'élément dans la page existe
          if (cremeElementDansLaPage) {
            // Cibler l'élément avec l'ID "creme" dans la réponse
            const div = document.createElement('div');
            div.innerHTML = response.data;
-           const cremeElementDansLaReponse = div.querySelector('#creme');
+           const cremeElementDansLaReponse = div.querySelector('#tableauScores');
  
            // Vérifier si l'élément dans la réponse existe
            if (cremeElementDansLaReponse) {
@@ -53,8 +53,8 @@ export default function Timezone({fuseauHoraire, heureActuelle}) {
 
     return <>
      <div>
-      <div id="selectionHoraire" onClick={visibleProposition}>Fuseau horaire: {timezone} - {heureActuelle} </div>
-      { proposition &&  liste.map(fuseau => (<div key={fuseau.tzCode} className="propositionHoraire" data-id={fuseau.tzCode} onClick={handleTimezone}> {fuseau.tzCode} </div>))}
+      <div id="selectionHoraire" onClick={visibleProposition}>Fuseau horaire: {timezone} </div>
+      { proposition &&  liste.map(fuseau => (<div key={fuseau} className="propositionHoraire" data-id={fuseau} onClick={handleTimezone}> {fuseau} </div>))}
     </div>
     
     </>

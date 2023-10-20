@@ -15,17 +15,19 @@
         <script src=" https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js "></script>
         {{-- emoji --}}
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"></script>
+
+        {{-- pour tableau scores de la page d'acceuil --}}
         @php
             if(isset($timezone)){
                 $fuseau = $timezone;
             } else{
                 $fuseau = "Europe/London";
-            }
+            };          
+
         @endphp  
     
         <script>        
-            window.FuseauHoraire = {{ Js::from($fuseau) }}
-            window.HeureActuelle = {{ Js::from(date("G:i")) }}
+            window.FuseauHoraire = {{ Js::from($fuseau) }}           
         </script>        
 
         @viteReactRefresh

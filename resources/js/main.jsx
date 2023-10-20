@@ -7,5 +7,5 @@ import Timezone from './components/Timezone.jsx'
 if (document.getElementById('timezone')) {
     const container = document.getElementById('timezone');
     const root = createRoot(container);
-    root.render(<React.StrictMode> <Timezone fuseauHoraire={FuseauHoraire}/> </React.StrictMode>);
+    root.render(<React.StrictMode> <Timezone fuseauHoraire={FuseauHoraire} /> </React.StrictMode>);
 }
