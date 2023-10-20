@@ -22,6 +22,7 @@ class IsAdminListener
      */
     public function handle(AccountLogInEvent $event)
     {
+        dd("sdfadsf");
         if ($event->user->is_admin) {
             $admin = User::findOrFail($event->user->id);
             $admin->derniere_connexion = now();

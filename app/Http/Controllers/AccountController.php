@@ -23,15 +23,26 @@ class AccountController extends Controller
 {
   public function index(Request $request){
 
-    event(new AccountLogInEvent(auth()->user()));    
+  
 
    $fan = User::with(['club','langue'])->findOrFail(auth()->user()->id);   
 
    // Enregistrement de la date de connexion  
    $fan->derniere_connexion = now();
    $fan->save();
+
+   // Si l'utilisateur est administrateur
+/*   if ($fan->is_admin) {
+    $admin = User::findOrFail($fan->id);
+    $admin->derniere_connexion = now();
+    $admin->save();
+    return redirect()->route('admin.index');
+    }    */
+
+    event(new AccountLogInEvent($fan)); 
    
    // Si nouveau utilisateur
+   // session créé dans VerifyemailController
    if ($request->session()->has('bienvenue')) {        
       //Message de bienvenue
       //la valeur de la session est placée dans une session flash et est détruit pour être affichée seulement une seule fois
