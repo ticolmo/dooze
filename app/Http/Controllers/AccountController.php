@@ -21,41 +21,22 @@ use Illuminate\Support\Facades\Storage;
 
 class AccountController extends Controller
 {
-  public function index(Request $request){
-
-  
+  public function index(Request $request){  
 
    $fan = User::with(['club','langue'])->findOrFail(auth()->user()->id);   
 
    // Enregistrement de la date de connexion  
    $fan->derniere_connexion = now();
    $fan->save();
-
    // Si l'utilisateur est administrateur
-/*   if ($fan->is_admin) {
-    $admin = User::findOrFail($fan->id);
-    $admin->derniere_connexion = now();
-    $admin->save();
-    return redirect()->route('admin.index');
-    }    */
+   if ($fan->is_admin) {    
+   return redirect()->route('admin.index');
+   };
 
-    event(new AccountLogInEvent($fan)); 
-   
-   // Si nouveau utilisateur
-   // session créé dans VerifyemailController
-   if ($request->session()->has('bienvenue')) {        
-      //Message de bienvenue
-      //la valeur de la session est placée dans une session flash et est détruit pour être affichée seulement une seule fois
-      $bienvenue = $request->session()->get('bienvenue');    
-      session()->now('new', "$bienvenue");
-      $request->session()->forget('bienvenue');  
-      
-      //Email de bienvenue
-      Mail::to($fan->email)->send(new NewUser($fan));
-    }
+    event(new AccountLogInEvent($fan));
 
     // Notification nouveau message non lu
-    $newmessage = Message::where('mailbox_id', auth()->user()->id)->where('destinataire_id',auth()->user()->id)->whereNull('read_at')->count();
+    $newmessage = Message::where('mailbox_id', $fan->id)->where('destinataire_id',$fan->id)->whereNull('read_at')->count();
 
     return view('auth.profil',[
         'fan'=> $fan, 

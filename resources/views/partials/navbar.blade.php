@@ -17,7 +17,7 @@
           <ul class="dropdown-menu scrollable-menu">
             
             <li id="app" >
-              <input style="width:100%" type="text" placeholder="Rechercher...">
+              <input id="myInput" style="width:100%" type="text" placeholder="Rechercher...">
             {{-- recherche dynamique via Vue.js --}}
               {{-- <rechercheclubs /> --}}
             </li>
