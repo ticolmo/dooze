@@ -46,7 +46,7 @@
         <div id="connect1">
 
     @include('partials.navbarhome')          
-    @yield('content')
+    @yield('content') {{-- Attention 2 div à fermer en fin de fichier content--}}
 
    
 <script

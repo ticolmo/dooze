@@ -25,9 +25,10 @@ $datetomorrow = date("Y-m-d", strtotime("+1 day"));
  
 <div id="resultats">
   <h4>Résultats</h4>
-  <div id="timezone"></div>
-  <div id="tableauScores">  
   
+  <div id="tableauScores">  
+    <div id="timezone"></div>
+    
     <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation">
         <button class="nav-link " id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{{ now()->locale(app()->getLocale())->subDay()->format('l j F')}}</button>

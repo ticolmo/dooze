@@ -8,7 +8,7 @@
         </div>
         <div class="modal-body" style="height:90vh!important">
 
-          <iframe width="100%" src="{{route('detailrencontre', $idrencontre)}}" frameborder="0" frameborder="0" onload="onIframeLoad(this)"></iframe>
+          <iframe width="100%" height="100%" src="{{route('detailrencontre', $idrencontre)}}" frameborder="0" frameborder="0" {{-- onload="resizeIframe(this)" --}}></iframe>
                       
 
         </div>

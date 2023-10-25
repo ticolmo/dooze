@@ -1,8 +1,3 @@
-function onIframeLoad(iframe) {
-  window.postMessage({height: iframe.contentWindow.document.body.clientHeight}, '*');
-}
-
-
 
 var swiper = new Swiper(".swiper", {
     slidesPerView: 4,
@@ -25,18 +20,20 @@ var swiper = new Swiper(".swiper", {
     },
   });
 
+
 $(document).ready(function() {
+
+// recherche dynamique club
 $("#choose1").on("keyup", function() {
     var value = $(this).val().toLowerCase();
     $(".dropdown-menu li a").filter(function() {
     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
 });
-});
+
+
 
 /*aperçu de la photo de profil*/
-
-$(document).ready(function () {
   $("#fileInput").change(function () {
       if (this.files && this.files[0]) {
           var file = this.files[0];

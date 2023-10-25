@@ -1,6 +1,7 @@
 @php
     date_default_timezone_set($slot)
 @endphp
+
 @if (isset($matchsdujour))
     @foreach ($matchsdujour as $competition)             
       @if ($competition!=null)     
@@ -12,25 +13,36 @@
             </div>
             @foreach ($matchs as $rencontre)
               @php
-                  if (in_array($rencontre['fixture']['status']['short'], ['1H', 'HT', '2H', 'ET', 'BT', 'P', 'SUSP', 'INT', 'FT', 'AET', 'PEN'])){
+                  $matchencours = false;
+                  $matchfini = false; 
+                  if (in_array($rencontre['fixture']['status']['short'], ['1H', 'HT', '2H', 'ET', 'BT', 'P', 'SUSP', 'INT'])){
                     $matchencours = true;    
-                  } else{
-                    $matchencours = false; 
-                  }  
+                  } 
+                  if (in_array($rencontre['fixture']['status']['short'], ['FT', 'AET', 'PEN'])){
+                    $matchfini = true;    
+                  }
               @endphp            
 
-              <div class="rencontres" @if ($matchencours) data-bs-toggle="modal" data-bs-target="#rencontre{{$rencontre['fixture']['id']}}" @endif>             
+              <div class="rencontres" @if ($matchencours || $matchfini) data-bs-toggle="modal" data-bs-target="#rencontre{{$rencontre['fixture']['id']}}" @endif>             
                 <span> {{$rencontre['teams']['home']['name']}}</span>                  
                 <span>                   
                   @if ($rencontre['fixture']['status']['short'] == 'NS')
                   {{date('H:i', $rencontre['fixture']['timestamp'])}}
                   @else
-                  {{$rencontre['goals']['home']." - ".$rencontre['goals']['away']}}
+                      @if ($matchencours)
+                          <span style="color: red"> {{$rencontre['goals']['home']." - ".$rencontre['goals']['away']}} </span> 
+                      @elseif ($matchfini)
+                          <span > {{$rencontre['goals']['home']." - ".$rencontre['goals']['away']}} </span> 
+                      @else
+                          <span> {{$rencontre['goals']['home']." - ".$rencontre['goals']['away']}} </span> 
+                      @endif
+                      
+                     
                   @endif
                 </span> 
                 <span>{{$rencontre['teams']['away']['name']}}</span>
               </div>                      
-                  @if ($matchencours)
+                  @if ($matchencours || $matchfini)
                   <x-modals.detail-rencontre :idrencontre="$rencontre['fixture']['id']"/>         
                   @endif
               <hr>

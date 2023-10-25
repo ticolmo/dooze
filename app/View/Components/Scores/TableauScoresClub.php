@@ -42,7 +42,7 @@ class TableauScoresClub extends Component
     public function miss()
     {
         $matchs = $this->scorepageclub()->matchsfemme($this->scoresfemme);
-    
+        
         return $matchs;
         
     }

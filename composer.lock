@@ -5872,23 +5872,23 @@
         },
         {
             "name": "vedmant/laravel-feed-reader",
-            "version": "1.5.4",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vedmant/laravel-feed-reader.git",
-                "reference": "8e5458383b31aefcd709e21801da20e33aad6af0"
+                "reference": "0839e0bfc3b86675616b6bdff28bc0533a073145"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vedmant/laravel-feed-reader/zipball/8e5458383b31aefcd709e21801da20e33aad6af0",
-                "reference": "8e5458383b31aefcd709e21801da20e33aad6af0",
+                "url": "https://api.github.com/repos/vedmant/laravel-feed-reader/zipball/0839e0bfc3b86675616b6bdff28bc0533a073145",
+                "reference": "0839e0bfc3b86675616b6bdff28bc0533a073145",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "illuminate/support": "~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0|^9.0|^10.0",
                 "php": ">=5.6.0",
-                "simplepie/simplepie": "^1.7"
+                "simplepie/simplepie": "^1.8.0"
             },
             "require-dev": {
                 "orchestra/testbench": "^7.0",
@@ -5927,9 +5927,9 @@
             "description": "A simple RSS feed reader for Laravel",
             "support": {
                 "issues": "https://github.com/vedmant/laravel-feed-reader/issues",
-                "source": "https://github.com/vedmant/laravel-feed-reader/tree/1.5.4"
+                "source": "https://github.com/vedmant/laravel-feed-reader/tree/1.6.0"
             },
-            "time": "2023-02-15T02:16:38+00:00"
+            "time": "2023-07-10T08:51:53+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

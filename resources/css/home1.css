@@ -122,10 +122,6 @@ li {
 
     }
 
-
-
-
-
     .club {
 
         display: none;
@@ -430,8 +426,6 @@ li {
         position: relative;
         background-color: white;
         overflow: auto;
-
-
     }
 
     .nav-link {
@@ -449,6 +443,23 @@ li {
         position: relative;
         top: 15%;
 
+    }
+
+    #timezone div{
+        text-align: end;
+        
+    }
+     
+    #tableauScores{
+        position: relative;
+       
+    } 
+    .propositionHoraire{
+        position: absolute;
+        z-index: 5;    
+        width: 100%;
+        height: auto; 
+        
     }
 
     .form-floating {

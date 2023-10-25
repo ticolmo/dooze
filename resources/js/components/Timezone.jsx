@@ -23,13 +23,14 @@ export default function Timezone({fuseauHoraire}) {
       .then((response) => {
          // Cibler l'élément avec l'ID "creme" dans la page
          const cremeElementDansLaPage = document.getElementById('tableauScores');
-
+        
          // Vérifier si l'élément dans la page existe
          if (cremeElementDansLaPage) {
            // Cibler l'élément avec l'ID "creme" dans la réponse
            const div = document.createElement('div');
            div.innerHTML = response.data;
            const cremeElementDansLaReponse = div.querySelector('#tableauScores');
+           
  
            // Vérifier si l'élément dans la réponse existe
            if (cremeElementDansLaReponse) {

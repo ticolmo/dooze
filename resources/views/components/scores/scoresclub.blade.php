@@ -1,6 +1,6 @@
 
 
-@if (isset($lastmatch))
+@if (isset($lastmatch) && !empty($lastmatch))
 <div style="display: inline-block;">
    <!-- DERNIER MATCH -->
 
@@ -12,7 +12,7 @@
         <div>Détails</div>
 </div>   
 @endif 
-@if (isset($nextmatch))
+@if (isset($nextmatch) && !empty($nextmatch))
 <div style="display: inline-block;">
   <!-- PROCHAIN MATCH -->
 

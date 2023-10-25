@@ -21,16 +21,25 @@ class Actu extends Component
         $this->nom = $nom;
     }
 
- 
-
-
-
+    
     /**
      * Get the view / contents that represent the component.
      */
     public function render(): View|Closure|string
     {
-        return view('components.actu');
+        
+        try { 
+            
+            $xml = simplexml_load_file($this->flux);
+          } catch (\Exception $e) {
+            return view('errors.events.BadConnexionActu');
+            
+        };  
+
+
+        return view('components.actu',[
+            'xml'=>$xml,
+        ]);
     }
 
   
