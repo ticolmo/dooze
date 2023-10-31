@@ -123,12 +123,15 @@ Route::middleware(['auth','verified','admin'])->prefix('admin')->name('admin.')-
     Route::post('/commentaires/signalras', [AdminPostController::class, 'signalras'])->name('comments.signalras');
     Route::post('/commentaires/signalrasconfirm', [AdminPostController::class, 'signalrasconfirm'])->name('comments.signalrasconfirm');
     // Messagerie
-    Route::get('/messagerie', [AdminController::class, 'mailbox'])->name('mailbox');
+    Route::get('/messagerieDooze', [AdminController::class, 'mailbox'])->name('mailbox');
     Route::post('/message/delete', [AdminController::class, 'deletemail'])->name('deletemail');
     Route::get('/message/read/{idmessage}', [AdminController::class, 'readmail'])->name('readmail');
     Route::get('/messagerie/trash', [AdminController::class, 'corbeillemail'])->name('corbeillemail');
     Route::post('/message/forcedelete', [AdminController::class, 'forcedeletemail'])->name('forcedeletemail');
     Route::get('/message/restore/{idmessage}', [AdminController::class, 'restoredeletedmail'])->name('restoredeletedmail');
+    // Envoi d'email
+    Route::view('/mailbox', 'admin.layouts.mailbox')->name('email');
+
 });
 
 /* Live  */

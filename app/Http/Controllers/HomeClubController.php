@@ -13,7 +13,7 @@ class HomeClubController extends Controller
 
     private function getTimezone()
     {
-        $ip = app('request')->ip();
+        $ip = app('request')->ip();        
         $location = GeoIP::getLocation($ip); 
         $timezone = $location["timezone"];       
        

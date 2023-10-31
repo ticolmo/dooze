@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\TimezoneController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\TimezoneController;
+use App\Http\Controllers\Api\MailboxAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 }); 
 
-Route::get('timezone', [TimezoneController::class, 'index']);
+Route::get('admin/mailbox', [MailboxAdminController::class, 'index']);
+

@@ -30,9 +30,9 @@
                        
                    </thead>
                        
-                           @foreach ($signalements as $signalement)            
-                               <tr>
-                                   <td> {{$signalement->user->name}} </td>
+                           @foreach ($signalements as $signalement) 
+                                <tr>
+                                   <td> {{$signalement->user->name ?? 'non trouvé'}} </td>
                                    <td> {{$signalement->motif}} </td>   
                                    <td> {{$signalement->publication->post->club->nom}} </td>                
                                    <td> {{ class_basename($signalement->publication->post->getMorphClass())}} </td>
@@ -70,6 +70,8 @@
                                     <a href="{{route('admin.comment.proceduredelete', $signalement->publication->id_publication)}}">Supprimer le commentaire</a>
                                    </td>
                                </tr>
+
+
                                    
                            @endforeach                         
                

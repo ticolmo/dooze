@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Api\Listepays;
-use App\Events\AccountLogInEvent;
 use App\Mail\NewUser;
+use App\Api\Listepays;
 use App\Models\Langue;
 use App\Models\Message;
 use App\Models\Publication;
 use App\Models\Reponseclub;
+use App\Models\Signalement;
 use Illuminate\Http\Request;
 use App\Models\Commentaireclub;
 use App\Models\Reponsevisiteur;
+use App\Events\AccountLogInEvent;
 use App\Models\Suppressioncompte;
 use App\Models\Commentairevisiteur;
 use Illuminate\Support\Facades\Mail;
@@ -100,7 +101,9 @@ class AccountController extends Controller
     // Suppression des messages
     Message::withTrashed()->where('destinataire_id', auth()->user()->id)->orWhere('expediteur_id', auth()->user()->id)->forceDelete();
 
-
+    // Suppression des signalements
+    Signalement::withTrashed()->where('user_id', auth()->user()->id)->forceDelete();
+    
      // Suppression du dossier media de l'utilisateur
      $id = auth()->user()->id;
      if (Storage::disk('public')->exists("users/$id")) {
