@@ -40,8 +40,9 @@
     <div id="accueil">
 
         <div id="vid1">
-          <video id="myvideo"src="{{Storage::url('videos/Video1.mp4')}}" autoplay loop muted disablePictureInPicture></video>
-    
+            @persist('video')
+            <video id="myvideo"src="{{Storage::url('videos/Video1.mp4')}}" autoplay loop muted disablePictureInPicture></video>
+            @endpersist
         </div>
         <div id="connect1">
 

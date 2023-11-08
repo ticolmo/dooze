@@ -161,7 +161,7 @@ Route::view('/donate', 'don')->name('don');
 
 /* Pages des clubs */
 
-Route::get('/{club}', [HomeClubController::class, 'club'])->name('club');
+Route::get('/{club}/{feature?}', [HomeClubController::class, 'club'])->name('club');
 
 
    

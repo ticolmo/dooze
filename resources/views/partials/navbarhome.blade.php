@@ -10,16 +10,16 @@
           <a class="nav-link" href="http://dooze.test:8089/">Dooze</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('don')}}"> Faire un don ?</a>
+          <a class="nav-link" href="{{route('don')}}" wire:navigate> Faire un don ?</a>
         </li>
 
         {{-- l'utilisateur n'est pas authentifié --}}
         @guest
         <li class="nav-item">
-          <a class="nav-link" href="{{route('login')}}"> {{ __('Login') }}</a>
+          <a class="nav-link" href="{{route('login')}}" wire:navigate> {{ __('Login') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('createaccount')}}"> Créer un compte</a>
+          <a class="nav-link" href="{{route('createaccount')}}" wire:navigate> Créer un compte</a>
         </li>
 
         @endguest
@@ -39,7 +39,7 @@
         @endauth
 
         <li class="nav-item">
-          <a class="nav-link" href="{{route('contact')}}"> Contact</a>
+          <a class="nav-link" href="{{route('contact')}}" wire:navigate> Contact</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

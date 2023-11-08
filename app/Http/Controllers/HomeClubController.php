@@ -20,6 +20,8 @@ class HomeClubController extends Controller
         return $timezone;
     }
 
+    
+
     public function home(Request $request){       
            
         $listeclub = Club::where('en_ligne',true)->select(['nom','url','site_officiel'])->orderBy('nom')->get();
@@ -37,8 +39,13 @@ class HomeClubController extends Controller
         ]);
     }
 
-    public function club($club){
-        $choixclub = Club::where('url', $club )->firstOrFail();       
+    public function club($club, ?string $feature = null){
+        $choixclub = Club::where('url', $club )->firstOrFail(); 
+        
+        if (isset($feature))
+        {
+            dd($feature);
+        }
          
         return view('club',[
             'club'=> $choixclub,  

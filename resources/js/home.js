@@ -75,7 +75,7 @@ $("#choose1").on("keyup", function() {
 
 //-------  Lecture de la video en page d'acceuil sans interruption de page en page
 
-// Obtenir l'élément vidéo
+/* // Obtenir l'élément vidéo
 var myVideo = document.getElementById("myvideo");
 
 // Ajouter un événement pour enregistrer l'instant de lecture dans un cookie à chaque changement de l'instant de lecture
@@ -89,7 +89,7 @@ window.addEventListener('load', function() {
   if (currentTime) {
     myVideo.currentTime = currentTime;
   }
-});
+}); */
 
 // Sélection groupée des messages à supprimer (à ne pas placer après code js auth.edit)
 $('#master-checkboxrep').change(function() {
