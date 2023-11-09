@@ -1,6 +1,6 @@
 <div>
     @php
-    date_default_timezone_set($slot)
+    date_default_timezone_set($timezone)
     @endphp
 
     @if (isset($matchsdujour))
@@ -49,7 +49,7 @@
                 </div>                      
                     @if ($matchencours || $matchfini)
                     {{-- <x-modals.detail-rencontre :idrencontre="$rencontre['fixture']['id']"/>    --}}  
-                    <livewire:home.detail-match :idrencontre="$rencontre['fixture']['id']" lazy />
+                    <livewire:home.detail-rencontre :idrencontre="$rencontre['fixture']['id']" wire:key={{$rencontre['fixture']['id']}} lazy />
 
                     @endif
                 <hr>

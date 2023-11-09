@@ -24,17 +24,6 @@ class Resultats extends Component
 
     
 
-  public function placeholder()
-    {
-        return <<<'HTML'
-        <div>
-            <!-- Loading spinner... -->
-            <div> Chargement ... </div>
-        </div>
-        HTML;
-    }
-    
-
     public function render()
     {
         return view('livewire.home.resultats');

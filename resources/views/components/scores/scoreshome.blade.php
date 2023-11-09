@@ -48,7 +48,7 @@
               </div>                      
                   @if ($matchencours || $matchfini)
                   {{-- <x-modals.detail-rencontre :idrencontre="$rencontre['fixture']['id']"/>    --}}  
-                  <livewire:home.detail-match :idrencontre="$rencontre['fixture']['id']" lazy />
+                  <livewire:home.detail-rencontre :idrencontre="$rencontre['fixture']['id']" lazy />
 
                   @endif
               <hr>

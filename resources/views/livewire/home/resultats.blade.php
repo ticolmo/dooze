@@ -19,14 +19,15 @@
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
           {{-- <x-scores.scoreshome :choicedate="$dateyesterday" > {{$timezone}} </x-scores.scoreshome>     --}}    
-          <livewire:home.match :choicedate="$dateyesterday" :timezone="$timezone" lazy />
+          <livewire:home.rencontre :choicedate="$dateyesterday" :timezone="$timezone" lazy="on-load"  />
         </div>
         <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-          <x-scores.scoreshome :choicedate="$datetoday" >{{$timezone}} </x-scores.scoreshome> 
+          {{-- <x-scores.scoreshome :choicedate="$datetoday" >{{$timezone}} </x-scores.scoreshome>  --}}
+          <livewire:home.rencontre :choicedate="$datetoday" :timezone="$timezone"/>
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
           {{-- <x-scores.scoreshome :choicedate="$datetomorrow" >{{$timezone}} </x-scores.scoreshome>  --}}
-          <livewire:home.match :choicedate="$datetomorrow" :timezone="$timezone" lazy />
+          <livewire:home.rencontre :choicedate="$datetomorrow" :timezone="$timezone" lazy="on-load" />
         </div>
       </div> 
     </div>
