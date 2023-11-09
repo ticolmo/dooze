@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Home;
 
 use Livewire\Component;
 
 
-class ResultatsHome extends Component
+class Resultats extends Component
 {   
     public $dateyesterday;
     public $datetoday;
@@ -37,6 +37,6 @@ class ResultatsHome extends Component
 
     public function render()
     {
-        return view('livewire.resultats-home');
+        return view('livewire.home.resultats');
     }
 }

@@ -9,29 +9,29 @@
         @vite(['resources/css/home1.css', 'resources/js/home.js', 'resources/css/bootstrap.scss','resources/js/bootstrapjs.js'])
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">        
-        <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
-        crossorigin="anonymous"></script>
+        {{-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script> --}}
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-        <script src=" https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js "></script>
+       {{--  <script src=" https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js "></script> --}}
         {{-- emoji --}}
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"></script>
+       {{--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"></script> --}}
 
         {{-- pour tableau scores de la page d'acceuil --}}
-        @php
+     {{--    @php
             if(isset($timezone)){
                 $fuseau = $timezone;
             } else{
                 $fuseau = "Europe/London";
             };          
 
-        @endphp  
+        @endphp   --}}
     
-        <script>        
+       {{--  <script>        
             window.FuseauHoraire = {{ Js::from($fuseau) }}           
-        </script>        
+        </script>    --}}     
 
-        @viteReactRefresh
-        @vite('resources/js/main.jsx')
+       {{--  @viteReactRefresh
+        @vite('resources/js/main.jsx') --}}
   </head>
       
       
@@ -39,7 +39,7 @@
   
     <div id="accueil">
 
-        <div id="vid1">
+        <div id="vid1" style="background-color: black">
             @persist('video')
             <video id="myvideo"src="{{Storage::url('videos/Video1.mp4')}}" autoplay loop muted disablePictureInPicture></video>
             @endpersist
@@ -51,7 +51,28 @@
 
    
 
-
+<script>
+    var swiper = new Swiper(".swiper", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    speed: 900,
+    slidesPerGroup: 4,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: true,
+    },
+    loopFillGroupWithBlank: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
    
 </body>
 </html>
