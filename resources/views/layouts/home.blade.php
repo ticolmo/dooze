@@ -50,10 +50,7 @@
     @yield('content') {{-- Attention 2 div à fermer en fin de fichier content--}}
 
    
-<script
-    type="module"
-    src="https://widgets.api-sports.io/2.0.3/widgets.js">
-</script>
+
 
    
 </body>

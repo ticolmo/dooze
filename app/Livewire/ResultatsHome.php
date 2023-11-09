@@ -24,7 +24,7 @@ class ResultatsHome extends Component
 
     
 
-    /* public function placeholder()
+  public function placeholder()
     {
         return <<<'HTML'
         <div>
@@ -32,7 +32,7 @@ class ResultatsHome extends Component
             <div> Chargement ... </div>
         </div>
         HTML;
-    } */
+    }
     
 
     public function render()

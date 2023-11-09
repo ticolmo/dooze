@@ -44,9 +44,14 @@ class ApifootballPageHome
             $response = $this->header()->get("https://v3.football.api-sports.io/fixtures",[
             'season' => 2023,
             'date' => $this->datechoisie
-            ]);       
-
+            ]);                 
+ 
             $rencontres = $response->json();  
+
+            $error = $rencontres['errors'];
+            if(!empty($error)) {
+                die;
+            };
             
             $matchsdujour = [];
             foreach ($rencontres['response'] as $match){               

@@ -17,7 +17,7 @@
 
 <h4>Résultats</h4>
 
-<livewire:resultats-home :$timezone />
+<livewire:resultats-home :$timezone  />
 
 {{-- </div> --}}
 
