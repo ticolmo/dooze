@@ -119,6 +119,6 @@
       </form>
     </main>
   
-</div>
+
 
 @endsection

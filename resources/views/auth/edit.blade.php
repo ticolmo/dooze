@@ -7,7 +7,7 @@
       <div style="margin-bottom:30px"><a href="{{route('profil')}}">Retour à ton profil</a></div>
       
        <h1 class="h4 mb-3 fw-normal">Modification de ton compte</h1>
-   {{-- MESSAGE DE SUCCESS OU D'ERREUR  --}}
+      {{-- MESSAGE DE SUCCESS OU D'ERREUR  --}}
        @if (session()->get('status') == 'profile-information-updated')
        <div class="alert alert-success">Les modifications ont été effectuées. </div>
       @endif
@@ -136,7 +136,6 @@
 
 
     </main>
-  </div>
-</div>
+ 
 
 @endsection

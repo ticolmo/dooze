@@ -39,15 +39,18 @@
   
     <div id="accueil">
 
-        <div id="vid1" style="background-color: black">
-            @persist('video')
-            <video id="myvideo"src="{{Storage::url('videos/Video1.mp4')}}" autoplay loop muted disablePictureInPicture></video>
-            @endpersist
-        </div>
-        <div id="connect1">
+      <div id="vid1" style="background-color: black">
+          @persist('video')
+          <video id="myvideo"src="{{Storage::url('videos/Video1.mp4')}}" autoplay loop muted disablePictureInPicture></video>
+          @endpersist
+      </div>
+      <div id="connect1">
 
-    @include('partials.navbarhome')          
-    @yield('content') {{-- Attention 2 div à fermer en fin de fichier content--}}
+        @include('partials.navbarhome')          
+        @yield('content') 
+
+      </div>
+    </div>
 
    
 

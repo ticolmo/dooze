@@ -102,6 +102,5 @@
       </form>
     </main>
   
-</div>
 
 @endsection
