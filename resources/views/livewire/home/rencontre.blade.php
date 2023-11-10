@@ -1,8 +1,11 @@
 <div>
+    <div wire:loading> 
+        Saving post...
+    </div>
     @php
     date_default_timezone_set($timezone)
     @endphp
-
+    {{$timezone}}
     @if (isset($matchsdujour))
         @foreach ($matchsdujour as $competition)             
         @if ($competition!=null)     
@@ -49,7 +52,7 @@
                 </div>                      
                     @if ($matchencours || $matchfini)
                     {{-- <x-modals.detail-rencontre :idrencontre="$rencontre['fixture']['id']"/>    --}}  
-                    <livewire:home.detail-rencontre :idrencontre="$rencontre['fixture']['id']" wire:key={{$rencontre['fixture']['id']}} lazy />
+                    <livewire:home.detail-rencontre :idrencontre="$rencontre['fixture']['id']" wire:key="{{$rencontre['fixture']['id']}}" lazy />
 
                     @endif
                 <hr>

@@ -454,13 +454,13 @@ li {
         position: relative;
        
     } 
-    .propositionHoraire{
+    /* .propositionHoraire{
         position: absolute;
         z-index: 5;    
         width: 100%;
         height: auto; 
         
-    }
+    } */
 
     .form-floating {
         margin-bottom: 1em;

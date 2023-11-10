@@ -1,5 +1,9 @@
-<!-- Modal -->
-<div class="modal fade" id="rencontre{{$idrencontre}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div>
+  <div wire:loading> 
+      Saving post...
+  </div>
+    <!-- Modal -->
+  <div class="modal fade" id="rencontre{{$idrencontre}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl" >
       <div class="modal-content">
         <div class="modal-header" style="border-bottom:none!important">
@@ -20,5 +24,4 @@
     </div>
   </div>
 
- 
-  
+</div>

@@ -4,9 +4,11 @@ namespace App\Livewire\Home;
 
 use Livewire\Component;
 use App\Api\ScoresPageHome;
+use Livewire\Attributes\Reactive;
 
 class Rencontre extends Component
 {
+    #[Reactive] 
     public $timezone;
     public $matchsdujour;
     public $choicedate;
@@ -18,15 +20,7 @@ class Rencontre extends Component
        
     }
 
-    public function placeholder()
-    {
-        return <<<'HTML'
-        <div>
-            <!-- Loading spinner... -->
-            <svg>...Chargement.. </svg>
-        </div>
-        HTML;
-    }
+    
  
 
 
