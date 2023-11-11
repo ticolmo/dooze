@@ -31,6 +31,7 @@ class Resultats extends Component
     public function changeTimezone($fuseau)
     {
         $this->timezone = $fuseau;
+        app('request')->session()->put('timezone', "$fuseau");
         
     }
 

@@ -11,11 +11,17 @@ use Torann\GeoIP\Facades\GeoIP;
 class HomeClubController extends Controller
 {   
 
-    private function getTimezone()
-    {
-        $ip = app('request')->ip();        
-        $location = GeoIP::getLocation($ip); 
-        $timezone = $location["timezone"];       
+    private function getTimezone(Request $request)
+    {   
+        if ($request->session()->has('timezone')) {
+            $timezone = $request->session()->get('timezone');
+        }else{
+            $ip = $request->ip();        
+            $location = GeoIP::getLocation($ip); 
+            $fuseau = $location["timezone"]; 
+            $timezone = $fuseau;
+        }
+              
        
         return $timezone;
     }
@@ -25,23 +31,17 @@ class HomeClubController extends Controller
     public function home(Request $request){       
            
         $listeclub = Club::where('en_ligne',true)->select(['nom','url','site_officiel'])->orderBy('nom')->get();
-        $query = $request->fuseau;
-        if (!empty($query)) {
-            $fuseau = $query;
-           
-        }else{
-            $fuseau = $this->getTimezone();
-        }
+        $timezone = $this->getTimezone($request);
 
         return view('home',[
             'listeclub'=> $listeclub,
-            'timezone' => $fuseau 
+            'timezone' => $timezone
         ]);
     }
 
-    public function club($club, ?string $feature = null){
+    public function club(Request $request, $club, ?string $feature = null){
         $choixclub = Club::where('url', $club )->firstOrFail(); 
-        
+        $timezone = $this->getTimezone($request);
         if (isset($feature))
         {
             dd($feature);
@@ -49,7 +49,7 @@ class HomeClubController extends Controller
          
         return view('club',[
             'club'=> $choixclub,  
-            'timezone' => $this->getTimezone()           
+            'timezone' => $timezone         
             
         ]);
 
