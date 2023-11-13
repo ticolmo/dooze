@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Club;
-use Ramsey\Uuid\Uuid;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Torann\GeoIP\Facades\GeoIP;
 
 class HomeClubController extends Controller

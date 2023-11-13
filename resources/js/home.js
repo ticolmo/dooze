@@ -73,23 +73,6 @@ $("#choose1").on("keyup", function() {
   });
 });
 
-//-------  Lecture de la video en page d'acceuil sans interruption de page en page
-
-/* // Obtenir l'élément vidéo
-var myVideo = document.getElementById("myvideo");
-
-// Ajouter un événement pour enregistrer l'instant de lecture dans un cookie à chaque changement de l'instant de lecture
-myVideo.addEventListener('timeupdate', function() {
-  Cookies.set('currentTime', myVideo.currentTime);
-});
-
-// Ajouter un événement pour récupérer l'instant de lecture stocké dans le cookie lors du chargement de la page
-window.addEventListener('load', function() {
-  var currentTime = Cookies.get('currentTime');
-  if (currentTime) {
-    myVideo.currentTime = currentTime;
-  }
-}); */
 
 // Sélection groupée des messages à supprimer (à ne pas placer après code js auth.edit)
 $('#master-checkboxrep').change(function() {
