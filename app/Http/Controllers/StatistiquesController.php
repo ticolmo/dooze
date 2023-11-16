@@ -30,7 +30,10 @@ class StatistiquesController extends Controller
             $show = false;
             $journee = $request->name;
         }
-
+        
+        $nameCompetition = $classement['0']['league']['name'];
+        $meilleursButeurs = $competitionConfirmed->getMeilleursButeurs();
+        
         
         return view('statistiques',[
             'show' => $show,
@@ -38,6 +41,9 @@ class StatistiquesController extends Controller
             'journee' => $journee,            
             'listeJournee' => $listeJournee,            
             'codeCompetition' => $codeCompetition,
+            'nameCompetition' => $nameCompetition,
+            'meilleursButeurs' => $meilleursButeurs,
+
         ]);
     }
     

@@ -16,6 +16,7 @@ class Journee extends Component
         $this->journee = $journee; 
         $data = new JourneePageStatistiques();
         $this->matchs = $data->getListeMatchs($journee, $codeCompetition);
+       
     }
     public function render()
     {

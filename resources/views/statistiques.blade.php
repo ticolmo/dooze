@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+{{$nameCompetition}}
+@endsection
+
 @section('content')
 
     <div id="pageStats">
@@ -63,10 +67,11 @@
                                     'active' => !$show,
                             ])
                         id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-                        <livewire:statistiques.journee :$journee :$codeCompetition />
+                        <livewire:statistiques.journee :$journee :$codeCompetition /> 
                     </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
 
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+                        <x-statistiques.buteurs :$meilleursButeurs>  </x-statistiques.buteurs>
                     </div>
                     
                   </div>

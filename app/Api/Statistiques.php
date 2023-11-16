@@ -141,7 +141,7 @@ class Statistiques
             ]);                 
  
             $data = $response->json();
-            $journee = $data['response'];
+            $journee = $data['response']['0'];
             return $journee;
     }
 
@@ -151,6 +151,18 @@ class Statistiques
             'league' => $this->getCodeCompetition(),
             'season' => 2023,
             'current' => 'false'
+            ]);                 
+ 
+            $data = $response->json();
+            $liste = $data['response'];
+            return $liste;
+    }
+
+    public function getMeilleursButeurs()
+    {
+        $response = $this->apifootball()->header()->get("https://v3.football.api-sports.io/players/topscorers",[
+            'league' => $this->getCodeCompetition(),
+            'season' => 2023
             ]);                 
  
             $data = $response->json();
