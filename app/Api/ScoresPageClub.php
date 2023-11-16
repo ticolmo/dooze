@@ -2,13 +2,13 @@
 
 namespace App\Api;
 
-use App\Api\Apifootball;
+use App\Api\ApiFootball;
 
 
 class ScoresPageClub{
 
 private function apifootball(){
-    $api = new Apifootball(); 
+    $api = new ApiFootball(); 
     return $api;
 }
 

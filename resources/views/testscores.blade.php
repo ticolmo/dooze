@@ -40,6 +40,19 @@ echo"<pre>";   */
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
+<style>
+  tbody tr:first-child{
+    display: none
+  }
+  
+  tbody tr td:nth-child(10){
+
+    display: none
+  }
+  tbody{
+    font-family :Georgia, 'Times New Roman', Times, serif
+  }
+</style>
 <body>
 
   @php
@@ -97,17 +110,17 @@ echo"<pre>";   */
      data-modal-show-logos="false">
 </div>  --}}
 <br>
-{{-- <div id="wg-api-football-standings"
+ <div id="wg-api-football-standings"
     data-host="v3.football.api-sports.io"
     data-key="dd8bf5fada55f6377910ef4ee79f7916"
     data-league="39"
     data-team=""
-    data-season="2022"
-    data-theme="false"
+    data-season="2023"
+    data-theme="gray"
     data-show-errors="false"
-    data-show-logos="false"
+    data-show-logos="true"
     class="wg_loader">
-</div> --}}
+</div> 
 {{--  <div id="wg-api-football-game"
     data-host="v3.football.api-sports.io"
     data-key="dd8bf5fada55f6377910ef4ee79f7916"
@@ -119,4 +132,8 @@ echo"<pre>";   */
 </div>  --}}
   
 </body>
+<script
+    type="module"
+    src="https://widgets.api-sports.io/2.0.3/widgets.js">
+</script>
 </html>

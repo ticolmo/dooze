@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 
 
-class ApifootballPageHome
+class ResultatsJour
 {   
     private $europeleague = [3,2,848,531,525];
     /* FA Cup supprimé */
@@ -29,19 +29,15 @@ class ApifootballPageHome
 			$this->datechoisie = $datechoisie;
     }
 
-    private function header(){
-        $response = Http::withHeaders([
-            'x-rapidapi-key' => 'dd8bf5fada55f6377910ef4ee79f7916',
-            'x-rapidapi-host' => 'v3.football.api-sports.io'
-        ]);
-        
-        return $response;
+    private function apifootball(){
+        $api = new Apifootball(); 
+        return $api;
     }
 
     private function apimatchs()
     {
         if ($this->apiresult === null){
-            $response = $this->header()->get("https://v3.football.api-sports.io/fixtures",[
+            $response = $this->apifootball()->header()->get("https://v3.football.api-sports.io/fixtures",[
             'season' => 2023,
             'date' => $this->datechoisie
             ]);                 

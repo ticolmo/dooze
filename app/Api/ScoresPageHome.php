@@ -2,11 +2,11 @@
 
 namespace App\Api;
 
-use App\Api\ApifootballPageHome;
+use App\Api\ResultatsJour;
 
 /* mise dans l'ordre des compétitions */
 
-class ScoresPageHome extends ApifootballPageHome
+class ScoresPageHome extends ResultatsJour
 {
     public function __construct($datechoisie){
         parent::__construct($datechoisie);        

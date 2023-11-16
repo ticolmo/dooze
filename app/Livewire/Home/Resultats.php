@@ -18,7 +18,7 @@ class Resultats extends Component
 
 
    
-    public function mount($timezone)
+    public function mount($timezone = null)
     {
         $this->timezone = $timezone; 
         $liste = new ListeTimezone();

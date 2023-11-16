@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Http;
 
 
 
-class Apifootball
+class ApiFootball
 {
-    private function header()
+    public function header()
     {
         $response = Http::withHeaders([
             'x-rapidapi-key' => 'dd8bf5fada55f6377910ef4ee79f7916',
@@ -93,61 +93,6 @@ class Apifootball
             return $tableau;
         }
         
-    }
-    public function getButeurs($idRencontre, int $idClub): array
-    {
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://v3.football.api-sports.io/fixtures/events?fixture=$idRencontre&team=$idClub&type=goal",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'GET',
-            CURLOPT_HTTPHEADER => array(
-                'x-rapidapi-key: dd8bf5fada55f6377910ef4ee79f7916',
-                'x-rapidapi-host: v3.football.api-sports.io'
-            ),
-        ));
-
-
-        $response = curl_exec($curl);;
-
-        $tableau = [];
-        $datas = json_decode($response, true);
-        /*  $type;
-        $extra; */
-        foreach ($datas['response'] as $data) {
-            //détail du but
-            if ($data['detail'] == 'Own Goal') {
-                $data['detail'] = "(csc)";
-                $type = $data['detail'];
-            } else if ($data['detail'] == 'Penalty') {
-                $data['detail'] = "(Pen)";
-                $type = $data['detail'];
-            } else {
-                $type = "";
-            };
-            //si but en temps additionnel
-            if ($data['time']['elapsed'] == 'null') {
-                $extra = "";
-            } else {
-                $extra = $data['time']['elapsed'];
-            }
-            $tableau = [
-                'buteur' => $data['player']['name'],
-                'type' => $type,
-                'minute' => $data['time']['elapsed'] . "'",
-                'extra' => $extra,
-
-            ];
-        };
-        curl_close($curl);
-
-        return $tableau;
     }
 
 
