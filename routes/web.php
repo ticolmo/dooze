@@ -1,11 +1,13 @@
 <?php
 
+use App\Models\Club;
+use App\Api\ListeCompetition;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeClubController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LangueController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\HomeClubController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ChoixclubController;
 use App\Http\Controllers\Live\LiveController;
@@ -16,6 +18,7 @@ use App\Http\Controllers\FormcontactController;
 use App\Http\Controllers\Live\ConfigController;
 use App\Http\Controllers\VerifyemailController;
 use App\Http\Controllers\ProfilpublicController;
+use App\Http\Controllers\StatistiquesController;
 use App\Http\Controllers\Live\ConnexionController;
 use App\Http\Controllers\Admin\AdminPostController;
 
@@ -161,7 +164,19 @@ Route::view('/donate', 'don')->name('don');
 
 /* Pages des clubs */
 
-Route::get('/{club}/{feature?}', [HomeClubController::class, 'club'])->name('club');
+Route::get('/{param}/{feature?}',  function (string $param) {  
+    $listCompet = new ListeCompetition();
+    $listeCompetition = $listCompet->getListeCompetition();    
+    $listeclub = Club::where('en_ligne',true)->select('url')->pluck('url')->toArray();
+    if (in_array($param, $listeclub)) {        
+        return app(HomeClubController::class)->club($param);
+    } elseif (in_array($param, $listeCompetition)) {
+        return app(StatistiquesController::class)->index($param);
+    } else {
+        abort(404);
+    };
+
+})->name('club');
 
 
    

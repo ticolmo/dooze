@@ -10,17 +10,10 @@ class StatistiquesController extends Controller
     public function index($competition, ?string $type = null)
     {   
         $request = app('request');
-        $listCompet = new ListeCompetition();
-        $listeCompetition = $listCompet->getListeCompetition();
-        $compet = $competition;
-        if(!in_array($compet, $listeCompetition))
-        {
-            abort(404);
-        };
         $show = true;
         $showClassement = true;        
 
-        $competitionConfirmed = new Statistiques($compet);
+        $competitionConfirmed = new Statistiques($competition);
         $codeCompetition = $competitionConfirmed->getCodeCompetition();
         $journee = $competitionConfirmed->getCurrentJournee();
         $listeJournee = $competitionConfirmed->getListeJournee();
