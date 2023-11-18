@@ -3,6 +3,7 @@
 namespace App\Livewire\Home;
 
 use Livewire\Component;
+use Livewire\Attributes\On;
 use App\Api\ListeTimezone;
 
 
@@ -24,14 +25,21 @@ class Resultats extends Component
         $liste = new ListeTimezone();
         $this->listeTimezone = $liste->getlist(); 
         $this->dateyesterday = date("Y-m-d", strtotime("-1 day"));
-        $this->datetoday = date("Y-m-d");
+        $this->datetoday = date("Y-m-d"); 
         $this->datetomorrow = date("Y-m-d", strtotime("+1 day"));        
-    }  
+    }
 
-    public function changeTimezone($fuseau)
+/* public function changeTimezone($fuseau)
     {
         $this->timezone = $fuseau;
         app('request')->session()->put('timezone', "$fuseau");
+        
+    }  */
+    #[On('listeDeroulante')]
+    public function changeTimezone($choix)
+    {
+        $this->timezone = $choix;
+        app('request')->session()->put('timezone', "$choix");
         
     }
 

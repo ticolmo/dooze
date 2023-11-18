@@ -9,15 +9,15 @@ use Illuminate\Support\Facades\Http;
 
 class ResultatsJour
 {   
-    private $europeleague = [3,2,848,531,525];
+    protected $europeleague = [3,2,848,531,525];
     /* FA Cup supprimé */
-    private $englandleague = [39,48,528,670,698,44]; 
-    private $spainleague = [140,142,143,556]; 
-    private $italyleague = [135,137,139,547]; 
-    private $germanyleague = [78,81,82,529,947]; 
-    private $franceleague = [61,64,66,526]; 
-    private $switzerlandleague = [207,209,739]; 
-    private $matchsamicauxcode = 667;
+    protected $englandleague = [39,48,528,670,698,44]; 
+    protected $spainleague = [140,142,143,556]; 
+    protected $italyleague = [135,137,139,547]; 
+    protected $germanyleague = [78,81,82,529,947]; 
+    protected $franceleague = [61,64,66,526]; 
+    protected $switzerlandleague = [207,209,739]; 
+    protected $matchsamicauxcode = 667;
 
     /* pour appeler qu'une seule fois l'API */
     private $apiresult = null;
@@ -214,6 +214,8 @@ class ResultatsJour
             return $matchsdujour['matchsamicaux'];
         }
     }
+
+    
 
     
 

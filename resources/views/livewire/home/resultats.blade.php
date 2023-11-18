@@ -1,6 +1,6 @@
 <div id="resultats" x-data="{ open: false}">  
     <div id="tableauScores">  
-      <div id="timezone">
+      {{-- <div id="timezone">
         <div>
           <div id="selectionHoraire" @click="open = ! open" > Fuseau horaire: {{$timezone}} </div>
           <div style="display:none" x-show="open" @click.outside="open = false">
@@ -16,7 +16,9 @@
           
           
         </div>     
-      </div>
+      </div> --}}
+
+      <livewire:features.liste-deroulante :selection="$timezone" :tableau="$listeTimezone"/>
 
      
       

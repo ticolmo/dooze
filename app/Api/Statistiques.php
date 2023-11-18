@@ -3,6 +3,7 @@
 namespace App\Api;
 
 use App\Api\ApiFootball;
+use App\Api\CompetitionsParPays;
 use Illuminate\Support\Facades\Http;
 
 
@@ -168,5 +169,35 @@ class Statistiques
             $data = $response->json();
             $liste = $data['response'];
             return $liste;
+    }
+
+    public function getCodeBackgroundImage()
+    {   
+        $code = null;
+        $pays = new CompetitionsParPays("2023-11-17");
+        if(in_array($this->getCodeCompetition(),$pays->getEurope())){
+            $code = "00";
+        }
+        if(in_array($this->getCodeCompetition(),$pays->getEngland())){
+            $code = "01";
+        }
+        if(in_array($this->getCodeCompetition(),$pays->getSpain())){
+            $code = "03";
+        }
+        if(in_array($this->getCodeCompetition(),$pays->getItaly())){
+            $code = "04";
+        }
+        if(in_array($this->getCodeCompetition(),$pays->getGermany())){
+            $code = "05";
+        }
+        if(in_array($this->getCodeCompetition(),$pays->getFrance())){
+            $code = "06";
+        }
+        if(in_array($this->getCodeCompetition(),$pays->getSwitzerland())){
+            $code = "07";
+        }      
+
+        return $code;
+      
     }
 }

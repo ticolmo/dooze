@@ -28,6 +28,11 @@
     @persist('navbar')
       @include('partials.navbar')
     @endpersist
+    <div wire:loading> 
+      <div class="spinner-border text-secondary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>          
+  </div>
 
   @yield('content')
 
