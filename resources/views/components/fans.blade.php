@@ -1,3 +1,9 @@
+<div wire:loading> 
+  <div class="spinner-border text-secondary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>          
+</div>
+
 {{-- SECTION FAN --}}
 <div class="cachesectionv1">
   <div></div>
