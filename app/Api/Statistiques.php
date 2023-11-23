@@ -182,19 +182,19 @@ class Statistiques
             $code = "01";
         }
         if(in_array($this->getCodeCompetition(),$pays->getSpain())){
-            $code = "03";
+            $code = "02";
         }
         if(in_array($this->getCodeCompetition(),$pays->getItaly())){
-            $code = "04";
+            $code = "03";
         }
         if(in_array($this->getCodeCompetition(),$pays->getGermany())){
-            $code = "05";
+            $code = "04";
         }
         if(in_array($this->getCodeCompetition(),$pays->getFrance())){
-            $code = "06";
+            $code = "05";
         }
         if(in_array($this->getCodeCompetition(),$pays->getSwitzerland())){
-            $code = "07";
+            $code = "06";
         }      
 
         return $code;

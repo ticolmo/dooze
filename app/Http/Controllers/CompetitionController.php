@@ -5,18 +5,26 @@ namespace App\Http\Controllers;
 use App\Api\Statistiques;
 use App\Api\ListeCompetition;
 
-class StatistiquesController extends Controller
+class CompetitionController extends Controller
 {
-    public function index($competition, ?string $type = null)
+    public function index( string $competition)
     {   
         $request = app('request');
         $show = true;
-        $showClassement = true;        
+        $showClassement = true;     
+        
+        $listCompet = new ListeCompetition();
+        $listeCompetition = $listCompet->getListeCompetition(); 
+        if (!in_array($competition, $listeCompetition)) {
+            abort(404);
+        };
+    
 
         $competitionConfirmed = new Statistiques($competition);
         $codeCompetition = $competitionConfirmed->getCodeCompetition();
         $journee = $competitionConfirmed->getCurrentJournee();
         $listeJournee = $competitionConfirmed->getListeJournee();
+        $codeBackgroundImage = $competitionConfirmed->getCodeBackgroundImage();
         
         /* si un classement pour cette compétition existe */
         $classement = $competitionConfirmed->issetClassement();
@@ -42,6 +50,7 @@ class StatistiquesController extends Controller
             'listeJournee' => $listeJournee,            
             'codeCompetition' => $codeCompetition,
             'nameCompetition' => $nameCompetition,
+            'codeBackgroundImage' => $codeBackgroundImage,
             'meilleursButeurs' => $meilleursButeurs,
 
         ]);

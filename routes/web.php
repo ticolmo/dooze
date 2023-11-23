@@ -14,11 +14,11 @@ use App\Http\Controllers\Live\LiveController;
 use App\Http\Controllers\RencontreController;
 use App\Http\Controllers\MessagerieController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\FormcontactController;
 use App\Http\Controllers\Live\ConfigController;
 use App\Http\Controllers\VerifyemailController;
 use App\Http\Controllers\ProfilpublicController;
-use App\Http\Controllers\StatistiquesController;
 use App\Http\Controllers\Live\ConnexionController;
 use App\Http\Controllers\Admin\AdminPostController;
 
@@ -33,15 +33,25 @@ use App\Http\Controllers\Admin\AdminPostController;
 |
 */
 
+/* Pages des clubs */
+Route::domain('{club}.localhost')->group(function () {
+    Route::get('/', [HomeClubController::class, 'club'])->name('club');;
+}); 
+
+/* Accueil */
+
+Route::get('/', [HomeClubController::class, 'home'])->name('home');
+
+
 /* Choix de langue */
 
 Route::get('/choice-language/{choice}', [LangueController::class, 'choice'])->name('choicelanguage');
 
 Route::view('/scores', 'testscores');
 
-/* Accueil */
 
-Route::get('/', [HomeClubController::class, 'home'])->name('home');
+
+
 
 /* Premières étapes de la création de compte */
 
@@ -162,21 +172,12 @@ Route::get('/detailrencontre/{id}', RencontreController::class)->name('detailren
 
 Route::view('/donate', 'don')->name('don');
 
-/* Pages des clubs */
+/* Compétitions */
 
-Route::get('/{param}/{feature?}',  function (string $param) {  
-    $listCompet = new ListeCompetition();
-    $listeCompetition = $listCompet->getListeCompetition();    
-    $listeclub = Club::where('en_ligne',true)->select('url')->pluck('url')->toArray();
-    if (in_array($param, $listeclub)) {        
-        return app(HomeClubController::class)->club($param);
-    } elseif (in_array($param, $listeCompetition)) {
-        return app(StatistiquesController::class)->index($param);
-    } else {
-        abort(404);
-    };
+Route::get('/{competition}', [CompetitionController::class, 'index']);
 
-})->name('club');
+
+
 
 
    

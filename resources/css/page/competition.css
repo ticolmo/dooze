@@ -1,0 +1,23 @@
+
+
+/******************************************************/
+/* Tablette - Desktop */
+@media screen and (min-width:768px) {
+
+    #pageCompetition {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        grid-template-rows: 100%;
+        height: 100%;
+
+    }
+
+    #logoCompetition{
+        height: 20%;
+    }
+    #logoCompetition img{
+        width: auto;
+        height: 100%;
+    }
+
+}

@@ -37,15 +37,10 @@ class HomeClubController extends Controller
         ]);
     }
 
-    public function club($club, ?string $feature = null){
-        $request = app('request');
+    public function club(Request $request, string $club){        
         $choixclub = Club::where('url', $club )->firstOrFail(); 
         $timezone = $this->getTimezone($request);
-        if (isset($feature))
-        {
-            dd($feature);
-        }
-         
+     
         return view('club',[
             'club'=> $choixclub,  
             'timezone' => $timezone         
