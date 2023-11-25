@@ -1,4 +1,7 @@
 <div>
+    @section('section')
+    Meilleurs Buteurs
+    @endsection
     @php
         $rang =  0;
         $nbButDuPrecedant = null;

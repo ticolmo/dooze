@@ -1,4 +1,8 @@
 <div>
+
+    @section('section')
+    {{$journee}}
+    @endsection
     
     @foreach ($matchs as $rencontre)
         @php
