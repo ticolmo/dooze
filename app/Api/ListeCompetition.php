@@ -4,8 +4,8 @@ namespace App\Api;
 
 class ListeCompetition 
 {
-    public function getListeCompetition() {
-        $listeCompetitions = array(
+    public function getUrl() {
+        $listeCompetitions = [
             'champions-league',
             'europa-league',
             'conference-league',
@@ -37,7 +37,45 @@ class ListeCompetition
             'super-league',
             'coupe-suisse',
             'super-league-w',
-        );
+        ];
+
+        return $listeCompetitions;
+    }
+
+    public function getIntitule(){
+        $listeCompetitions = [
+            'Champions League',
+            'Europa League',
+            'Conference League',
+            'UEFA Super Cup',
+            'Champions League W',
+            'Premier League',
+            'League Cup',
+            'Community Shield',
+            'Community Shield W',
+            'FA Womens Cup',
+            'FA WSL',
+            'Liga',
+            'Primera Division F',
+            'Copa del Rey',
+            'Super Cup Espana',
+            'Serie A',
+            'Coppa Italia',
+            'Serie A F',
+            'Super Cup Italia',
+            'Bundesliga',
+            'DFB Pokal',
+            'Frauen Bundesliga',
+            'Super Cup Deutschland',
+            'DFB Pokal F',
+            'Ligue 1',
+            'Division 1 F',
+            'Coupe de France',
+            'Trophee des Champions',
+            'Super League',
+            'Coupe Suisse',
+            'Super League W'
+            ];
 
         return $listeCompetitions;
     }

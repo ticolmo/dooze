@@ -43,6 +43,6 @@
 
 <audio id="chant" src="{{Storage::url('audio/'.$club->nom.' Audio.mp3')}}" autoplay controls></audio>
 
-<livewire:club.page :flux="$club->flux_rss_blogs" :nom="$club->nom" :idclub="$club->id_club"/>
+<livewire:club.index :flux="$club->flux_rss_blogs" :nom="$club->nom" :idclub="$club->id_club"/>
 
 @endsection

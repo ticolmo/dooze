@@ -14,7 +14,7 @@ class CompetitionController extends Controller
         $showClassement = true;     
         
         $listCompet = new ListeCompetition();
-        $listeCompetition = $listCompet->getListeCompetition(); 
+        $listeCompetition = $listCompet->getUrl(); 
         if (!in_array($competition, $listeCompetition)) {
             abort(404);
         };
@@ -22,8 +22,6 @@ class CompetitionController extends Controller
 
         $competitionConfirmed = new Statistiques($competition);
         $codeCompetition = $competitionConfirmed->getCodeCompetition();
-        $journee = $competitionConfirmed->getCurrentJournee();
-        $listeJournee = $competitionConfirmed->getListeJournee();
         $codeBackgroundImage = $competitionConfirmed->getCodeBackgroundImage();
         
         /* si un classement pour cette compétition existe */
@@ -34,24 +32,23 @@ class CompetitionController extends Controller
             $showClassement = false; 
         }
         /* si le paramètre journée est présent dans la requête */
-        if (isset($type) && $type == "round" && $request->has('name') && in_array($request->name, $listeJournee)){
+      /*   if (isset($type) && $type == "round" && $request->has('name') && in_array($request->name, $listeJournee)){
             $show = false;
             $journee = $request->name;
-        }
+        } */
         
         $nameCompetition = $classement['0']['league']['name'];
-        $meilleursButeurs = $competitionConfirmed->getMeilleursButeurs();
         
         
-        return view('statistiques',[
+        
+        return view('competition',[
             'show' => $show,
-            'showClassement' => $showClassement,            
-            'journee' => $journee,            
-            'listeJournee' => $listeJournee,            
+            'showClassement' => $showClassement,           
             'codeCompetition' => $codeCompetition,
             'nameCompetition' => $nameCompetition,
             'codeBackgroundImage' => $codeBackgroundImage,
-            'meilleursButeurs' => $meilleursButeurs,
+            'competition' => $competition
+
 
         ]);
     }
