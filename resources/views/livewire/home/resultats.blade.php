@@ -35,16 +35,13 @@
       </ul>
   
       <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-          {{-- <x-scores.scoreshome :choicedate="$dateyesterday" > {{$timezone}} </x-scores.scoreshome>     --}}    
+        <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">          
           <livewire:home.rencontre :choicedate="$dateyesterday" :$timezone lazy="on-load"  />
         </div>
-        <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-          {{-- <x-scores.scoreshome :choicedate="$datetoday" >{{$timezone}} </x-scores.scoreshome>  --}}
+        <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">          
           <livewire:home.rencontre :choicedate="$datetoday" :$timezone/>
         </div>
-        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-          {{-- <x-scores.scoreshome :choicedate="$datetomorrow" >{{$timezone}} </x-scores.scoreshome>  --}}
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">         
           <livewire:home.rencontre :choicedate="$datetomorrow" :$timezone lazy="on-load" />
         </div>
       </div> 

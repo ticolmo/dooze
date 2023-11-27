@@ -166,7 +166,7 @@ Route::prefix('live')->name('live.')->group(function () {
 Route::get('/features/{idpublication}', [FeatureController::class, 'commentaireunique'])->name('commentaire.pleinepage');
 
 // Détail du match
-Route::get('/detailrencontre/{id}', RencontreController::class)->name('detailrencontre');
+Route::get('/match/{id}', RencontreController::class)->name('detailrencontre');
 
 /* Page Don */
 

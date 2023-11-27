@@ -1,37 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
+@extends('layouts.app')
+
+@section('content')
+
+    <div id="pageRencontre">
+        <div>
+            <img src="{{ Storage::url('divers/rencontre.jpg') }}" alt="" style="position:fixed;z-index:-1;width:auto; height: 100%;transform: translatex(-30%)">
+        </div>
+        <div 
+            id="wg-api-football-game"
+            data-host="v3.football.api-sports.io"
+            data-key="dd8bf5fada55f6377910ef4ee79f7916"
+            data-id="{{$id}}"
+            data-theme="gray"
+            data-refresh="0"
+            data-show-errors="false"
+            data-show-logos="true"
+            style="background-color: white"
+            >
+        </div> 
+
+
+    </div>
+
     
-</head>
-<body>
-    <div id="wg-api-football-game"
-    data-host="v3.football.api-sports.io"
-    data-key="dd8bf5fada55f6377910ef4ee79f7916"
-    data-id=""
-    data-theme="gray"
-    data-refresh="0"
-    data-show-errors="false"
-    data-show-logos="true">
-    </div> 
-<script>        
-      
-      let standings = document.getElementById('wg-api-football-game')
-      var id = {{$id}};
-        // console.log(id); 1104957
-      
-      standings.setAttribute('data-id', id)
-      
-      
-</script>
+
 <script
     type="module"
     src="https://widgets.api-sports.io/2.0.3/widgets.js">
 </script>
 
+@endsection
 
 
 

@@ -20,6 +20,12 @@ class Rencontre extends Component
        
     }
 
+    public function redirectDetailRencontre($idRencontre){
+
+        $this->redirectRoute('detailrencontre', ['id' => $idRencontre]);
+
+    }
+
     
  
 

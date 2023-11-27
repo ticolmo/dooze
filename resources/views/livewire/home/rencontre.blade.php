@@ -29,7 +29,11 @@
                     }
                 @endphp            
 
-                <div  @if ($matchencours || $matchfini) data-bs-toggle="modal" data-bs-target="#rencontre{{$rencontre['fixture']['id']}}" @endif>             
+                <div  
+                    @if ($matchencours || $matchfini) 
+                     wire:click="redirectDetailRencontre({{$rencontre['fixture']['id']}})"
+                    @endif
+                >             
                     <div class="rencontres">
                     <span> {{$rencontre['teams']['home']['name']}}</span>                  
                     <span>                   
@@ -52,11 +56,7 @@
                     </div>
                     @endif
                 </div>                      
-                    @if ($matchencours || $matchfini)
-                    {{-- <x-modals.detail-rencontre :idrencontre="$rencontre['fixture']['id']"/>    --}}  
-                    <livewire:home.detail-rencontre :idrencontre="$rencontre['fixture']['id']" wire:key="{{$rencontre['fixture']['id']}}" lazy />
-
-                    @endif
+                  
                 <hr>
                 @endforeach
                 <div class="bottomcompet"></div>
