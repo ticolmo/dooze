@@ -4,6 +4,7 @@ namespace App\Api;
 
 class ListeCompetition 
 {
+    /* en cas de changement ne pas oublier de changer les urls dans Api/Statistiques */
     public function getUrl() {
         $listeCompetitions = [
             'champions-league',
@@ -78,5 +79,106 @@ class ListeCompetition
             ];
 
         return $listeCompetitions;
+    }
+
+    public function setIntituleInUrl($intitule){
+        $url = null;
+        switch ($intitule) {
+            case 'Champions League':
+                $url = 'champions-league';
+                break;
+            case 'Europa League':
+                $url = 'europa-league';
+                break;
+            case 'Conference League':
+                $url = 'conference-league';
+                break;
+            case 'UEFA Super Cup':
+                $url = 'uefa-super-cup';
+                break;
+            case 'Champions League W':
+                $url = 'champions-league-w';
+                break;
+            case 'Premier League':
+                $url = 'premier-league';
+                break;
+            case 'League Cup':
+                $url = 'league-cup';
+                break;
+            case 'Community Shield':
+                $url = 'community-shield';
+                break;
+            case 'Community Shield W':
+                $url = 'community-shield-w';
+                break;
+            case 'FA Womens Cup':
+                $url = 'fa-womens-cup';
+                break;
+            case 'FA WSL':
+                $url = 'fawsl';
+                break;
+            case 'Liga':
+                $url = 'liga';
+                break;
+            case 'Primera Division F':
+                $url = 'primera-division-f';
+                break;
+            case 'Copa del Rey':
+                $url = 'copa-del-rey';
+                break;
+            case 'Super Cup Espana':
+                $url = 'super-cup-espana';
+                break;
+            case 'Serie A':
+                $url = 'seria-a';
+                break;
+            case 'Coppa Italia':
+                $url = 'coppa-italia';
+                break;
+            case 'Serie A F':
+                $url = 'seria-a-f';
+                break;
+            case 'Super Cup Italia':
+                $url = 'super-cup-italia';
+                break;
+            case 'Bundesliga':
+                $url = 'bundesliga';
+                break;
+            case 'DFB Pokal':
+                $url = 'dfb-pokal';
+                break;
+            case 'Frauen Bundesliga':
+                $url = 'frauen-bundesliga';
+                break;
+            case 'Super Cup Deutschland':
+                $url = 'super-cup-deutschland';
+                break;
+            case 'DFB Pokal F':
+                $url = 'dfb-pokal-f';
+                break;
+            case 'Ligue 1':
+                $url = 'ligue-1';
+                break;
+            case 'Division 1 F':
+                $url = 'division-1-f';
+                break;
+            case 'Coupe de France':
+                $url = 'coupe-de-france';
+                break;
+            case 'Trophee des Champions':
+                $url = 'trophee-des-champions';
+                break;
+            case 'Super League':
+                $url = 'super-league';
+                break;
+            case 'Coupe Suisse':
+                $url = 'coupe-suisse';
+                break;
+            case 'Super League W':
+                $url = 'super-league-w';
+                break;
+        }
+
+        return $url;
     }
 }

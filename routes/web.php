@@ -174,7 +174,7 @@ Route::view('/donate', 'don')->name('don');
 
 /* Compétitions */
 
-Route::get('/{competition}', [CompetitionController::class, 'index']);
+Route::get('/{competition}', [CompetitionController::class, 'index'])->name('competition');
 
 
 

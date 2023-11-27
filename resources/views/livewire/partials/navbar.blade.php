@@ -1,4 +1,16 @@
-<nav class="navbar navbar-expand-lg bg-light entete fontsize16">
+<nav class="navbar navbar-expand-lg bg-light entete fontsize16"
+    x-data="{
+      search: '',
+
+      items: @entangle('recherches'),
+
+      get filteredItems() {
+          return this.items.filter(
+              i => i.toLowerCase().startsWith(this.search.toLowerCase())
+          )
+      }
+    }" wire:ignore
+>
     <div class="container-fluid">
       <a class="navbar-brand" href="http://dooze.test:8089/">Dooze</a>
    
@@ -9,15 +21,14 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
   
-          <li class="nav-item dropdown">
-            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Club / Competition">
-                <datalist id="datalistOptions">
-                    
-                    @foreach ($recherches as $recherche)
-                        <option value="{{$recherche}}"> 
-                    @endforeach
-                                   
-                </datalist>
+          <li class="nav-item dropdown recherche">
+            <input x-model="search" placeholder="Search...">
+ 
+            <ul x-show="search.length > 1" @click.outside="search = ''">
+                <template x-for="item in filteredItems" :key='item'>
+                    <li x-text="item" @click="$wire.redirectRecherche(item)"></li>
+                </template>
+            </ul>
           </li>
   
     
