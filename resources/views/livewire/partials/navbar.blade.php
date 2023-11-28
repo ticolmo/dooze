@@ -22,7 +22,7 @@
         <ul class="navbar-nav">
   
           <li class="nav-item dropdown recherche">
-            <input x-model="search" placeholder="Search...">
+            <input x-model="search" placeholder="Club / Compétition">
  
             <ul x-show="search.length > 1" @click.outside="search = ''">
                 <template x-for="item in filteredItems" :key='item'>

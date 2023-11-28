@@ -16,7 +16,7 @@
 {{-- Résultats: hier, aujourd'hui, demain --}}
 
 <h4>Résultats</h4>
-
+<div style="text-align: right"> Fuseau horaire: </div>
 <livewire:home.resultats :$timezone/>
 
 {{-- </div> --}}
@@ -44,7 +44,7 @@
     <div class="swiper">
       <div class="swiper-wrapper">
         @foreach ($listeclub as $club)
-        <div class="swiper-slide"><a href="http://dooze.test:8089/{{$club->url}}">{{$club->nom}}<img src="{{Storage::url('logos/'.$club->nom.'')}}.png" alt="{{$club->nom}}"></a></div>
+        <div class="swiper-slide"><a href="{{route('club', $club->url)}}">{{$club->nom}}<img src="{{Storage::url('logos/'.$club->nom.'')}}.png" alt="{{$club->nom}}"></a></div>
         @endforeach
       
       </div>
