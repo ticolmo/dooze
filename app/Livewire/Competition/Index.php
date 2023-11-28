@@ -11,6 +11,7 @@ class Index extends Component
     public $competition;
     public $codeCompetition;
     public $meilleursButeurs;
+    public $classement;
     #[Url]
     public $section = "";
 

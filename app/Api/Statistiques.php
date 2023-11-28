@@ -121,11 +121,11 @@ class Statistiques
     }
     
 
-    public function issetClassement()
+    public function getClassement()
     {
         $response = $this->apifootball()->header()->get("https://v3.football.api-sports.io/standings",[
             'league' => $this->getCodeCompetition(),
-            'season' => 2023
+            'season' => '2023'
             ]);                 
  
             $data = $response->json();

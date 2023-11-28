@@ -13,7 +13,7 @@
         </div>
         
         @if ($section == "standing" || $section == "")
-        <x-competition.classement> {{$codeCompetition}} </x-competition.classement>
+        <x-competition.classement :$classement />
         @endif
         @if ($section == "round")
         <livewire:competition.journee :$competition :$codeCompetition /> 

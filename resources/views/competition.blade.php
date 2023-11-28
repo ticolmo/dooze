@@ -25,7 +25,7 @@
             <div id="listeCompetition"> </div>   
             <div id="statistiques">                    
 
-               <livewire:competition.index :$codeCompetition :$competition/>            
+               <livewire:competition.index :$codeCompetition :$competition :$classement/>            
         
 
             </div>

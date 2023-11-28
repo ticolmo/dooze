@@ -22,11 +22,11 @@ class CompetitionController extends Controller
 
         $competitionConfirmed = new Statistiques($competition);
         $codeCompetition = $competitionConfirmed->getCodeCompetition();
-        $codeBackgroundImage = $competitionConfirmed->getCodeBackgroundImage();
+        $codeBackgroundImage = $competitionConfirmed->getCodeBackgroundImage();        
         
+        $classement = $competitionConfirmed->getClassement();
+
         /* si un classement pour cette compétition existe */
-        $classement = $competitionConfirmed->issetClassement();
-        
         if(empty($classement)){
             $show = false; 
             $showClassement = false; 
@@ -38,8 +38,8 @@ class CompetitionController extends Controller
         } */
         
         $nameCompetition = $classement['0']['league']['name'];
-        
-        
+        $standing = $classement['0']['league']['standings'];
+    
         
         return view('competition',[
             'show' => $show,
@@ -47,7 +47,8 @@ class CompetitionController extends Controller
             'codeCompetition' => $codeCompetition,
             'nameCompetition' => $nameCompetition,
             'codeBackgroundImage' => $codeBackgroundImage,
-            'competition' => $competition
+            'competition' => $competition,
+            'classement' => $standing
 
 
         ]);
