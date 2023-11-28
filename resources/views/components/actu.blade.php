@@ -1,4 +1,4 @@
-<div>  
+<div class="actublog">  
 @foreach ( $xml->channel as $channel )   
     @foreach  ( $channel->item as $item )
         <a href="{{ $item->link }}" class="blog" target="_blank">              
