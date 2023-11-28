@@ -1,16 +1,14 @@
 /******************************************************/
 /* Tablette - Desktop */
 @media screen and (min-width:768px) {
+    #selectionListe{
+       text-align:right; 
+    }   
 
-    #timezoneListe{
-        position:absolute;
-        z-index:10;
-        right:0;
+    #timezoneListe{        
         text-align:right;
-        background-color:white;
-        height: 350px;
-        overflow-y: scroll;
-        scrollbar-width: auto;
+        
+        right:0;
     }
 
 

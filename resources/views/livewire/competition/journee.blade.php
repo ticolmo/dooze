@@ -1,8 +1,11 @@
 <div>
 
-    @section('section')
+    @section('title')
     {{$journee}}
     @endsection
+
+    <div> Journée:</div>
+    <livewire:features.liste-deroulante :selection="$journee" :tableau="$listeJournee "/>
     
     @foreach ($matchs as $rencontre)
         @php
@@ -16,7 +19,11 @@
             }
         @endphp            
 
-        <div  @if ($matchencours || $matchfini) @endif>             
+        <div 
+            @if ($matchencours || $matchfini) 
+                wire:click="redirectDetailRencontre({{$rencontre['fixture']['id']}})"
+            @endif        
+        >             
             <div class="rencontres">
             <span> {{$rencontre['teams']['home']['name']}}</span>                  
             <span>                   
