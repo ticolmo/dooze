@@ -1,16 +1,15 @@
-<div>
-   
-    
+<div style="background-color: white"> 
 
-    <table>
+    
         @foreach ($classement as $index => $groupe)
                 @php                        
-                    $promotion = $groupe[$index]['description'];
+                    $promotion = $groupe['0']['description'];
+                    $intituleGroupe = $groupe['0']['group'];
                 @endphp
-            <tr>
-                <td colspan="12"> {{$groupe[$index]['group']}} </td>
-            </tr>
-
+            <table>
+                <tr>
+                    <td colspan="12">{{$intituleGroupe}}</td>
+                </tr>
               <tr>
                 <td colspan="3"> </td>
                 <td> J </td>
@@ -26,14 +25,11 @@
             @foreach ($groupe as $equipe)
                 @if ($promotion !== $equipe['description'])
                 <tr>
-                    <td colspan="12"style="width: 100%"> <hr class="classement"> </td>
+                    <td colspan="12"style="width: 100%"> <hr class="classementPromotion"> </td>
                 </tr>
                 
                 @endif
-                <tr>
-                   
-                    
-
+                <tr> 
                     <td> {{$equipe['rank']}} </td>
                     <td> <img src="{{$equipe['team']['logo']}}" alt="" width="500" height="500"/> </td>
                     <td> {{$equipe['team']['name']}} </td>
@@ -45,22 +41,20 @@
                     <td> - </td>
                     <td> {{$equipe['all']['goals']['against']}} </td>
                     <td> {{$equipe['goalsDiff']}} </td>
-                    <td> {{$equipe['points']}} </td>
-
-                   
-                </tr>
-
-                       
+                    <td> {{$equipe['points']}} </td>                   
+                </tr>                      
 
                 @php
-                    $intitule = "";
+                    $intitule = $equipe['group'];
                     $promotion = $equipe['description'];
                 @endphp
             @endforeach        
+            </table>
+            <br style="margin-bottom: 150px">
             
         @endforeach
 
-    </table>
+    
    
     
 </div>
