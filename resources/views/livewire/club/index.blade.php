@@ -17,7 +17,8 @@
             <x-actu :$flux :$nom />
         @endif
         @if ($section == "fans")
-            <x-fans :$idclub /> 
+            {{-- <x-fans :$idclub /> --}}
+            <livewire:club.fans :$idclub > 
         @endif
         
         @if ($section == "live")

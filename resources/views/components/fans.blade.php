@@ -56,10 +56,19 @@
           <div class="alert alert-success w-50 m-auto text-center"> Merci pour le signalement de ce commentaire ! Il sera traité dans les meilleurs délais.</div>
         @endif
       @endauth
-   
+      
 
     {{-- affichage des commentaire des fans du club --}}
-    @foreach ($commentaireclub as $commentaire)
+    @foreach ($commentaireclubs as $commentaireclub)
+   
+      @php
+      
+          $model = new App\Models\Commentaireclub;
+          $test = $commentaireclub->id;
+          $commentaire = $model->with('reponse.user', 'reponse.publication', 'user', 'publication')
+                        ->withCount('reponse')
+                        ->find($test);
+      @endphp
       <div class="comments principcomments pagi">
 
         <div> 
@@ -167,7 +176,7 @@
       
     @endforeach
 
-    
+    {{ $commentaireclubs->links() }}
     
     
   </div>

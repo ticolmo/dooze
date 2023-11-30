@@ -22,7 +22,7 @@ class Fans extends Component
 
     public function commentaireclub(){
         
-        $commentaireclub = Commentaireclub::where('club_id', $this->idclub)->with('reponse.user','reponse.publication','user','publication')->withCount('reponse')->latest()->get();        
+        $commentaireclub = Commentaireclub::where('club_id', $this->idclub)->latest()->paginate(10);        
         
         return $commentaireclub;
     }
@@ -41,7 +41,7 @@ class Fans extends Component
     public function render(): View|Closure|string
     {
         return view('components.fans',[
-            'commentaireclub' => $this->commentaireclub(),
+            'commentaireclubs' => $this->commentaireclub(),
             'commentairevisiteur' => $this->commentairevisiteur(),
             
             
