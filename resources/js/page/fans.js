@@ -17,7 +17,7 @@ $(document).ready(function () {
              // Convertir le shortcode en emoji Twemoji
         /* balise image emoji twitter */
         const emojiHTML = twemoji.parse(emoji.native);  
-        inputElement.value += emojiHTML;
+        /* inputElement.value += emojiHTML; */
         /* création d'une nouvelle balise img */
         const img = document.createElement('img');
         /* insertion de la balise image emoji twitter dans la nouvelle balise img*/
@@ -79,5 +79,9 @@ $(document).ready(function () {
     
       const label = document.getElementById('selectEmoji');
       label.appendChild(picker);
+
+
     
     })
+
+    

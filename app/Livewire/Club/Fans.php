@@ -9,7 +9,7 @@ use App\Models\Commentairevisiteur;
 class Fans extends Component
 {
     public $idclub;
-    public $page = 6;
+    public $page = 2;
 
     public function pagination(){
         $this->page = $this->page + 6;

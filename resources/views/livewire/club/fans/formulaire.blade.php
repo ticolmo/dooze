@@ -1,13 +1,17 @@
 <div 
     {{-- affichage boite emoji --}}
-    x-data="{open : false }">
+    x-data="{emoji : false, lieu : false }">
 
 <form  action="{{route('post.commentaireclub')}}" id="commentaireclub" method="post" enctype='multipart/form-data'>
     @csrf
 
     <div>
-      <input type="text" id="floatingInput" class="mart form-control" placeholder="Quoi de neuf ?" name="contenu" />
-      <div id="previewCommentaire"contenteditable="true" role="textbox" ></div>
+        <span>Utilisateur</span> <span> à</span> <input x-show="lieu" name="lieu"/>
+    </div>
+
+    <div>
+      <input type="text" id="commentaireInput" class="mart form-control" placeholder="Quoi de neuf ?" name="contenu"  />
+      <div id="previewCommentaire" role="textbox" contenteditable="true"></div>
     </div> 
 
     <input type="file" id="fileInput" name="media"/>
@@ -20,19 +24,19 @@
     {{-- <img class="emoji" draggable="false" alt="😀" src="https://twemoji.maxcdn.com/v/14.0.2/72x72/1f600.png"/> --}}
       
     <div class="text-center submit">
-        {{-- Pièces jointes --}}
+        {{-- Pièces jointes et ajout --}}
       <label class="image"for="fileInput"><img src="{{Storage::url('divers/media-icon.png')}}" alt="" style="width:auto;height:25px"></label>      
       <label for=""> <img src="{{Storage::url('divers/gif.png')}}" alt="" style="width:auto;height:27.5px"></label>
-      <label for="" id="emoji" > <img src="{{Storage::url('divers/emoji-icon.png')}}" alt="" style="width:auto;height:25px" @click="open = ! open" ></label>
-      <label><img src="{{Storage::url('divers/localisation.png')}}" alt="" style="width:auto;height:25px"></label>
+      <label for="" id="emoji" > <img src="{{Storage::url('divers/emoji-icon.png')}}" alt="" style="width:auto;height:25px" @click="emoji = ! emoji" ></label>
+      <label><img src="{{Storage::url('divers/localisation.png')}}" alt="" style="width:auto;height:25px" @click="lieu = ! lieu"></label>
 
-     
+      <div class="btn btn-outline-secondary soumettre" @click="soumission()">Publier</div>     
     
 
         {{-- Bouton de soumission --}}
         @auth
             @if (auth()->user()->club_id == $idclub)            
-                <button class="btn btn-outline-secondary soumettre" type="submit">Publier</button>          
+                <button class="btn btn-outline-secondary soumettre" @click="soumission">Publier</button>          
             @else
             {{-- si fan autre club --}}            
                 @php
@@ -60,8 +64,21 @@
         @endguest
     </div> 
     {{-- Selection Emoji --}}
-    <div id="selectEmoji" x-show="open" @click.outside="open = false"></div>
+    <div id="selectEmoji" x-show="emoji" @click.outside="emoji = false"></div>
   </form> 
+  <script>
+    /* soumission du formulaire */
+    function soumission() {
+      var divContent = document.getElementById('previewCommentaire').innerHTML;
 
+      // Ajouter le contenu de la div à un champ de formulaire invisible
+      var hiddenInput = document.getElementById('commentaireInput');
+      hiddenInput.setAttribute('value', divContent);
+
+      console.log(hiddenInput)
+  
+      /*  $(form).submit(); */
+    }
+  </script>
   
 </div>
