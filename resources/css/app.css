@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
 @import './page/competition.css';
 @import './page/rencontre.css';
+@import './page/club/fans.css';
 
 * {
     box-sizing: border-box;
@@ -599,9 +600,6 @@ li {
 
     }
 
-    label.image {
-        transform: translateY(10%);
-    }
 
     .commentairecontenu {
         margin-bottom: 15px;

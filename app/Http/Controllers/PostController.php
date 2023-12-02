@@ -81,7 +81,8 @@ class PostController extends Controller
 
    $redirect = $reponse->club->url;
  
-   return redirect("$redirect#$reponse->id")->with('post', 'post');;
+   /* return redirect("$redirect#$reponse->id")->with('post', 'post');; */
+   return back()->with('post', 'post');;
 }
 
 public function storeCommentairevisiteur(Request $request): RedirectResponse

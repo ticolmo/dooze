@@ -1,0 +1,15 @@
+
+/******************************************************/
+/* Tablette - Desktop */
+@media screen and (min-width:768px) {
+    #commentaireclub{
+        position: relative;     
+    }
+    #selectEmoji {
+        position:absolute;
+        z-index: 10;
+        left: 25%;
+    }
+
+
+}

@@ -1,7 +1,7 @@
 <div>
     
     <div style="display: flex; height:50px; justify-content:center;column-gap:100px;">
-        <div wire:click="page('actu')">Actualité</div>
+        <div wire:click="page('news')">Actualité</div>
         <div wire:click="page('fans')">Fans</div>
         <div wire:click="page('live')">Live</div>
     </div>
@@ -13,7 +13,7 @@
             </div>          
         </div>
   
-        @if ($section == "actu" || $section == "")
+        @if ($section == "news" || $section == "")
             <x-actu :$flux :$nom />
         @endif
         @if ($section == "fans")

@@ -2,7 +2,7 @@
 
 
 @section('title')
-{{$club->nom }}
+{{$club->nom }} -
 @endsection
 
 

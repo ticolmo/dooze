@@ -1,4 +1,6 @@
-<div x-data="{ 
+<div 
+{{-- Ecouteur si fin de page --}}
+x-data="{ 
   isBottom: function() {
     const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
@@ -32,32 +34,15 @@
       
           
             {{-- La possibilité de laisser un COMMENTAIRE seulement pour les fans du club --}}
-            <form action="{{route('post.commentaireclub')}}" id="commentaireclub" method="post" enctype='multipart/form-data'>
-              @csrf
-              <div>
-                <input type="text" id="floatingInput" class="example3 form-control" placeholder="Quoi de neuf ?" name="contenu"/>
-              </div> 
+            <livewire:club.fans.formulaire :$idclub  />
+            
       
-              <input type="file" id="fileInput" name="media"/>
-              <div class="close">
-                <i class="bi bi-x-circle-fill"></i>
-              </div>
-              <div id="previewContainer"> 
-                <div id="telechargement"></div> 
-              </div>  
-                
-              <div class="text-center submit">
-                <label class="image"for="fileInput"><i class="bi bi-image" style="font-size: 20px!important"></i></label>
-                
-              </div>  
-            </form>     
-      
-            <x-modals.bouton-visiteur :idclub :$idclub submit>            
+            {{-- <x-modals.bouton-visiteur :idclub :$idclub submit>            
               Publier
               <x-slot:form>
                 commentaireclub
               </x-slot>
-            </x-modals.bouton-visiteur>
+            </x-modals.bouton-visiteur> --}}
       
            @auth
               @if ($errors->any())
@@ -102,7 +87,7 @@
                 {{-- contenu --}}
                 <a href="{{route('commentaire.pleinepage', $commentaire->publication->id_publication)}}">
                   {{-- texte --}}
-                  <div class="commentairecontenu">{{$commentaire->contenu}} </div>
+                  <div class="commentairecontenu">  {{$commentaire->contenu}}  </div>
                   {{-- media --}}        
                       
                   @if ($commentaire->fichier_media != null && Storage::disk('public')->exists("users/$commentaire->user_id/$commentaire->fichier_media") )            

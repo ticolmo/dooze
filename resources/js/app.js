@@ -1,4 +1,5 @@
 import './bootstrap';
+import './page/fans.js';
 import { createApp } from "vue";
 import rechercheclubs from "./components/rechercheClubs.vue";
 
@@ -208,11 +209,11 @@ $(document).ready(function () {
   /* soumission des formulaires 
   pour que le bouton submit soit en dehors du formulaire 
   et que le modal de connexion marche */
-  $(".soumettre").click(function() {
+/*   $(".soumettre").click(function() {
     const dataid = $(this).attr("data-id");
     const form = "#" + dataid;
     $(form).submit();
-  });
+  }); */
 
 });
 
