@@ -6,8 +6,6 @@ use App\Api\Nomequipe;
 use App\Api\Nomcompetition;
 use Illuminate\Support\Facades\Http;
 
-
-
 class ApiFootball
 {
     public function header()

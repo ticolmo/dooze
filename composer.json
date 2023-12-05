@@ -13,9 +13,11 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.1",
         "mervick/emojionearea": "^3.4",
+        "mews/purifier": "^3.4",
         "pusher/pusher-php-server": "^7.2",
         "torann/geoip": "^3.0",
-        "vedmant/laravel-feed-reader": "^1.5"
+        "vedmant/laravel-feed-reader": "^1.5",
+        "voku/anti-xss": "^4.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",

@@ -49,6 +49,9 @@ Route::get('/choice-language/{choice}', [LangueController::class, 'choice'])->na
 
 Route::view('/scores', 'testscores');
 
+Route::view('/gif', 'testgif');
+
+
 
 
 
