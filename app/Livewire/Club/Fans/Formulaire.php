@@ -3,13 +3,15 @@
 namespace App\Livewire\Club\Fans;
 
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 class Formulaire extends Component
 {
     public $idclub;
     public $gif = false;
 
-    public function setGif(){
+    #[On('getGif')]
+    public function getGif(){
         if($this->gif == false){
             $this->gif = true;
         }else{

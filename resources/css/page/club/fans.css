@@ -10,6 +10,27 @@
         z-index: 10;
         left: 25%;
     }
+    .sectionGif{
+        position:fixed;
+        top:0;
+        z-index: 1000;
+        width:100vw;
+        height: 100vh;
+        background-color:rgba(0, 0, 0, 0.4);
+
+    }
+
+    .boxGif{
+        background-color: white;
+        max-height: 90vh;
+        min-width: 60vw;
+    }
+    .gifs{
+        display: flex;
+        flex-wrap: wrap;
+        gap:3px;
+        
+    }
 
 
 }

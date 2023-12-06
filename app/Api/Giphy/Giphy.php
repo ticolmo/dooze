@@ -24,7 +24,7 @@ class Giphy
 
         $data = $response->json();
 
-        return $data;
+        return $data['data'];
     }
     public function search($query)
     {
@@ -38,7 +38,7 @@ class Giphy
 
         $data = $response->json();
 
-        return $data;
+        return $data['data'];
     }
 
 

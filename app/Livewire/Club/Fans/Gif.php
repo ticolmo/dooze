@@ -27,6 +27,10 @@ class Gif extends Component
         }
     }
 
+    public function close(){
+        $this->dispatch('getGif');
+    }
+
     
     public function render()
     {
