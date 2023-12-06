@@ -7,7 +7,7 @@ const pickerOptions = {
       // Récupérer l'élément input par son ID (remplacez "votre-input-id" par l'ID réel de votre input)
       const inputElement = document.querySelector('.mart');
       const preview = document.getElementById('previewCommentaire');
-        console.log(emoji);
+        console.log('render');
       // Vérifier si l'élément input existe
       if (inputElement) {
         // Ajouter l'emoji à la valeur actuelle de l'input
@@ -79,6 +79,7 @@ const pickerOptions = {
  console.log(marta)
   marta.appendChild(picker);
 
+    
 
     
 

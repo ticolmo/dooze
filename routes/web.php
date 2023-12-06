@@ -33,10 +33,6 @@ use App\Http\Controllers\Admin\AdminPostController;
 |
 */
 
-/* Pages des clubs */
-Route::domain('{club}.localhost')->group(function () {
-    Route::get('/', [HomeClubController::class, 'club'])->name('club');;
-}); 
 
 /* Accueil */
 
@@ -177,7 +173,11 @@ Route::view('/donate', 'don')->name('don');
 
 /* Compétitions */
 
-Route::get('/{competition}', [CompetitionController::class, 'index'])->name('competition');
+Route::get('/competition/{competition}', [CompetitionController::class, 'index'])->name('competition');
+
+/* Pages des clubs */
+
+Route::get('/club/{club}', [HomeClubController::class, 'club'])->name('club');
 
 
 

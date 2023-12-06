@@ -30,6 +30,9 @@ class Gif extends Component
     public function close(){
         $this->dispatch('getGif');
     }
+    public function choixGif($choix){
+        $this->dispatch('getChoixGif', idGif: $choix);
+    }
 
     
     public function render()

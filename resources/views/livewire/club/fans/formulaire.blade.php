@@ -18,12 +18,16 @@
     <div class="close">
       <i class="bi bi-x-circle-fill"></i>
     </div>
+    @if ($preview)
+        <img src="{{$giphy}}" style="width:auto; height: 200px!important"/>
+      @endif
+      <div id="previewGif"></div>
     <div id="previewContainer"> 
+      
       <div id="telechargement"></div> 
     </div>  
     {{-- <img class="emoji" draggable="false" alt="😀" src="https://twemoji.maxcdn.com/v/14.0.2/72x72/1f600.png"/> --}}
-   {{--  <img src="https://media1.giphy.com/media/gwvl4P8AuTl1zVrx1a/giphy.gif?cid=40ab9f2brot0yf2pl4f6pl9u9ep94g2hlrce0786ekwtjgw0&ep=v1_gifs_trending&rid=giphy.gif&ct=g" style="width:auto; height: 200px!important"/>
- --}}
+
     <div class="text-center submit">
         {{-- Pièces jointes et ajout --}}
       <label class="image"for="fileInput"><img src="{{Storage::url('divers/media-icon.png')}}" alt="" style="width:auto;height:25px"></label>      
@@ -70,7 +74,7 @@
 
     {{-- Sélection Gif --}}
     @if ($gif)
-      <livewire:club.fans.gif /> asdfsaf
+      <livewire:club.fans.gif>
     @endif
 
   </form> 
