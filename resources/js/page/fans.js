@@ -75,9 +75,9 @@ const pickerOptions = {
   
   const picker = new EmojiMart.Picker(pickerOptions)
 
-  const marta = document.getElementById('selectEmoji');
+ /*  const marta = document.getElementById('selectEmoji');
  console.log(marta)
-  marta.appendChild(picker);
+  marta.appendChild(picker); */
 
     
 

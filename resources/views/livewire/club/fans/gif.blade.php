@@ -3,8 +3,9 @@
    <div class="boxGif" @click.outside="$wire.close()">
         <div> 
             <span wire:click='close'> <i class="bi bi-x-circle-fill"></i>
-            </span><input type="text" wire:model='search' id="barfoo">
+            </span><input type="text" wire:model.live='search' id="barfoo">
         </div>
+
         <div class="gifs">
             @foreach ($gifs as $gif)
             <span> 

@@ -8,7 +8,7 @@ use Livewire\Component;
 class Gif extends Component
 {
     public $search = '';
-    public $gifs = [];
+/*     public $gifs = [];
 
     public function mount(){
         $trends = new Giphy();
@@ -25,7 +25,7 @@ class Gif extends Component
             $trends = new Giphy();
             $this->gifs = $trends->trend();
         }
-    }
+    } */
 
     public function close(){
         $this->dispatch('getGif');
@@ -37,6 +37,17 @@ class Gif extends Component
     
     public function render()
     {
-        return view('livewire.club.fans.gif');
+        if (strlen($this->search) < 2){
+            $trends = new Giphy();
+           return view('livewire.club.fans.gif', [
+            'gifs' => $trends->trend()
+           ]); 
+        } else if(strlen($this->search) > 1){
+            $resultat = new Giphy();
+            return view('livewire.club.fans.gif', [
+                'gifs' => $resultat->search($this->search)
+            ]);
+        }
+          
     }
 }
