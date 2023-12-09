@@ -5,7 +5,7 @@
     #commentaireclub{
         position: relative;     
     }
-    #selectEmoji {
+    #selectEmoji {        
         position:absolute;
         z-index: 10;
         left: 25%;

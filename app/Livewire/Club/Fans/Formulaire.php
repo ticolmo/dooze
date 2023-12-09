@@ -19,11 +19,10 @@ class Formulaire extends Component
     public function getGif(){
         if($this->gif == false){
             $this->gif = true;
-          /*   $trends = new Giphy();
-            $this->gifs = $trends->trend(); */
         }else{
             $this->gif = false;
-        }        
+        }   
+        $this->dispatch('refresh');     
     }
 
     #[On('getChoixGif')]
@@ -31,26 +30,9 @@ class Formulaire extends Component
             $this->preview = true; 
             $this->giphy = $idGif;
             $this->gif = false;
+            $this->dispatch('refresh');;
     }        
     
-
-
-/*     public function recherche(){
-        if(strlen($this->search) > 1){
-            $resultat = new Giphy();
-            $this->gifs = $resultat->search($this->search);
-        }elseif (strlen($this->search) == 0) {
-            // Si la recherche est effacé, affichez à nouveau les tendances
-            $trends = new Giphy();
-            $this->gifs = $trends->trend();
-        }
-    }
-
-    public function choixgif($gifo) { 
-        $this->preview = true;       
-        $this->giphy = $gifo;
-        
-      } */
     
     public function render()
     {

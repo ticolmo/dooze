@@ -1,6 +1,6 @@
 <div 
     {{-- affichage boite emoji --}}
-    x-data="{emoji : false, lieu : false}">
+    x-data="{lieu : false}" >
 
 <form  action="{{route('post.commentaireclub')}}" id="commentaireclub" method="post" enctype='multipart/form-data'>
     @csrf
@@ -32,7 +32,7 @@
         {{-- Pièces jointes et ajout --}}
       <label class="image"for="fileInput"><img src="{{Storage::url('divers/media-icon.png')}}" alt="" style="width:auto;height:25px"></label>      
       <label for="" id="gif" @click="$wire.getGif()" > <img src="{{Storage::url('divers/gif.png')}}" alt="" style="width:auto;height:27.5px"></label>
-      <label for="" id="emoji" @click="emoji = ! emoji" > <img src="{{Storage::url('divers/emoji-icon.png')}}" alt="" style="width:auto;height:25px"></label>
+      <label for="" id="emoji" > <img src="{{Storage::url('divers/emoji-icon.png')}}" alt="" style="width:auto;height:25px"></label>
       <label><img @click="lieu = ! lieu" src="{{Storage::url('divers/localisation.png')}}" alt="" style="width:auto;height:25px"></label>
 
       <div class="btn btn-outline-secondary soumettre" @click="soumission">Publier</div>     
@@ -70,7 +70,7 @@
     </div> 
 
     {{-- Sélection Emoji --}}
-    <div id="selectEmoji" x-show="emoji" @click.outside="emoji = false"></div>
+    <div id="selectEmoji" style="display: none" >5f</div>
 
     {{-- Sélection Gif --}}
     @if ($gif)
@@ -93,6 +93,8 @@
   
       /*  $(form).submit(); */
     }
+    
+    
 
     
   </script>

@@ -37,12 +37,12 @@
           @csrf        
   
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Email" name="email">
-            <label for="floatingInput">Email</label>
+            <input type="text" class="form-control" id="floatingInput{{ $slot }}" placeholder="Email" name="email">
+            <label for="floatingInput{{ $slot }}">Email</label>
           </div>
           <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
-            <label for="floatingPassword">Password</label>
+            <input type="password" class="form-control" id="floatingPassword{{ $slot }}" placeholder="Password" name="password">
+            <label for="floatingPassword{{ $slot }}">Password</label>
           </div>
           <div class="checkbox mb-3">
             <input type="checkbox" name="remember">

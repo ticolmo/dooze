@@ -1,22 +1,19 @@
 
-const pickerOptions = {
+const box = document.getElementById('selectEmoji');
+let boutonEmoji = document.getElementById('emoji')
+
+boutonEmoji.addEventListener("click", function (){  
+  if (box.style.display == 'none'){
+    box.style.display = 'block';
+   
+    const pickerOptions = {
     set: 'twitter',
     previewPosition: 'none',
     locale: Langue,
-    onEmojiSelect: (emoji) => {
-      // Récupérer l'élément input par son ID (remplacez "votre-input-id" par l'ID réel de votre input)
-      const inputElement = document.querySelector('.mart');
+    onEmojiSelect: (emoji) => {        
       const preview = document.getElementById('previewCommentaire');
-        console.log('render');
-      // Vérifier si l'élément input existe
-      if (inputElement) {
-        // Ajouter l'emoji à la valeur actuelle de l'input
-        /*  inputElement.value += emoji.native; */
-          // Convertir le shortcode en emoji Twemoji
-    /* balise image emoji twitter */
-    const emojiHTML = twemoji.parse(emoji.native);  
-    /* inputElement.value += emojiHTML; */
-    /* création d'une nouvelle balise img */
+      console.log('render');
+      const emojiHTML = twemoji.parse(emoji.native); 
     const img = document.createElement('img');
     /* insertion de la balise image emoji twitter dans la nouvelle balise img*/
     img.innerHTML = emojiHTML
@@ -24,63 +21,37 @@ const pickerOptions = {
     const testo = img.querySelector('img')
     testo.style.width = '1em';
     testo.style.height = '1em';
-    /*  preview.appendChild(testo);  */
     // Insère l'élément img à l'endroit du curseur
     var selection = window.getSelection();
     var range = selection.getRangeAt(0);
     range.deleteContents();
     range.insertNode(testo);
-
-    // Place le curseur après l'image insérée
     range.setStartAfter(testo);
     range.setEndAfter(testo);
-
-    // Met à jour la sélection
     selection.removeAllRanges();
     selection.addRange(range);
-
-    // Focus sur la div éditable
     preview.focus();
-
-
-/* 
-    const img = document.createElement('img');
-    img.className = 'emoji';
-    img.draggable = false;
-    img.alt = emoji.native;
-    img.src = `https://twemoji.maxcdn.com/v/14.0.2/72x72/${emoji.unified}.png`;
-    preview.appendChild(img);
-    const span = document.createElement('span');   
-    span.style.backgroundImage = `url("https://twemoji.maxcdn.com/v/14.0.2/72x72/${emoji.unified}.png")`;
-    span.style.backgroundSize = '1em 1em';
-    span.style.padding = '0.15em';
-    span.style.backgroundPosition = 'center center';
-    span.style.backgroundRepeat = 'no-repeat'
-    span.style.WebkitWextFillColor = 'transparent';
-    preview.appendChild(span);  */
-
-
-
-;
-
-
-
-    /* faire un input hidden qui prend automatiquement le contenu d'une div contenable qui a des span avec emoji
-      */
       }
     }
-    
-  };
-
-  
   const picker = new EmojiMart.Picker(pickerOptions)
+  box.appendChild(picker); 
+  
+  }else{
+    box.style.display = 'none';
+  }
 
- /*  const marta = document.getElementById('selectEmoji');
- console.log(marta)
-  marta.appendChild(picker); */
+})
 
-    
 
-    
 
-    
+/* document.addEventListener('click', function(event) {
+  const emojiElement = document.getElementById('selectEmoji');
+
+  // Vérifier si le clic n'est pas à l'intérieur de l'élément ou du bouton emoji
+  if (!emojiElement.contains(event.target) ) {
+      // Clic en dehors, exécutez votre action ici (par exemple, emoji = false)
+      // Assurez-vous que l'objet ou la variable emoji est accessible ici
+      emojiElement.style.display = "none";
+      
+  }
+}); */

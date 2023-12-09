@@ -94,7 +94,7 @@ $(document).ready(function () {
     });
   });
 
-  $("#emojionearea4").emojioneArea({
+/*   $("#emojionearea4").emojioneArea({
     pickerPosition: "bottom",
     filtersPosition: "bottom",
     tonesStyle: "checkbox",
@@ -108,11 +108,11 @@ $(document).ready(function () {
     autocomplete: false,
     inline: true,
     hidePickerOnBlur: false
-  });
+  }); */
 
 
 /* emoji - input*/
-  $(".example3").emojioneArea();
+/*   $(".example3").emojioneArea(); */
 
 
 /*aperçu d'image et de video uploadés dans le formulaire commentaireclub*/
