@@ -1,6 +1,45 @@
 <div 
     {{-- affichage boite emoji --}}
-    x-data="{lieu : false}" >
+    x-data="{lieu : false,
+      emoji(){        
+        const box = document.getElementById('selectEmoji');
+        let boutonEmoji = document.getElementById('emoji') 
+        if (box.style.display == 'none'){
+          box.style.display = 'block';   
+          const pickerOptions = {
+          set: 'twitter',
+          previewPosition: 'none',
+          locale: Langue,
+          onEmojiSelect: (emoji) => {        
+            const preview = document.getElementById('previewCommentaire');
+            console.log('render');
+            const emojiHTML = twemoji.parse(emoji.native); 
+          const img = document.createElement('img');
+          /* insertion de la balise image emoji twitter dans la nouvelle balise img*/
+          img.innerHTML = emojiHTML
+          /* sélection uniquement de la balise image emoji twitter*/
+          const testo = img.querySelector('img')
+          testo.style.width = '1em';
+          testo.style.height = '1em';
+          // Insère l'élément img à l'endroit du curseur
+          var selection = window.getSelection();
+          var range = selection.getRangeAt(0);
+          range.deleteContents();
+          range.insertNode(testo);
+          range.setStartAfter(testo);
+          range.setEndAfter(testo);
+          selection.removeAllRanges();
+          selection.addRange(range);
+          preview.focus();
+            }
+          }
+        const picker = new EmojiMart.Picker(pickerOptions)
+        box.appendChild(picker); 
+        
+        }else{
+          box.style.display = 'none';
+        } }
+    }" >
 
 <form  action="{{route('post.commentaireclub')}}" id="commentaireclub" method="post" enctype='multipart/form-data'>
     @csrf
@@ -30,9 +69,14 @@
 
     <div class="text-center submit">
         {{-- Pièces jointes et ajout --}}
+        <script>
+          function test(){
+            alert('sdf')
+          }
+        </script>
       <label class="image"for="fileInput"><img src="{{Storage::url('divers/media-icon.png')}}" alt="" style="width:auto;height:25px"></label>      
       <label for="" id="gif" @click="$wire.getGif()" > <img src="{{Storage::url('divers/gif.png')}}" alt="" style="width:auto;height:27.5px"></label>
-      <label for="" id="emoji" > <img src="{{Storage::url('divers/emoji-icon.png')}}" alt="" style="width:auto;height:25px"></label>
+      <label for="" id="emoji" @click="emoji()"> <img src="{{Storage::url('divers/emoji-icon.png')}}" alt="" style="width:auto;height:25px"></label>
       <label><img @click="lieu = ! lieu" src="{{Storage::url('divers/localisation.png')}}" alt="" style="width:auto;height:25px"></label>
 
       <div class="btn btn-outline-secondary soumettre" @click="soumission">Publier</div>     
@@ -78,6 +122,8 @@
     @endif
 
   </form> 
+
+
   
   {{-- soumission du formulaire  --}}
   <script>

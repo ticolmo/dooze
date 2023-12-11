@@ -4,9 +4,9 @@ import { createApp } from "vue";
 import rechercheclubs from "./components/rechercheClubs.vue";
 
 /* configuration Vue */
-const app = createApp({});
+/* const app = createApp({});
 app.component('rechercheclubs', rechercheclubs);
-app.mount('#app');
+app.mount('#app'); */
 
 
 var music = document.getElementById("chant");

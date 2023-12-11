@@ -11,7 +11,7 @@
 
 <div class="stade"
   style="background-image:url('{{Storage::url('stades/'.$club->nom.' stadium.jpg')}}');background-size: cover;{{$club->image_position }}">
-  <img class="stade1" src="{{$club->nom}}" alt="{{$club->nom}}">
+  
   
   <div class="logo">
     <a href="<?php echo $club->site_officiel?>" target="_blank">
