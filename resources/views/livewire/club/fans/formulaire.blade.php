@@ -1,45 +1,4 @@
-<div 
-    {{-- affichage boite emoji --}}
-    x-data="{lieu : false,
-      emoji(){        
-        const box = document.getElementById('selectEmoji');
-        let boutonEmoji = document.getElementById('emoji') 
-        if (box.style.display == 'none'){
-          box.style.display = 'block';   
-          const pickerOptions = {
-          set: 'twitter',
-          previewPosition: 'none',
-          locale: Langue,
-          onEmojiSelect: (emoji) => {        
-            const preview = document.getElementById('previewCommentaire');
-            console.log('render');
-            const emojiHTML = twemoji.parse(emoji.native); 
-          const img = document.createElement('img');
-          /* insertion de la balise image emoji twitter dans la nouvelle balise img*/
-          img.innerHTML = emojiHTML
-          /* sélection uniquement de la balise image emoji twitter*/
-          const testo = img.querySelector('img')
-          testo.style.width = '1em';
-          testo.style.height = '1em';
-          // Insère l'élément img à l'endroit du curseur
-          var selection = window.getSelection();
-          var range = selection.getRangeAt(0);
-          range.deleteContents();
-          range.insertNode(testo);
-          range.setStartAfter(testo);
-          range.setEndAfter(testo);
-          selection.removeAllRanges();
-          selection.addRange(range);
-          preview.focus();
-            }
-          }
-        const picker = new EmojiMart.Picker(pickerOptions)
-        box.appendChild(picker); 
-        
-        }else{
-          box.style.display = 'none';
-        } }
-    }" >
+<div x-data="formulaire" >
 
 <form  action="{{route('post.commentaireclub')}}" id="commentaireclub" method="post" enctype='multipart/form-data'>
     @csrf
