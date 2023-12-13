@@ -1,21 +1,4 @@
-<div 
-{{-- Ecouteur si fin de page --}}
-x-data="{ 
-  isBottom: function() {
-    const scrollY = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const bodyHeight = document.body.scrollHeight;
-
-    return scrollY + windowHeight >= bodyHeight;
-  },
-  initScrollListener: function() {
-    window.addEventListener('scroll', () => {
-      if (this.isBottom()) {
-        $wire.pagination();
-      }
-    });
-  }
-}" x-init="initScrollListener">
+<div x-data="index">
 
 
     <div wire:loading> 
@@ -30,12 +13,33 @@ x-data="{
         <div class="cachesectionv2"> <span class="cachesectionv3">{{ __("hide visitor's section") }}</span> </div>
       </div>
       <div class="fans" style="min-height:50vh">
-        <div class="supporters">
-      
-          
-            {{-- La possibilité de laisser un COMMENTAIRE seulement pour les fans du club --}}
-            <livewire:club.fans.formulaire :$idclub  />
-            
+        <div class="formulaire">  
+          <livewire:club.fans.formulaire :$idclub  /> 
+           {{--  @auth
+              les fans du club
+              @if (auth()->user()->club_id == $idclub)         
+              <livewire:club.fans.formulaire :$idclub  />
+              @else
+                si fan autre club            
+                    @php
+                        $modalid = uniqid();
+                    @endphp
+                    <x-club.fans.formulaire-visiteur> {{$modalid}} </x-club.fans.formulaire-visiteur>
+                    <x-modals.fanautreclub> {{$modalid}} </x-modals.fanautreclub> 
+
+                @endif  
+            @endauth
+                
+            @guest
+                si visiteurs
+                @php
+                    $modalid = uniqid();
+                @endphp        
+                <x-club.fans.formulaire-visiteur> {{$modalid}} </x-club.fans.formulaire-visiteur>
+                <x-modals.connexion> {{$modalid}}  </x-modals.connexion>
+
+            @endguest --}}
+        </div> 
       
             {{-- <x-modals.bouton-visiteur :idclub :$idclub submit>            
               Publier
@@ -43,7 +47,8 @@ x-data="{
                 commentaireclub
               </x-slot>
             </x-modals.bouton-visiteur> --}}
-      
+
+          {{-- Messages --}}
            @auth
               @if ($errors->any())
                 <div class="alert alert-danger">

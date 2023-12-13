@@ -42,7 +42,22 @@ document.addEventListener('alpine:init', () => {
         }
     }
     
-  }))
+  })), 
+  Alpine.data('index', () => ({
+    isBottom: function() {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const bodyHeight = document.body.scrollHeight;
+
+    return scrollY + windowHeight >= bodyHeight;
+    },
+    init() {
+        window.addEventListener('scroll', () => {
+      if (this.isBottom()) {
+        Livewire.on('pagination');
+      }}),
+    
+  }}));
 })
 
 Livewire.start()

@@ -18,7 +18,7 @@
         @endif
         @if ($section == "fans")
             {{-- <x-fans :$idclub /> --}}
-            <livewire:club.fans :$idclub > 
+            <livewire:club.fans.index :$idclub > 
         @endif
         
         @if ($section == "live")

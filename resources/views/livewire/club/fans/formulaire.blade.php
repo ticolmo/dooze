@@ -4,7 +4,7 @@
     @csrf
 
     <div>
-        <span>Utilisateur</span> <span> à</span> <input x-show="lieu" name="lieu"/>
+        <span>Utilisateur</span> <span> à</span> <input type="text" x-show="lieu" name="lieu"  />
     </div>
 
     <div>
@@ -27,53 +27,17 @@
     {{-- <img class="emoji" draggable="false" alt="😀" src="https://twemoji.maxcdn.com/v/14.0.2/72x72/1f600.png"/> --}}
 
     <div class="text-center submit">
-        {{-- Pièces jointes et ajout --}}
-        <script>
-          function test(){
-            alert('sdf')
-          }
-        </script>
+      
       <label class="image"for="fileInput"><img src="{{Storage::url('divers/media-icon.png')}}" alt="" style="width:auto;height:25px"></label>      
       <label for="" id="gif" @click="$wire.getGif()" > <img src="{{Storage::url('divers/gif.png')}}" alt="" style="width:auto;height:27.5px"></label>
       <label for="" id="emoji" @click="emoji()"> <img src="{{Storage::url('divers/emoji-icon.png')}}" alt="" style="width:auto;height:25px"></label>
       <label><img @click="lieu = ! lieu" src="{{Storage::url('divers/localisation.png')}}" alt="" style="width:auto;height:25px"></label>
 
       <div class="btn btn-outline-secondary soumettre" @click="soumission">Publier</div>     
-    
-
-        {{-- Bouton de soumission --}}
-        @auth
-            @if (auth()->user()->club_id == $idclub)            
-                <button class="btn btn-outline-secondary soumettre" @click="soumission">Publier</button>          
-            @else
-            {{-- si fan autre club --}}            
-                @php
-                    $modalid = uniqid();
-                @endphp
-                
-                <span class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#fanautreclub{{$modalid}}"> Publier </span>
-                
-                <x-modals.fanautreclub>
-                    {{$modalid}}  
-                </x-modals.fanautreclub> 
-            @endif  
-        @endauth
-                
-        @guest
-            {{-- si visiteurs --}}
-            @php
-                $modalid = uniqid();
-            @endphp        
-            
-            <span class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#connex{{$modalid}}"> Publier </span>
-            <x-modals.connexion>           
-                {{$modalid}}           
-            </x-modals.connexion>
-        @endguest
-    </div> 
+          
 
     {{-- Sélection Emoji --}}
-    <div id="selectEmoji" style="display: none" >5f</div>
+    <div id="selectEmoji" style="display: none" ></div>
 
     {{-- Sélection Gif --}}
     @if ($gif)
