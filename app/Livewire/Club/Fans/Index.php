@@ -9,7 +9,7 @@ use App\Models\Commentairevisiteur;
 class Index extends Component
 {
     public $idclub;
-    public $page = 2;
+    public $page = 15;
 
     public function pagination(){
         $this->page = $this->page + 6;

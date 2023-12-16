@@ -41,6 +41,11 @@
         justify-content: center;
         
     }
+    
+  /*   div[contenteditable="true"]:empty::before, div[contenteditable="true"]:not(:focus)::before{
+        content: attr(placeholder); 
+        color: #aaa;
+    } */
 
 
 }

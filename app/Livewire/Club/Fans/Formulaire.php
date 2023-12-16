@@ -9,11 +9,13 @@ use Livewire\Attributes\On;
 class Formulaire extends Component
 {
     public $idclub;
+    public $visiteur;
     public $gif = false;
     public $search = '';
     public $gifs = [];
     public $preview = false;
     public $giphy = '';
+    
 
     #[On('getGif')] 
     public function getGif(){

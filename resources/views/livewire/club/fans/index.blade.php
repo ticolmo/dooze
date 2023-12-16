@@ -14,13 +14,20 @@
       </div>
       <div class="fans" style="min-height:50vh">
         <div class="formulaire">  
-          <livewire:club.fans.formulaire :$idclub  /> 
-           {{--  @auth
-              les fans du club
+        {{--   @php
+              $foo = true;
+          @endphp
+          <livewire:club.fans.formulaire :$idclub :visiteur="$foo" />  --}}
+          
+            @auth
+              {{-- les fans du club --}}
               @if (auth()->user()->club_id == $idclub)         
-              <livewire:club.fans.formulaire :$idclub  />
+              @php
+                $foo = 0;
+              @endphp
+              <livewire:club.fans.formulaire :$idclub :visiteur="$foo" /> 
               @else
-                si fan autre club            
+                {{-- si fan autre club  --}}           
                     @php
                         $modalid = uniqid();
                     @endphp
@@ -31,16 +38,15 @@
             @endauth
                 
             @guest
-                si visiteurs
+                {{-- si visiteurs --}}
                 @php
                     $modalid = uniqid();
                 @endphp        
                 <x-club.fans.formulaire-visiteur> {{$modalid}} </x-club.fans.formulaire-visiteur>
                 <x-modals.connexion> {{$modalid}}  </x-modals.connexion>
 
-            @endguest --}}
-        </div> 
-      
+            @endguest
+            
             {{-- <x-modals.bouton-visiteur :idclub :$idclub submit>            
               Publier
               <x-slot:form>
@@ -48,23 +54,8 @@
               </x-slot>
             </x-modals.bouton-visiteur> --}}
 
-          {{-- Messages --}}
-           @auth
-              @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                
-              @endif
-              @if ((session()->has('signalement')))
-                <div class="alert alert-success w-50 m-auto text-center"> Merci pour le signalement de ce commentaire ! Il sera traité dans les meilleurs délais.</div>
-              @endif
-            @endauth
          
+
       
           {{-- affichage des commentaire des fans du club --}}
           @foreach ($commentaireclub as $commentaire)
@@ -92,7 +83,7 @@
                 {{-- contenu --}}
                 <a href="{{route('commentaire.pleinepage', $commentaire->publication->id_publication)}}">
                   {{-- texte --}}
-                  <div class="commentairecontenu">  {{$commentaire->contenu}}  </div>
+                  <div class="commentairecontenu">  {!!$commentaire->contenu!!} </div>
                   {{-- media --}}        
                       
                   @if ($commentaire->fichier_media != null && Storage::disk('public')->exists("users/$commentaire->user_id/$commentaire->fichier_media") )            

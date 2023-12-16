@@ -40,6 +40,18 @@ document.addEventListener('alpine:init', () => {
         }else{
           box.style.display = 'none';
         }
+    },
+    soumission() {
+      var divContent = document.getElementById('previewCommentaire').innerHTML;
+
+      // Ajouter le contenu de la div à un champ de formulaire invisible
+      var hiddenInput = document.getElementById('commentaireInput');
+      hiddenInput.setAttribute('value', divContent);
+      
+      //soumission du formulaire
+      var form = document.getElementById('commentaireclub');
+      form.submit();
+     
     }
     
   })), 
@@ -55,9 +67,9 @@ document.addEventListener('alpine:init', () => {
         window.addEventListener('scroll', () => {
       if (this.isBottom()) {
         Livewire.on('pagination');
-      }}),
+      }})
     
-  }}));
+}}))
 })
 
 Livewire.start()

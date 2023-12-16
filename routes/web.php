@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LangueController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\TestXssController;
 use App\Http\Controllers\HomeClubController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ChoixclubController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\Live\LiveController;
 use App\Http\Controllers\RencontreController;
 use App\Http\Controllers\MessagerieController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\FormcontactController;
 use App\Http\Controllers\Live\ConfigController;
@@ -46,6 +48,8 @@ Route::get('/choice-language/{choice}', [LangueController::class, 'choice'])->na
 Route::view('/scores', 'testscores');
 
 Route::view('/gif', 'testgif');
+
+Route::get('/xss', [TestXssController::class, 'index']);
 
 
 
@@ -119,6 +123,10 @@ Route::middleware(['auth','verified'])->controller(PostController::class)->name(
     Route::post('/pub/update', 'update')->name('update');
     Route::post('/pub/delete', 'delete')->name('delete');
     Route::post('/pub/signal', 'signal')->name('signal');
+});
+
+Route::middleware(['auth','verified'])->controller(CommentaireController::class)->name('commentaire.')->group(function () {            
+    Route::post('/commentaire/store', 'store')->name('store');
 });
 
 /* Administration */

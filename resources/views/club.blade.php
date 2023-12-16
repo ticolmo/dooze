@@ -43,6 +43,16 @@
 
 <audio id="chant" src="{{Storage::url('audio/'.$club->nom.' Audio.mp3')}}" autoplay controls></audio>
 
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <livewire:club.index :flux="$club->flux_rss_blogs" :nom="$club->nom" :idclub="$club->id_club"/>
 
 @endsection

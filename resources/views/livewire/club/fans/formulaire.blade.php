@@ -1,39 +1,47 @@
 <div x-data="formulaire" >
 
-<form  action="{{route('post.commentaireclub')}}" id="commentaireclub" method="post" enctype='multipart/form-data'>
+<form action="{{route('commentaire.store')}}" id="commentaireclub" method="post" enctype='multipart/form-data'>
     @csrf
 
+    {{-- utilisateur et lieu --}}
     <div>
         <span>Utilisateur</span> <span> à</span> <input type="text" x-show="lieu" name="lieu"  />
     </div>
 
+    {{-- commentaire --}}
     <div>
-      <input type="text" id="commentaireInput" class="mart form-control" placeholder="Quoi de neuf ?" name="contenu"  />
-      <div id="previewCommentaire" role="textbox" contenteditable="true"></div>
+      <input type="hidden" id="commentaireInput" class="mart form-control" name="contenu" value=""/>
+      <div id="previewCommentaire" role="textbox" contenteditable="true" placeholder="Type your text here"> </div>
     </div> 
 
-    <input type="file" id="fileInput" name="media"/>
+    {{-- fichier media --}}
+    <input type="file" id="fileInput" name="fichier_media"/>
     <div class="close">
       <i class="bi bi-x-circle-fill"></i>
     </div>
+
+    {{-- preview Gif --}}
     @if ($preview)
-        <img src="{{$giphy}}" style="width:auto; height: 200px!important"/>
+        <img src="{{$giphy}}" draggable="false" style="width:auto; height: 200px!important"/>
       @endif
-      <div id="previewGif"></div>
-    <div id="previewContainer"> 
-      
+
+    {{-- preview fichier media --}}
+    <div id="previewContainer">       
       <div id="telechargement"></div> 
     </div>  
     {{-- <img class="emoji" draggable="false" alt="😀" src="https://twemoji.maxcdn.com/v/14.0.2/72x72/1f600.png"/> --}}
 
-    <div class="text-center submit">
-      
-      <label class="image"for="fileInput"><img src="{{Storage::url('divers/media-icon.png')}}" alt="" style="width:auto;height:25px"></label>      
+    {{-- paramètres commentaire --}}
+    <input type="hidden" name="secteur_visiteur" value= "{{$visiteur}}">
+  {{--   @dd($visiteur) --}}
+    {{-- boutons --}}
+    <div class="text-center submit">      
+      <label class="image" for="fileInput"><img src="{{Storage::url('divers/media-icon.png')}}" alt="" style="width:auto;height:25px"></label>      
       <label for="" id="gif" @click="$wire.getGif()" > <img src="{{Storage::url('divers/gif.png')}}" alt="" style="width:auto;height:27.5px"></label>
       <label for="" id="emoji" @click="emoji()"> <img src="{{Storage::url('divers/emoji-icon.png')}}" alt="" style="width:auto;height:25px"></label>
       <label><img @click="lieu = ! lieu" src="{{Storage::url('divers/localisation.png')}}" alt="" style="width:auto;height:25px"></label>
 
-      <div class="btn btn-outline-secondary soumettre" @click="soumission">Publier</div>     
+      <div class="btn btn-outline-secondary soumettre" @click="soumission()">Publier</div>     
           
 
     {{-- Sélection Emoji --}}
@@ -44,28 +52,22 @@
       <livewire:club.fans.gif>
     @endif
 
-  </form> 
+  </form>  
+ 
+    {{-- Messages --}}  
+    @if ($errors->any())     
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+      
+    @endif
 
-
-  
-  {{-- soumission du formulaire  --}}
-  <script>
-    
-    function soumission() {
-      var divContent = document.getElementById('previewCommentaire').innerHTML;
-
-      // Ajouter le contenu de la div à un champ de formulaire invisible
-      var hiddenInput = document.getElementById('commentaireInput');
-      hiddenInput.setAttribute('value', divContent);
-
-      console.log(hiddenInput)
-  
-      /*  $(form).submit(); */
-    }
-    
-    
-
-    
-  </script>
+    @if ((session()->has('signalement')))
+      <div class="alert alert-success w-50 m-auto text-center"> Merci pour le signalement de ce commentaire ! Il sera traité dans les meilleurs délais.</div>
+    @endif
   
 </div>
