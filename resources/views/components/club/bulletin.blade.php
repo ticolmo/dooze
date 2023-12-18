@@ -3,17 +3,23 @@
 
     <hr>
 
-    <div class="logo">
-        <span> Site officiel</span>
-        <a href="<?php echo $siteofficiel?>" target="_blank">
+      <div class="logo">        
+        <a href="{{$siteofficiel}}" target="_blank">
           <img class="logo1 animate__animated animate__flipInY" src="{{Storage::url('logos/'.$nom.'.png')}}" alt="">
         </a>
-        <div class="site_officiel">
-          <a href="<?php echo $siteofficiel;?>" target="_blank">
-            <?php echo(substr($siteofficiel,8))?>
-          </a>
-        </div>
       </div>
+      <div id="infoclub">
+        <span id="clickSite"> 
+          <a href="{{$siteofficiel}}" target="_blank"> Site du club </a>
+          <div id="site_officiel">
+            <a href="{{$siteofficiel}}" target="_blank">
+              {{(substr($siteofficiel,8))}}
+            </a>
+          </div>
+        </span>
+        <span> Billeterie officiel</span>
+      </div>
+      
       <div class="infot" style="border:{{$couleur}}">
         {{-- composant tableau des scores --}} 
         <x-scores.tableau-scores-club :$scoreshomme :$scoresfemme /> 

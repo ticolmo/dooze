@@ -53,23 +53,7 @@ $(".commentairesvisiteur").click(function () {
   $('#reponsesvisiteur' + id).toggle();
 });
 
-/* masquage de la section visiteur */
-let sv = true;
-$(".cachesectionv3").click(function () {
 
-  $('.secteurvisiteurs').toggle();
-
-  $('.supporters').toggleClass('supportersPleinecran');
-
-  if (sv == true) {
-    $(this).text("afficher la section visiteur");
-    sv = false;
-  } else {
-    $(this).text("masquer la section visiteur");
-    sv = true;
-  }
-
-});
 
 /* modal sur les commentaires dans la page club*/
 $(".options").click(function () {

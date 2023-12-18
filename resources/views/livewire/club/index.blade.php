@@ -1,9 +1,9 @@
 <div>
     
     <div id="selectPageActivity">
-        <div wire:click="page('news')">Actualité</div>
-        <div wire:click="page('fans')">Fans</div>
-        <div wire:click="page('live')">Live</div>
+        <div wire:click="selectPage('news')">Actualité</div>
+        <div wire:click="selectPage('fans')">Fans</div>
+        <div wire:click="selectPage('live')">Live</div>
     </div>
 
     <div id="pageActivity" style="position:relative;">
@@ -13,15 +13,15 @@
             </div>          
         </div>
   
-        @if ($section == "news" || $section == "")
+        @if ($page == "news" || $page == "")
             <x-actu :$flux :$nom />
         @endif
-        @if ($section == "fans")
+        @if ($page == "fans")
             {{-- <x-fans :$idclub /> --}}
             <livewire:club.fans.index :$idclub > 
         @endif
         
-        @if ($section == "live")
+        @if ($page == "live")
         <x-lives :$idclub /> 
         @endif
         

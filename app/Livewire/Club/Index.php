@@ -11,10 +11,10 @@ class Index extends Component
     public $nom;
     public $idclub;
     #[Url]
-    public $section = "";
+    public $page = "";
 
-    public function page($selection){
-        $this->section = $selection;
+    public function selectPage($selection){
+        $this->page = $selection;
     }
     public function render()
     {
