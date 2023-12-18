@@ -192,22 +192,17 @@ li {
         display: inline-block;
     }
 
-    #club{
-        display: grid;
-        grid-template-columns: 20% 50% 30%;
-        grid-template-rows: 100%;
-        width: 100%;
-        height: 100%;
+    div.stade {
+        height: 80%;
+        position: relative;
+
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+
     }
 
-    #vue div{
-        position: fixed;
-        top:0;
-        width: 20%;
-        height: 100%;
-    }
-
-    #vue #credit {
+    div#credit {
         position: absolute;
         bottom: 15px;
         left: 20px;
@@ -215,30 +210,13 @@ li {
         color: white
     }
 
-    #activity #selectPageActivity{
-        position: fixed;
-        top:0; 
-        width: 50%;
-        z-index:1; 
-        background-color:white; 
-        display: flex; 
-        height:50px; 
-        justify-content:center;
-        column-gap:100px;
+
+
+
+    img.stade1 {
+        display: none
     }
 
-    #activity #pageActivity{
-        margin-top: 50px;
-        
-    }
-
-    #bulletin{
-        position: fixed;
-        top:0;
-        right: 0;
-        width: 30%;
-        height: 100%;
-    }
 
     .infot {
 
@@ -329,8 +307,21 @@ li {
 
     }
 
+    .logo {
+        position: absolute;
+        bottom: 30px;
+        left: 80%;
+        z-index: 5;
+        width: 20%;
+        
+
+
+
+
+    }
+
     .logo1 {
-        width: 75px;
+        width: 50%;
         height: auto;
 
     }
@@ -362,7 +353,7 @@ li {
         color: white !important;
     }
 
-/*     #chant {
+    #chant {
         position: fixed;
         left: 80%;
         bottom: 15px;
@@ -371,7 +362,7 @@ li {
 
         -webkit-box-shadow: inset -1px 3px 8px 5px gray, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
         box-shadow: inset -1px 3px 8px 5px gray, 2px 5px 16px 0px rgb(115, 115, 115), 5px 5px 15px 5px rgba(0, 0, 0, 0);
-    } */
+    }
 
 
 

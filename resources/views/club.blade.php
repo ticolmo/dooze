@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.club')
 
 
 @section('title')
@@ -8,51 +8,36 @@
 
 @section('content')
 
+<div id="club">
 
-<div class="stade"
-  style="background-image:url('{{Storage::url('stades/'.$club->nom.' stadium.jpg')}}');background-size: cover;{{$club->image_position }}">
-  
-  
-  <div class="logo">
-    <a href="<?php echo $club->site_officiel?>" target="_blank">
-      <img class="logo1 animate__animated animate__flipInY" src="{{Storage::url('logos/'.$club->nom.'.png')}}" alt="">
-    </a>
-    <div class="site_officiel">
-      <a href="<?php echo $club->site_officiel;?>" target="_blank">
-        <?php echo(substr($club->site_officiel,8))?>
-      </a>
+  <div id="vue">
+    <div
+    style="background-image:url('{{Storage::url('stades/'.$club->nom.' stadium.jpg')}}');background-size: cover;{{$club->image_position }}"
+    >
+      @if (!empty($club->auteur_credit))
+      <div id="credit"> Crédit:<a href="{{$club->lien_credit}}">{{$club->auteur_credit}}</a></div>  
+      @endif  
     </div>
+    
   </div>
-  @if (!empty($club->auteur_credit))
-  <div id="credit"> Crédit:<a href="{{$club->lien_credit}}">{{$club->auteur_credit}}</a></div>  
-  @endif
+    
+  <div id="activity">
+    <x-errors-validation />
+    <livewire:club.index :flux="$club->flux_rss_blogs" :nom="$club->nom" :idclub="$club->id_club"/>
+  </div>
+
+  <div id="bulletin">
+    {{-- peut-être pas nécessaire de tout mettre dans composant --}}
+    <x-club.bulletin 
+      :scoreshomme="$club->scores_homme" 
+      :scoresfemme="$club->scores_femme"
+      :nom="$club->nom"
+      :couleur="$club->couleur_tableauscore"
+      :siteofficiel="$club->site_officiel"  />
+  </div>
+
+
 </div>
 
-
-  
-<div class="infot" style="background-color:{{$club->couleur_tableauscore}}">
-
-    {{-- composant tableau des scores --}} 
-<x-scores.tableau-scores-club :scoreshomme="$club->scores_homme" :scoresfemme="$club->scores_femme" /> 
-
-
-
-
-</div>
-
-
-<audio id="chant" src="{{Storage::url('audio/'.$club->nom.' Audio.mp3')}}" autoplay controls></audio>
-
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-
-<livewire:club.index :flux="$club->flux_rss_blogs" :nom="$club->nom" :idclub="$club->id_club"/>
 
 @endsection
