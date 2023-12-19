@@ -15,7 +15,7 @@
     </div> 
 
     {{-- fichier media --}}
-    <input type="file" id="fileInput" name="fichier_media"/>
+    <input type="file" id="fileInput" name="media"/>
     <div class="close">
       <i class="bi bi-x-circle-fill"></i>
     </div>
@@ -69,5 +69,6 @@
     @if ((session()->has('signalement')))
       <div class="alert alert-success w-50 m-auto text-center"> Merci pour le signalement de ce commentaire ! Il sera traité dans les meilleurs délais.</div>
     @endif
-  
+    
 </div>
+<livewire:club.fans.commentaires :$idclub :visiteur="0" />

@@ -20,8 +20,8 @@ document.addEventListener('alpine:init', () => {
           img.innerHTML = emojiHTML
           /* sélection uniquement de la balise image emoji twitter*/
           const testo = img.querySelector('img')
-          testo.style.width = '1em';
-          testo.style.height = '1em';
+          testo.width = '16';
+          testo.height = '16';
           // Insère l'élément img à l'endroit du curseur
           var selection = window.getSelection();
           var range = selection.getRangeAt(0);

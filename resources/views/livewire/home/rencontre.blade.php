@@ -1,9 +1,4 @@
 <div>
-    <div wire:loading> 
-        <div class="spinner-border text-secondary" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>          
-    </div>
     @php
     date_default_timezone_set($timezone)
     @endphp

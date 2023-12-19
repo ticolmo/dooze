@@ -3,6 +3,7 @@
     <div id="selectPageActivity">
         <div wire:click="selectPage('news')">Actualité</div>
         <div wire:click="selectPage('fans')">Fans</div>
+        <div wire:click="selectPage('socialmedia')">Réseaux Sociaux</div>
         <div wire:click="selectPage('live')">Live</div>
     </div>
 
@@ -20,9 +21,15 @@
             {{-- <x-fans :$idclub /> --}}
             <livewire:club.fans.index :$idclub > 
         @endif
+        @if ($page == "socialmedia")
+            
+        @endif
         
         @if ($page == "live")
         <x-lives :$idclub /> 
+        @endif
+        @if ($page == "comment")
+        {{-- composant avec #[Url(except: '')] $comment ; except null pour empêcher page blanche --}}
         @endif
         
     

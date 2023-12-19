@@ -30,6 +30,7 @@
                   $foo = 0;
                 @endphp
                 <livewire:club.fans.formulaire :$idclub :visiteur="$foo" /> 
+                
                 @else
                   {{-- si fan autre club  --}}           
                       @php
@@ -57,124 +58,19 @@
                   commentaireclub
                 </x-slot>
               </x-modals.bouton-visiteur> --}}
-
-          
+             
+            
+            
 
         
             {{-- affichage des commentaire des fans du club --}}
-            @foreach ($commentaireclub as $commentaire)
-              <div class="comments principcomments pagi">
-        
-                <div> 
-                  <img class="photoprofil"src="{{Storage::url('users/'.$commentaire->user->id.'/avatar\/'.$commentaire->user->photoprofil)}}" alt="">
-                </div>
-                <div> 
-                  <div class="commenttitle fontsize16">                  
-                    <a class="entete" href="{{route('profilpublic', $commentaire->user->id)}}">{{$commentaire->user->name}} {{$commentaire->user->hashtag}} </a> 
-                    <span class="timecomment"> - {{$commentaire->created_at->diffForHumans(null,[ 'short' => true])}}</span>
-                    @auth            
-                    <i class="bi bi-three-dots options" data-id="{{$commentaire->publication->id_publication}}"></i>
-                    @endauth
-                                  
-                    {{-- options --}}
-                    <x-options-commentaire :commentaire="$commentaire"/>
-        
-                  </div>
-                  {{-- modals Bootstrap des options --}}
-                    <x-modals.options-commentaire :commentaire="$commentaire"/>
-                
-        
-                  {{-- contenu --}}
-                  <a href="{{route('commentaire.pleinepage', $commentaire->publication->id_publication)}}">
-                    {{-- texte --}}
-                    <div class="commentairecontenu">  {!!$commentaire->contenu!!} </div>
-                    {{-- media --}}        
-                        
-                    @if ($commentaire->fichier_media != null && Storage::disk('public')->exists("users/$commentaire->user_id/$commentaire->fichier_media") )            
-                      @php
-                      $fileExtension = pathinfo($commentaire->fichier_media, PATHINFO_EXTENSION);
-                      @endphp
-                      
-                      @if(in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif']))
-                        {{-- le fichier est une image --}}
-                        <div style="text-align:center;"><img  style="width:300px; height:auto" src='{{ Storage::url("users/$commentaire->user_id/$commentaire->fichier_media") }}' alt="">
-                        </div>
-                      @elseif(in_array($fileExtension, ['mp4', 'avi', 'mov']))
-                        {{-- le fichier est une vidéo --}}  
-                        <div style="text-align:center;"> <video controls style="width:300px; height:auto" src='{{ Storage::url("users/$commentaire->user_id/$commentaire->fichier_media") }}'></video>
-                        </div>             
-                      @endif       
-                      
-                    @endif                
-                    
-                  </a>
-        
-                  {{-- REPONSES --}}
-                  <div class="interaction">
-                    <span class="commentaires" data-id="{{$commentaire->id}}"> 
-                    @if ($commentaire->reponse_count == 1)
-                      {{$commentaire->reponse_count}} commentaire
-                      @elseif ($commentaire->reponse_count > 1)
-                      {{$commentaire->reponse_count}} commentaires                     
-                      @endif </span>
-        
-                    @auth
-                      @if (auth()->user()->club_id == $idclub)
-                      <span class="commentaires" data-id="{{$commentaire->id}}">Commenter</span>
-                      @endif
-                    @endauth
-                  </div>
-              </div>
-        
-              </div>
-              <div id="reponses{{$commentaire->id}}" style="display: none;">
-                @auth
-                  @if (auth()->user()->club_id == $idclub)
-                    {{-- La possibilité de laisser une REPONSE seulement pour les fans du club --}}
-                    <form action="{{route('post.reponseclub')}}" method="post">
-                      @csrf
-                      <div>
-                        <input type="text"  class="example3" placeholder="Commentaire" name="contenu">
-                        <input type="hidden" name="comment" value="{{$commentaire->id}}">
-                        
-                      </div>
-                      <div class="text-center submit">
-                        <button class="btn btn-outline-secondary" id="emoji-button" type="submit">Commenter</button>
-                      </div>
-                    </form>
-                  @endif
-                @endauth
-                
-                <div>
-                  {{-- affichage des réponses du commentaire des fans du club --}}
-                  @foreach ($commentaire->reponse as $reponse)
-                  {{-- pour redirection après post --}}
-                  <div id="{{$reponse->id}}" class="answers">
-                    <div class="commenttitle entete"> 
-                    <span class="fontsize16"> <a href="{{route('profilpublic', $reponse->user->id)}}" class="entete fontsize16">{{$reponse->user->name}} {{$commentaire->user->hashtag}}</a> -
-                    {{$reponse->created_at->diffForHumans(null,[ 'short' => true])}}</span>
-                    @auth                            
-                    <i class="bi bi-three-dots options" data-id="{{$reponse->publication->id_publication}}"></i>
-                    @endauth
-                    {{-- options --}}
-                    <x-options-commentaire :commentaire="$reponse"/>
-                    </div>
-                    {{-- modals Bootstrap des options --}}
-                    <x-modals.options-commentaire :commentaire="$reponse"/>
-        
-                    <div class="commentairecontenu">{{$reponse->contenu}}</div>
-                  </div>
-                  @endforeach
-                </div>
-              </div>
-              
-            @endforeach
+            
 
-            <div wire:loading wire:target="pagination"> 
+            {{-- <div wire:loading wire:target="pagination"> 
               <div class="spinner-border text-secondary" role="status">
                   <span class="visually-hidden">Loading...</span>
                 </div>          
-            </div>
+            </div> --}}
         
             
             

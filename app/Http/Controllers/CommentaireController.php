@@ -15,7 +15,7 @@ class CommentaireController extends Controller
     {
         $validator = Validator::make($request->all(), [      
             'contenu' => ['required', 'max:1500'],
-            'fichier_media' => ['nullable','mimetypes:image/jpeg,image/png,image/bmp,image/gif,image/svg+xml,image/webp,video/mp4,video/x-msvideo,video/quicktime','max:10000'],
+            'media' => ['nullable','mimetypes:image/jpeg,image/png,image/bmp,image/gif,image/svg+xml,image/webp,video/mp4,video/x-msvideo,video/quicktime','max:10000'],
             'lieu' => ['nullable', 'max:100'],
             'secteur_visiteur' => ['required', 'boolean']
         ]);
@@ -24,10 +24,11 @@ class CommentaireController extends Controller
             return back()
                 ->withErrors($validator);
         };
+       
+        $antiXss = new AntiXSS();
+        $contenuClean = $antiXss->xss_clean($request->contenu);
         
         
-        $contenuClean = Purifier::clean($request->contenu);
-
         $commentaire = new Commentaire();
         $userid = auth()->user()->id;
         $commentaire->contenu = $contenuClean;
@@ -43,7 +44,8 @@ class CommentaireController extends Controller
             $commentaire->lieu  = $lieuClean;
         }
         /* si fichier media posté */
-        if ($request->has('fichier_media')) {
+        if ($request->has('media')) {
+            
             /*stockage fichier media*/ 
             $fichiermedia = uniqid().'.'.$request->media->extension();    
             $request->media->storeAs("users/$userid", $fichiermedia, 'public');
