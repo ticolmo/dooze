@@ -4,7 +4,7 @@ namespace App\Livewire\Partials;
 
 use App\Models\Club;
 use Livewire\Component;
-use App\Api\ListeCompetition;
+use App\Api\ApiFootball\ListeCompetition;
 use App\Http\Controllers\CompetitionController;
 
 class Navbar extends Component

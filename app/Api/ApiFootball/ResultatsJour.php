@@ -1,9 +1,10 @@
 <?php
-namespace App\Api;
+namespace App\Api\ApiFootball;
 
-use App\Api\Nomequipe;
-use App\Api\Nomcompetition;
+use App\Api\ApiFootball\Nomequipe;
+use App\Api\ApiFootball\Nomcompetition;
 use Illuminate\Support\Facades\Http;
+use App\Api\ApiFootball\ApiFootball;
 
 
 
@@ -30,7 +31,7 @@ class ResultatsJour
     }
 
     private function apifootball(){
-        $api = new Apifootball(); 
+        $api = new ApiFootball(); 
         return $api;
     }
 

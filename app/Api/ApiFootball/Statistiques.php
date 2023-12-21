@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Api;
+namespace App\Api\ApiFootball;
 
-use App\Api\ApiFootball;
-use App\Api\CompetitionsParPays;
+use App\Api\ApiFootball\ApiFootball;
+use App\Api\ApiFootball\CompetitionsParPays;
 use Illuminate\Support\Facades\Http;
 
 

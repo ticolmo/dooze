@@ -3,7 +3,7 @@
 namespace App\Livewire\Home;
 
 use Livewire\Component;
-use App\Api\ScoresPageHome;
+use App\Api\ApiFootball\ScoresPageHome;
 use Livewire\Attributes\Reactive;
 
 class Rencontre extends Component

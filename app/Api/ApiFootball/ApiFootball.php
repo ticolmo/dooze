@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Api;
+namespace App\Api\ApiFootball;
 
-use App\Api\Nomequipe;
-use App\Api\Nomcompetition;
+use App\Api\ApiFootball\Nomequipe;
+use App\Api\ApiFootball\Nomcompetition;
 use Illuminate\Support\Facades\Http;
 
-class Apifootball
+class ApiFootball
 {
     public function header()
     {

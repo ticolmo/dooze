@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Api\ListeCompetition;
+use App\Api\ApiFootball\ListeCompetition;
 use App\Models\Club;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

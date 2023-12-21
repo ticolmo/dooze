@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Scores;
 
-use App\Api\ScoresPageClub;
+use App\Api\ApiFootball\ScoresPageClub;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;

@@ -3,9 +3,9 @@
 namespace App\Livewire\Competition;
 
 use Livewire\Component;
-use App\Api\Statistiques;
+use App\Api\ApiFootball\Statistiques;
 use Livewire\Attributes\On;
-use App\Api\JourneePageStatistiques;
+use App\Api\ApiFootball\JourneePageStatistiques;
 
 class Journee extends Component
 {   

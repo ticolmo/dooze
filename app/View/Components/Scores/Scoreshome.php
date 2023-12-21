@@ -3,7 +3,7 @@
 namespace App\View\Components\Scores;
 
 use Closure;
-use App\Api\ScoresPageHome;
+use App\Api\ApiFootball\ScoresPageHome;
 use Illuminate\Http\Request;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
