@@ -25,10 +25,11 @@
             
               @auth
                 {{-- les fans du club --}}
-                @if (auth()->user()->club_id == $idclub)         
+                @if (auth()->user()->club_id == $idclub)   
+                 
                 @php
                   $foo = 0;
-                @endphp
+                @endphp              
                 <livewire:club.fans.formulaire :$idclub :visiteur="$foo" /> 
                 
                 @else
@@ -49,6 +50,7 @@
                   @endphp        
                   <x-club.fans.formulaire-visiteur> {{$modalid}} </x-club.fans.formulaire-visiteur>
                   <x-modals.connexion> {{$modalid}}  </x-modals.connexion>
+                  <livewire:club.fans.commentaires :$idclub :visiteur="0"/>
 
               @endguest
               

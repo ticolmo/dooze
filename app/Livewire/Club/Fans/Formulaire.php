@@ -3,11 +3,16 @@
 namespace App\Livewire\Club\Fans;
 
 use Livewire\Component;
-use App\Api\Giphy\Giphy;
+use Livewire\WithFileUploads;
+use Livewire\Attributes\Validate;
 use Livewire\Attributes\On;
 
 class Formulaire extends Component
 {
+    use WithFileUploads;
+    
+    public $photo;
+
     public $idclub;
     public $visiteur;
     public $gif = false;
@@ -15,6 +20,9 @@ class Formulaire extends Component
     public $gifs = [];
     public $preview = false;
     public $giphy = '';
+    public $lieu = "";
+   
+
     
 
     #[On('getGif')] 
@@ -32,7 +40,7 @@ class Formulaire extends Component
             $this->preview = true; 
             $this->giphy = $idGif;
             $this->gif = false;
-            $this->dispatch('refresh');;
+            $this->dispatch('refresh');
     }        
     
     

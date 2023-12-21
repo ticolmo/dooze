@@ -23,6 +23,7 @@ use App\Http\Controllers\VerifyemailController;
 use App\Http\Controllers\ProfilpublicController;
 use App\Http\Controllers\Live\ConnexionController;
 use App\Http\Controllers\Admin\AdminPostController;
+use App\Http\Controllers\PresentationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -125,7 +126,7 @@ Route::middleware(['auth','verified'])->controller(PostController::class)->name(
     Route::post('/pub/signal', 'signal')->name('signal');
 });
 
-Route::middleware(['auth','verified'])->controller(CommentaireController::class)->name('commentaire.')->group(function () {            
+Route::controller(CommentaireController::class)->name('commentaire.')->group(function () {            
     Route::post('/commentaire/store', 'store')->name('store');
 });
 
@@ -173,11 +174,16 @@ Route::prefix('live')->name('live.')->group(function () {
 Route::get('/features/{idpublication}', [FeatureController::class, 'commentaireunique'])->name('commentaire.pleinepage');
 
 // Détail du match
+
 Route::get('/match/{id}', RencontreController::class)->name('detailrencontre');
 
 /* Page Don */
 
 Route::view('/donate', 'don')->name('don');
+
+/* Présentation */
+
+Route::get('/info', PresentationController::class);
 
 /* Compétitions */
 

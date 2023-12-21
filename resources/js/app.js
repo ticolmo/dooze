@@ -101,48 +101,7 @@ $(document).ready(function () {
 
 /*aperçu d'image et de video uploadés dans le formulaire commentaireclub*/
 
-  $("#fileInput").change(function () {
-      if (this.files && this.files[0]) {
-          var file = this.files[0];
-          var fileType = file.type.split('/')[0];
-
-          if (fileType === 'image') { // Si c'est une image
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                  $('#previewContainer').append('<img src="' + e.target.result + '">');
-                  $('#previewContainer').fadeIn();
-                  $('.close').show();
-              }
-              reader.readAsDataURL(file);
-          } else if (fileType === 'video') { // Si c'est une vidéo
-              var videoUrl = URL.createObjectURL(file);
-              $('#previewContainer').append('<video controls><source src="' + videoUrl + '"></video>');
-              $('#previewContainer').fadeIn();
-              $('.close').show();
-          }
-
-          // Utilisation de XMLHttpRequest pour suivre l'état de progression de l'envoi
-          var xhr = new XMLHttpRequest();
-          xhr.open('POST', 'url_du_serveur');
-          xhr.upload.onprogress = function (e) {
-              if (e.lengthComputable) {
-                  var percentComplete = (e.loaded / e.total) * 100;
-                  console.log(percentComplete + '% uploaded');
-                  // Mettre à jour la barre de progression
-                  // Remplacer "maBarreDeProgression" par le sélecteur de votre barre de progression
-                  $("#telechargement").text('Téléchargement ('+ percentComplete + '%)');
-              }
-          };
-          xhr.send(file);
-      }
- 
-      $("#previewContainer").fadeOut();
-      $("#previewContainer img").remove();
-      $("#previewContainer video").remove();
-      $("#fileInput").val("");
-      $('.close').hide();
-  });
-
+  
 
 /*aperçu d'image et de video uploadés dans le formulaire commentairevisiteur*/
 

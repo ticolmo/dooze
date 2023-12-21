@@ -5,17 +5,22 @@
 
     {{-- utilisateur et lieu --}}
     <div>
-        <span>Utilisateur</span> <span> à</span> <input type="text" x-show="lieu" name="lieu"  />
+        <span>Utilisateur</span> <span> à</span> <input type="text" wire:model="lieu" x-show="lieu" name="lieu"  />
     </div>
 
     {{-- commentaire --}}
+    
     <div>
       <input type="hidden" id="commentaireInput" class="mart form-control" name="contenu" value=""/>
-      <div id="previewCommentaire" role="textbox" contenteditable="true" placeholder="Type your text here"> </div>
+      <div id="previewCommentaire" class="foo" role="textbox" contenteditable="true" aria-multiline="true" wire:ignore> </div>
     </div> 
+    
 
     {{-- fichier media --}}
-    <input type="file" id="fileInput" name="media"/>
+    <input type="file" id="fileInput" />
+   
+ 
+    <input type="file" id="gin" wire:model="photo" name="media">
     <div class="close">
       <i class="bi bi-x-circle-fill"></i>
     </div>
@@ -26,6 +31,9 @@
       @endif
 
     {{-- preview fichier media --}}
+    @if ($photo) 
+      <img src="{{ $photo->temporaryUrl() }}">
+    @endif
     <div id="previewContainer">       
       <div id="telechargement"></div> 
     </div>  
@@ -36,7 +44,7 @@
   {{--   @dd($visiteur) --}}
     {{-- boutons --}}
     <div class="text-center submit">      
-      <label class="image" for="fileInput"><img src="{{Storage::url('divers/media-icon.png')}}" alt="" style="width:auto;height:25px"></label>      
+      <label class="image" for="gin"><img src="{{Storage::url('divers/media-icon.png')}}" alt="" style="width:auto;height:25px"></label>      
       <label for="" id="gif" @click="$wire.getGif()" > <img src="{{Storage::url('divers/gif.png')}}" alt="" style="width:auto;height:27.5px"></label>
       <label for="" id="emoji" @click="emoji()"> <img src="{{Storage::url('divers/emoji-icon.png')}}" alt="" style="width:auto;height:25px"></label>
       <label><img @click="lieu = ! lieu" src="{{Storage::url('divers/localisation.png')}}" alt="" style="width:auto;height:25px"></label>
@@ -53,22 +61,11 @@
     @endif
 
   </form>  
- 
-    {{-- Messages --}}  
-    @if ($errors->any())     
-      <div class="alert alert-danger">
-          <ul>
-              @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-          </ul>
-      </div>
-      
-    @endif
+
 
     @if ((session()->has('signalement')))
       <div class="alert alert-success w-50 m-auto text-center"> Merci pour le signalement de ce commentaire ! Il sera traité dans les meilleurs délais.</div>
     @endif
     
 </div>
-<livewire:club.fans.commentaires :$idclub :visiteur="0" />
+<livewire:club.fans.commentaires :$idclub :visiteur="0"/>
