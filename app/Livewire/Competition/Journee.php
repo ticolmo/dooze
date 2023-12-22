@@ -14,9 +14,9 @@ class Journee extends Component
     public $matchs = []; 
     public $codeCompetition;
  
-    public function mount($competition, $codeCompetition)
+    public function mount($codeCompetition)
     {   
-        $competitionConfirmed = new Statistiques($competition);
+        $competitionConfirmed = new Statistiques($codeCompetition);
         $this->journee = $competitionConfirmed->getCurrentJournee();
         $this->listeJournee = $competitionConfirmed->getListeJournee();
         $this->codeCompetition = $codeCompetition;

@@ -46,9 +46,6 @@ class Statistiques
             case 'community-shield':
                 $code = 528;
                 break;
-            case 'community-shield-w':
-                $code = 670;
-                break;
             case 'fa-womens-cup':
                 $code = 698;
                 break;
@@ -124,7 +121,7 @@ class Statistiques
     public function getClassement()
     {
         $response = $this->apifootball()->header()->get("https://v3.football.api-sports.io/standings",[
-            'league' => $this->getCodeCompetition(),
+            'league' => $this->competition,
             'season' => '2023'
             ]);                 
  
@@ -136,10 +133,10 @@ class Statistiques
     public function getCurrentJournee()
     {
         $response = $this->apifootball()->header()->get("https://v3.football.api-sports.io/fixtures/rounds",[
-            'league' => $this->getCodeCompetition(),
+            'league' => $this->competition,
             'season' => 2023,
             'current' => 'true'
-            ]);                 
+            ]);                
  
             $data = $response->json();
             $journee = $data['response']['0'];
@@ -149,7 +146,7 @@ class Statistiques
     public function getListeJournee()
     {
         $response = $this->apifootball()->header()->get("https://v3.football.api-sports.io/fixtures/rounds",[
-            'league' => $this->getCodeCompetition(),
+            'league' => $this->competition,
             'season' => 2023,
             'current' => 'false'
             ]);                 
@@ -162,7 +159,7 @@ class Statistiques
     public function getMeilleursButeurs()
     {
         $response = $this->apifootball()->header()->get("https://v3.football.api-sports.io/players/topscorers",[
-            'league' => $this->getCodeCompetition(),
+            'league' => $this->competition,
             'season' => 2023
             ]);                 
  
@@ -175,25 +172,25 @@ class Statistiques
     {   
         $code = null;
         $pays = new CompetitionsParPays("2023-11-17");
-        if(in_array($this->getCodeCompetition(),$pays->getEurope())){
+        if(in_array($this->competition,$pays->getEurope())){
             $code = "00";
         }
-        if(in_array($this->getCodeCompetition(),$pays->getEngland())){
+        if(in_array($this->competition,$pays->getEngland())){
             $code = "01";
         }
-        if(in_array($this->getCodeCompetition(),$pays->getSpain())){
+        if(in_array($this->competition,$pays->getSpain())){
             $code = "02";
         }
-        if(in_array($this->getCodeCompetition(),$pays->getItaly())){
+        if(in_array($this->competition,$pays->getItaly())){
             $code = "03";
         }
-        if(in_array($this->getCodeCompetition(),$pays->getGermany())){
+        if(in_array($this->competition,$pays->getGermany())){
             $code = "04";
         }
-        if(in_array($this->getCodeCompetition(),$pays->getFrance())){
+        if(in_array($this->competition,$pays->getFrance())){
             $code = "05";
         }
-        if(in_array($this->getCodeCompetition(),$pays->getSwitzerland())){
+        if(in_array($this->competition,$pays->getSwitzerland())){
             $code = "06";
         }      
 

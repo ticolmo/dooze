@@ -4,7 +4,7 @@
 /* Tablette - Desktop */
 @media screen and (min-width:768px) {
 
-    #pageCompetition {
+    #competition{
         display: grid;
         grid-template-columns: 20% 80%;
         grid-template-rows: 100%;
@@ -12,13 +12,17 @@
 
     }
 
-    #logoCompetition{
-        height: 20%;
-    }
-    #logoCompetition img{
-        width: auto;
+    #pageCompetition{
+        display: grid;
+        grid-template-columns: 62.5% 37.5%;
+        grid-template-rows: 100%;
         height: 100%;
     }
+
+   #logoCompetition img{
+        width: 120px;
+        height: 120px;
+    } 
     .recherche{
         position: relative;
     }

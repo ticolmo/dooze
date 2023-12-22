@@ -29,7 +29,7 @@ class Navbar extends Component
         } elseif (in_array($resultat, $this->listeCompetition)) {
             $classListeCompet = new ListeCompetition();
             $urlCompet = $classListeCompet->setIntituleInUrl($resultat);
-            $this->redirectRoute('competition', ['competition' => $urlCompet]);
+            $this->redirectRoute('competition', ['url' => $urlCompet]);
         }else{
             abort('404');
         }

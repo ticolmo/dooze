@@ -8,7 +8,6 @@ use Livewire\Attributes\Url;
 class Index extends Component
 {
     public $journee;
-    public $competition;
     public $codeCompetition;
     public $meilleursButeurs;
     public $classement;

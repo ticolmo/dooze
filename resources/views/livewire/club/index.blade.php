@@ -1,10 +1,11 @@
 <div>
     
-    <div id="selectPageActivity">
-        <div wire:click="selectPage('news')">Actualité</div>
-        <div wire:click="selectPage('fans')">Fans</div>
-        <div wire:click="selectPage('socialmedia')">Réseaux Sociaux</div>
-        <div wire:click="selectPage('live')">Live</div>
+    <div id="menuClub">
+        <div wire:click="selectPage('news')"> <i class="bi bi-house-door"></i> Actualité</div>
+        <div wire:click="selectPage('fans')"> <i class="bi bi-chat-dots"></i> Fans</div>
+        <div wire:click="selectPage('socialmedia')"> <i class="bi bi-wifi"></i> Réseaux Sociaux</div>
+        <div wire:click="selectPage('match')" id="resultats"> <i><img class="logo1 animate__animated animate__flipInY" src="{{Storage::url('logos/'.$nom.'.png')}}" alt=""> </i>  Résultats</div>
+        {{-- <div wire:click="selectPage('live')">Live</div> --}}
     </div>
 
     <div id="pageActivity" style="position:relative;">
@@ -25,9 +26,9 @@
             
         @endif
         
-        @if ($page == "live")
+        {{-- @if ($page == "live")
         <x-lives :$idclub /> 
-        @endif
+        @endif --}}
         @if ($page == "comment")
         {{-- composant avec #[Url(except: '')] $comment ; except null pour empêcher page blanche --}}
         @endif

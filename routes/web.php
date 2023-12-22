@@ -187,7 +187,7 @@ Route::get('/info', PresentationController::class);
 
 /* Compétitions */
 
-Route::get('/competition/{competition}', [CompetitionController::class, 'index'])->name('competition');
+Route::get('/competition/{url}', [CompetitionController::class, 'index'])->name('competition');
 
 /* Pages des clubs */
 

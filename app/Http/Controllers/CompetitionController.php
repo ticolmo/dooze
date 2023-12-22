@@ -4,49 +4,33 @@ namespace App\Http\Controllers;
 
 use App\Api\ApiFootball\Statistiques;
 use App\Api\ApiFootball\ListeCompetition;
+use App\Models\Competition;
 
 class CompetitionController extends Controller
 {
-    public function index( string $competition)
+    public function index(string $url)
     {   
-        $request = app('request');
-        $show = true;
-        $showClassement = true;     
-        
-        $listCompet = new ListeCompetition();
-        $listeCompetition = $listCompet->getUrl(); 
-        if (!in_array($competition, $listeCompetition)) {
-            abort(404);
-        };
-    
+        $standing = false;  
+        $competition = Competition::where('url', $url)->firstOrFail();    
 
-        $competitionConfirmed = new Statistiques($competition);
-        $codeCompetition = $competitionConfirmed->getCodeCompetition();
-        $codeBackgroundImage = $competitionConfirmed->getCodeBackgroundImage();        
-        
-        $classement = $competitionConfirmed->getClassement();
-
-        /* si un classement pour cette compétition existe */
-        if(empty($classement)){
-            $show = false; 
-            $showClassement = false; 
+        $resultats = new Statistiques($competition->id);
+        if($competition->has_standing){
+          $classement = $resultats->getClassement(); 
+          $standing = $classement['0']['league']['standings'];  
         }
+       
         /* si le paramètre journée est présent dans la requête */
       /*   if (isset($type) && $type == "round" && $request->has('name') && in_array($request->name, $listeJournee)){
             $show = false;
             $journee = $request->name;
         } */
         
-        $nameCompetition = $classement['0']['league']['name'];
-        $standing = $classement['0']['league']['standings'];
     
         
-        return view('competition',[
-            'show' => $show,
-            'showClassement' => $showClassement,           
-            'codeCompetition' => $codeCompetition,
-            'nameCompetition' => $nameCompetition,
-            'codeBackgroundImage' => $codeBackgroundImage,
+        return view('competition',[          
+            'codeCompetition' => $competition->id,
+            'nameCompetition' => $competition->intitule,
+            'codeBackgroundImage' => $competition->code_pays,
             'competition' => $competition,
             'classement' => $standing
 
