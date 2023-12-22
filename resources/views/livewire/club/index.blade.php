@@ -8,7 +8,7 @@
         {{-- <div wire:click="selectPage('live')">Live</div> --}}
     </div>
 
-    <div id="pageActivity" style="position:relative;">
+    <div id="pageClub" style="position:relative;">
         <div style="position:absolute; z-index:3; background-color:white;width:100%;height:100%" wire:loading> 
             <div class="spinner-border text-secondary" role="status">
                 <span class="visually-hidden">Loading...</span>

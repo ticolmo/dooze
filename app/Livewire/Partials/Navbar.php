@@ -6,6 +6,7 @@ use App\Models\Club;
 use Livewire\Component;
 use App\Api\ApiFootball\ListeCompetition;
 use App\Http\Controllers\CompetitionController;
+use App\Models\Competition;
 
 class Navbar extends Component
 {    
@@ -15,8 +16,7 @@ class Navbar extends Component
 
     public function mount(){
         $this->listeClub = Club::where('en_ligne',true)->select('nom')->pluck('nom')->toArray();
-        $classListeCompet = new ListeCompetition();
-        $this->listeCompetition = $classListeCompet->getIntitule();
+        $this->listeCompetition = Competition::where('has_page_competition', true)->select('intitule')->pluck('intitule')->toArray();
         $this->recherches = array_merge($this->listeCompetition,$this->listeClub);
         
     }
@@ -27,9 +27,8 @@ class Navbar extends Component
             $urlClub = $club->url;
             $this->redirectRoute('club', ['club' => $urlClub]);
         } elseif (in_array($resultat, $this->listeCompetition)) {
-            $classListeCompet = new ListeCompetition();
-            $urlCompet = $classListeCompet->setIntituleInUrl($resultat);
-            $this->redirectRoute('competition', ['url' => $urlCompet]);
+            $urlCompet = Competition::where('intitule',$resultat)->firstOrFail();
+            $this->redirectRoute('competition', ['url' => $urlCompet->url]);
         }else{
             abort('404');
         }

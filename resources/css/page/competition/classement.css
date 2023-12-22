@@ -1,0 +1,43 @@
+/******************************************************/
+/* Tablette - Desktop */
+@media screen and (min-width:768px) {
+    #pageClassement{
+        padding: 20px;
+    }
+    #titreColonne{
+        background-color: rgba(128, 128, 128, 0.63);
+    }
+    .logoClub{
+        width: 25px;
+        height: 25px;
+    }
+    hr.classementPromotion {
+        border: none;
+        border-top: 3px dashed gray!important;
+        
+      }
+    .points{
+        font-weight: 700;
+    }
+    table#tableClassement, tr.ligneClassement {
+        border-bottom: 1px solid rgb(190, 175, 175) !important
+      }
+      tr.ligneClassement{
+        height: 3rem;
+      }
+    tr{
+        text-align: center;
+    }
+    .clubClassement{
+        text-align: start;
+    }
+    .butsFor{
+        text-align: end;
+    }
+    .butsAgainst{
+        text-align: start;
+    }
+    table#tableClassement {
+        width: 100%;
+      }
+}
