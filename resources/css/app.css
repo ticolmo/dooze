@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
 @import './page/competition.css';
 @import './page/competition/classement.css';
+@import './page/competition/journee.css';
 @import './page/rencontre.css';
 @import './page/club/fans.css';
 @import './page/club.css';

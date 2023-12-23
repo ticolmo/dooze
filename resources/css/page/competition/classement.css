@@ -22,10 +22,10 @@
     table#tableClassement, tr.ligneClassement {
         border-bottom: 1px solid rgb(190, 175, 175) !important
       }
-      tr.ligneClassement{
+    table#tableClassement tr.ligneClassement{
         height: 3rem;
       }
-    tr{
+    table#tableClassement tr{
         text-align: center;
     }
     .clubClassement{

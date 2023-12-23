@@ -20,18 +20,38 @@ class Journee extends Component
         $this->journee = $competitionConfirmed->getCurrentJournee();
         $this->listeJournee = $competitionConfirmed->getListeJournee();
         $this->codeCompetition = $codeCompetition;
-
          
         $data = new JourneePageStatistiques();
-        $this->matchs = $data->getListeMatchs($this->journee, $this->codeCompetition);
-       
+        $this->matchs = $this->triMatch($data->getListeMatchs($this->journee, $this->codeCompetition));         
+    }
+
+    public function triMatch($rencontres){
+        /* tri par date */
+        $tab0 = [];
+        foreach ($rencontres as $item){      
+            $bar = $item['fixture']['timestamp'];
+            $tab0[] = $bar;            
+        };       
+        sort($tab0);
+        $tab1 = [];
+        foreach ($tab0 as $item){
+            foreach ($rencontres as $item3){                               
+                if( $item3['fixture']['timestamp'] == $item){
+                    if(!in_array($item3, $tab1)){
+                      $tab1[] = $item3;  
+                    };                    
+                };                
+            };
+        };
+        return $tab1;
+
     }
 
     #[On('listeDeroulante')]
     public function changeJournee($choix){
         $this->journee = $choix;
         $data = new JourneePageStatistiques();
-        $this->matchs = $data->getListeMatchs($this->journee, $this->codeCompetition);
+        $this->matchs = $this->triMatch($data->getListeMatchs($this->journee, $this->codeCompetition));
     }
 
     public function redirectDetailRencontre($idRencontre){

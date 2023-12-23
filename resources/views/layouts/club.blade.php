@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://wisteriassistante.ch/prestations/" />
 	<meta property="og:site_name" content="Dooze" />
 
-  <title> @yield('title') Dooze</title>
+  <title> @yield('title') - Dooze</title>
   @livewireStyles
   @vite(['resources/css/app.css', 'resources/js/app.js','resources/css/bootstrap.scss','resources/js/bootstrapjs.js'])
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> 

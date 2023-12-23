@@ -1,0 +1,65 @@
+/******************************************************/
+/* Tablette - Desktop */
+@media screen and (min-width:768px) {
+
+    table#tableJournee {
+        width: 90%;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    table#tableJournee .dateJournee{
+        background-color: rgba(128, 128, 128, 0.63);
+    }
+    table#tableJournee tr.ligneJournee{
+        height: 3.5rem;
+        overflow: hidden!important;
+      }
+      table#tableJournee .centreLigne{
+        width:5%;
+        text-align: center;
+      }
+      table#tableJournee .chiffreScore{
+        
+        text-align: center;
+      }
+    table#tableJournee .teamHome {
+        text-align: end;
+        width:37.5%
+    }
+    table#tableJournee .teamAway {
+        text-align: start;
+        width:37.5%
+    }
+    table#tableJournee .trait {
+        
+        text-align:center
+    }
+    .scoreHome{
+        text-align: end;
+        border-left:15px solid white ;
+    }
+    .scoreAway{
+        border-right:15px solid white ;
+    }
+    table#tableJournee [class^="score"] {
+        background-color: #1e1a19;
+        color: white;
+        font-weight: 700;
+    }
+
+    table#tableJournee .status{
+        padding-left: 45%;
+        padding-right: 45%;
+        font-size: 10px;
+        text-align: center;
+    }
+      table#tableJournee .bottomRencontre{
+        border-bottom: 1px solid rgb(190, 175, 175) !important;
+    }
+
+    .logoClub{
+        width: 25px;
+        height: 25px;
+    }
+
+}

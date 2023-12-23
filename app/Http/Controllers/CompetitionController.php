@@ -15,7 +15,7 @@ class CompetitionController extends Controller
 
         $resultats = new Statistiques($competition->id);
         if($competition->has_standing){
-          $classement = $resultats->getClassement(); 
+          $classement = $resultats->getClassement();
           $standing = $classement['0']['league']['standings'];  
         }
        
