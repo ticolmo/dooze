@@ -48,6 +48,9 @@ class Nomequipe
             case "Tottenham":
                 $team = "Tottenham Hotspurs";
                 break;           
+            case "Servette Chênois W":
+                $team = "Servette FC Chênois Féminin";
+                break;           
 
             default:
                 $team = $original;

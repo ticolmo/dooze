@@ -28,28 +28,20 @@ class ApiFootball
         ]);
 
         $datas = $response->json();
+        $tableau = [];
         if ($datas['response'] != null) {
 
             foreach ($datas['response'] as $data) {
 
-                $tableau = [
-                    'date' => date("d-m-Y", $data['fixture']['timestamp']),
-                    'ligue' => $data['league']['name'],
-                    'journee' => $data['league']['round'],
-                    'equipe1' => $data['teams']['home']['name'],
-                    'equipe2' => $data['teams']['away']['name'],
-                    'score1' => $data['goals']['home'],
-                    'score2' => $data['goals']['away'],
-                ];
+                $tableau = $data;            
             };
-
-
+            
             $check = new Nomequipe();
-            $tableau['equipe1'] = $check->setnom($tableau['equipe1']);
-            $tableau['equipe2'] = $check->setnom($tableau['equipe2']);
+            $tableau['teams']['home']['name'] = $check->setnom($tableau['teams']['home']['name']);
+            $tableau['teams']['away']['name'] = $check->setnom($tableau['teams']['away']['name']);
 
             $check2 = new Nomcompetition();
-            $tableau['ligue'] = $check2->setnom($tableau['ligue']);
+            $tableau['league']['name'] = $check2->setnom($tableau['league']['name']);
 
 
             /*   $check2 = new Nomequipe();
@@ -105,28 +97,22 @@ class ApiFootball
         $datas = $response->json();
 
         $tableau = [];
+        if ($datas['response'] != null) {
 
-        foreach ($datas['response'] as $data) {
+            foreach ($datas['response'] as $data) {
+                $tableau = $data;  
+            };
 
-            $tableau = [
-                'date' => date("d-m-Y H:i", $data['fixture']['timestamp']),
-                'ligue' => $data['league']['name'],
-                'journee' => $data['league']['round'],
-                'equipe1' => $data['teams']['home']['name'],
-                'equipe2' => $data['teams']['away']['name'],
-
-            ];
-        };
-        if (isset($tableau['equipe1']) || isset($tableau['equipe2'])) {
+            if (isset($tableau['equipe1']) || isset($tableau['equipe2'])) {
             $check = new Nomequipe();
-            $tableau['equipe1'] = $check->setnom($tableau['equipe1']);
-            $tableau['equipe2'] = $check->setnom($tableau['equipe2']);
+            $tableau['teams']['home']['name'] = $check->setnom($tableau['teams']['home']['name']);
+            $tableau['teams']['away']['name'] = $check->setnom($tableau['teams']['away']['name']);
 
             $check2 = new Nomcompetition();
-            $tableau['ligue'] = $check2->setnom($tableau['ligue']);
+            $tableau['league']['name'] = $check2->setnom($tableau['league']['name']);
+            }
+            
+            return $tableau;
         }
-
-
-        return $tableau;
     }
 }

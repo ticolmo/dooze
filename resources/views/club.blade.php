@@ -2,7 +2,7 @@
 
 
 @section('title')
-{{$club->nom }} -
+{{$club->nom }}
 @endsection
 
 
@@ -27,7 +27,8 @@
   </div>
 
   <div id="bulletin">
-    {{-- peut-être pas nécessaire de tout mettre dans composant --}}
+    <livewire:partials.navbar />
+    <hr>
     <x-club.bulletin 
       :scoreshomme="$club->scores_homme" 
       :scoresfemme="$club->scores_femme"

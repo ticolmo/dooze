@@ -4,6 +4,7 @@
 @import './page/competition/journee.css';
 @import './page/rencontre.css';
 @import './page/club/fans.css';
+@import './page/club/bulletin.css';
 @import './page/club.css';
 
 * {

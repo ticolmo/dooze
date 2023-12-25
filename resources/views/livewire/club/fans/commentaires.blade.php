@@ -1,6 +1,7 @@
 <div>
+    
     @foreach ($commentaires as $commentaire)
-        <div class="comments principcomments pagi">
+        <div wire:key="{{$commentaire->id}}" class="comments principcomments pagi">
 
         <div> 
             <img class="photoprofil"src="{{Storage::url('users/'.$commentaire->user->id.'/avatar\/'.$commentaire->user->photoprofil)}}" alt="">

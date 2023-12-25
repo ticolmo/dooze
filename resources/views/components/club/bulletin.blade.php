@@ -1,8 +1,4 @@
 <div>
-    <livewire:partials.navbar />
-
-    <hr>
-
       <div class="logo">        
         <a href="{{$siteofficiel}}" target="_blank">
           <img class="logo1 animate__animated animate__flipInY" src="{{Storage::url('logos/'.$nom.'.png')}}" alt="">
@@ -18,11 +14,12 @@
           </div>
         </span>
         <span> Billeterie officiel</span>
+        {{-- <audio id="chant" src="{{Storage::url('audio/'.$nom.' Audio.mp3')}}" autoplay controls></audio> --}}
       </div>
       
       <div class="infot" style="border:{{$couleur}}">
         {{-- composant tableau des scores --}} 
         <x-scores.tableau-scores-club :$scoreshomme :$scoresfemme /> 
       </div>
-     <audio id="chant" src="{{Storage::url('audio/'.$nom.' Audio.mp3')}}" autoplay controls></audio>
+     
 </div>

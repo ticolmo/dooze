@@ -3,8 +3,9 @@
 namespace App\Livewire\Competition;
 
 use Livewire\Component;
-use App\Api\ApiFootball\Statistiques;
 use Livewire\Attributes\On;
+use Illuminate\Http\Request;
+use App\Api\ApiFootball\Statistiques;
 use App\Api\ApiFootball\JourneePageStatistiques;
 
 class Journee extends Component
@@ -14,10 +15,16 @@ class Journee extends Component
     public $matchs = []; 
     public $codeCompetition;
  
-    public function mount($codeCompetition)
+    public function mount(Request $request, $codeCompetition)
     {   
-        $competitionConfirmed = new Statistiques($codeCompetition);
-        $this->journee = $competitionConfirmed->getCurrentJournee();
+        $competitionConfirmed = new Statistiques($codeCompetition); 
+        /* si l'utilisateur a cliqué sur une journée sur la page club */       
+        if ($request->session()->has('journee')) {
+            $this->journee = session()->get('journee');
+            $request->session()->forget('journee');
+        }else{
+            $this->journee = $competitionConfirmed->getCurrentJournee();
+        }
         $this->listeJournee = $competitionConfirmed->getListeJournee();
         $this->codeCompetition = $codeCompetition;
          

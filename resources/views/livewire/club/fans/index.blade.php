@@ -32,6 +32,7 @@
                 @endphp              
                 <livewire:club.fans.formulaire :$idclub :visiteur="$foo" /> 
                 
+                
                 @else
                   {{-- si fan autre club  --}}           
                       @php
@@ -41,6 +42,8 @@
                       <x-modals.fanautreclub> {{$modalid}} </x-modals.fanautreclub> 
 
                   @endif  
+
+                  
               @endauth
                   
               @guest
@@ -53,6 +56,8 @@
                   <livewire:club.fans.commentaires :$idclub :visiteur="0"/>
 
               @endguest
+              
+              
               
               {{-- <x-modals.bouton-visiteur :idclub :$idclub submit>            
                 Publier

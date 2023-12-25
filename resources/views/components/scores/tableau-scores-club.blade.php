@@ -1,6 +1,6 @@
 
 
-<ul class="nav nav-tabs" id="myTab" role="tablist">
+<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
 
   @if ($live['etat'])
   <li class="nav-item" role="presentation">
@@ -53,4 +53,3 @@
 
 </div>
 
-</div>

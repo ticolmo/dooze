@@ -9,8 +9,8 @@
       @php
           $jour = "";
       @endphp  
-    <table id="tableJournee">
-      
+    <div id="tableJournee">
+              
         @foreach ($matchs as $rencontre)
             @php
                 $afficheJour = false;   
@@ -28,40 +28,40 @@
             @endphp
     
         @if ($afficheJour)
-            <tr class="dateJournee">
-                <td colspan="7"> {{date('l d F', $rencontre['fixture']['timestamp'])}}  </td>
-            </tr>
+            <div class="dateJournee">
+                 {{date('l d F', $rencontre['fixture']['timestamp'])}} 
+            </div>
         @endif
       
                 
-        <tr 
+        <div 
             @if ($matchencours || $matchfini) wire:click="redirectDetailRencontre({{$rencontre['fixture']['id']}})" @endif            
             class="ligneJournee {{-- @if ($matchencours == false)  --}}{{-- bottomRencontre --}} {{-- @endif  --}}"
             >
             
             
-            <td class="teamHome"> {{$rencontre['teams']['home']['name']}}</td>
-            <td class="centreLigne"> <img class="logoClub" src="{{$rencontre['teams']['home']['logo']}}" alt="" /> </td>
+            <span class="teamHome"> {{$rencontre['teams']['home']['name']}}</span>
+            <span class="centreLigne"> <img class="logoClub" src="{{$rencontre['teams']['home']['logo']}}" alt="" /> </span>
             
             @if ($rencontre['fixture']['status']['short'] == 'NS')
-                <td colspan="3"> {{date('H:i', $rencontre['fixture']['timestamp'])}} </td>
+                <span colspan="3"> {{date('H:i', $rencontre['fixture']['timestamp'])}} </span>
             @else
                 @if ($matchencours)
-                <td class="centreLigne" style="color: red"> {{$rencontre['goals']['home']}} </td>
-                <td class="trait score"> - </td>
-                <td class="centreLigne" style="color: red"> {{$rencontre['goals']['away']}} </td> 
+                <span class="centreLigne" style="color: red"> {{$rencontre['goals']['home']}} </span>
+                <span class="trait score"> - </span>
+                <span class="centreLigne" style="color: red"> {{$rencontre['goals']['away']}} </span> 
                 @else
-                <td class="scoreHome score"> {{$rencontre['goals']['home']}} </td>
-                <td class="score trait"> - </td>
-                <td class="scoreAway score"> {{$rencontre['goals']['away']}} </td>
+                <span class="scoreHome score"> {{$rencontre['goals']['home']}} </span>
+                <span class="score trait"> - </span>
+                <span class="scoreAway score"> {{$rencontre['goals']['away']}} </span>
                 @endif
 
             @endif
-            <td class="centreLigne"> <img class="logoClub" src="{{$rencontre['teams']['away']['logo']}}" alt="" /> </td>
-            <td class="teamAway"> {{$rencontre['teams']['away']['name']}}</td>
-        </tr>   
+            <span class="centreLigne"> <img class="logoClub" src="{{$rencontre['teams']['away']['logo']}}" alt="" /> </span>
+            <span class="teamAway"> {{$rencontre['teams']['away']['name']}}</span>
+        </div>   
         
-        <tr class="bottomRencontre"> <td colspan="7" class="status"> {{$rencontre['fixture']['status']['short']}} </td> </tr>        
+        <div class="bottomRencontre status"> {{$rencontre['fixture']['status']['short']}} </div>        
         
         @php
            
@@ -70,6 +70,6 @@
         @endphp
 
         @endforeach   
-    </table>
+    </div>
     
 </div>
