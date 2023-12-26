@@ -51,6 +51,12 @@ class Nomequipe
             case "Servette Chênois W":
                 $team = "Servette FC Chênois Féminin";
                 break;           
+            case "Rennes":
+                $team = "Stade Rennais";
+                break;           
+            case "LE Havre":
+                $team = "Le Havre";
+                break;           
 
             default:
                 $team = $original;

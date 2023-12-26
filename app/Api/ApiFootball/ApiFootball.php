@@ -103,7 +103,7 @@ class ApiFootball
                 $tableau = $data;  
             };
 
-            if (isset($tableau['equipe1']) || isset($tableau['equipe2'])) {
+            if (isset($tableau['teams']['home']['name']) || isset($tableau['teams']['away']['name'])) {
             $check = new Nomequipe();
             $tableau['teams']['home']['name'] = $check->setnom($tableau['teams']['home']['name']);
             $tableau['teams']['away']['name'] = $check->setnom($tableau['teams']['away']['name']);

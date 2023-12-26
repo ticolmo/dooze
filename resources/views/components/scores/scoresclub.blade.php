@@ -13,61 +13,47 @@
         <span>{{$lastmatch['league']['name']}} </span>
       @endif      
       <span> - </span>
-      @if ($pageCompetLastMatch['page'])
-        {{-- Redirection vers page competition vers la journée affichée --}}
-        <livewire:club.bulletin.redirect-journee :url="$pageCompetLastMatch['url']" :league="$lastmatch['league']['round']" />        
-      @else  
-      <span>{{$lastmatch['league']['round']}} </span>
-      @endif  
+      {{-- Redirection vers page competition vers la journée affichée --}}
+      <livewire:club.bulletin.redirect-journee :pagecompet="$pageCompetLastMatch['page']" :url="$pageCompetLastMatch['url']" :league="$lastmatch['league']['round']" />        
+      
     </div>
 
     <div class="date">{{date('l d F', $lastmatch['fixture']['timestamp'])}}</div>
-    <div class="ligneMatch"> 
-      <span> {{$lastmatch['teams']['home']['name']}}</span> 
-      
-      <span class="scoreGoalHome"> <span> {{$lastmatch['goals']['home']}}</span></span> 
-      <span class="scoreTrait"> - </span>
-      <span class="scoreGoalAway"> {{$lastmatch['goals']['away']}}</span>
+    <livewire:club.bulletin.redirect-rencontre :lastmatch="$lastmatch" />
     
-      <span> {{$lastmatch['teams']['away']['name']}}</span> 
-    </div>
   </div>
   @endif
 
   <!-- PROCHAIN MATCH -->
   @if (isset($nextmatch) && !empty($nextmatch))
-  <div class="match">
-    
-    <div>Prochain match</div>
+    <div class="match">
+      
+      <div>Prochain match</div>
 
-    <div class="titreMatch">
-      @if ($pageCompetNextMatch['page'])
-        <span> <a href="{{route('competition', $pageCompetNextMatch['url'])}}">{{$nextmatch['league']['name']}} </a></span> 
-      @else  
-        <span>{{$nextmatch['league']['name']}} </span>
-      @endif  
-      <span> - </span>
-      @if ($pageCompetNextMatch['page'])
+      <div class="titreMatch">
+        @if ($pageCompetNextMatch['page'])
+          <span> <a href="{{route('competition', $pageCompetNextMatch['url'])}}">{{$nextmatch['league']['name']}} </a></span> 
+        @else  
+          <span>{{$nextmatch['league']['name']}} </span>
+        @endif  
+        <span> - </span>      
         {{-- Redirection vers page competition vers la journée affichée --}}
-        <livewire:club.bulletin.redirect-journee :url="$pageCompetNextMatch['url']" :league="$nextmatch['league']['round']" />        
-      @else  
-      <span>{{$nextmatch['league']['round']}} </span>
-      @endif  
+        <livewire:club.bulletin.redirect-journee :pagecompet="$pageCompetNextMatch['page']" :url="$pageCompetNextMatch['url']" :league="$nextmatch['league']['round']" />        
+      
+      </div>
+    
+      <div class="date">{{date('l d F', $nextmatch['fixture']['timestamp'])}}</div>
+      <div class="date">{{date('H:i', $nextmatch['fixture']['timestamp'])}}</div>
+      <div class="ligneMatch"> 
+        <span> {{$nextmatch['teams']['home']['name']}}</span> 
+        <span class="scoreGoal"> {{$nextmatch['goals']['home']}}</span> 
+        <span class="scoreTrait"> - </span>
+        <span class="scoreGoal"> {{$nextmatch['goals']['away']}}</span>
+        <span> {{$nextmatch['teams']['away']['name']}}</span> 
+      </div>
     </div>
-  
-    <div class="date">{{date('l d F', $nextmatch['fixture']['timestamp'])}}</div>
-    <div class="date">{{date('H:i', $nextmatch['fixture']['timestamp'])}}</div>
-    <div class="ligneMatch"> 
-      <span> {{$nextmatch['teams']['home']['name']}}</span> 
-      <span class="scoreGoal"> {{$nextmatch['goals']['home']}}</span> 
-      <span class="scoreTrait"> - </span>
-      <span class="scoreGoal"> {{$nextmatch['goals']['away']}}</span>
-      <span> {{$nextmatch['teams']['away']['name']}}</span> 
-    </div>
-  </div>
-
-
-
   @endif
+
+
 
 </div>

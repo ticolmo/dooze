@@ -9,6 +9,7 @@ class RedirectJournee extends Component
 {
     public $league; 
     public $url;
+    public $pagecompet;
     
     public function redirectJournee(Request $request, $url){
         $request->session()->put('journee', $this->league); 

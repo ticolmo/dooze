@@ -1,5 +1,7 @@
 <span
-    wire:click="redirectJournee('{{$url}}')"
+    @if ($pagecompet)
+      wire:click="redirectJournee('{{$url}}')"  
+    @endif    
     > 
     {{$league}}
 </span> 

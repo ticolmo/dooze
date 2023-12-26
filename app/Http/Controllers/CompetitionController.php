@@ -17,15 +17,7 @@ class CompetitionController extends Controller
         if($competition->has_standing){
           $classement = $resultats->getClassement();
           $standing = $classement['0']['league']['standings'];  
-        }
-       
-        /* si le paramètre journée est présent dans la requête */
-      /*   if (isset($type) && $type == "round" && $request->has('name') && in_array($request->name, $listeJournee)){
-            $show = false;
-            $journee = $request->name;
-        } */
-        
-    
+        }       
         
         return view('competition',[          
             'codeCompetition' => $competition->id,

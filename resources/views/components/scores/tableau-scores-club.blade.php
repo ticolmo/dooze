@@ -10,14 +10,13 @@
   @endif
   <li class="nav-item" role="presentation">
     <button class="nav-link @if ($live['etat'] == false ) active @endif " id="profile-tab" data-bs-toggle="tab"
-      data-bs-target="#man" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false"> 1ère Equipe
-      masculine</button>
+      data-bs-target="#man" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false"> Homme</button>
   </li>
 
   @if ($idequipefemme !== 0)
   <li class="nav-item" role="presentation">
     <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#women" type="button" role="tab"
-      aria-controls="contact-tab-pane" aria-selected="false">1ère Equipe féminine</button>
+      aria-controls="contact-tab-pane" aria-selected="false">Femme</button>
   </li>
   @endif
 

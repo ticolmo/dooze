@@ -1,0 +1,12 @@
+/******************************************************/
+/* Tablette - Desktop */
+@media screen and (min-width:768px) {
+    table#buteurs{
+        width:100%
+    }
+    table#buteurs .photoButeur{
+        width: 70px;
+        height: auto;
+    }
+
+}

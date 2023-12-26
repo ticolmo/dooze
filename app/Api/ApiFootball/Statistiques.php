@@ -125,8 +125,16 @@ class Statistiques
             'season' => '2023'
             ]);                 
  
-            $data = $response->json();
+            $data = $response->json();           
+            
+            foreach($data['response']['0']['league']['standings'] as &$group){
+                foreach($group as &$equipe){
+                    $check = new Nomequipe();                  
+                    $equipe['team']['name'] = $check->setnom($equipe['team']['name']);
+                }
+            };
             $classement = $data['response'];
+
             return $classement;
     }
 
@@ -164,6 +172,11 @@ class Statistiques
             ]);                 
  
             $data = $response->json();
+           /*  dd($data); */
+            foreach($data['response'] as &$buteur){
+                $check = new Nomequipe(); 
+                $buteur['statistics']['0']['team']['name'] = $check->setnom($buteur['statistics']['0']['team']['name']);
+            };
             $liste = $data['response'];
             return $liste;
     }
