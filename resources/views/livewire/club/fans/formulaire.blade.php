@@ -44,10 +44,23 @@
   {{--   @dd($visiteur) --}}
     {{-- boutons --}}
     <div class="text-center submit">      
-      <label class="image" for="gin"><img src="{{Storage::url('divers/media-icon.png')}}" alt="" style="width:auto;height:25px"></label>      
-      <label for="" id="gif" @click="$wire.getGif()" > <img src="{{Storage::url('divers/gif.png')}}" alt="" style="width:auto;height:27.5px"></label>
-      <label for="" id="emoji" @click="emoji()"> <img src="{{Storage::url('divers/emoji-icon.png')}}" alt="" style="width:auto;height:25px"></label>
-      <label><img @click="lieu = ! lieu" src="{{Storage::url('divers/localisation.png')}}" alt="" style="width:auto;height:25px"></label>
+      <label class="iconNav parentIcon" for="gin">{{-- <img src="{{Storage::url('divers/media-icon.png')}}" alt="" style="width:auto;height:25px"> --}}
+        
+        <i class="bi bi-image"></i>
+      <div class="explicatifIcon"><span>Image</span></div>  
+      </label>      
+      <label class="iconNav parentIcon" for="" id="gif" @click="$wire.getGif()" >
+        <i><img src="{{Storage::url('divers/gif.png')}}" alt="" {{-- style="width:auto;height:27.5px" --}}></i>       
+      <div class="explicatifIcon"><span>GIF</span></div>
+      </label>
+      <label class="iconNav parentIcon" for="" id="emoji" @click="emoji()"> {{-- <img src="{{Storage::url('divers/emoji-icon.png')}}" alt="" style="width:auto;height:25px"> --}}
+        <i class="bi bi-emoji-smile"></i>
+      <div class="explicatifIcon"><span>Emoji</span></div>
+      </label>
+      <label class="iconNav parentIcon" @click="lieu = ! lieu">{{-- <img src="{{Storage::url('divers/localisation.png')}}" alt="" style="width:auto;height:25px"> --}}
+        <i class="bi bi-geo-alt" ></i>
+      <div class="explicatifIcon"><span>Lieu</span></div>
+      </label>
 
       <div class="btn btn-outline-secondary soumettre" @click="soumission()">Publier</div>     
           

@@ -37,6 +37,7 @@ class CommentaireController extends Controller
         $commentaire->club_id = auth()->user()->club_id;
         $commentaire->created_at = now();  
         $commentaire->reponse_id  = $request->reponse;
+        $commentaire->nb_jaime  = 0;
        
         /* si le commentaire contient un lieu */
         if ($request->has('lieu')) {

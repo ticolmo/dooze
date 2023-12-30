@@ -10,6 +10,7 @@ class Index extends Component
     public $flux;
     public $nom;
     public $idclub;
+    public $couleur;
     #[Url]
     public $page = "";
 

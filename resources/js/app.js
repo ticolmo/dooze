@@ -1,4 +1,5 @@
 import './bootstrap';
+import './bootstrapjs.js';
 import './page/fans.js';
 import { createApp } from "vue";
 import rechercheclubs from "./components/rechercheClubs.vue";
@@ -7,6 +8,9 @@ import rechercheclubs from "./components/rechercheClubs.vue";
 /* const app = createApp({});
 app.component('rechercheclubs', rechercheclubs);
 app.mount('#app'); */
+
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
 
 var music = document.getElementById("chant");

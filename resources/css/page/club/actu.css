@@ -1,0 +1,106 @@
+/***********************************************/
+/* Smartphone */
+@media screen and (max-width:767px) {
+    .creatorDesktop{
+        display: none;
+    }
+    .creatorMobile{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+    
+    .imageArticle{
+        position: relative;
+        z-index: -1;
+        display: flex;
+        flex-direction: row;
+        justify-content:center;
+    }
+    .imageArticle img{
+        width: 90%;
+        height: auto;
+        border-radius: 5px;
+    }
+    .article{
+        margin-left: auto;
+        margin-right: auto;
+        width: 75%;
+        background-color: white;
+        transform: translateY(-45%);
+        padding: 10px;
+        border-radius: 5px;
+        
+        font-weight: 700;
+    }
+    .firstBr{
+        display: none;
+    }
+    .actublog hr{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        
+    }
+}
+
+/******************************************************/
+/* Tablette - Desktop */
+@media screen and (min-width:768px) {
+
+    .creatorMobile{
+        display: none;
+    }
+    
+    .actublog {
+        height: auto;
+        display: flex !important;
+        flex-direction: column !important;
+        margin-top: 30px;
+
+    }
+    .actublog hr{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+
+    .blog {
+        display: flex;
+        flex-direction: row;
+        column-gap: 10px;
+        justify-content:center
+
+
+    }
+    .blog img {
+        height: auto;
+        width: 190px;
+        border-radius: 5px; /* à enlever si cadre image sur survol */
+        transition: all 0.3s ease-in;
+
+    }
+    /* .blog .imageArticle{
+        overflow: hidden;
+        border-radius: 5px;
+    } */
+    .blog img:hover {
+        transform: scale(1.05);
+    }
+    .article{
+        width: 60%;
+    }
+    .article .creatorDesktop{
+        font-size: 12px;
+    }
+    .article .titre{
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+}

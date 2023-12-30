@@ -17,7 +17,7 @@
         {{-- <audio id="chant" src="{{Storage::url('audio/'.$nom.' Audio.mp3')}}" autoplay controls></audio> --}}
       </div>
       
-      <div class="infot" style="border:{{$couleur}}">
+      <div class="infot">
         {{-- composant tableau des scores --}} 
         <x-scores.tableau-scores-club :$scoreshomme :$scoresfemme /> 
       </div>

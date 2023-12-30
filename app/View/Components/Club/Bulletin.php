@@ -15,7 +15,6 @@ class Bulletin extends Component
         public string $scoreshomme,
         public string $scoresfemme,
         public string $nom,
-        public string $couleur,
         public string $siteofficiel
 
     )

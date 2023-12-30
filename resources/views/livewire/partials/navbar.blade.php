@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-light entete fontsize16"
+<div 
     x-data="{
       search: '',
 
@@ -6,11 +6,12 @@
 
       get filteredItems() {
           return this.items.filter(
-              i => i.toLowerCase().startsWith(this.search.toLowerCase())
+              i => i.toLowerCase().includes(this.search.toLowerCase())
           )
       }
     }" wire:ignore
 >
+    <nav class="navbar navbar-expand-lg entete fontsize16"> 
     <div class="container-fluid">
       
    
@@ -21,7 +22,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
   
-          <li class="nav-item dropdown recherche">
+          <li class="nav-item recherche">
             <input x-model="search" placeholder="Club / Compétition">
  
             <ul x-show="search.length > 1" @click.outside="search = ''">
@@ -35,10 +36,12 @@
   
         {{-- l'utilisateur n'est pas authentifié --}}
         @guest         
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-person"></i> {{ __('Login') }}
+          <li class="nav-item dropdown parentIcon">
+            <a class="nav-link dropdown-toggle iconNav" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person"></i> 
+              <div class="explicatifIcon"> <span> Mon compte</span>  </div>
             </a>
+            
         
             <div class="dropdown-menu">
               @if ($errors->any())
@@ -93,30 +96,25 @@
           </li> 
         @endauth
         
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li class="nav-item dropdown parentIcon">
+            <a class="nav-link dropdown-toggle iconNav" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-translate"></i>
-              @if (App::isLocale('en')) 
-                English
-              @elseif (App::isLocale('fr'))
-                Français
-              @elseif (App::isLocale('de'))
-                Deutsch
-              @elseif (App::isLocale('es'))
-                Español
-              @elseif (App::isLocale('it'))
-                Italiano
-              @endif
-            </a>          
+              <div class="explicatifIcon"> <span>Langue </span> </div>   
+            </a>      
+             
             <ul class="dropdown-menu scrollable-menu">
-              <li><a class="dropdown-item @if (App::isLocale('de')) d-none @endif" href="{{route('choicelanguage', 'de')}}">Deutsch</a></li>
-              <li><a class="dropdown-item @if (App::isLocale('en')) d-none @endif" href="{{route('choicelanguage', 'en')}}">English</a></li>
-              <li><a class="dropdown-item @if (App::isLocale('es')) d-none @endif" href="{{route('choicelanguage', 'es')}}">Español</a></li>            
-              <li><a class="dropdown-item @if (App::isLocale('fr')) d-none @endif" href="{{route('choicelanguage', 'fr')}}">Français</a></li>
-              <li><a class="dropdown-item @if (App::isLocale('it')) d-none @endif" href="{{route('choicelanguage', 'it')}}">Italiano</a></li>
+              <li><a class="dropdown-item @if (App::isLocale('de')) selectLangue @endif" href="{{route('choicelanguage', 'de')}}">Deutsch</a></li>
+              <li><a class="dropdown-item @if (App::isLocale('en')) selectLangue @endif" href="{{route('choicelanguage', 'en')}}">English</a></li>
+              <li><a class="dropdown-item @if (App::isLocale('es')) selectLangue @endif" href="{{route('choicelanguage', 'es')}}">Español</a></li>            
+              <li><a class="dropdown-item @if (App::isLocale('fr')) selectLangue @endif" href="{{route('choicelanguage', 'fr')}}">Français</a></li>
+              <li><a class="dropdown-item @if (App::isLocale('it')) selectLangue @endif" href="{{route('choicelanguage', 'it')}}">Italiano</a></li>
             </ul>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <div>
+    <a href=""> Liste des clubs</a> / <a href="">  compétitions</a>
+  </div>
+  </div>

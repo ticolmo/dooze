@@ -13,7 +13,7 @@
         width: 100%;  
     }
     #activity{
-        width: 100%;  
+        width: 100%;
     }
 
     #activity #menuClub {
@@ -58,32 +58,9 @@
         display: inline-block;
     }
 
-    .stade2 {
-        position: absolute;
-        top: 0;
-        z-index: 2;
-        width: 100%;
-        height: 100%;
-        background-image: linear-gradient(180deg, transparent 60%, #ffffff 100%);
+   
 
 
-    }
-
-    .logo {
-        position: relative;
-        left: 70%;
-        z-index: 5;
-        width: 20%;
-        transform: translateY(-50%);
-
-
-    }
-
-    /* img.stade1 {
-    position: absolute;
-    bottom: -25%;
-
-    }  */
 
 
 
@@ -148,41 +125,75 @@
 
     #club{
         display: grid;
-        grid-template-columns: 20% 50% 30%;
+        grid-template-columns: 20% 55% 25%;
         grid-template-rows: 100%;
         width: 100%;
         height: 100%;
     }
 
-    #vue div{
+    #vue div#stade{
         position: fixed;
         top:0;
         width: 20%;
         height: 100%;
     }
 
-    #vue #credit {
+    #vue #legende {
         position: absolute;
-        bottom: 15px;
+        bottom: 50px;
         left: 20px;
         font-size: 12px;
-        color: white
+        width: 100%;
+        padding: 0;
+        
+    }
+
+    #vue #legende div{
+        background-color: rgba(255, 255, 255, 0.9);
+        color: black;
+        border-radius: 4px;
+        margin-bottom: 4px;
+        margin-right: 40px;
+        padding:3px;
+        padding-right:none;
+    }
+    #vue #legende #nameStade{
+        position: relative;
+    }
+    #vue #legende #nameStade svg{
+        position: absolute;
+        right: 5px;
     }
 
     #activity #menuClub{
         position: fixed;
         top:0; 
-        width: 50%;
+        width: 55%;
+        background-color: white;
         z-index:1; 
-        background-color:white; 
         display: flex; 
-        height:50px; 
-        justify-content:center;
-        column-gap:100px;
+        height:var(--height-menu); 
+        align-items: stretch;
+        padding-bottom: 3px;
+
+    }
+    #activity #menuClub i{
+        display: none;
     }
     
     #activity #menuClub div {
         cursor: pointer;
+        width: 100%;
+        line-height: var(--height-menu);
+        transition: var(--transition-hover);
+        display: flex;
+        justify-content: center;
+    }
+    #activity #menuClub div:hover{
+        background-color: var(--couleur-hover);
+    }
+    #activity #menuClub div span{
+        height: 100%;
     }
 
     #activity #menuClub #resultats{
@@ -190,7 +201,7 @@
     }
 
     #activity #pageClub{
-        margin-top: 50px;
+        margin-top: 60px;
         padding-left: 5px;
         padding-right: 5px;        
     }
@@ -203,7 +214,7 @@
         position: fixed;
         top:0;
         right: 0;
-        width: 30%;
+        width: 25%;
         height: 100%;
     }
 
@@ -357,61 +368,6 @@
         max-height: 200px;
         overflow-x: hidden;
     }
-
-    .actublog {
-        height: auto;
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: wrap !important;
-        gap: 30px 5%;
-        margin-top: 30px;
-
-    }
-
-    .blog {
-
-        position: relative;
-        width: 30%;
-        height: 400px;
-        overflow: hidden;
-    }
-
-    .blog img {
-        position: absolute;
-        height: 100%;
-        width: auto;
-        transform: translatex(-25%);
-
-
-    }
-
-    .blog img:hover {
-
-        transform: translatex(-25%) scale(1.15);
-        transition-timing-function: cubic-bezier(.4, 0, 1, 1);
-    }
-
-    .article {
-
-        position: absolute;
-        bottom: 0;
-
-        font-size: 15px;
-        padding: 4px
-    }
-
-    .article span:first-child {
-        font-size: 17px;
-        color: #ffffff;
-        background-color: rgba(0, 0, 0, 0.485);
-    }
-
-    .creator {
-        font-size: 14px;
-        color: #ffffff;
-        background-color: rgba(0, 0, 0, 0.485);
-    }
-
 
 
     .supporters {

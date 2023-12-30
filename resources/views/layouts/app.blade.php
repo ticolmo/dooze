@@ -14,8 +14,9 @@
 	<meta property="og:site_name" content="Dooze" />
 
   <title> @yield('title') Dooze</title>
+  
   @livewireStyles
-  @vite(['resources/css/app.css', 'resources/js/app.js','resources/css/bootstrap.scss','resources/js/bootstrapjs.js'])
+  @vite(['resources/css/app.css', 'resources/css/bootstrap.scss','resources/js/bootstrapjs.js','resources/js/app.js'])
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
  

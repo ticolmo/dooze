@@ -11,9 +11,18 @@
         z-index:1; 
         background-color:white; 
         display: flex; 
-        height:50px; 
-        justify-content:center;
-        column-gap:100px;
+        height:var(--height-menu); 
+        align-items: stretch;
+        padding-bottom: 3px;
+    }
+    #menuCompetition div.choix{
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+        line-height: var(--height-menu);
+    }
+    #menuCompetition div:hover{
+        background-color: var(--couleur-hover);
     }
 
 

@@ -41,6 +41,61 @@
         justify-content: center;
         
     }
+    #activity form i{
+        font-size: 1.2rem;
+        padding: 7px;
+        border-radius:50%;
+    }
+    #activity form i img{        
+        height: 1.2rem;
+        width:auto;
+    }
+    
+    #activity form i:hover {
+        background-color: var(--couleur-hover);
+        cursor: pointer;
+    
+    }
+    #activity #commentaires .tools{
+        width: 50%;
+        display: flex;
+        justify-content:space-around
+    }
+    #activity #commentaires .tools div{
+        width: 33%;
+        text-align: center;
+    }
+    /* pour fixer l'icone lors du click, mais enlève le parfait centrage à voir */
+    .jaime .jaimeNb{
+        width:30%;
+        text-align: start;
+    }
+
+    #activity #commentaires i{
+        font-size: 1rem!important;
+        padding: 7px;
+        border-radius:50%;
+    }
+    #activity #commentaires i:hover {
+        background-color: var(--couleur-hover);
+        cursor: pointer;
+    }
+    #activity #commentaires i img{
+        height: 1.1rem;
+        width:auto;
+    }
+
+    #activity #commentaires .toolNb{
+        display: inline-block;
+        position: relative;
+        font-size: 11px;
+    }
+    .partage{
+        display: inline-block;
+        position: relative;
+        transform: translateY(5%);
+    }
+
     
   /*   div[contenteditable="true"]:empty::before, div[contenteditable="true"]:not(:focus)::before{
         content: attr(placeholder); 
