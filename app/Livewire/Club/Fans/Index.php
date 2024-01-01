@@ -3,19 +3,21 @@
 namespace App\Livewire\Club\Fans;
 
 use Livewire\Component;
-use App\Models\Commentaireclub;
-use App\Models\Commentairevisiteur;
 use Livewire\Attributes\Url;
+use App\Models\Commentaireclub;
+use Livewire\Attributes\Reactive;
+use App\Models\Commentairevisiteur;
 
 class Index extends Component
 {
     public $idclub;
     public $page = 15;
-    #[Url]
-    public $section = "";
+    public $section;   
 
     public function selectSection($selection){
-        $this->section = $selection;        
+        
+        $this->dispatch('changeSection', choix: $selection);  
+        $this->section = $selection;     
     }
 
     public function pagination(){

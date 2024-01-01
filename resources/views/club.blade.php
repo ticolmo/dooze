@@ -31,10 +31,11 @@
     
   <div id="activity">
     <x-errors-validation />
-    <livewire:club.index :flux="$club->flux_rss_blogs" :nom="$club->nom" :idclub="$club->id_club" :couleur="$club->couleur_primary"/>
+    <livewire:club.index :flux="$club->flux_rss_blogs" :nom="$club->nom" :idclub="$club->id_club" :couleur="$club->couleur_primary" />
   </div>
 
   <div id="bulletin">
+    @persist('bulletin')
     <livewire:partials.navbar />
     <hr>
     <x-club.bulletin 
@@ -42,6 +43,8 @@
       :scoresfemme="$club->scores_femme"
       :nom="$club->nom"
       :siteofficiel="$club->site_officiel"  />
+
+    @endpersist
   </div>
 
 

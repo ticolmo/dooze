@@ -1,18 +1,11 @@
 <div x-data="index">
-
+   
     <div id="selectSection">
       @if ($section == "visitors")
       <span wire:click="selectSection('')"><i class="bi bi-box-arrow-left"></i></span>
       @endif
       <span wire:click="selectSection('visitors')">Secteur Visiteurs</span>
     </div>
-
-    <div wire:loading> 
-      <div class="spinner-border text-secondary" role="status">
-          <span class="visually-hidden">Loading...</span>
-      </div>          
-    </div>
-      
       
       <div class="fans" style="min-height:50vh">
         {{-- SECTION FAN --}}

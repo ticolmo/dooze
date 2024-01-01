@@ -4,13 +4,19 @@ namespace App\Livewire\Club\Fans;
 
 use Livewire\Component;
 use App\Models\Commentaire;
+use Livewire\Attributes\Url;
 
-class Commentaires extends Component
+class UniqueCommentaire extends Component
 {
-    public $idclub;
-    public $visiteur;
     public $activeJaime = false;
+    #[Url]    
+    public $edit;
 
+    public function mount() {
+       if ($this->edit == ""){
+        abort(404);
+       }
+    }
     public function jaime($like, $id){
         $commentaire = Commentaire::findOrFail($id);
         if($this->activeJaime == false){
@@ -26,21 +32,17 @@ class Commentaires extends Component
             $this->activeJaime = false;
         }
     }
-
-    public function redirectCommentaire($id){
-        $commentaire = Commentaire::findOrFail($id);
+    public function exit(){
+        $commentaire = Commentaire::findOrFail($this->edit);
         $url = $commentaire->club->url;
-        $this->redirect("/club/$url/?page=comment&edit=$id", navigate: true);
+        $this->redirect("/club/$url/?page=fans", navigate: true);
     }
 
     public function render()
     {
-        return view('livewire.club.fans.commentaires', [
-            'commentaires' => Commentaire::where([
-                ['club_id', '=', $this->idclub],
-                ['reponse_id', '=', null],
-                ['secteur_visiteur', '=', $this->visiteur],
-                ])->with('user')->latest()->paginate(6),
+        return view('livewire.club.fans.unique-commentaire',[
+            'commentaire' => Commentaire::findOrFail($this->edit),
+            'reponses' => Commentaire::where('reponse_id',$this->edit)->latest()->paginate(6)
         ]);
     }
 }

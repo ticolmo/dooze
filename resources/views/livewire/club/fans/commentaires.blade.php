@@ -58,22 +58,18 @@
             <div class="tools">
                 <div>
                     <span class="iconNav parentIcon">
-                        <i class="bi bi-chat"></i>
+                        <i class="bi bi-chat" wire:click="redirectCommentaire({{$commentaire->id}})"></i>
                         <span class="explicatifIcon"> <span>Répondre </span> </span>
                     </span>
-
                     <x-club.fans.formatage-chifre :chiffre="$commentaire->nb_reponse" />
                 </div>
                 <div class="jaime">
-                    
-                        <span class="iconNav parentIcon ">
-                            <i wire:click="jaime({{$commentaire->nb_jaime}}, {{$commentaire->id}})"><img
-                                    src="{{Storage::url('divers/ballon.png')}}" alt=""></i>
-                            <span class="explicatifIcon"> <span>Goal! </span> </span>
-                        </span>
-                        <x-club.fans.formatage-chifre :chiffre="$commentaire->nb_jaime" />
-
-                  
+                    <span class="iconNav parentIcon ">
+                        <i wire:click="jaime({{$commentaire->nb_jaime}}, {{$commentaire->id}})"><img
+                                src="{{Storage::url('divers/ballon.png')}}" alt=""></i>
+                        <span class="explicatifIcon"> <span>Goal! </span> </span>
+                    </span>
+                    <x-club.fans.formatage-chifre :chiffre="$commentaire->nb_jaime" />                  
                 </div>
                 <div>
                     <span class="iconNav parentIcon">

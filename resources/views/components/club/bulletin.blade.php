@@ -14,7 +14,7 @@
           </div>
         </span>
         <span> Billeterie officiel</span>
-        {{-- <audio id="chant" src="{{Storage::url('audio/'.$nom.' Audio.mp3')}}" autoplay controls></audio> --}}
+        <audio id="chant" src="{{Storage::url('audio/'.$nom.' Audio.mp3')}}" autoplay controls></audio>
       </div>
       
       <div class="infot">

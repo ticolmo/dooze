@@ -28,23 +28,27 @@
             <x-actu :$flux :$nom />
         @endif
         @if ($page == "fans")
-            {{-- <x-fans :$idclub /> --}}
-            <livewire:club.fans.index :$idclub /> 
+            {{-- <x-fans :$idclub /> --}}           
+          
+            <livewire:club.fans.index :$idclub :key="$idpagefans" /> 
         @endif
         @if ($page == "socialmedia")
-            
+            <div> RS</div>
+        @endif
+
+        @if ($page == "comment")
+        {{-- composant avec #[Url(except: '')] $comment ; except null pour empêcher page blanche --}}
+        <livewire:club.fans.unique-commentaire />
         @endif
         
         {{-- @if ($page == "live")
         <x-lives :$idclub /> 
         @endif --}}
-        @if ($page == "comment")
-        {{-- composant avec #[Url(except: '')] $comment ; except null pour empêcher page blanche --}}
-        @endif
+        
         
     
     </div>
-
+        
 
 
 </div>

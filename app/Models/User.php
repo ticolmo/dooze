@@ -80,6 +80,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Live::class);
     }
+    public function commentaire(): HasMany
+    {
+        return $this->hasMany(Commentaire::class);
+    }
 
 
     /* relations un à plusieurs (inverse) */

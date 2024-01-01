@@ -34,4 +34,9 @@ class Commentaire extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function club(): BelongsTo
+    {
+        return $this->belongsTo(Club::class, 'club_id');
+    }
 }
