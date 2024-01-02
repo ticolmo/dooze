@@ -14,6 +14,7 @@ class Index extends Component
     public $idclub;
     public $couleur;
     public $idpagefans;
+    public $fluxrs;
     #[Url]
     public $page = "";
     #[Url]
@@ -36,8 +37,9 @@ class Index extends Component
     
     #[On('changeSection')]
     public function modifySection($choix){
-        $this->skipRender();
         $this->section = $choix;
+        $id = uniqid();
+            $this->idpagefans = $id;
         
     }
 

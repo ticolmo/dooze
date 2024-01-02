@@ -31,7 +31,7 @@
     
   <div id="activity">
     <x-errors-validation />
-    <livewire:club.index :flux="$club->flux_rss_blogs" :nom="$club->nom" :idclub="$club->id_club" :couleur="$club->couleur_primary" />
+    <livewire:club.index :flux="$club->flux_rss_blogs" :nom="$club->nom" :idclub="$club->id_club" :couleur="$club->couleur_primary" :fluxrs="$club->flux_rss_reseaux_sociaux" />
   </div>
 
   <div id="bulletin">

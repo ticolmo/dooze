@@ -24,6 +24,7 @@
   crossorigin="anonymous"></script>
 
   {{-- emoji --}}
+  {{-- <script src="https://platform.twitter.com/widgets.js"></script> --}}
 
   <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
   <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>

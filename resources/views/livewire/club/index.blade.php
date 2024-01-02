@@ -28,12 +28,14 @@
             <x-actu :$flux :$nom />
         @endif
         @if ($page == "fans")
-            {{-- <x-fans :$idclub /> --}}           
+            {{-- <x-fans :$idclub />   --}}           
           
-            <livewire:club.fans.index :$idclub :key="$idpagefans" /> 
+            <livewire:club.fans.index :$idclub :key="$idpagefans" :section="$section"/> 
         @endif
         @if ($page == "socialmedia")
-            <div> RS</div>
+        
+        {{-- <x-club.reseaux-sociaux :$fluxrs  /> --}}
+        <livewire:club.fans.reseaux-sociaux :$fluxrs  />
         @endif
 
         @if ($page == "comment")

@@ -1,0 +1,30 @@
+
+
+/******************************************************/
+/* Tablette - Desktop */
+@media screen and (min-width:768px) {
+    
+    .cadreTweet{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cadreInsta{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .cadreInsta img{
+        width :100%;
+        height: auto;
+
+    }
+    .cadreLogoInsta{
+        text-align: end;
+    }
+    .cadreLogoInsta img{
+        width: 25px;
+        height: auto;
+    }
+}

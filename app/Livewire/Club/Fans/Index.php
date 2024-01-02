@@ -17,7 +17,6 @@ class Index extends Component
     public function selectSection($selection){
         
         $this->dispatch('changeSection', choix: $selection);  
-        $this->section = $selection;     
     }
 
     public function pagination(){
