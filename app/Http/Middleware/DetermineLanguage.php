@@ -19,7 +19,7 @@ class DetermineLanguage
         if ($request->session()->has('choicelangue') && in_array($request->session()->get('choicelangue'), ['en', 'es', 'fr','de','it'])) {
             App::setLocale($request->session()->get('choicelangue'));           
             } else{ 
-                $detectlangue = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+                $detectlangue = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : null;
                 if (in_array($detectlangue, ['en', 'es', 'fr','de','it'])) {
                     App::setLocale($detectlangue);                  
                 }else{

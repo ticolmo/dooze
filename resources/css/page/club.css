@@ -170,7 +170,7 @@
         top:0; 
         width: 55%;
         background-color: white;
-        z-index:1; 
+        z-index:4; 
         display: flex; 
         height:var(--height-menu); 
         align-items: stretch;

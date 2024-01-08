@@ -3,8 +3,8 @@
 namespace App\View\Components\Club;
 
 use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class ReseauxSociaux extends Component
 {
@@ -23,7 +23,7 @@ class ReseauxSociaux extends Component
         
         try { 
             
-            $xml = simplexml_load_file($this->fluxrs);
+            $xml = simplexml_load_file($this->fluxrs);            
           } catch (\Exception $e) {
             return view('errors.events.BadConnexionActu');
             

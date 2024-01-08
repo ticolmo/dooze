@@ -27,11 +27,7 @@ class Commentaires extends Component
         }
     }
 
-    public function redirectCommentaire($id){
-        $commentaire = Commentaire::findOrFail($id);
-        $url = $commentaire->club->url;
-        $this->redirect("/club/$url/?page=comment&edit=$id", navigate: true);
-    }
+  
 
     public function render()
     {

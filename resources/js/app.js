@@ -18,22 +18,8 @@ music.volume = 0.05;
 
 
 
-/* window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
 
-  return t;
-}(document, "script", "twitter-wjs")); */ 
  
 /* $('.supporters').pagination({
   // Options de pagination
@@ -92,6 +78,10 @@ $(".options").click(function () {
 
 
 $(document).ready(function () {
+
+  
+
+
 
 /* recherche dynamique des clubs - inactif remplacé par Vue.js, #myInput enlevé de la balise input  */
   $("#myInput").on("keyup", function () {

@@ -28,7 +28,7 @@ class Actu extends Component
     public function render(): View|Closure|string
     {
         
-        try { 
+        try {
             
             $xml = simplexml_load_file($this->flux);
           } catch (\Exception $e) {

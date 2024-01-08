@@ -22,9 +22,10 @@
  
   <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
   crossorigin="anonymous"></script>
+  <script src=" https://cdn.jsdelivr.net/npm/twitter-widgets@2.0.0/index.min.js "></script>
+  <script src=" https://cdn.jsdelivr.net/npm/lazyloadxt@1.1.0/dist/jquery.lazyloadxt.min.js "></script>
 
   {{-- emoji --}}
-  {{-- <script src="https://platform.twitter.com/widgets.js"></script> --}}
 
   <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
   <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
@@ -43,6 +44,7 @@
 
 
   @yield('content')
+
     
   @livewireScriptConfig 
 </body>

@@ -5,7 +5,6 @@ namespace App\Livewire\Club;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Url;
-use Livewire\Attributes\Renderless;
 
 class Index extends Component
 {

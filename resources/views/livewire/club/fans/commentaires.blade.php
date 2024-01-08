@@ -28,7 +28,7 @@
 
 
             {{-- contenu --}}
-            <a href="{{route('commentaire.pleinepage', $commentaire->id)}}">
+            <a href="{{route('club',$commentaire->club->url)}}/?page=comment&edit={{$commentaire->id}}">
                 {{-- texte --}}
                 <div class="commentairecontenu"> {!!$commentaire->contenu!!} </div>
                 {{-- media --}}

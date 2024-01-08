@@ -1,5 +1,5 @@
-<div>
-    
+<div>    
+
     <div id="menuClub">
         <div wire:click="selectPage('news')"> <i class="bi bi-house-door"></i>              
                 <span class="choiceSpan" @if ($page == "news" || $page == "") style="border-bottom: 4px solid {{$couleur}}; @media screen and (max-width:767px) {.choiceSpan{color:{{$couleur}}}}}" @endif 
@@ -15,7 +15,7 @@
             </div>
         <div wire:click="selectPage('match')" id="resultats"> <i><img class="logo1 animate__animated animate__flipInY" src="{{Storage::url('logos/'.$nom.'.png')}}" alt=""> </i>  Résultats</div>
         {{-- <div wire:click="selectPage('live')">Live</div> --}}
-    </div>
+    </div>    
 
     <div id="pageClub" style="position:relative;">
         <div style="position:absolute; z-index:3; background-color:white;width:100%;height:100%; text-align:center; padding-top:20%" wire:loading> 
@@ -34,8 +34,8 @@
         @endif
         @if ($page == "socialmedia")
         
-        {{-- <x-club.reseaux-sociaux :$fluxrs  /> --}}
-        <livewire:club.fans.reseaux-sociaux :$fluxrs  />
+         <x-club.reseaux-sociaux :$fluxrs  /> 
+      {{--  <livewire:club.fans.reseaux-sociaux :$fluxrs  /> --}}
         @endif
 
         @if ($page == "comment")
