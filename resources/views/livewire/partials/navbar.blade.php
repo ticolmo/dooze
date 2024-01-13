@@ -62,7 +62,7 @@
                 <div class="mb-3">
                   <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
                   <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Mot de passe">
-                  <input type=hidden name="visit" value="@php echo $_SERVER['REQUEST_URI']; @endphp" type="text">
+                  {{-- <input type=hidden name="visit" value="@php echo $_SERVER['REQUEST_URI']; @endphp" type="text"> --}}
                 </div>
                 <div class="mb-3">
                   <div class="form-check">
