@@ -36,12 +36,8 @@ class AccountController extends Controller
 
     event(new AccountLogInEvent($fan));
 
-    // Notification nouveau message non lu
-    $newmessage = Message::where('mailbox_id', $fan->id)->where('destinataire_id',$fan->id)->whereNull('read_at')->count();
-
-    return view('auth.profil',[
-        'fan'=> $fan, 
-        'newmessage' => $newmessage
+    return view('auth.index',[
+        'fan'=> $fan
             
       ]);
 

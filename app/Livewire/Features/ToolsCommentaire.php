@@ -1,42 +1,37 @@
 <?php
 
-namespace App\Livewire\Club\Fans;
+namespace App\Livewire\Features;
 
 use Livewire\Component;
 use App\Models\Commentaire;
 
-class Commentaires extends Component
+class ToolsCommentaire extends Component
 {
-    public $idclub;
-    public $visiteur;
+    public $id;
+    public $reponse;
+    public $jaime;
+    public $partage;
     public $activeJaime = false;
-
-/*     public function jaime($like, $id){
+    
+    public function like($like, $id){
         $commentaire = Commentaire::findOrFail($id);
         if($this->activeJaime == false){
             $nb = $like + 1;
             $commentaire->nb_jaime = $nb;
             $commentaire->save();
+            $this->jaime = $nb;
             $this->activeJaime = true;
 
         }else if($this->activeJaime == true){
             $nb = $like - 1;
             $commentaire->nb_jaime = $nb;
             $commentaire->save();
+            $this->jaime = $nb;
             $this->activeJaime = false;
         }
-    } */
-
-  
-
+    }
     public function render()
     {
-        return view('livewire.club.fans.commentaires', [
-            'commentaires' => Commentaire::where([
-                ['club_id', '=', $this->idclub],
-                ['reponse_id', '=', null],
-                ['secteur_visiteur', '=', $this->visiteur],
-                ])->with('user')->latest()->paginate(6),
-        ]);
+        return view('livewire.features.tools-commentaire');
     }
 }
