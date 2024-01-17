@@ -10,6 +10,7 @@
 @import './page/club/bulletin.css';
 @import './page/club/uniquecommentaire.css';
 @import './page/club.css';
+@import './page/auth.css';
 
 * {
     box-sizing: border-box;

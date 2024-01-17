@@ -1,4 +1,4 @@
-<div>
+<div id="dataprofil">
     <div>
         <img class="photoprofil"
                 src="{{Storage::url('users/'.$id.'/avatar\/'.$photo)}}"

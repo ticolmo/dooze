@@ -1,7 +1,3 @@
-@extends('layouts.home')
-
-@section('content')
-  
 
     <main id="" class="form-signin w-50 m-auto" >
       <div style="margin-bottom:30px"><a href="{{route('profil')}}">Retour à ton profil</a></div>
@@ -137,5 +133,3 @@
 
     </main>
  
-
-@endsection

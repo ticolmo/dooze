@@ -1,9 +1,13 @@
 <div>
     <div style="text-align: end">
         <div class="btn btn-outline-secondary btn-sm"><a href="{{route('don')}}" > <i class="bi bi-person-badge"></i> Faire un don</a></div>
-        <div class="btn btn-outline-secondary btn-sm"> <a href=""><i class="bi bi-gear"></i> Paramètres</a></div>
+        <div class="btn btn-outline-secondary btn-sm" wire:click="changePart('settings')"> <i class="bi bi-gear"></i> Paramètres</div>
     </div>
+    @if ($part == "settings")
+        <x-auth.edit />        
+    @endif
 
+    @if($part == "")
     <div>
         <div> <i class="bi bi-envelope"></i>  Messagerie 
             @if ($newmessage > 0)
@@ -15,9 +19,6 @@
         <table class="table">
             <thead>
                 <tr>
-                    {{-- <th scope="col">De</th>
-                    <th scope="col">Objet</th>
-                    <th scope="col">Reçu</th>   --}}   
                     <th colspan="3"> Les derniers messages</th>
                 </tr>   
             </thead>
@@ -46,4 +47,6 @@
             @endif --}}
         </div>
     </div>
+    @endif
+
 </div>

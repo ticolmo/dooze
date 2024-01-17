@@ -38,7 +38,7 @@ class Index extends Component
     public function modifySection($choix){
         $this->section = $choix;
         $id = uniqid();
-            $this->idpagefans = $id;
+        $this->idpagefans = $id;
         
     }
 

@@ -21,7 +21,7 @@
         </div>
   
         @if ($page == "dashboard" || $page == "")
-            <livewire:auth.dashboard :$id />
+            <livewire:auth.dashboard :$id :$part :key="$idpagedashboard" />
         @endif
         @if ($page == "profil")   
             <livewire:auth.profil :$id />
