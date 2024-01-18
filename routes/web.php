@@ -20,9 +20,9 @@ use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\FormcontactController;
 use App\Http\Controllers\Live\ConfigController;
 use App\Http\Controllers\VerifyemailController;
-use App\Http\Controllers\ProfilpublicController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\Live\ConnexionController;
-use App\Http\Controllers\Admin\AdminPostController;
+use App\Http\Controllers\Admin\AdminCommentaireController;
 use App\Http\Controllers\PresentationController;
 
 /*
@@ -41,29 +41,27 @@ use App\Http\Controllers\PresentationController;
 
 Route::get('/', [HomeClubController::class, 'home'])->name('home');
 
+Route::get('/login', function () {return view('auth.login');})->name('login');
+
 
 /* Choix de langue */
 
 Route::get('/choice-language/{choice}', [LangueController::class, 'choice'])->name('choicelanguage');
 
-Route::view('/scores', 'testscores');
 
-Route::view('/gif', 'testgif');
+/* Création de compte */
 
-Route::get('/xss', [TestXssController::class, 'index']);
-
-
-
-
-
-
-/* Premières étapes de la création de compte */
-
+//Questionnaire
 Route::controller(ChoixclubController::class)->group(function (){
     Route::get('/club', 'index')->name('createaccount');
     Route::post('/question', 'store')->name('question');
     Route::post('/question/result', 'validation')->name('validation'); 
 });
+
+Route::get('/register', [RegisterController::class, 'index'])->middleware('register')->name('register');
+
+Route::get('/email/verify', [VerifyemailController::class, 'index'])->middleware('auth')->name('verification.notice');
+
 
 /* Formulaire de contact */
 
@@ -72,28 +70,25 @@ Route::controller(FormcontactController::class)->group(function () {
     Route::post('/contact/message', 'store')->name('submitcontact');
 });
 
-/* Gestion du compte utilisateur via Laravel Fortify */
-
-Route::get('/register', [RegisterController::class, 'index'])->middleware('register')->name('register');
-
-Route::get('/email/verify', [VerifyemailController::class, 'index'])->middleware('auth')->name('verification.notice');
-
-Route::get('/login', function () {return view('auth.login');})->name('login');
-
-Route::get('/home', [AccountController::class, 'index'])->middleware(['auth','verified'])->name('profil');
-
-Route::get('/home/edit', [AccountController::class, 'edit'])->middleware(['auth','verified'])->name('modificationprofil');
+/* Laravel Fortify */
 
 Route::get('/forgot-password', function () {return view('auth.forgot-password');})->name('forgot-password');
 
 Route::get('/reset-password', function () {return view('auth.reset-password');})->name('reset-password');
 
-Route::post('/account/delete', [AccountController::class, 'delete'])->middleware(['auth','verified'])->name('suppressioncompte');
+
+/* Compte utilisateur */
+
+Route::middleware(['auth','verified'])->controller(AccountController::class)->group(function () {
+    Route::get('/home', 'index')->name('profil');
+    Route::get('/home/edit', 'edit')->name('modificationprofil');
+    Route::post('/account/delete', 'delete')->name('suppressioncompte');
+});
 
 /* Profil public*/
 
-Route::controller(ProfilpublicController::class)->group(function (){
-    Route::get('/profil-public/{iduser}','show')->name('profilpublic');
+Route::controller(ProfilController::class)->group(function (){
+    Route::get('/profil/{pseudo}','show')->name('profilpublic');
     Route::get('/profil-public/mail/{destinataireid}', 'mail')->middleware(['auth','verified'])->name('messageprive');
     Route::get('/profil-public/{iduser}/complete', 'complete')->middleware(['auth','verified'])->name('completeprofilpublic');
     Route::post('/profil-public/update', 'update')->middleware(['auth','verified'])->name('updateprofilpublic');
@@ -132,28 +127,31 @@ Route::controller(CommentaireController::class)->name('commentaire.')->group(fun
 
 /* Administration */
 
-Route::middleware(['auth','verified','admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('index');
+Route::middleware(['auth','verified','admin'])->controller(AdminController::class)->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/','index')->name('index');    
+    Route::get('/commentaires','comment')->name('comments');
+     // Messagerie
+     Route::get('/messagerieDooze', 'mailbox')->name('mailbox');
+     Route::post('/message/delete', 'deletemail')->name('deletemail');
+     Route::get('/message/read/{idmessage}', 'readmail')->name('readmail');
+     Route::get('/messagerie/trash', 'corbeillemail')->name('corbeillemail');
+     Route::post('/message/forcedelete', 'forcedeletemail')->name('forcedeletemail');
+     Route::get('/message/restore/{idmessage}', 'restoredeletedmail')->name('restoredeletedmail');
+});
     // Gestion des commentaires
-    Route::get('/commentaires', [AdminController::class, 'comment'])->name('comments');
-    Route::get('/commentaire/proceduredelete/{idcommentaire}', [AdminPostController::class, 'proceduredelete'])->name('comment.proceduredelete');
-    Route::post('/commentaire/delete/', [AdminPostController::class, 'delete'])->name('comment.delete');
-    Route::post('/commentaire/forcedelete/', [AdminPostController::class, 'forcedelete'])->name('comment.forcedelete');
-    Route::post('/commentaire/restore/', [AdminPostController::class, 'restore'])->name('comment.restore');
-    Route::post('/commentaires/check', [AdminPostController::class, 'check'])->name('comments.check');
-    Route::post('/commentaires/signalras', [AdminPostController::class, 'signalras'])->name('comments.signalras');
-    Route::post('/commentaires/signalrasconfirm', [AdminPostController::class, 'signalrasconfirm'])->name('comments.signalrasconfirm');
-    // Messagerie
-    Route::get('/messagerieDooze', [AdminController::class, 'mailbox'])->name('mailbox');
-    Route::post('/message/delete', [AdminController::class, 'deletemail'])->name('deletemail');
-    Route::get('/message/read/{idmessage}', [AdminController::class, 'readmail'])->name('readmail');
-    Route::get('/messagerie/trash', [AdminController::class, 'corbeillemail'])->name('corbeillemail');
-    Route::post('/message/forcedelete', [AdminController::class, 'forcedeletemail'])->name('forcedeletemail');
-    Route::get('/message/restore/{idmessage}', [AdminController::class, 'restoredeletedmail'])->name('restoredeletedmail');
+Route::middleware(['auth','verified','admin'])->controller(AdminCommentaireController::class)->prefix('admin')->name('admin.')
+    ->group(function () {
+    Route::get('/commentaire/proceduredelete/{idcommentaire}','proceduredelete')->name('comment.proceduredelete');
+    Route::post('/commentaire/delete/','delete')->name('comment.delete');
+    Route::post('/commentaire/forcedelete/','forcedelete')->name('comment.forcedelete');
+    Route::post('/commentaire/restore/','restore')->name('comment.restore');
+    Route::post('/commentaires/check','check')->name('comments.check');
+    Route::post('/commentaires/signalras','signalras')->name('comments.signalras');
+    Route::post('/commentaires/signalrasconfirm', 'signalrasconfirm')->name('comments.signalrasconfirm');
+});   
     // Envoi d'email
     Route::view('/mailbox', 'admin.layouts.mailbox')->name('email');
 
-});
 
 /* Live  */
 
@@ -192,6 +190,14 @@ Route::get('/competition/{url}', [CompetitionController::class, 'index'])->name(
 /* Pages des clubs */
 
 Route::get('/club/{club}', [HomeClubController::class, 'club'])->name('club');
+
+/* Test */
+
+Route::view('/scores', 'tests.testscores');
+
+Route::view('/gif', 'tests.testgif');
+
+Route::get('/xss', [TestXssController::class, 'index']);
 
 
 

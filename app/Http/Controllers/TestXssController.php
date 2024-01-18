@@ -15,7 +15,7 @@ class TestXssController extends Controller
         $bool = $antiXss->isXssFound(); 
        /*  dd($bool); */
        $purif = Purifier::clean($harm_string);
-        return view('testxss',[
+        return view('tests.testxss',[
             'bool'=> $bool,
             'clean'=> $harmless_string,
             'purif' => $purif,

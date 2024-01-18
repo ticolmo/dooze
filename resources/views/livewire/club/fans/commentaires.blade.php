@@ -10,8 +10,8 @@
         </div>
         <div>
             <div class="commenttitle fontsize16">
-                <a class="entete" href="{{route('profilpublic', $commentaire->user->id)}}">{{$commentaire->user->name}}
-                    {{$commentaire->user->hashtag}} </a>
+                <a class="entete" href="{{route('profilpublic', $commentaire->user->pseudo)}}">{{$commentaire->user->name}}
+                    {{$commentaire->user->pseudo}} </a>
                 <span class="timecomment"> - {{$commentaire->created_at->diffForHumans(null,[ 'short' => true])}}</span>
                 @auth
                 <i class="bi bi-three-dots options" data-id="{{$commentaire->id}}"></i>

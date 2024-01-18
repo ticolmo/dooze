@@ -12,7 +12,7 @@ class Profil extends Component
     public function render()
     {
         return view('livewire.auth.profil',[
-            'commentaires' => Commentaire::where('user_id',$this->id)
+            'commentaires' => Commentaire::where('user_id',$this->id)->get()
         ]);
     }
 }

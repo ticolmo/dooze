@@ -15,7 +15,7 @@
       :id="$fan->id"
       :photo="$fan->photoprofil" 
       :name="$fan->name"
-      :hashtag="$fan->hashtag"
+      :pseudo="$fan->pseudo"
       :bio="$fan->bio"
       :categorie="$fan->categorie"
       :titrelienone="$fan->titrelien1"

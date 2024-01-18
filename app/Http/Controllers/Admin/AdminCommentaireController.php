@@ -3,26 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Message;
-use App\Models\Publication;
+use App\Models\Commentaire;
 use App\Models\Signalement;
-use App\Models\Commentaireclub;
-use App\Models\Reponsevisiteur;
-use App\Models\Commentairevisiteur;
-use App\Models\Reponseclub;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AdminPostController extends Controller
+class AdminCommentaireController extends Controller
 {
     public function check(Request $request)
     {
-        
         $verification = collect($request->all())->except('_token')->toArray();        
 
         foreach ($verification as $idpublication => $date){
-            $publication = Publication::findOrFail($idpublication);
-            $publication->checked_at = $date;
-            $publication->save();
+            $commentaire = Commentaire::findOrFail($idpublication);
+            $commentaire->checked_at = $date;
+            $commentaire->save();
         }
 
         return back();
@@ -53,17 +48,16 @@ class AdminPostController extends Controller
             $servette = Signalement::withTrashed()->findOrFail($idsignalement);                    
             $servette->forceDelete();
         }
-        
 
         return back();
     }
 
     public function proceduredelete($idcommentaire){
 
-        $publication = Publication::findOrFail($idcommentaire);
+        $commentaire = Commentaire::findOrFail($idcommentaire);
 
         return view('admin.admin-delete-commentaire',[
-            'publication'=> $publication
+            'publication'=> $commentaire
         ]);
     }
 
@@ -76,25 +70,19 @@ class AdminPostController extends Controller
             'idpub' => ['required','string', 'max:36'],    
         ]);
 
-        $publication = Publication::findOrFail($request->idpub);
+        $commentaire = Commentaire::findOrFail($request->idpub);
 
         // enregistrement du motif
-        $publication->motif_suppression = $request->motif;        
-        $publication->save();
+        $commentaire->motif_suppression = $request->motif;        
+        $commentaire->save();
 
-        // soft delete sur publication
-        $publication->delete();
-
-        // soft delete sur table commentaire correspondante
-        $model = $publication->post->getMorphClass();
-        $commentaire = new $model();
-        $delete = $commentaire->findOrFail($publication->post->id);
-        $delete->delete();
+        // soft delete sur commentaire
+        $commentaire->delete();
         
         // message d'information envoyé à l'utilisateur 
         // message enregistré à double pour que la possibilité d'effacer soit gérée séparément par le destinataire et expéditeur via mailbox_id
         Message::create([            
-            'destinataire_id' => $publication->post->user_id,
+            'destinataire_id' => $commentaire->user_id,
             'expediteur_id' => 12,
             'mailbox_id' => 12,
             'objet' => $request->objet,
@@ -102,9 +90,9 @@ class AdminPostController extends Controller
         ]);
 
         Message::create([            
-            'destinataire_id' => $publication->post->user_id,
+            'destinataire_id' => $commentaire->user_id,
             'expediteur_id' => 12,
-            'mailbox_id' => $publication->post->user_id,
+            'mailbox_id' => $commentaire->user_id,
             'objet' => $request->objet,
             'contenu' => $request->contenu,
         ]);     
@@ -115,14 +103,8 @@ class AdminPostController extends Controller
     public function forcedelete(Request $request)
     {
         $idcommentaire = $request->idcom;
-        $model = $request->model;
-        //suppression définitive dans model publication 
-        Publication::withTrashed()->where('post_id', $idcommentaire)->where('post_type', $model)->forceDelete();    
-       
-
-        //suppression définitive dans model commentaire correspondant
-        $commentaire = new $model();
-        $delete = $commentaire->withTrashed()->where('id',$idcommentaire)->forceDelete();
+        //suppression définitive 
+        Commentaire::withTrashed()->where('id', $idcommentaire)->forceDelete();    
 
         return redirect()->route('admin.comments')->with('forcedelete', 'Commentaire définitivement supprimé');
 
@@ -131,14 +113,8 @@ class AdminPostController extends Controller
     public function restore(Request $request)
         {
         $idcommentaire = $request->idcom;
-        $model = $request->model;
-        //restauration dans model publication 
-        Publication::withTrashed()->where('post_id', $idcommentaire)->where('post_type', $model)->restore();    
-       
-
-        //restauration dans model commentaire correspondant
-        $commentaire = new $model();
-        $delete = $commentaire->withTrashed()->where('id',$idcommentaire)->restore();
+        //restauration 
+        Commentaire::withTrashed()->where('id', $idcommentaire)->restore();   
 
         return redirect()->route('admin.comments')->with('restore', 'Commentaire restauré');
 

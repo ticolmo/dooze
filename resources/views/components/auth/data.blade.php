@@ -12,7 +12,7 @@
     </div>
     <div class="text-center">
         <div> {{$name}} </div>
-        <div> {{$hashtag}}</div>
+        <div> {{$pseudo}}</div>
         <div> {{$categorie}}</div>
         <div> {{$bio}}</div>
     </div>

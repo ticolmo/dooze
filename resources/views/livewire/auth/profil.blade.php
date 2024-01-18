@@ -3,7 +3,7 @@
      
       <div class="comments profilpublic" >
         <a href="{{route('commentaire.pleinepage', $commentaire->id)}}">
-          <div> {{$commentaire->contenu}}</div>
+          <div> {!!$commentaire->contenu!!}</div>
           <div> page: {{$commentaire->club->nom}}</div>
           <div> {{$commentaire->created_at->diffForHumans(null,[         
               'short' => true,            

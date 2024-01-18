@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Commentaire;
 use App\Models\User;
 use App\Models\Publication;
 use Illuminate\Http\Request;
@@ -11,30 +11,18 @@ use App\Models\Commentairevisiteur;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-class ProfilpublicController extends Controller
+class ProfilController extends Controller
 {
-    public function show($iduser){
-        $fan = User::with('club')->where('id', $iduser)->firstOrFail();
+    public function show($pseudo){
+        $fan = User::with('club')->where('pseudo', $pseudo)->firstOrFail();
 
         /* Page 404 si le fan est administrateur*/
         if($fan->is_admin === true){
             abort(404);
-        }        
-
-        $posts = Publication::whereHasMorph('post', '*', function (Builder $query) use ($iduser) {
-            $query->where('user_id', $iduser);
-            })->with([
-                'post' => function (MorphTo $morphTo) {
-                    $morphTo->morphWithCount([
-                        Commentaireclub::class => ['reponse'],
-                        Commentairevisiteur::class => ['reponse'],
-                    ]);
-                }])->latest()->get();     
+        }    
                              
-        
-        return view('profilpublic',[
-            'fan'=> $fan,
-            'posts'=> $posts,
+        return view('profil',[
+            'fan'=> $fan
         ]);    
     }
 

@@ -16,7 +16,7 @@ class Signalement extends Model
     protected $primaryKey = 'id_signalement';
 
     protected $fillable = [
-        'publication_id',
+        'commentaire_id',
         'user_id',
         'motif',
         'note_administrateur',
@@ -30,7 +30,7 @@ class Signalement extends Model
 
     public function publication(): BelongsTo
     {
-        return $this->belongsTo(Publication::class, 'publication_id');
+        return $this->belongsTo(Commentaire::class, 'commentaire_id');
     }
 
     /* id de l'auteur du signalement */

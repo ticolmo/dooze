@@ -1,7 +1,7 @@
 
 @php
 
-use App\Api\ScoresPageHome;
+use App\Api\ApiFootball\ScoresPageHome;
 
 
 
