@@ -2,8 +2,8 @@
 
 namespace App\Api\ApiFootball;
 
-use App\Api\ApiFootball\Nomequipe;
-use App\Api\ApiFootball\Nomcompetition;
+use App\Api\ApiFootball\NomEquipe;
+use App\Api\ApiFootball\NomCompetition;
 use Illuminate\Support\Facades\Http;
 
 class ApiFootball
@@ -16,6 +16,16 @@ class ApiFootball
         ]);
 
         return $response;
+    }
+
+    private function correctionIntitule(&$tableau){
+        $check = new NomEquipe();
+        $tableau['teams']['home']['name'] = $check->setnom($tableau['teams']['home']['name']);
+        $tableau['teams']['away']['name'] = $check->setnom($tableau['teams']['away']['name']);
+
+        $check2 = new NomCompetition();
+        $tableau['league']['name'] = $check2->setnom($tableau['league']['name']);   
+        return;   
     }
 
     
@@ -36,17 +46,7 @@ class ApiFootball
                 $tableau = $data;            
             };
             
-            $check = new Nomequipe();
-            $tableau['teams']['home']['name'] = $check->setnom($tableau['teams']['home']['name']);
-            $tableau['teams']['away']['name'] = $check->setnom($tableau['teams']['away']['name']);
-
-            $check2 = new Nomcompetition();
-            $tableau['league']['name'] = $check2->setnom($tableau['league']['name']);
-
-
-            /*   $check2 = new Nomequipe();
-            $check2->setnom($tableau['equipe2']);             
-            $tableau['equipe2'] = $check2; */
+            $this->correctionIntitule($tableau); 
 
             return $tableau;
         }
@@ -70,15 +70,7 @@ class ApiFootball
                 $tableau = $data;            
             };
 
-            
-            $check = new Nomequipe();
-            $tableau['teams']['home']['name'] = $check->setnom($tableau['teams']['home']['name']);
-            $tableau['teams']['away']['name'] = $check->setnom($tableau['teams']['away']['name']);
-
-            $check2 = new Nomcompetition();
-            $tableau['league']['name'] = $check2->setnom($tableau['league']['name']);
-
-            
+            $this->correctionIntitule($tableau); 
 
             return $tableau;
         }
@@ -104,12 +96,7 @@ class ApiFootball
             };
 
             if (isset($tableau['teams']['home']['name']) || isset($tableau['teams']['away']['name'])) {
-            $check = new Nomequipe();
-            $tableau['teams']['home']['name'] = $check->setnom($tableau['teams']['home']['name']);
-            $tableau['teams']['away']['name'] = $check->setnom($tableau['teams']['away']['name']);
-
-            $check2 = new Nomcompetition();
-            $tableau['league']['name'] = $check2->setnom($tableau['league']['name']);
+                $this->correctionIntitule($tableau); 
             }
             
             return $tableau;

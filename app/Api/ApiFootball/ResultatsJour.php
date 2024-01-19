@@ -1,8 +1,8 @@
 <?php
 namespace App\Api\ApiFootball;
 
-use App\Api\ApiFootball\Nomequipe;
-use App\Api\ApiFootball\Nomcompetition;
+use App\Api\ApiFootball\NomEquipe;
+use App\Api\ApiFootball\NomCompetition;
 use Illuminate\Support\Facades\Http;
 use App\Api\ApiFootball\ApiFootball;
 
@@ -95,10 +95,10 @@ class ResultatsJour
     }
 
     private function correctionIntitule(&$match){
-        $check = new Nomequipe();       
+        $check = new NomEquipe();       
         $match['teams']['home']['name'] = $check->setnom($match['teams']['home']['name']); 
         $match['teams']['away']['name'] = $check->setnom($match['teams']['away']['name']);
-        $check2 = new Nomcompetition();
+        $check2 = new NomCompetition();
         $match['league']['name'] = $check2->setnom($match['league']['name']);   
         return;   
     }

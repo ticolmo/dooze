@@ -62,16 +62,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /* relations un à plusieurs */
 
-    public function commentaireclub(): HasMany
-    {
-        return $this->hasMany(Commentaireclub::class);
-    }
-
-    public function commentairevisiteur(): HasMany
-    {
-        return $this->hasMany(Commentairevisiteur::class);
-    }
-
     public function message(): HasMany
     {
         return $this->hasMany(Message::class);

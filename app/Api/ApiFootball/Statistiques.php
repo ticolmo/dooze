@@ -2,9 +2,10 @@
 
 namespace App\Api\ApiFootball;
 
+use App\Api\ApiFootball\NomEquipe;
 use App\Api\ApiFootball\ApiFootball;
-use App\Api\ApiFootball\CompetitionsParPays;
 use Illuminate\Support\Facades\Http;
+use App\Api\ApiFootball\CompetitionsParPays;
 
 
 class Statistiques
@@ -129,7 +130,7 @@ class Statistiques
             
             foreach($data['response']['0']['league']['standings'] as &$group){
                 foreach($group as &$equipe){
-                    $check = new Nomequipe();                  
+                    $check = new NomEquipe();                  
                     $equipe['team']['name'] = $check->setnom($equipe['team']['name']);
                 }
             };
@@ -174,7 +175,7 @@ class Statistiques
             $data = $response->json();
            /*  dd($data); */
             foreach($data['response'] as &$buteur){
-                $check = new Nomequipe(); 
+                $check = new NomEquipe(); 
                 $buteur['statistics']['0']['team']['name'] = $check->setnom($buteur['statistics']['0']['team']['name']);
             };
             $liste = $data['response'];

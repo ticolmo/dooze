@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Api\ApiFootball\Statistiques;
-use App\Api\ApiFootball\ListeCompetition;
 use App\Models\Competition;
 
 class CompetitionController extends Controller

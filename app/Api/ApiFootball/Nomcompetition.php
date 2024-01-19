@@ -3,7 +3,7 @@
 namespace App\Api\ApiFootball;
 
 
-class Nomcompetition
+class NomCompetition
 {
     /* 
     --- La fonction setnom permet de modifier les noms des compétitions de l'Apifootball.php

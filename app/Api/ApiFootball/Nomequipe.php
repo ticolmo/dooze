@@ -3,10 +3,10 @@
 namespace App\Api\ApiFootball;
 
 
-class Nomequipe
+class NomEquipe
 {
     /* 
-    --- La fonction setnom permet de modifier les noms d'équipe de l'Apifootball.php
+    --- La fonction setnom permet de corriger les noms d'équipe de l'Apifootball.php
     
     */
 

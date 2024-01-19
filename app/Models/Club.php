@@ -22,11 +22,6 @@ class Club extends Model
         return $this->hasMany(User::class);
     }
 
-    public function commentaireclub(): HasMany
-    {
-        return $this->hasMany(Commentaireclub::class);
-    }
-
     public function commentaire(): HasMany
     {
         return $this->hasMany(Commentaire::class);
