@@ -16,8 +16,13 @@
         <div wire:click="selectPage('match')" id="resultats"> <i><img class="logo1 animate__animated animate__flipInY" src="{{Storage::url('logos/'.$nom.'.png')}}" alt=""> </i>  Résultats</div>
         {{-- <div wire:click="selectPage('live')">Live</div> --}}
     </div>    
-
+    
     <div id="pageClub" style="position:relative;">
+        @if ($page == "fans")
+            <div id="selectSection">
+                <div wire:click="selectSectionFans('visitors')">Secteur Visiteurs</div>
+            </div>
+        @endif
         <div style="position:absolute; z-index:3; background-color:white;width:100%;height:100%; text-align:center; padding-top:20%" wire:loading> 
             <div class="spinner-border text-secondary" role="status">
                 <span class="visually-hidden">Loading...</span>
@@ -27,11 +32,11 @@
         @if ($page == "news" || $page == "")
             <x-actu :$flux :$nom />
         @endif
-        @if ($page == "fans")
-            {{-- <x-fans :$idclub />   --}}           
-          
+
+        @if ($page == "fans") 
             <livewire:club.fans.index :$idclub :key="$idpagefans" :section="$section"/> 
         @endif
+        
         @if ($page == "socialmedia")
         
          <x-club.reseaux-sociaux :$fluxrs  /> 
@@ -50,6 +55,8 @@
         
     
     </div>
+
+    
         
 
 

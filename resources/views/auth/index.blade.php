@@ -11,7 +11,7 @@
 <div id="club">
 
   <div id="vue">
-    <x-auth.data 
+    <livewire:auth.data 
       :id="$fan->id"
       :photo="$fan->photoprofil" 
       :name="$fan->name"

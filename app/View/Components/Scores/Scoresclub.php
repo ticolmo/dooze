@@ -26,6 +26,7 @@ class Scoresclub extends Component
                 $foo['url'] = $bar->url;
             }else{
                 $foo['page'] = false;
+                $foo['url'] = false;
             }  
         }        
         return $foo;

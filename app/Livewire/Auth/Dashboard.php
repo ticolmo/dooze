@@ -17,10 +17,6 @@ class Dashboard extends Component
         $this->messages = Message::where('mailbox_id', $this->id)->where('destinataire_id', $this->id)->latest()->limit(5)->get();
     }
 
-    public function changePart($part){
-        $this->dispatch('changePart', choix: $part);  
-    }
-
     public function render()
     {
         return view('livewire.auth.dashboard');

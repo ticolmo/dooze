@@ -3,7 +3,6 @@
 namespace App\Livewire\Club;
 
 use Livewire\Component;
-use Livewire\Attributes\On;
 use Livewire\Attributes\Url;
 
 class Index extends Component
@@ -31,11 +30,9 @@ class Index extends Component
             $this->idpagefans = $id;
         }
         $this->section = "";
-
     }
     
-    #[On('changeSection')]
-    public function modifySection($choix){
+    public function selectSectionFans($choix){
         $this->section = $choix;
         $id = uniqid();
         $this->idpagefans = $id;

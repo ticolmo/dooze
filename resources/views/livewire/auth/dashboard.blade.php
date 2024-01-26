@@ -1,8 +1,5 @@
 <div>
-    <div style="text-align: end">
-        <div class="btn btn-outline-secondary btn-sm"><a href="{{route('don')}}" > <i class="bi bi-person-badge"></i> Faire un don</a></div>
-        <div class="btn btn-outline-secondary btn-sm" wire:click="changePart('settings')"> <i class="bi bi-gear"></i> Paramètres</div>
-    </div>
+    
     @if ($part == "settings")
         <x-auth.edit />        
     @endif

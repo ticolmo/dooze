@@ -23,10 +23,15 @@ class Index extends Component
 
     public function selectPage($selection){
         $this->page = $selection; 
+        if($selection == "dashboard"){
+            $id = uniqid();
+            $this->idpagedashboard = $id;
+        }
+        $this->part = "";
     }
 
-    #[On('changePart')]
-    public function modifyPart($choix){
+
+    public function changePart($choix){
         $this->part = $choix;
         $id = uniqid();
         $this->idpagedashboard = $id;
