@@ -1,7 +1,7 @@
 <div>
       <div class="logo">        
         <a href="{{$siteofficiel}}" target="_blank">
-          <img class="logo1 animate__animated animate__flipInY" src="{{Storage::url('logos/'.$nom.'.png')}}" alt="">
+          <img class="logo1" src="{{Storage::url('logos/'.$nom.'.png')}}" alt="">
         </a>
       </div>
       <div id="infoclub">
@@ -19,7 +19,7 @@
       
       <div class="infot">
         {{-- composant tableau des scores --}} 
-        <x-scores.tableau-scores-club :$scoreshomme :$scoresfemme /> 
+        <livewire:scores.tableau-scores-club :$scoreshomme :$scoresfemme lazy="on-load" /> 
       </div>
      
 </div>

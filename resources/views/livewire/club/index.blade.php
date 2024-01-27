@@ -34,7 +34,7 @@
         @endif
 
         @if ($page == "fans") 
-            <livewire:club.fans.index :$idclub :key="$idpagefans" :section="$section"/> 
+            <livewire:club.fans.index :$idclub :key="$idpagefans" :section="$section" lazy="on-load" /> 
         @endif
         
         @if ($page == "socialmedia")

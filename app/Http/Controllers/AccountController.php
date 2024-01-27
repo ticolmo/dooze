@@ -36,7 +36,7 @@ class AccountController extends Controller
 
     event(new AccountLogInEvent($fan));
 
-    return view('auth.index',[
+    return view('auth',[
         'fan'=> $fan
             
       ]);

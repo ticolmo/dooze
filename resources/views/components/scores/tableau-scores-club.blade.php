@@ -1,5 +1,4 @@
 
-
 <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
 
   @if ($live['etat'])

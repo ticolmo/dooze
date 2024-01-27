@@ -1,4 +1,4 @@
-@extends('layouts.club')
+@extends('layouts.app')
 
 
 @section('title')
@@ -26,7 +26,7 @@
     </div>
     
   <div id="activity">
-    <livewire:auth.profil :id="$fan->id"/>
+    <livewire:auth.commentaires :id="$fan->id"/>
   </div>
 
   <div id="bulletin">
