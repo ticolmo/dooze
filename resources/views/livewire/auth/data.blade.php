@@ -1,52 +1,59 @@
-<div id="dataprofil" x-data="{ open: false }">
+<div id="dataprofil" x-data="{ form: @entangle('form') }">
+
     <div>
         <img class="photoprofil"
-                src="{{Storage::url('users/'.$id.'/avatar\/'.$photo)}}"
+                src="{{Storage::url('users/'.auth()->user()->id.'/avatar\/'.auth()->user()->photoprofil)}}"
                 alt="">
     </div>
     <div class="entete text-end">
         <span class="iconNav parentIcon">
-            <i class="bi bi-pencil" x-on:click="open = ! open"></i>
+            <i class="bi bi-pencil" x-on:click="form = ! form"></i>
             <div class="explicatifIcon"> <span>Modifier les données </span> </div>   
         </span>        
     </div>
-    <form action="{{route('user-profile-information.update')}}" method="post"> 
-        @csrf
-        @method('PUT') 
-        
-        @if ($errors->updateProfileInformation->any())
-      <div class="alert alert-danger">
-          <ul>
-              @foreach ($errors->updateProfileInformation->all()  as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-          </ul>
-      </div>
-      @endif     
-        
+    <form wire:submit="update" > 
+ 
     <div class="text-center">        
-        <div> <input :class="open ? '' : 'formDataInput'" type="text" name="name" value="{{$name}}"/> </div>
         <div> 
-            <input :class="open ? '' : 'formDataInput'" type="text" name="pseudo" value="{{$pseudo}}"/> 
-                
+            <input :class="form ? '' : 'formDataInput'" type="text" wire:model="name" /> 
+            <div>@error('name') {{ $message }} @enderror</div>
+        </div>
+        <div> 
+            <input :class="form ? '' : 'formDataInput'" type="text" wire:model.live="pseudo" /> 
+            <div>@error('pseudo') {{ $message }} @enderror</div>   
         </div>
 
-        <div> <input :class="open ? '' : 'formDataInput'" type="text" name="categorie" value="{{$categorie}}"/> </div>
-        <div> <input :class="open ? '' : 'formDataInput'" type="text" name="bio" value="{{$bio}}"/> </div>
+        <div> 
+            <input :class="form ? '' : 'formDataInput'" type="text" wire:model="categorie" /> 
+            <div>@error('categorie') {{ $message }} @enderror</div>
+        </div>
+        <div> <textarea style="resize:none;" :class="form ? '' : 'formDataInput'" type="text" wire:model="bio" ></textarea> </div>
         
     </div>
-    
-    <div>
-        <input :class="open ? '' : 'formDataInput'" type="text" name="titrelienone" value="{{$titrelienone}}"/> 
-        <input :class="open ? '' : 'formDataInput'" type="text" name="lienone" value="{{$lienone}}"/> 
 
-    </div>
+    @if (!empty(auth()->user()->lien1))
+        <div>
+            <input :class="form ? '' : 'formDataInput'" type="text" wire:model="titrelienone" /> 
+            <input :class="form ? '' : 'formDataInput'" type="text" wire:model="lienone" /> 
+            <div>@error('titrelienone', 'lienone') {{ $message }} @enderror</div>
+        </div>
+    @endif
+
+    @if (!empty(auth()->user()->lien2))
     <div>
-        <input :class="open ? '' : 'formDataInput'" type="text" name="titrelientwo" value="{{$titrelientwo}}"/> 
-        <input :class="open ? '' : 'formDataInput'" type="text" name="lientwo" value="{{$lientwo}}"/> 
+        <input :class="form ? '' : 'formDataInput'" type="text" wire:model="titrelientwo" /> 
+        <input :class="form ? '' : 'formDataInput'" type="text" wire:model="lientwo" /> 
+        <div>@error('titrelientwo', 'lientwo') {{ $message }} @enderror</div>
     </div>
+    @endif
+
     <div>
-        <button class="btn btn-primary" type="submit" :class="open ? '' : 'formButton'" > Modifier</button>
+        <button class="btn btn-primary" type="submit" :class="form ? '' : 'formButton'" > 
+            <span class="spinner-border text-light" role="status" wire:loading wire:target="update">
+                <span class="visually-hidden">Loading...</span>
+            </span>     
+            Modifier
+        </button>
     </div>
 </form>
 </div>

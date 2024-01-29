@@ -3,6 +3,12 @@
  outline: none;
  caret-color: transparent;
 }
+#dataprofil .formDataTextarea{
+ border: none!important;
+ outline: none;
+ caret-color: transparent;
+ resize:none;
+}
 
 #dataprofil .formButton{
 display: none;

@@ -11,18 +11,7 @@
 <div id="club">
 
   <div id="vue">
-    <livewire:auth.data 
-      :id="$fan->id"
-      :photo="$fan->photoprofil" 
-      :name="$fan->name"
-      :pseudo="$fan->pseudo"
-      :bio="$fan->bio"
-      :categorie="$fan->categorie"
-      :titrelienone="$fan->titrelien1"
-      :lienone="$fan->lien1"
-      :titrelientwo="$fan->titrelien2"
-      :lientwo="$fan->lien2"        
-    />
+    <livewire:auth.data />
     
   </div>
     

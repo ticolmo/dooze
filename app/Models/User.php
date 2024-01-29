@@ -30,7 +30,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'langue_id',
         'derniere_connexion',
         'photoprofil',
-        'hashtag',
+        'pseudo',
         'bio',
         'titrelien1',
         'lien1',
