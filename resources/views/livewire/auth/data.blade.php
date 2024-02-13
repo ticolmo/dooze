@@ -1,4 +1,13 @@
-<div id="dataprofil" x-data="{ form: @entangle('form') }">
+<div 
+    id="dataprofil" 
+    x-data="{ 
+        form: @entangle('form'), 
+        updateTextareaHeight(input) {
+        console.log('render')
+        input.style.height = 'auto';
+        input.style.height = input.scrollHeight+'px';
+        }
+   }">
 
     <div>
         <img class="photoprofil"
@@ -27,7 +36,10 @@
             <input :class="form ? '' : 'formDataInput'" type="text" wire:model="categorie" /> 
             <div>@error('categorie') {{ $message }} @enderror</div>
         </div>
-        <div> <textarea style="resize:none;" :class="form ? '' : 'formDataInput'" type="text" wire:model="bio" ></textarea> </div>
+        <div> 
+            <textarea style="resize:none;" :class="form ? '' : 'formDataInput'" x-init="updateTextareaHeight( $el );" type="text" wire:model="bio" ></textarea> 
+        </div>
+
         
     </div>
 
