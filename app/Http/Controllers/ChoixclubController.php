@@ -19,7 +19,7 @@ class ChoixclubController extends Controller
 
     public function store(Request $request){
 
-        $club = $request->input('club');
+        $club = $request->session()->get('club');
 
         $questionnaire = Questionnaire::where('ref_club', '=', $club )->firstOrFail();
 

@@ -2,6 +2,6 @@
 
 @section('content')
 
-<livewire:auth.questionnaire />
+<livewire:auth.choix-club />
 
 @endsection

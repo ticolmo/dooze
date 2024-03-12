@@ -126,7 +126,7 @@ class Statistiques
             'season' => '2023'
             ]);                 
  
-            $data = $response->json();           
+            $data = $response->json();  
             
             foreach($data['response']['0']['league']['standings'] as &$group){
                 foreach($group as &$equipe){

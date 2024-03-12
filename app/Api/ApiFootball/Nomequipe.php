@@ -57,6 +57,9 @@ class NomEquipe
             case "LE Havre":
                 $team = "Le Havre";
                 break;           
+            case "Nice":
+                $team = "OCG Nice";
+                break;           
 
             default:
                 $team = $original;

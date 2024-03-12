@@ -43,7 +43,6 @@ Route::get('/', [HomeClubController::class, 'home'])->name('home');
 
 Route::get('/login', function () {return view('auth.login');})->name('login');
 
-
 /* Choix de langue */
 
 Route::get('/choice-language/{choice}', [LangueController::class, 'choice'])->name('choicelanguage');
@@ -53,12 +52,18 @@ Route::get('/choice-language/{choice}', [LangueController::class, 'choice'])->na
 
 //Questionnaire
 Route::controller(ChoixclubController::class)->group(function (){
-    Route::get('/club', 'index')->name('createaccount');
-    Route::post('/question', 'store')->name('question');
-    Route::post('/question/result', 'validation')->name('validation'); 
+    /* Route::get('/club', 'index')->name('createaccount'); */
+   /*  Route::get('/question', 'store')->name('question'); */
+    /* Route::post('/question/result', 'validation')->name('validation');  */
 });
 
-Route::get('/register', [RegisterController::class, 'index'])->middleware('register')->name('register');
+Route::get('/club', function () {return view('create-account');})->name('createaccount');
+
+Route::get('/question', function () {return view('auth.question');})->name('question');
+
+Route::get('/register', function () {return view('auth.register');})->middleware('register')->name('register');
+
+/* Route::get('/register', [RegisterController::class, 'index'])->middleware('register')->name('register'); */
 
 Route::get('/email/verify', [VerifyemailController::class, 'index'])->middleware('auth')->name('verification.notice');
 
