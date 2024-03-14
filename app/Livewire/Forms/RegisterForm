@@ -1,0 +1,47 @@
+<?php
+ 
+namespace App\Livewire\Forms;
+ 
+use Livewire\Form;
+use App\Models\User;
+use Illuminate\Validation\Rule;
+use Livewire\Attributes\Validate;
+ 
+class RegisterForm extends Form
+{      
+    public ?User $user;
+    
+    #[Validate]
+    public $password = '';
+    #[Validate]
+    public $pseudo = '';
+
+
+    public function rules()
+    {
+        return [
+            'password' => 'required|min:5',
+            'pseudo' => [
+                'required',
+                Rule::unique('users')->ignore($this->user),
+            ],
+             
+        ];
+    }
+
+    public function setRegister(User $user)
+    {
+        $this->user = $user;
+ 
+        $this->password = $user->password;
+        $this->pseudo = $user->pseudo;
+    }
+
+    public function update()
+    {
+        $this->user->update(
+            $this->all()
+        );
+         $this->reset();
+    }
+}

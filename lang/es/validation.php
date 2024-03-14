@@ -105,6 +105,7 @@ return [
     'password'             => [
         'letters'       => 'La :attribute debe contener al menos una letra.',
         'mixed'         => 'La :attribute debe contener al menos una letra mayúscula y una minúscula.',
+        'uppercase'     => 'La :attribute debe contener al menos una letra mayúscula.',
         'numbers'       => 'La :attribute debe contener al menos un número.',
         'symbols'       => 'La :attribute debe contener al menos un símbolo.',
         'uncompromised' => 'La :attribute proporcionada se ha visto comprometida en una filtración de datos (data leak). Elija una :attribute diferente.',

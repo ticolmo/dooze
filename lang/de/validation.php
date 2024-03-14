@@ -105,6 +105,7 @@ return [
     'password'             => [
         'letters'       => ':Attribute muss mindestens einen Buchstaben beinhalten.',
         'mixed'         => ':Attribute muss mindestens einen Großbuchstaben und einen Kleinbuchstaben beinhalten.',
+        'uppercase'     => ':Attribute muss mindestens einen Großbuchstaben beinhalten.',
         'numbers'       => ':Attribute muss mindestens eine Zahl beinhalten.',
         'symbols'       => ':Attribute muss mindestens ein Sonderzeichen beinhalten.',
         'uncompromised' => ':Attribute wurde in einem Datenleck gefunden. Bitte wählen Sie ein anderes :attribute.',

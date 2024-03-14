@@ -105,6 +105,7 @@ return [
     'password'             => [
         'letters'       => ':Attribute deve contenere almeno un carattere.',
         'mixed'         => ':Attribute deve contenere almeno un carattere maiuscolo ed un carattere minuscolo.',
+        'uppercase'     => ':Attribute deve contenere almeno un carattere maiuscolo.',
         'numbers'       => ':Attribute deve contenere almeno un numero.',
         'symbols'       => ':Attribute deve contenere almeno un simbolo.',
         'uncompromised' => ':Attribute è presente negli archivi dei dati trafugati. Per piacere scegli un valore differente per :attribute.',
