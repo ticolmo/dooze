@@ -14,6 +14,7 @@ use App\Rules\CaractereSpecial;
 use Illuminate\Validation\Rule;
 use Livewire\Attributes\Session;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Validator;
 
 
 class Register extends Component
@@ -30,6 +31,7 @@ class Register extends Component
     public $password = '';
     #[Validate]
     public $pseudo = '';
+    public $formulaireValide = false;
 
     public function mount(Request $request){
         $this->langues = Langue::select(['id_langue','intitule'])->get();
@@ -39,6 +41,8 @@ class Register extends Component
         $this->isinvalid = "";
         $request->session()->put('register', "ok");
     }
+
+  
 
     public function rules()
     {

@@ -1,9 +1,9 @@
 <div>
     <main id="" class="form-signin w-50 m-auto ">
         {{-- FORMULAIRE --}}
-        <form action="{{route('register')}}" method="post" class="needs-validation"   >
+        <form action="{{route('register')}}" method="post" class="needs-validation" >
           @csrf
-          <h1 class="h3 mb-3 fw-normal">Création de ton compte</h1>  
+          <h1 class="h3 mb-3 fw-normal">Création de ton compte</h1> 
   
           @if ($errors->any())
               <div class="alert alert-danger">

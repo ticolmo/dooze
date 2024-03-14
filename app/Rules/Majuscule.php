@@ -14,7 +14,7 @@ class Majuscule implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        if (strtoupper($value) !== $value) {
+        if (!preg_match('/(?=.*[A-Z])/', $value)) {
             $fail('validation.password.uppercase')->translate();
         }
     }
