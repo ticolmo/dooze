@@ -28,6 +28,11 @@ class CreateNewUser implements CreatesNewUsers
                 'max:255',
                 Rule::unique(User::class),
             ],
+            'pseudo' => [
+                'required',
+                'min:5',
+                Rule::unique(User::class),
+            ],
             'password' => $this->passwordRules(),
             'categorie' => ['required', 'string', 'max:10'],
             'pays' => ['required', 'string', 'max:60'],
@@ -38,6 +43,7 @@ class CreateNewUser implements CreatesNewUsers
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
+            'pseudo' => $input['pseudo'],
             'password' => Hash::make($input['password']),
             'categorie' => $input['categorie'],
             'pays' => $input['pays'],

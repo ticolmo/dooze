@@ -17,14 +17,13 @@
                 <i class="bi bi-three-dots options" data-id="{{$commentaire->id}}"></i>
                 @endauth
 
-                {{-- options --}}
-                {{--
-                <x-options-commentaire :commentaire="$commentaire" /> --}}
+                {{-- options --}}                
+                <x-options-commentaire :commentaire="$commentaire" />
 
             </div>
-            {{-- modals Bootstrap des options --}}
-            {{--
-            <x-modals.options-commentaire :commentaire="$commentaire" /> --}}
+            
+            {{-- modals Bootstrap des options --}}            
+            <x-modals.options-commentaire :commentaire="$commentaire" />
 
 
             {{-- contenu --}}

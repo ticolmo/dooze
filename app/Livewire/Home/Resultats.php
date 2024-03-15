@@ -29,12 +29,7 @@ class Resultats extends Component
         $this->datetomorrow = date("Y-m-d", strtotime("+1 day"));        
     }
 
-/* public function changeTimezone($fuseau)
-    {
-        $this->timezone = $fuseau;
-        app('request')->session()->put('timezone', "$fuseau");
-        
-    }  */
+
     #[On('listeDeroulante')]
     public function changeTimezone($choix)
     {
@@ -42,8 +37,6 @@ class Resultats extends Component
         app('request')->session()->put('timezone', "$choix");
         
     }
-
-    
 
     public function render()
     {

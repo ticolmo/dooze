@@ -34,7 +34,7 @@
           </div>
         </a>
         @auth
-            @if (auth()->user()->id == $fan->id)
+            @if (auth()->user()->id == $id)
             
               <div class="optmodal">                
               <span class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop1{{$commentaire->id}}" >
@@ -48,7 +48,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                      
-                      <form action="{{route('post.update')}}" method="POST"> 
+                      <form action="{{route('commentaire.update')}}" method="POST"> 
                         @csrf
                         <div class="modal-body">
                           <input type="text" id="floatingInput" class="example3 form-control" name="contenu" value="{{old('contenu') ?? $commentaire->contenu}}">  
@@ -77,7 +77,7 @@
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('Delete post') }}</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-                      <form action="{{route('post.delete')}}" method="POST"> 
+                      <form action="{{route('commentaire.delete')}}" method="POST"> 
                         @csrf
                           <div class="modal-body">
                             <div> {{ __('Are you sure you want to delete this post? After this operation, your post will be permanently deleted from your profile, the entire website and the Dooze database. It will no longer be possible to retrieve it.') }}</div>

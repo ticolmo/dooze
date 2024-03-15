@@ -4,7 +4,6 @@ namespace App\Livewire\Club\Fans;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Livewire\Attributes\Validate;
 use Livewire\Attributes\On;
 
 class Formulaire extends Component
@@ -22,8 +21,6 @@ class Formulaire extends Component
     public $giphy = '';
     public $lieu = "";
    
-
-    
 
     #[On('getGif')] 
     public function getGif(){

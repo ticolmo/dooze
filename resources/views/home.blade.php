@@ -19,9 +19,6 @@
 <div style="text-align: right"> Fuseau horaire: </div>
 <livewire:home.resultats :$timezone/>
 
-{{-- </div> --}}
-
-
 <div class="dropdown">
   <input id="choose1" class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
     aria-expanded="false" placeholder="Choose your club">
@@ -48,7 +45,7 @@
         @endforeach
       
       </div>
-      <!-- If we need pagination -->
+      <!-- Pagination swiper -->
       <div class="swiper-pagination"></div>
 
       <!-- If we need navigation buttons -->

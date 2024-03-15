@@ -1,26 +1,7 @@
 <div id="resultats" x-data="{ open: false}">  
     <div id="tableauScores">  
-      {{-- <div id="timezone">
-        <div>
-          <div id="selectionHoraire" @click="open = ! open" > Fuseau horaire: {{$timezone}} </div>
-          <div style="display:none" x-show="open" @click.outside="open = false">
-            @foreach ($listeTimezone as $key => $fuseau)
-                <div class="propositionHoraire" 
-                  key="{{$key}}" 
-                  data-id="{{$fuseau}}"
-                  @click="$wire.changeTimezone($event.target.getAttribute('data-id')); open = ! open" > {{$fuseau}} </div>  
-            @endforeach
-          </div>
-              
-         
-          
-          
-        </div>     
-      </div> --}}
 
       <livewire:features.liste-deroulante :selection="$timezone" :tableau="$listeTimezone"/>
-
-     
       
       <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">

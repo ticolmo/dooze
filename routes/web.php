@@ -1,16 +1,10 @@
 <?php
 
-use App\Models\Club;
-use App\Api\ListeCompetition;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\LangueController;
 use App\Http\Controllers\AccountController;
-use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\TestXssController;
 use App\Http\Controllers\HomeClubController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\ChoixclubController;
 use App\Http\Controllers\Live\LiveController;
 use App\Http\Controllers\RencontreController;
 use App\Http\Controllers\MessagerieController;
@@ -50,20 +44,11 @@ Route::get('/choice-language/{choice}', [LangueController::class, 'choice'])->na
 
 /* Création de compte */
 
-//Questionnaire
-Route::controller(ChoixclubController::class)->group(function (){
-    /* Route::get('/club', 'index')->name('createaccount'); */
-   /*  Route::get('/question', 'store')->name('question'); */
-    /* Route::post('/question/result', 'validation')->name('validation');  */
-});
-
 Route::get('/club', function () {return view('create-account');})->name('createaccount');
 
 Route::get('/question', function () {return view('auth.question');})->name('question');
 
 Route::get('/register', function () {return view('auth.register');})->middleware('register')->name('register');
-
-/* Route::get('/register', [RegisterController::class, 'index'])->middleware('register')->name('register'); */
 
 Route::get('/email/verify', [VerifyemailController::class, 'index'])->middleware('auth')->name('verification.notice');
 
@@ -116,18 +101,11 @@ Route::middleware(['auth','verified'])->prefix('mailbox')->controller(Messagerie
 
 /* Gestion des commentaires par les utilisateurs */
 
-Route::middleware(['auth','verified'])->controller(PostController::class)->name('post.')->group(function () {            
-    Route::post('/commentclub', 'storeCommentaireclub')->name('commentaireclub');
-    Route::post('/replyclub', 'storeReponseclub')->name('reponseclub');
-    Route::post('/commentvisiteur','storeCommentairevisiteur')->name('commentairevisiteur');
-    Route::post('/replyvisiteur', 'storeReponsevisiteur')->name('reponsevisiteur');
-    Route::post('/pub/update', 'update')->name('update');
-    Route::post('/pub/delete', 'delete')->name('delete');
-    Route::post('/pub/signal', 'signal')->name('signal');
-});
-
-Route::controller(CommentaireController::class)->name('commentaire.')->group(function () {            
+Route::middleware(['auth','verified'])->controller(CommentaireController::class)->name('commentaire.')->group(function () {
     Route::post('/commentaire/store', 'store')->name('store');
+    Route::post('/post/update', 'update')->name('update');
+    Route::post('/post/delete', 'delete')->name('delete');
+    Route::post('/post/signal', 'signal')->name('signal');
 });
 
 /* Administration */
@@ -171,10 +149,6 @@ Route::prefix('live')->name('live.')->group(function () {
     
 });
  
-/* Fonctionnalités*/
-
-// Affichage d'un commentaire après click sur commentaire sélectionné sur page club ou sur profil public
-Route::get('/features/{idpublication}', [FeatureController::class, 'commentaireunique'])->name('commentaire.pleinepage');
 
 // Détail du match
 

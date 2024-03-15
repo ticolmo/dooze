@@ -42,8 +42,6 @@ class Register extends Component
         $request->session()->put('register', "ok");
     }
 
-  
-
     public function rules()
     {
         $this->user = new User();

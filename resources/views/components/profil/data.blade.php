@@ -4,12 +4,7 @@
                 src="{{Storage::url('users/'.$id.'/avatar\/'.$photo)}}"
                 alt="">
     </div>
-    <div class="entete text-end">
-        <span class="iconNav parentIcon">
-            <i class="bi bi-pencil"></i>
-            <div class="explicatifIcon"> <span>Modifier les données </span> </div>   
-        </span>        
-    </div>
+    
     <div class="text-center">
         <div> {{$name}} </div>
         <div> {{$pseudo}}</div>

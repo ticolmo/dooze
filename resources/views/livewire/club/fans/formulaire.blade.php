@@ -41,23 +41,22 @@
 
     {{-- paramètres commentaire --}}
     <input type="hidden" name="secteur_visiteur" value= "{{$visiteur}}">
-  {{--   @dd($visiteur) --}}
     {{-- boutons --}}
     <div class="text-center submit">      
-      <label class="iconNav parentIcon" for="gin">{{-- <img src="{{Storage::url('divers/media-icon.png')}}" alt="" style="width:auto;height:25px"> --}}
+      <label class="iconNav parentIcon" for="gin">
         
         <i class="bi bi-image"></i>
       <div class="explicatifIcon"><span>Image</span></div>  
       </label>      
       <label class="iconNav parentIcon" for="" id="gif" @click="$wire.getGif()" >
-        <i><img src="{{Storage::url('divers/gif.png')}}" alt="" {{-- style="width:auto;height:27.5px" --}}></i>       
+        <i><img src="{{Storage::url('divers/gif.png')}}" alt="" </i>       
       <div class="explicatifIcon"><span>GIF</span></div>
       </label>
-      <label class="iconNav parentIcon" for="" id="emoji" @click="emoji()"> {{-- <img src="{{Storage::url('divers/emoji-icon.png')}}" alt="" style="width:auto;height:25px"> --}}
+      <label class="iconNav parentIcon" for="" id="emoji" @click="emoji()"> 
         <i class="bi bi-emoji-smile"></i>
       <div class="explicatifIcon"><span>Emoji</span></div>
       </label>
-      <label class="iconNav parentIcon" @click="lieu = ! lieu">{{-- <img src="{{Storage::url('divers/localisation.png')}}" alt="" style="width:auto;height:25px"> --}}
+      <label class="iconNav parentIcon" @click="lieu = ! lieu">
         <i class="bi bi-geo-alt" ></i>
       <div class="explicatifIcon"><span>Lieu</span></div>
       </label>

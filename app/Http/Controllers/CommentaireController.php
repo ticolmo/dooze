@@ -7,6 +7,7 @@ use App\Models\Commentaire;
 use App\Models\Signalement;
 use Illuminate\Http\Request;
 use Mews\Purifier\Facades\Purifier;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class CommentaireController extends Controller
@@ -57,5 +58,56 @@ class CommentaireController extends Controller
         $commentaire->save();
         return back();
 
+    }
+
+    public function update(Request $request){
+
+        $update = Commentaire::findOrFail($request->input('id'));
+        $update->contenu = $request->input('contenu');
+        $update->save();
+    
+        return back()->with('update', 'update'); 
+    }
+    
+    public function delete(Request $request){
+    
+        $commentaire = Commentaire::findOrFail($request->input('id'));
+
+        /*suppression du fichier media*/
+        $userid = auth()->user()->id;
+        if ($commentaire->fichier_media != null){
+            Storage::disk('public')->delete("users/$userid/$commentaire->fichier_media");
+        }
+        /*suppression dans la table Publication*/
+        $commentaire->publication()->forceDelete();
+        /*suppression dans la table Commentaire correspondante*/
+        $commentaire->forceDelete();
+    
+        return back()->with('delete', 'delete'); 
+    }
+    
+    public function signal(Request $request){
+    
+        $request->validate([        
+            'id' => 'required|numeric',
+            'iduser' => 'required|numeric',
+            'motif' => 'required',
+    
+        ]);
+    
+        $signalement = new Signalement();
+    
+        $signalement->publication_id = $request->id;
+        $signalement->user_id = $request->iduser;
+        $signalement->motif = $request->motif;
+        $signalement->created_at = now();
+        $signalement->save();
+    
+        return back()->with([
+            'post' => 'post',
+            'signalement' => 'signalement'
+        ]);
+        
+    
     }
 }

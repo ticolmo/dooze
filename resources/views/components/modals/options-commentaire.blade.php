@@ -1,7 +1,7 @@
 @auth                    
     {{-- modals de Bootstrap --}}
     {{-- modal modification de publication --}}
-        <div class="modal fade" id="staticBackdrop1{{$commentaire->publication->id_publication}}"
+        <div class="modal fade" id="staticBackdrop1{{$commentaire->id}}"
         data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
         aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -11,13 +11,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{route('post.update')}}" method="POST">
+                <form action="{{route('commentaire.update')}}" method="POST">
                     @csrf
                     <div class="modal-body">
                     <input type="text" id="floatingInput" class="example3 form-control" name="contenu"
                         value="{{$commentaire->contenu}}">
-                    <input type="hidden" name="id" value="{{$commentaire->publication->id_publication}}">
-                    <input type="hidden" name="idcom" value="{{$commentaire->id}}">
+                    <input type="hidden" name="id" value="{{$commentaire->id}}">
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
@@ -31,22 +30,21 @@
         </div>
 
     {{-- modal de suppression de la publication --}}
-    <div class="modal fade" id="staticBackdrop2{{$commentaire->publication->id_publication}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop2{{$commentaire->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="staticBackdropLabel">Suppression de la publication</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('post.delete')}}" method="POST"> 
+            <form action="{{route('commentaire.delete')}}" method="POST"> 
               @csrf
                 <div class="modal-body">
                   <div> Etes-vous sûr de vouloir supprimer cette publication ? Après cette opération, votre message sera définivement supprimé de votre profil, de l'ensemble du site internet et de la base données de Dooze. Il ne sera plus possible de la récupérer.</div>
                   <hr>
                   <div> {{$commentaire->contenu}}</div>
                 </div>
-                <input type="hidden" name="id" value="{{$commentaire->publication->id_publication}}">
-                <input type="hidden" name="idcom" value="{{$commentaire->id}}">
+                <input type="hidden" name="id" value="{{$commentaire->id}}">
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
                   <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
@@ -56,7 +54,7 @@
         </div>
       </div>
     {{-- modal de signalement de publication --}}
-        <div class="modal fade" id="staticBackdrop3{{$commentaire->publication->id_publication}}"
+        <div class="modal fade" id="staticBackdrop3{{$commentaire->id}}"
         data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
         aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -66,11 +64,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="{{route('post.signal')}}" method="POST">
+                <form action="{{route('commentaire.signal')}}" method="POST">
                     @csrf
                     <div class="modal-body">
                     <div>{{$commentaire->contenu}} </div>                  
-                    <input type="hidden" name="id" value="{{$commentaire->publication->id_publication}}">
+                    <input type="hidden" name="id" value="{{$commentaire->id}}">
                     <input type="hidden" name="iduser" value="{{auth()->user()->id}}">
                     <div>La raison du signalement *:</div>
                     @if ($errors->any())
