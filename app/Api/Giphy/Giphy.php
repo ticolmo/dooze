@@ -8,7 +8,7 @@ class Giphy
 {
     public function api_key()
     {
-        $api_key = 'OeQZ35qdlTJhCyTRbHHTsVbDVIdI7yL4';
+        $api_key = 'xxxx';
 
         return $api_key;
     }

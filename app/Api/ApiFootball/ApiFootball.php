@@ -11,7 +11,7 @@ class ApiFootball
     public function header()
     {
         $response = Http::withHeaders([
-            'x-rapidapi-key' => 'dd8bf5fada55f6377910ef4ee79f7916',
+            'x-rapidapi-key' => 'xxx',
             'x-rapidapi-host' => 'v3.football.api-sports.io'
         ]);
 
