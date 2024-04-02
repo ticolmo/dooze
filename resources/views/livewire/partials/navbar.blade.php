@@ -24,16 +24,16 @@
   
           <li class="nav-item recherche">
             <input x-model="search" placeholder="Club / Compétition" class="form-control" list="datalistOptions" id="exampleDataList"> 
-            {{-- <ul x-show="search.length > 1" @click.outside="search = ''">
+            <ul x-show="search.length > 1" @click.outside="search = ''">
                 <template x-for="item in filteredItems" :key='item'>
                     <li x-text="item" @click="$wire.redirectRecherche(item)"></li>
                 </template>
-            </ul> --}}
-            <datalist id="datalistOptions">
+            </ul>
+            {{-- <datalist id="datalistOptions">
               @foreach ($recherches as $recherche)
                  <option value="{{$recherche}}" @click="$wire.redirectRecherche(recherche)" @keyup.enter="$wire.redirectRecherche(recherche)" >         
               @endforeach                    
-            </datalist>
+            </datalist> --}}
 
 
           </li>
