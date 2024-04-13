@@ -1,6 +1,6 @@
-<div class="listeDeroulante" x-data="{ open: false}">
+<div class="listeDeroulante" x-data="{ open: false}" >
     <div style="position: relative">
-      <div id="selectionListe" @click="open = ! open" >{{$selection}} <i class="bi bi-chevron-down"></i></div>
+      <div id="selectionListe" @click="open = ! open" > {{$selection}} <i class="bi bi-chevron-down"></i></div>
       <div 
         id="timezoneListe" 
         style="

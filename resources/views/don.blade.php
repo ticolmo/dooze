@@ -10,6 +10,12 @@
       des fonds seront reversés au site de votre club favori. N'oubliez donc pas à indiquer votre club favori dans le
       processus. D'avance, nous vous remercions beaucoup !!! </p>
       <br>
+
+    <p>
+      mmoue
+      Vous pouvez aussi regarder aussi une pub ici...
+      <a href=""></a>
+    </p>
     <p>Et continuez à supporter votre club !!!</p>
     <div style="text-align: center">
     <button class="btn btn-primary rounded-pill"> PayPal</button>

@@ -1,9 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 @import './page/home.css';
 
 
 * {
     box-sizing: border-box;
+}
+
+:root {
+    --couleur-hover: #dee2e6a3;
+    --transition-hover: all ease-in-out 0.3s;
+    --font-color: #1e1a19;
+    --height-menu:50px;
 }
 
 html,
@@ -17,18 +25,20 @@ body {
 body {
     font-family: 'Inter', sans-serif!important; 
     font-size: 14px!important;  
+    font-weight: 300!important;
 
     background-color: white;
-    color: #1e1a19;
+    color: var(--font-color);
 
 }
 
 .entete{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif!important;    
+    font-family: 'Inter','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif!important;    
 }
 
 .navbar{
-    font-size: 16px!important;  
+    font-size: 14px!important; 
+    color: var(--font-color); 
 }
 
 
@@ -382,6 +392,20 @@ li {
         padding-bottom: 100px;
     }
 
+    .navTitle{
+        font-size: 30px!important; 
+        font-weight: 600;
+    }
+    .navAccountTitle{
+        font-size: 20px;
+        padding-left: 15px;
+    }
+    .navAccountBody{
+        font-size: 20px;
+        padding-left: 30px;
+
+    }
+
     button#buttonnavbar {
         background: none;
         border: none;
@@ -408,10 +432,23 @@ li {
         width: 100%;
         height: 100%;
         overflow: hidden;
+        position: relative;
 
 
 
     }
+
+    #filtreVideo{
+        position: absolute;
+        z-index: 3; 
+        background-color:  rgba(30, 26, 25, 0.15) ; 
+        /*background: rgb(249,249,249);
+        background: radial-gradient(circle, rgba(249,249,249,0) 62%, rgba(128,128,128,0.20611572265625) 76%, rgba(30,26,25,1) 100%); 
+        */ width: 100%;
+        height: 100%;
+    }
+
+
 
     #myvideo {
         width: auto;
@@ -439,6 +476,10 @@ li {
         color: #1e1a19 !important;
 
     }
+    #lienLogoDooze{
+       filter: grayscale(5%); 
+    }
+    
 
 
     #connect2 {
@@ -577,7 +618,7 @@ li {
         height:35px;
         width:auto;
     }
-    .rencontres {
+ /*    .rencontres {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -592,7 +633,7 @@ li {
     .rencontres span:nth-child(3){
         width: 40%;
         text-align: left;
-      }
+      } */
     .bottomcompet{
         margin-bottom: 50px;
     }

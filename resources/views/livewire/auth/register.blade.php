@@ -21,6 +21,8 @@
   
           {{-- CLUB --}}
           <input type="hidden" value="{{$idclub}}" name="club_id">  
+          {{-- CATEGORIE --}}
+          <input type="hidden" value="fan" name="categorie"> 
   
           {{-- PRENOM --}}
           <div class="form-floating @error('name') is-invalid @enderror ">
@@ -98,19 +100,6 @@
               <div class="invalid-feedback"> {{$message}} </div>
             @enderror
           </div>
-
-          {{-- CATEGORIE --}}
-          <div class="form-floating @error('categorie') is-invalid @enderror">
-          <select class="form-select @error('categorie') is-invalid @enderror" id="floatingSelect" aria-label="Floating label select example" name="categorie">    
-            <option selected disabled>{{ old('categorie') ?? "Catégorie"}}</option>        
-            <option value="Fan">Fan</option>
-            <option value="Media">Media</option>  
-          </select>
-          <label for="floatingSelect">Sélectionne ta catégorie</label>
-          @error('categorie')
-            <div class="invalid-feedback"> {{$message}} </div>
-          @enderror
-        </div>
          
   
           {{-- CONDITIONS GENERALES --}}

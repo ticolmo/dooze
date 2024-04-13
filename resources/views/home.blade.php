@@ -15,7 +15,6 @@
 
 {{-- Résultats: hier, aujourd'hui, demain --}}
 
-<h4>Résultats</h4>
 <div style="text-align: right"> Fuseau horaire: </div>
 <livewire:home.resultats :$timezone/>
 

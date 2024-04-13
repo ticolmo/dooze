@@ -36,7 +36,7 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
             'categorie' => ['required', 'string', 'max:10'],
             'pays' => ['required', 'string', 'max:60'],
-            'club_id' => ['required', 'string', 'max:4'],
+            'club_id' => ['nullable', 'string', 'max:4'],
             'langue_id' => ['required', 'string', 'max:1'],
         ])->validate();
 

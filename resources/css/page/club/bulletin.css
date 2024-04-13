@@ -45,9 +45,8 @@
         border-radius: 15px;
     } */
     .ligneMatch [class^="score"] {
-        font-size: 20px;
-        background-color: #1e1a19;
-        color: white;
+        font-size: 16px;
+        font-weight: 600!important;
         
     } 
     .ligneMatch .scoreTrait{

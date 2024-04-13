@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LangueController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\TestXssController;
 use App\Http\Controllers\HomeClubController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Live\LiveController;
 use App\Http\Controllers\RencontreController;
 use App\Http\Controllers\MessagerieController;
@@ -14,10 +16,9 @@ use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\FormcontactController;
 use App\Http\Controllers\Live\ConfigController;
 use App\Http\Controllers\VerifyemailController;
-use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\PresentationController;
 use App\Http\Controllers\Live\ConnexionController;
 use App\Http\Controllers\Admin\AdminCommentaireController;
-use App\Http\Controllers\PresentationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,11 +45,15 @@ Route::get('/choice-language/{choice}', [LangueController::class, 'choice'])->na
 
 /* Création de compte */
 
-Route::get('/club', function () {return view('create-account');})->name('createaccount');
+Route::get('/createaccount', function () {return view('create-account-fan');})->name('createaccount.fan');
+
+Route::get('/createaccount/media', function () {return view('create-account-media');})->name('createaccount.media');
 
 Route::get('/question', function () {return view('auth.question');})->name('question');
 
 Route::get('/register', function () {return view('auth.register');})->middleware('register')->name('register');
+
+Route::get('/register/media', [RegisterController::class, 'media'])->name('register.media');
 
 Route::get('/email/verify', [VerifyemailController::class, 'index'])->middleware('auth')->name('verification.notice');
 

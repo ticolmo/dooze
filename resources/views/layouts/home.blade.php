@@ -22,12 +22,14 @@
 
       <div id="vid1" style="background-color: black">
           @persist('video')
+          <div id="filtreVideo"></div>
           <video id="myvideo"src="{{Storage::url('videos/Video1.mp4')}}" autoplay loop muted disablePictureInPicture></video>
           @endpersist
       </div>
       <div id="connect1">
 
-        @include('partials.navbarhome')          
+        {{-- @include('partials.navbarhome')  --}}   
+        <livewire:partials.navbar-home />      
         @yield('content') 
 
       </div>

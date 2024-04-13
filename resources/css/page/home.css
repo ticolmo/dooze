@@ -1,6 +1,12 @@
 /******************************************************/
 /* Tablette - Desktop */
 @media screen and (min-width:768px) {
+    #logoDooze{
+        height: 50px;
+        width:auto;
+        border-radius: 5px;
+    }
+
     #selectionListe{
        text-align:right; 
     }   
@@ -9,6 +15,70 @@
         text-align:right;
         
         right:0;
+    }
+    
+/*     {
+        width: 90%;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    .dateJournee{
+        background-color: rgba(128, 128, 128, 0.63);
+    }*/
+    .ligneRencontres{
+        width: 100%;
+        height: 2rem;
+        overflow: hidden!important;
+        display: flex;
+        align-items: baseline
+      } 
+      .ligneRencontres span{
+        height: 100%;
+        line-height: 1.5;
+      }
+      .centreLigne{
+        width:5%;
+        text-align: center;
+      }
+      .chiffreScore{
+        
+        text-align: center;
+      }
+    .teamHome {
+        text-align: end;
+        width:41%
+    }
+    .teamAway {
+        text-align: start;
+        width:41%
+    }
+    .trait {
+        width: 2%;
+        text-align:center
+    }
+    .scoreHome{      
+        width:3%;
+    }
+    .scoreAway{
+        width:3%
+    }
+    .ligneRencontres [class^="score"] {
+        font-size: 16px;
+        font-weight: 600!important;
+    }
+
+    .status{
+       
+        font-size: 10px;
+        text-align: center;
+    }
+      .bottomRencontre{
+        border-bottom: 1px solid rgb(190, 175, 175) !important;
+    }
+
+    .logoClub{
+        width: 25px;
+        height: 25px;
     }
 
 

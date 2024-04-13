@@ -25,32 +25,33 @@
                 @endphp            
 
                 <div  
+                    class="ligneRencontres"
                     @if ($matchencours || $matchfini) 
                      wire:click="redirectDetailRencontre({{$rencontre['fixture']['id']}})"
                     @endif
                 >             
-                    <div class="rencontres">
-                        <span> {{$rencontre['teams']['home']['name']}}</span> 
+                   
+                        <span class="teamHome"> {{$rencontre['teams']['home']['name']}}</span> 
                         <span class="centreLigne"> <img class="logoClub" src="{{$rencontre['teams']['home']['logo']}}" alt="" /> </span>             
-                        <span>                   
-                            @if ($rencontre['fixture']['status']['short'] == 'NS')
-                                <span colspan="3"> {{date('H:i', $rencontre['fixture']['timestamp'])}} </span>
+                                        
+                        @if ($rencontre['fixture']['status']['short'] == 'NS')
+                            <span colspan="3"> {{date('H:i', $rencontre['fixture']['timestamp'])}} </span>
+                        @else
+                            @if ($matchencours)
+                            <span class="centreLigne" style="color: red"> {{$rencontre['goals']['home']}} </span>
+                            <span class="trait score"> - </span>
+                            <span class="centreLigne" style="color: red"> {{$rencontre['goals']['away']}} </span> 
                             @else
-                                @if ($matchencours)
-                                <span class="centreLigne" style="color: red"> {{$rencontre['goals']['home']}} </span>
-                                <span class="trait score"> - </span>
-                                <span class="centreLigne" style="color: red"> {{$rencontre['goals']['away']}} </span> 
-                                @else
-                                <span class="scoreHome score"> {{$rencontre['goals']['home']}} </span>
-                                <span class="score trait"> - </span>
-                                <span class="scoreAway score"> {{$rencontre['goals']['away']}} </span>
-                                @endif
-
+                            <span class="scoreHome score"> {{$rencontre['goals']['home']}} </span>
+                            <span class="score trait"> - </span>
+                            <span class="scoreAway score"> {{$rencontre['goals']['away']}} </span>
                             @endif
-                        </span> 
+
+                        @endif
+                     
                         <span class="centreLigne"> <img class="logoClub" src="{{$rencontre['teams']['away']['logo']}}" alt="" /> </span>
-                        <span>{{$rencontre['teams']['away']['name']}}</span>
-                    </div>
+                        <span class="teamAway">{{$rencontre['teams']['away']['name']}}</span>
+                 
                     @if ($matchencours)
                     <div style="text-align: center">
                         {{$rencontre['fixture']['status']['elapsed']}}'

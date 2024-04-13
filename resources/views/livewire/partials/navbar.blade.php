@@ -21,23 +21,13 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
-  
-          <li class="nav-item recherche">
-            <input x-model="search" placeholder="Club / Compétition" class="form-control" list="datalistOptions" id="exampleDataList"> 
-            <ul x-show="search.length > 1" @click.outside="search = ''">
-                <template x-for="item in filteredItems" :key='item'>
-                    <li x-text="item" @click="$wire.redirectRecherche(item)"></li>
-                </template>
-            </ul>
-            {{-- <datalist id="datalistOptions">
-              @foreach ($recherches as $recherche)
-                 <option value="{{$recherche}}" @click="$wire.redirectRecherche(recherche)" @keyup.enter="$wire.redirectRecherche(recherche)" >         
-              @endforeach                    
-            </datalist> --}}
 
-
-          </li>
-  
+          <li class="nav-item parentIcon">
+            <a class="nav-link iconNav" href="/"> 
+              <img id="faviconDooze" src="{{Storage::url('logos/favicon dooze 4.2')}}.png" alt=""> 
+              <div class="explicatifIcon"> <span> Home</span>  </div>
+            </a>
+          </li>  
     
   
         {{-- l'utilisateur n'est pas authentifié --}}
@@ -81,7 +71,7 @@
                 <button type="submit" class="btn btn-primary">Sign in</button>
               </form>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{route('createaccount')}}">Créer un compte</a>
+              <a class="dropdown-item" href="{{route('createaccount.fan')}}">Créer un compte</a>
               <a class="dropdown-item" href="#">Forgot password?</a>
             </div>  
             
@@ -116,11 +106,24 @@
               <li><a class="dropdown-item @if (App::isLocale('it')) selectLangue @endif" href="{{route('choicelanguage', 'it')}}">Italiano</a></li>
             </ul>
           </li>
+          <li class="nav-item recherche">
+            <input x-model="search" placeholder="Club / Compétition" class="form-control" list="datalistOptions" id="exampleDataList"> 
+            <ul x-show="search.length > 1" @click.outside="search = ''">
+                <template x-for="item in filteredItems" :key='item'>
+                    <li x-text="item" @click="$wire.redirectRecherche(item)"></li>
+                </template>
+            </ul>
+            {{-- <datalist id="datalistOptions">
+              @foreach ($recherches as $recherche)
+                 <option value="{{$recherche}}" @click="$wire.redirectRecherche(recherche)" @keyup.enter="$wire.redirectRecherche(recherche)" >         
+              @endforeach                    
+            </datalist> --}}
+
+
+          </li>
         </ul>
       </div>
     </div>
   </nav>
-  <div>
-    <a href=""> Liste des clubs</a> / <a href="">  compétitions</a>
-  </div>
+  
   </div>
