@@ -467,6 +467,24 @@ li {
         overflow: auto;
     }
 
+    #cookies{
+        position: fixed;
+        bottom: 0;
+        z-index: 1000;
+        background-color: white;
+        
+        width: 100%;
+        height: 20%;
+        display: flex;
+        padding:1%;
+        padding-left: 9%;
+        padding-right: 9%;
+    }
+
+    #cookies li {
+        list-style-type:disc!important;
+    }
+
     .nav-link {
         color: #1e1a19 !important;
 

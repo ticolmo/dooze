@@ -1,8 +1,8 @@
 import './bootstrap';
 import './bootstrapjs.js';
 import './page/fans.js';
+import './essential_audio.js';
 import { createApp } from "vue";
-import rechercheclubs from "./components/rechercheClubs.vue";
 
 /* configuration Vue */
 /* const app = createApp({});

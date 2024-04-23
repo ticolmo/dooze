@@ -165,7 +165,7 @@ Route::view('/donate', 'don')->name('don');
 
 /* Présentation */
 
-Route::get('/info', PresentationController::class);
+Route::get('/info', PresentationController::class)->name('info');
 
 /* Compétitions */
 
@@ -174,6 +174,8 @@ Route::get('/competition/{url}', [CompetitionController::class, 'index'])->name(
 /* Pages des clubs */
 
 Route::get('/club/{club}', [HomeClubController::class, 'club'])->name('club');
+
+Route::get('/club/{club}?page=socialmedia', [HomeClubController::class, 'club'])->name('socialmedia');
 
 /* Test */
 

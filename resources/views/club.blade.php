@@ -37,7 +37,7 @@
   <div id="bulletin">
     @persist('bulletin')
     <livewire:partials.navbar />
-    <hr>
+   
     <x-club.bulletin 
       :scoreshomme="$club->scores_homme" 
       :scoresfemme="$club->scores_femme"

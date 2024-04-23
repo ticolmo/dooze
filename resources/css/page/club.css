@@ -317,10 +317,6 @@
 
     }
 
-    .animate__animated.animate__flipInY {
-
-        animation-delay: 1.5s;
-    }
 
     #site_officiel {
         display: none;

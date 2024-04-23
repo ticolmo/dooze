@@ -16,7 +16,7 @@
 {{-- Résultats: hier, aujourd'hui, demain --}}
 
 <div style="text-align: right"> Fuseau horaire: </div>
-<livewire:home.resultats :$timezone/>
+{{-- <livewire:home.resultats :$timezone/> --}}
 
 <div class="dropdown">
   <input id="choose1" class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -40,7 +40,11 @@
     <div class="swiper">
       <div class="swiper-wrapper">
         @foreach ($listeclub as $club)
-        <div class="swiper-slide"><a href="{{route('club', $club->url)}}">{{$club->nom}}<img src="{{Storage::url('logos/'.$club->nom.'')}}.png" alt="{{$club->nom}}"></a></div>
+        <div class="swiper-slide">
+          <a href="{{route('club', $club->url)}}">{{$club->nom}}
+            <img src="{{Storage::url('logos/'.$club->nom.'')}}.png" alt="{{$club->nom}}">
+          </a>
+        </div>
         @endforeach
       
       </div>
