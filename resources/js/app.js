@@ -13,14 +13,6 @@ const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
 
-var music = document.getElementById("chant");
-music.volume = 0.05;
-
-
-
-
-
- 
 /* $('.supporters').pagination({
   // Options de pagination
  
@@ -38,15 +30,15 @@ music.volume = 0.05;
 
 $(function () {
 
-  setTimeout(publier, 1000);
-  function publier() {
-    $(".don").animate({ "top": 0 }, 2500)
-  }
-  setTimeout(masquer, 80000);
+/*   setTimeout(function() {
+    $("#don").addClass("john");
+  }, 3000); */
+
+  setTimeout(masquer, 6000);
   function masquer() {
-    $(".don").animate({ "top": "-100%" }, 2000)
+    $("#don").addClass("animate__animated animate__fadeOutUp")
   }
-  $("#close1").click(function() {
+  $("#closeDon").click(function() {
     masquer();
   })
 });
