@@ -20,8 +20,8 @@ class Cookies extends Component
     #[Renderless] 
     public function close($selection){
         if($selection == 'consentement'){
-            /* stockage du cookie RGPD pendant 6 mois - 43830 */   
-            Cookie::queue('rgpd', $selection, 43830);            
+            /* stockage du cookie RGPD pendant 6 mois - 259200 */   
+            Cookie::queue('rgpd', $selection, 259200);            
         }else if($selection == 'refus'){
             /* effacement du cookie RGPD */
             Cookie::expire('rgpd');          

@@ -22,9 +22,9 @@
       
       <div class="infot">
         {{-- composant tableau des scores --}} 
-       {{--  <livewire:scores.tableau-scores-club :$scoreshomme :$scoresfemme lazy="on-load" />  --}}
+        {{-- <livewire:scores.tableau-scores-club :$scoreshomme :$scoresfemme lazy="on-load" />  --}}
       </div>
       <br>
-      <div id="chant" class="essential_audio" data-url="{{Storage::url('audio/'.$nom.' Audio.mp3')}}" data-autoplay data-preload></div>
+      <div id="chant" class="essential_audio" data-url="{{Storage::url('audio/'.$nom.' Audio.mp3')}}" ></div>
      
 </div>
