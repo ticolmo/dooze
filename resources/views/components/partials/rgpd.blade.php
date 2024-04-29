@@ -1,1 +1,3 @@
-<script type='text/javascript' src='' id='' async></script>
+@if ($show)
+    <script type='text/javascript' src='' id='' async></script>
+@endif

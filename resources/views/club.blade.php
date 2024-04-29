@@ -28,10 +28,16 @@
     </div>
     
   </div>
-    
   <div id="activity">
     <x-errors-validation />
-    <livewire:club.index :flux="$club->flux_rss_blogs" :nom="$club->nom" :idclub="$club->id_club" :couleur="$club->couleur_primary" :fluxrs="$club->flux_rss_reseaux_sociaux" />
+    <livewire:club.index 
+      :flux="$club->flux_rss_blogs" 
+      :nom="$club->nom" 
+      :idclub="$club->id_club" 
+      :couleur="$club->couleur_primary" 
+      :fluxrs="$club->flux_rss_reseaux_sociaux" 
+      :urlclub="$club->url" 
+      />
   </div>
 
   <div id="bulletin">
@@ -42,7 +48,8 @@
       :scoreshomme="$club->scores_homme" 
       :scoresfemme="$club->scores_femme"
       :nom="$club->nom"
-      :siteofficiel="$club->site_officiel"  />
+      :siteofficiel="$club->site_officiel"  
+      />
 
     @endpersist
   </div>

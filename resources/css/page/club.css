@@ -70,7 +70,7 @@
 /* Tablette - Desktop */
 @media screen and (min-width:768px) {
 
-    .don {
+/*     .don {
         position: fixed;
         top: -100%;
         z-index: 3;
@@ -78,7 +78,7 @@
         padding: 10px;
         background-color: rgba(0, 0, 0, .4);
 
-    }
+    } */
     
     .donate {
 

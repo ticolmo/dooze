@@ -1,4 +1,8 @@
-<div>    
+<div x-data="{ open: $wire.entangle('club') }">    
+    @php
+    $langueEnCours = route('socialmedia', ['club' => 'servettefc']);    
+@endphp
+
 
     <div id="menuClub">
         <div wire:click="selectPage('news')"> <i class="bi bi-house-door"></i>              
@@ -9,11 +13,13 @@
                 <span class="choiceSpan" @if ($page == "fans") style="border-bottom: 4px solid {{$couleur}}; @media screen and (max-width:767px) {.choiceSpan{color:{{$couleur}}}}}" @endif 
                     > Fans</span>
             </div>
-        {{-- lien $redirect dans la classe ne marche pas, recharge la page existante avant de rediriger --}}
-        <div> <a href="{{route('socialmedia', ['club' => 'servettefc'])}}" wire:navigate style="width:100%;height:100%;background-color:red"><i class="bi bi-wifi" ></i>             
-                <span class="choiceSpan" @if ($page == "socialmedia") style="border-bottom: 4px solid {{$couleur}}; @media screen and (max-width:767px) {.choiceSpan{color:{{$couleur}}}}}" @endif 
+
+        <div> <a href="{{route('socialmedia', "$urlclub")}}" wire:navigate >
+            <i class="bi bi-wifi" ></i>             
+                <span class="choiceSpan" @if ($page == "socialmedia") style="display:inline-block; border-bottom: 4px solid {{$couleur}}; @media screen and (max-width:767px) {.choiceSpan{color:{{$couleur}}}}}" @endif  
                     > Réseaux Sociaux  </span> </a>
             </div>
+
         <div wire:click="selectPage('match')" id="resultats"> <i><img class="logo1 animate__animated animate__flipInY" src="{{Storage::url('logos/'.$nom.'.png')}}" alt=""> </i>  Résultats</div>
         {{-- <div wire:click="selectPage('live')">Live</div> --}}
     </div>    
@@ -58,10 +64,5 @@
     
     </div>
 
-    
-        
-
-
 </div>
-
 

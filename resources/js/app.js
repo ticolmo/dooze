@@ -28,20 +28,20 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
   
 }); */
 
-$(function () {
+/* $(function () {
 
-/*   setTimeout(function() {
-    $("#don").addClass("john");
-  }, 3000); */
+  setTimeout(function() {
+    $("#don").addClass("appar");
+  }, 3000);
 
   setTimeout(masquer, 6000);
   function masquer() {
-    $("#don").addClass("animate__animated animate__fadeOutUp")
+    $("#don").removeClass("appar").addClass("dispar")
   }
   $("#closeDon").click(function() {
     masquer();
   })
-});
+}); */
 
 /* apparition des réponse des commentaires */
 $(".commentaires").click(function () {

@@ -5,25 +5,27 @@ namespace App\Livewire\Partials;
 use Livewire\Component;
 use Illuminate\Http\Request;
 use Livewire\Attributes\Renderless;
+use Illuminate\Support\Facades\Cookie;
 
 class Cookies extends Component
 {
-    public $show = false;
+    public $show = true;
 
-    public function mount(){
-        if (session()->missing('rgpd')) {
-            $this->show = true;
+    public function mount(Request $request){
+        if ($request->cookie('rgpd') == 'consentement') {
+            $this->show = false;
         }
     }
 
     #[Renderless] 
-    public function close(Request $request, $selection){
-
+    public function close($selection){
         if($selection == 'consentement'){
-            $request->session()->put('rgpd', $selection);
+            /* stockage du cookie RGPD pendant 6 mois - 43830 */   
+            Cookie::queue('rgpd', $selection, 43830);            
         }else if($selection == 'refus'){
-            $request->session()->forget('rgpd');
-        }
+            /* effacement du cookie RGPD */
+            Cookie::expire('rgpd');          
+        }        
     }
     
     public function render()
