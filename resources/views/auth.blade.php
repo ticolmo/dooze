@@ -27,7 +27,9 @@
       :scoreshomme="$fan->club->scores_homme" 
       :scoresfemme="$fan->club->scores_femme"
       :nom="$fan->club->nom"
-      :siteofficiel="$fan->club->site_officiel"  />
+      :siteofficiel="$fan->club->site_officiel"
+      :chant="$fan->club->chant" 
+        />
 
     @endpersist
   </div>

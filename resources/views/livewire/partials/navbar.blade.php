@@ -25,7 +25,7 @@
           <li class="nav-item parentIcon">
             <a class="nav-link iconNav" href="/"> 
               <img id="faviconDooze" src="{{Storage::url('logos/favicon dooze 4.2')}}.png" alt=""> 
-              <div class="explicatifIcon"> <span> Home</span>  </div>
+              <div class="explicatifIcon"> <span> {{ __('Home') }}</span>  </div>
             </a>
           </li>  
     
@@ -35,7 +35,7 @@
           <li class="nav-item dropdown parentIcon">
             <a class="nav-link dropdown-toggle iconNav" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-person"></i> 
-              <div class="explicatifIcon"> <span> Mon compte</span>  </div>
+              <div class="explicatifIcon"> <span> {{ __('My Account') }}</span>  </div>
             </a>
             
         
@@ -52,12 +52,10 @@
               <form class="px-4 py-3" action="{{route('login')}}" method="post">
                @csrf
                 <div class="mb-3">
-                  <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                  <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="E-mail">
                 </div>
                 <div class="mb-3">
-                  <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Mot de passe">
+                  <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="{{ __('Password') }}">
                   {{-- <input type=hidden name="visit" value="@php echo $_SERVER['REQUEST_URI']; @endphp" type="text"> --}}
                 </div>
                 <div class="mb-3">
@@ -68,10 +66,10 @@
                     </label>
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <button type="submit" class="btn btn-primary">{{ __('Log In') }}</button>
               </form>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{route('createaccount.fan')}}">Créer un compte</a>
+              <a class="dropdown-item" href="{{route('createaccount.fan')}}">{{ __('Create a account') }}</a>
               <a class="dropdown-item" href="#">Forgot password?</a>
             </div>  
             
@@ -95,7 +93,7 @@
           <li class="nav-item dropdown parentIcon">
             <a class="nav-link dropdown-toggle iconNav" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-translate"></i>
-              <div class="explicatifIcon"> <span>Langue </span> </div>   
+              <div class="explicatifIcon"> <span> {{ __("Language")}} </span> </div>   
             </a>      
              
             <ul class="dropdown-menu scrollable-menu">

@@ -14,7 +14,14 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>       
         {{-- Cookies validés - RGPD --}}
           <x-partials.rgpd />
-        
+
+        @php
+            $langueEnCours = App::currentLocale();  
+        @endphp
+        <script>        
+          window.Langue = {{ Js::from($langueEnCours) }}           
+        </script>  
+      
 
   </head>
       
@@ -41,28 +48,10 @@
 
    
 
-<script>
-    var swiper = new Swiper(".swiper", {
-    slidesPerView: 4,
-    spaceBetween: 30,
-    speed: 900,
-    slidesPerGroup: 4,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: true,
-    },
-    loopFillGroupWithBlank: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-</script>
+
+<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+
+@stack('scripts')
    
 </body>
 </html>

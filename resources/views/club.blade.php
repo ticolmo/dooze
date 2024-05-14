@@ -21,7 +21,7 @@
           </svg> </a>
         </div>
         @if (!empty($club->auteur_credit))
-        <div id="credit"> Crédit:<a href="{{$club->lien_credit}}">{{$club->auteur_credit}}</a></div>  
+        <div id="credit"> Crédit: <a href="{{$club->lien_credit}}">{{$club->auteur_credit}}</a></div>  
         @endif  
       </div>
       
@@ -49,6 +49,7 @@
       :scoresfemme="$club->scores_femme"
       :nom="$club->nom"
       :siteofficiel="$club->site_officiel"  
+      :chant="$club->chant" 
       />
 
     @endpersist

@@ -29,6 +29,7 @@
   <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
   {{-- Cookies validés - RGPD --}}
   <x-partials.rgpd />
+
 @php
     $langueEnCours = App::currentLocale();    
 @endphp
@@ -46,7 +47,8 @@
 
   @yield('content')
   <livewire:partials.cookies/> 
-    
+  
+  <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
   @livewireScriptConfig 
 </body>
 

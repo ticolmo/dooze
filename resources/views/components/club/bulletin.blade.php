@@ -25,6 +25,9 @@
         {{-- <livewire:scores.tableau-scores-club :$scoreshomme :$scoresfemme lazy="on-load" />  --}}
       </div>
       <br>
-      <div id="chant" class="essential_audio" data-url="{{Storage::url('audio/'.$nom.' Audio.mp3')}}" ></div>
+      @if($chant)
+       <div id="chant" class="essential_audio" data-url="{{Storage::url('audio/'.$nom.' Audio.mp3')}}" ></div>   
+      @endif
+      
      
 </div>
