@@ -55,6 +55,12 @@ class Data extends Component
         $this->form = false;
        
     }
+    public function selectParams()
+    {
+        $parametre = "settings";
+        $this->dispatch('page', selection: $parametre)->to(Index::class);
+       
+    }
 
 
     public function render()

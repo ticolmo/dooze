@@ -14,10 +14,14 @@
                 src="{{Storage::url('users/'.auth()->user()->id.'/avatar\/'.auth()->user()->photoprofil)}}"
                 alt="">
     </div>
-    <div class="entete text-end">
+    <div class="entete text-center">
         <span class="iconNav parentIcon">
             <i class="bi bi-pencil" x-on:click="form = ! form"></i>
             <div class="explicatifIcon"> <span>Modifier les données </span> </div>   
+        </span>        
+        <span class="iconNav parentIcon">
+            <i class="bi bi-gear" wire:click="selectParams"></i>
+            <div class="explicatifIcon"> <span>Paramètres </span> </div>   
         </span>        
     </div>
     <form wire:submit="update" > 

@@ -10,7 +10,7 @@ class Dashboard extends Component
     public $id;
     public $newmessage;
     public $messages;
-    public $part;
+    /* public $part; */
 
     public function mount(){
         $this->newmessage = Message::where('mailbox_id', $this->id)->where('destinataire_id',$this->id)->whereNull('read_at')->count();

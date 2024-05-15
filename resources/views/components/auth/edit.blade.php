@@ -1,7 +1,7 @@
 
 <main id="" class="form-signin w-50 m-auto" >
         
-     <h1 class="h4 mb-3 fw-normal">Modification de ton compte</h1>
+     <h1 class="h4 mb-3 fw-normal">Informations du compte</h1>
     {{-- MESSAGE DE SUCCESS OU D'ERREUR  --}}
      @if (session()->get('status') == 'profile-information-updated')
      <div class="alert alert-success">Les modifications ont été effectuées. </div>
@@ -18,25 +18,13 @@
             @endforeach
         </ul>
     </div>
-    @endif          
-
-
+    @endif  
+    
     <!-- FORMULAIRE -->
     <form action="{{route('user-profile-information.update')}}" style="margin-bottom:20px" method="post">
       @csrf
       @method('PUT')   
       
- 
-      <!-- CATEGORIE -->
-      <div class="form-floating">
-        <select class="form-select" id="floatingSelect1" aria-label="Floating label select example">    
-          <option selected disabled>{{old('categorie') ?? auth()->user()->categorie}}</option>        
-          <option value="Fan">Fan</option>
-          <option value="Media">Media, société, organisation..</option>  
-        </select>
-        <label for="floatingSelect1">Sélectionne ta catégorie</label>
-        <input id="categorie" type="hidden" name="categorie" value="{{old('categorie') ?? auth()->user()->categorie}}">
-      </div>
       
 
       <!-- PRENOM -->
@@ -78,7 +66,7 @@
       </div>
       
         
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Valider</button>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Modifier</button>
 
     </form>
     <br><br>

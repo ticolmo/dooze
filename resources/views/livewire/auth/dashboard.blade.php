@@ -1,10 +1,7 @@
 <div>
-    
-    @if ($part == "settings")
-        <x-auth.edit />        
-    @endif
+   
 
-    @if($part == "")
+
     <div>
         <div> <i class="bi bi-envelope"></i>  Messagerie 
             @if ($newmessage > 0)
@@ -44,6 +41,6 @@
             @endif --}}
         </div>
     </div>
-    @endif
+
 
 </div>

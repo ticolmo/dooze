@@ -165,7 +165,12 @@ Route::view('/donate', 'don')->name('don');
 
 /* Présentation */
 
-Route::get('/info', PresentationController::class)->name('info');
+Route::get('/info',  [PresentationController::class, 'index'])->name('info');
+
+/* Présentation de l'API Dooze */
+
+Route::view('/api', 'api-dooze')->name('api');
+
 
 /* Compétitions */
 

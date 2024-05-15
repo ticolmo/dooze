@@ -76,6 +76,11 @@
                 <a class="navTitle" href="{{route('don')}}" wire:navigate> Faire un don ?</a>
             </div>
 
+        {{-- API DOOZE --}}
+            <div>
+                <a class="navTitle" href="{{route('api')}}" wire:navigate> API Dooze</a>
+            </div>
+
         {{-- espacement --}}
         <div style="margin-bottom: 50px"></div>
             

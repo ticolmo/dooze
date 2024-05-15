@@ -395,6 +395,16 @@ li {
         padding-bottom: 100px;
     }
 
+    h1.titre {
+        font-size: 30px!important; ;
+        font-weight: 600;
+    }
+    ul.avantages li{
+        list-style-type: disc!important;
+        font-weight: 350;
+        font-size: 15px;
+    }
+
     .navTitle{
         font-size: 30px!important; 
         font-weight: 600;
