@@ -19,6 +19,7 @@ use App\Http\Controllers\VerifyemailController;
 use App\Http\Controllers\PresentationController;
 use App\Http\Controllers\Live\ConnexionController;
 use App\Http\Controllers\Admin\AdminCommentaireController;
+use App\Livewire\Auth\Index;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,10 +75,8 @@ Route::get('/reset-password', function () {return view('auth.reset-password');})
 
 /* Compte utilisateur */
 
-Route::middleware(['auth','verified'])->controller(AccountController::class)->group(function () {
-    Route::get('/home', 'index')->name('profil');
-    Route::get('/home/edit', 'edit')->name('modificationprofil');
-    Route::post('/account/delete', 'delete')->name('suppressioncompte');
+Route::middleware(['auth','verified'])->group(function () {
+    Route::get('/home/{activity?}', Index::class)->name('profil');
 });
 
 /* Profil public*/

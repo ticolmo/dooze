@@ -2,61 +2,29 @@
 
 namespace App\Livewire\Auth;
 
+use App\Models\User;
 use Livewire\Component;
-use Livewire\Attributes\On;
-use Livewire\Attributes\Url;
-use Livewire\Attributes\Renderless;
+
 
 class Index extends Component
 {
-    public $id;
-    public $couleur;
-    public $idpagedashboard;
-    #[Url]
-    public $page = "";
-    #[Url]
-    public $part = "";
-   /*  #[Url] 
-    public $section = ""; */
+    public $fan; 
+    public $activity = null; 
 
     public function mount(){
-        $id = uniqid();
-        $this->idpagedashboard = $id;
-    }
-
-    #[On('page')] 
-    public function selectPage($selection){
-        
-        $this->page = $selection; 
-        if($selection == "dashboard"){
-            $id = uniqid();
-            $this->idpagedashboard = $id;
-        }
-    }
-
-
-    public function changePart($choix){
-        $this->part = $choix;
-        $id = uniqid();
-        $this->idpagedashboard = $id;
-    }
-    /* #[On('urlsettings')] 
-    public function changeSettings($url){
-        $this->section = $url;
-        $this->skipRender(); 
-    } */
-
-    #[Renderless] 
-    public function closeSettings(){
-        /* $this->dispatch('close')->to(Settings::class); */
-        $this->page = ""; 
-       /*  $this->section = ""; */
-        
-
+        $this->fan = User::with(['club','langue'])->findOrFail(auth()->user()->id);   
+        // Enregistrement de la date de connexion  
+        $this->fan->derniere_connexion = now();
+        $this->fan->save();
+        // Si l'utilisateur est administrateur
+        if ($this->fan->is_admin) {    
+        return redirect()->route('admin.index');
+        };
     }
     
     public function render()
     {        
-        return view('livewire.auth.index');
+        return view('livewire.auth.index'); 
+        ;
     }
 }
