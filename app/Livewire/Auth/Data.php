@@ -57,8 +57,9 @@ class Data extends Component
     }
     public function selectParams()
     {
-        $parametre = "settings";
-        $this->dispatch('page', selection: $parametre)->to(Index::class);
+        $parametres = "settings";
+        /* $this->dispatch('page', selection: $parametre)->to(Index::class); */
+        $this->redirectRoute('profil', ['activity' => $parametres], navigate: true); 
        
     }
 

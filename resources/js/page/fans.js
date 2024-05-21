@@ -13,7 +13,6 @@ document.addEventListener('alpine:init', () => {
           locale: Langue,
           onEmojiSelect: (emoji) => {        
             const preview = document.getElementById('previewCommentaire');
-            console.log('render');
             const emojiHTML = twemoji.parse(emoji.native); 
           const img = document.createElement('img');
           /* insertion de la balise image emoji twitter dans la nouvelle balise img*/
@@ -71,6 +70,8 @@ document.addEventListener('alpine:init', () => {
     
 }}))
 })
+
+
 
 Livewire.start()
 

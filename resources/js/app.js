@@ -56,6 +56,8 @@ $(".commentairesvisiteur").click(function () {
 
 
 
+
+
 /* modal sur les commentaires dans la page club*/
 $(".options").click(function () {
   let id = $(this).attr("data-id");

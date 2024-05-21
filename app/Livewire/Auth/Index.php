@@ -4,6 +4,7 @@ namespace App\Livewire\Auth;
 
 use App\Models\User;
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 
 class Index extends Component
@@ -20,7 +21,9 @@ class Index extends Component
         if ($this->fan->is_admin) {    
         return redirect()->route('admin.index');
         };
+       
     }
+
     
     public function render()
     {        

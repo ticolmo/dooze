@@ -6,17 +6,18 @@
     
 
     <div id="vue">
-        @persist('vue')
+        
             <livewire:auth.data />
-        @endpersist
+      
     </div>
-   
-    <div id="activity">
+    
+    <div id="activity">      
       <livewire:auth.activity :id="$fan->id" :couleur="$fan->club->couleur_primary" :$activity />
        </div>
   
     <div id="bulletin">
       @persist('bulletin')
+      
       <livewire:partials.navbar />
       <hr>
       <x-club.bulletin 

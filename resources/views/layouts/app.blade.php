@@ -49,6 +49,7 @@
   <livewire:partials.cookies/> 
   
   <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+
   @livewireScriptConfig 
 </body>
 

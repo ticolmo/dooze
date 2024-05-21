@@ -22,6 +22,7 @@
     </div> --}}
   </div>
   @push('scripts')
+  <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script> 
     <script>
       PayPal.Donation.Button({
       env:'production',

@@ -50,7 +50,7 @@ return [
     |
     */
 
-    'lazy_placeholder' => null,
+    'lazy_placeholder' => 'livewire.placeholder',
 
     /*
     |---------------------------------------------------------------------------
@@ -128,7 +128,7 @@ return [
 
     'navigate' => [
         'show_progress_bar' => true,
-        'progress_bar_color' => '#ffffff',
+        'progress_bar_color' => 'gray',
     ],
 
     /*
