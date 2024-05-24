@@ -1,7 +1,6 @@
 
 <main id="" class="form-signin w-50 m-auto" >
         
-     <h1 class="h4 mb-3 fw-normal">Informations du compte</h1>
     {{-- MESSAGE DE SUCCESS OU D'ERREUR  --}}
      @if (session()->get('status') == 'profile-information-updated')
      <div class="alert alert-success">Les modifications ont été effectuées. </div>
@@ -69,54 +68,6 @@
         <button class="w-100 btn btn-lg btn-primary" type="submit">Modifier</button>
 
     </form>
-    <br><br>
-
-    <h1 class="h4 mb-3 fw-normal">Modification du mot de passe</h1>
-    @if (session()->get('status') == 'password-updated')
-     <div class="alert alert-success"> Mot de passe modifié</div>
-    @endif
-
-    <form action="{{route('user-password.update')}}" style="margin-bottom:20px" method="post">
-      @csrf
-      @method('PUT')
-        <!-- MOT DE PASSE -->
-        <div class="form-floating @error('current_password', 'updatePassword') is-invalid @enderror">
-          <input type="password" class="form-control @error('current_password', 'updatePassword') is-invalid @enderror" id="floatingPassword" placeholder="Password" name="current_password">
-          <label for="floatingPassword">Mot de passe actuel</label>
-          @error('current_password', 'updatePassword')
-            <div class="invalid-feedback"> {{$message}} </div>
-          @enderror
-        </div>
-          <div class="form-floating @error('password', 'updatePassword') is-invalid @enderror">
-            <input type="password" class="form-control @error('password', 'updatePassword') is-invalid @enderror" id="floatingPassword" placeholder="Password" name="password">
-            <label for="floatingPassword">Nouveau mot de passe</label>
-            @error('password', 'updatePassword')
-              <div class="invalid-feedback"> {{$message}} </div>
-            @enderror
-          </div>
-          <div  style="margin-bottom:30px" class="form-floating @error('password_confirmation', 'updatePassword') is-invalid @enderror">
-            <input type="password" class="form-control @error('password_confirmation', 'updatePassword') is-invalid @enderror" id="floatingPassword" placeholder="Password" name="password_confirmation">
-            <label for="floatingPassword">Confirmer le nouveau mot de passe</label>
-            @error('password_confirmation', 'updatePassword')
-              <div class="invalid-feedback"> {{$message}} </div>
-            @enderror
-          </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Valider</button>
-    </form>
-    <br><br>
-
-    <h1 class="h4 mb-3 fw-normal">Suppression de votre compte</h1>
-
-    <form action="{{route('suppressioncompte')}}" method="post">
-    @csrf
-    <div> Si vous souhaitez annuler votre compte définitivement, cliquez ci-dessous.</div>
-    <div> Après l'annulation, vos données personnelles seront détruites et non répertoriées par Dooze.</div>
-    <div style="margin-bottom:20px"> Utilisez ce procédé pour changer de club. </div>
-    <button class="w-100 btn btn-lg btn-danger" type="submit">Valider</button>
-    
-    </form>
-
-
 
   </main>
 

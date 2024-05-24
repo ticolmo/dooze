@@ -22,12 +22,43 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
 
+          <li class="nav-item recherche">
+            <input x-model="search" placeholder="Club / Compétition" class="form-control" list="datalistOptions" id="exampleDataList"> 
+            <ul x-show="search.length > 1" @click.outside="search = ''">
+                <template x-for="item in filteredItems" :key='item'>
+                    <li x-text="item" @click="$wire.redirectRecherche(item)"></li>
+                </template>
+            </ul>
+            {{-- <datalist id="datalistOptions">
+              @foreach ($recherches as $recherche)
+                 <option value="{{$recherche}}" @click="$wire.redirectRecherche(recherche)" @keyup.enter="$wire.redirectRecherche(recherche)" >         
+              @endforeach                    
+            </datalist> --}}
+
+
+          </li>
+
           <li class="nav-item parentIcon">
             <a class="nav-link iconNav" href="/"> 
               <img id="faviconDooze" src="{{Storage::url('logos/favicon dooze 4.2')}}.png" alt=""> 
               <div class="explicatifIcon"> <span> {{ __('Home') }}</span>  </div>
             </a>
           </li>  
+          
+          <li class="nav-item dropdown parentIcon">
+            <a class="nav-link dropdown-toggle iconNav" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-translate"></i>
+              <div class="explicatifIcon"> <span> {{ __("Language")}} </span> </div>   
+            </a>      
+             
+            <ul class="dropdown-menu scrollable-menu">
+              <li><a class="dropdown-item @if (App::isLocale('de')) selectLangue @endif" href="{{route('choicelanguage', 'de')}}">Deutsch</a></li>
+              <li><a class="dropdown-item @if (App::isLocale('en')) selectLangue @endif" href="{{route('choicelanguage', 'en')}}">English</a></li>
+              <li><a class="dropdown-item @if (App::isLocale('es')) selectLangue @endif" href="{{route('choicelanguage', 'es')}}">Español</a></li>            
+              <li><a class="dropdown-item @if (App::isLocale('fr')) selectLangue @endif" href="{{route('choicelanguage', 'fr')}}">Français</a></li>
+              <li><a class="dropdown-item @if (App::isLocale('it')) selectLangue @endif" href="{{route('choicelanguage', 'it')}}">Italiano</a></li>
+            </ul>
+          </li>
     
   
         {{-- l'utilisateur n'est pas authentifié --}}
@@ -79,46 +110,29 @@
   
         {{-- l'utilisateur est authentifié --}}
         @auth         
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('profil')}}"> <i class="bi bi-person"></i> {{ __('My Account') }}</a>
+          <li class="nav-item parentIcon">            
+            <a class="nav-link dropdown-toggle iconNav" href="{{route('profil')}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person"></i> 
+              <div class="explicatifIcon"> <span> {{ __('My Account') }}</span>  </div>
+            </a>
           </li>
-                
-        <li class="nav-item">
-            <form action="{{route('logout')}}" method="post"> 
+
+          <li class="nav-item parentIcon">            
+            <a class="nav-link dropdown-toggle iconNav" onclick="event.preventDefault(); document.getElementById('logout').submit();" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-box-arrow-right"></i>
+              <div class="explicatifIcon"> <span> {{ __('Logout') }}</span>  </div>
+            </a>
+          </li>
+
+          {{-- formulaire caché de déconnexion --}}
+          <form id="logout" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
-              <button id="buttonnavbar" class="nav-link"type="submit"><i class="bi bi-person-slash"></i> {{ __('Logout') }}</button> </form>          
-          </li> 
+          </form>
+          
         @endauth
         
-          <li class="nav-item dropdown parentIcon">
-            <a class="nav-link dropdown-toggle iconNav" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-translate"></i>
-              <div class="explicatifIcon"> <span> {{ __("Language")}} </span> </div>   
-            </a>      
-             
-            <ul class="dropdown-menu scrollable-menu">
-              <li><a class="dropdown-item @if (App::isLocale('de')) selectLangue @endif" href="{{route('choicelanguage', 'de')}}">Deutsch</a></li>
-              <li><a class="dropdown-item @if (App::isLocale('en')) selectLangue @endif" href="{{route('choicelanguage', 'en')}}">English</a></li>
-              <li><a class="dropdown-item @if (App::isLocale('es')) selectLangue @endif" href="{{route('choicelanguage', 'es')}}">Español</a></li>            
-              <li><a class="dropdown-item @if (App::isLocale('fr')) selectLangue @endif" href="{{route('choicelanguage', 'fr')}}">Français</a></li>
-              <li><a class="dropdown-item @if (App::isLocale('it')) selectLangue @endif" href="{{route('choicelanguage', 'it')}}">Italiano</a></li>
-            </ul>
-          </li>
-          <li class="nav-item recherche">
-            <input x-model="search" placeholder="Club / Compétition" class="form-control" list="datalistOptions" id="exampleDataList"> 
-            <ul x-show="search.length > 1" @click.outside="search = ''">
-                <template x-for="item in filteredItems" :key='item'>
-                    <li x-text="item" @click="$wire.redirectRecherche(item)"></li>
-                </template>
-            </ul>
-            {{-- <datalist id="datalistOptions">
-              @foreach ($recherches as $recherche)
-                 <option value="{{$recherche}}" @click="$wire.redirectRecherche(recherche)" @keyup.enter="$wire.redirectRecherche(recherche)" >         
-              @endforeach                    
-            </datalist> --}}
 
-
-          </li>
+          
         </ul>
       </div>
     </div>

@@ -77,6 +77,7 @@ Route::get('/reset-password', function () {return view('auth.reset-password');})
 
 Route::middleware(['auth','verified'])->group(function () {
     Route::get('/home/{activity?}', Index::class)->name('profil');
+    Route::get('/account/delete', [AccountController::class, 'delete'] )->name('suppressioncompte'); 
 });
 
 /* Profil public*/
@@ -188,6 +189,8 @@ Route::view('/scores', 'tests.testscores');
 Route::view('/gif', 'tests.testgif');
 
 Route::get('/xss', [TestXssController::class, 'index']);
+
+Route::get('/octone', function () {return 'Hello World';});
 
 
 

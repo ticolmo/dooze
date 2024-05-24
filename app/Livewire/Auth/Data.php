@@ -14,18 +14,18 @@ class Data extends Component
     #[Validate]
     public $pseudo;
     public $bio; 
-    public $categorie;
     public $titrelienone;
     public $lienone; 
     public $titrelientwo;
     public $lientwo;
     public $user;
+    public $test;
 
     public function mount()
     {
+        $this->test = uniqid();
         $this->name = auth()->user()->name; 
         $this->pseudo = auth()->user()->pseudo; 
-        $this->categorie = auth()->user()->categorie; 
         $this->bio = auth()->user()->bio; 
         $this->titrelienone = auth()->user()->titrelien1; 
         $this->lienone = auth()->user()->lien1; 
@@ -39,7 +39,6 @@ class Data extends Component
             'name' => ['required', 'string', 'max:255'],
             'pseudo' => ['required', 'string', 'max:255', Rule::unique('users')->ignore($this->user)],
             'bio' => ['nullable', 'string', 'max:200'],
-            'categorie' => ['nullable', 'string', 'max:10'],
             'titrelienone' => ['nullable', 'string', 'max:50'],
             'lienone' => ['nullable', 'string', 'max:100'],
             'titrelientwo' => ['nullable', 'string', 'max:50'],
@@ -55,15 +54,7 @@ class Data extends Component
         $this->form = false;
        
     }
-    public function selectParams()
-    {
-        $parametres = "settings";
-        /* $this->dispatch('page', selection: $parametre)->to(Index::class); */
-        $this->redirectRoute('profil', ['activity' => $parametres], navigate: true); 
-       
-    }
-
-
+    
     public function render()
     {
         return view('livewire.auth.data');

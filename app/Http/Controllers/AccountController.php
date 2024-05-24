@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Events\AccountLogInEvent;
 use App\Models\Suppressioncompte;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Fortify\Contracts\LogoutResponse;
 
 
 class AccountController extends Controller

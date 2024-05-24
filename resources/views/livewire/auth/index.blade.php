@@ -5,10 +5,10 @@
 <div id="club">
     
 
-    <div id="vue">
-        
-            <livewire:auth.data />
-      
+    <div id="vue">   
+      @persist('data')     
+      <livewire:auth.data />      
+      @endpersist
     </div>
     
     <div id="activity">      

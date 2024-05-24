@@ -1,22 +1,22 @@
 <div>    
 
     <div id="menuClub">      
-        
-        <a wire:navigate.hover class="bar" href="{{route('profil', 'posts' )}}"> <i class="bi bi-chat-dots"></i>             
+      @if ($activity !== "settings") 
+        <a wire:navigate class="bar" href="{{route('profil', 'posts' )}}"> <i class="bi bi-chat-dots"></i>             
                 <span class="choiceSpan" @if ($activity == "posts" || $activity == "") style="border-bottom: 4px solid {{$couleur}}; @media screen and (max-width:767px) {.choiceSpan{color:{{$couleur}}}}}" @endif 
                     > Posts</span>
             </a>
 
-        <a wire:navigate.hover class="bar" href="{{route('profil', 'mailbox' )}}"> <i class="bi bi-mailbox"></i>           
+        <a wire:navigate class="bar" href="{{route('profil', 'mailbox' )}}"> <i class="bi bi-mailbox"></i>           
                 <span class="choiceSpan" @if ($activity == "mailbox" ) style="border-bottom: 4px solid {{$couleur}}; @media screen and (max-width:767px) {.choiceSpan{color:{{$couleur}}}}}" @endif 
                     >Messagerie </span> 
             </a>
 
-        <a wire:navigate.hover class="bar" href="{{route('profil', 'apidooze' )}}"> <i class="bi bi-file-text"></i>            
+        <a wire:navigate class="bar" href="{{route('profil', 'apidooze' )}}"> <i class="bi bi-file-text"></i>            
                 <span class="choiceSpan" @if ($activity == "apidooze") style="border-bottom: 4px solid {{$couleur}}; @media screen and (max-width:767px) {.choiceSpan{color:{{$couleur}}}}}" @endif 
                     > API Dooze</span>
             </a>
-        
+      @endif
     </div>    
 
     <div id="pageClub" style="position:relative;">  
@@ -28,7 +28,8 @@
         @endif
 
         @if ($activity == "mailbox")
-            <livewire:auth.dashboard  :$id  {{--:$part :key="$idpagedashboard" --}} />
+        <div>dfdfg</div>
+       {{--     <livewire:auth.dashboard  :$id  :$part :key="$idpagedashboard" /> --}}
         @endif
 
         @if ($activity == "apidooze")   
@@ -38,12 +39,7 @@
         @endif
                  
         @if ($activity == "settings")
-         <div style="position:fixed;top:0;width:55%;z-index:9; background-color:yellow"> Paramètres 
-            <button type="button" class="btn-close text-end" aria-label="Close" wire:click="closeSettings" ></button>
-        </div>
-
-      
-         <livewire:auth.settings  lazy/>
+         <livewire:auth.settings  />
             {{-- <x-auth.edit />     --}}    
         @endif
         
