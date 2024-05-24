@@ -17,7 +17,7 @@
             @foreach ($clubs as $club)
                 {{$club->nom}}
             @endforeach
-            <span><a href="{{route('createaccount')}}" wire:navigate>Modifier</a></span></div>
+            <span><a href="{{route('createaccount.fan')}}" wire:navigate>Modifier</a></span></div>
   
           {{-- CLUB --}}
           <input type="hidden" value="{{$idclub}}" name="club_id">  
