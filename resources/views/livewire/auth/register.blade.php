@@ -1,9 +1,12 @@
 <div x-data="{password: false}">
+  <x-partials.diagram-register etape="compte"/>
+  <br>
+  <br>
+
     <main id="" class="form-signin w-50 m-auto ">
         {{-- FORMULAIRE --}}
         <form action="{{route('register')}}" method="post" class="needs-validation" >
           @csrf
-          <h1 class="h3 mb-3 fw-normal">Création de ton compte</h1> 
   
           @if ($errors->any())
               <div class="alert alert-danger">
@@ -21,8 +24,11 @@
   
           {{-- CLUB --}}
           <input type="hidden" value="{{$idclub}}" name="club_id">  
-          {{-- CATEGORIE --}}
-          <input type="hidden" value="fan" name="categorie"> 
+          {{-- BIO --}}
+          <input type="hidden" value="{{session('bio.bestmemory')}}" name="bestmemory"> 
+          <input type="hidden" value="{{session('bio.worsememory')}}" name="worsememory"> 
+          <input type="hidden" value="{{session('bio.bestplayer')}}" name="bestplayer"> 
+          <input type="hidden" value="{{session('bio.bio')}}" name="bio"> 
   
           {{-- PRENOM --}}
           <div class="form-floating @error('name') is-invalid @enderror ">
@@ -41,6 +47,10 @@
               <div class="invalid-feedback"> {{$message}} </div>
             @enderror
           </div>  
+
+          {{-- DATE DE NAISSANCE --}}
+
+          <x-auth.birthday />
 
           {{-- EMAIL --}}
           <div class="form-floating @error('email') is-invalid @enderror">

@@ -38,6 +38,10 @@ class CreateNewUser implements CreatesNewUsers
             'pays' => ['required', 'string', 'max:60'],
             'club_id' => ['nullable', 'string', 'max:4'],
             'langue_id' => ['required', 'string', 'max:1'],
+            'bestmemory' => ['nullable', 'string', 'max:255'],
+            'worsememory' => ['nullable', 'string', 'max:255'],
+            'bestplayer' => ['nullable', 'string', 'max:40'],
+            'bio' => ['nullable', 'string', 'max:255']
         ])->validate();
 
         return User::create([
@@ -49,6 +53,10 @@ class CreateNewUser implements CreatesNewUsers
             'pays' => $input['pays'],
             'club_id' => $input['club_id'],
             'langue_id' => $input['langue_id'],
+            'bestmemory' => $input['bestmemory'],
+            'worsememory' => $input['worsememory'],
+            'bestplayer' => $input['bestplayer'],
+            'bio' => $input['bio']
         ]);
     }
 }

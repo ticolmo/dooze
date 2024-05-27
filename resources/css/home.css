@@ -3,6 +3,7 @@
 @import '../../node_modules/animate.css/animate.css';
 @import './page/home.css';
 @import './divers/cookies.css';
+@import './divers/diagram_register.css';
 
 
 * {

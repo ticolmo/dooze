@@ -52,6 +52,8 @@ Route::get('/createaccount/media', function () {return view('create-account-medi
 
 Route::get('/question', function () {return view('auth.question');})->name('question');
 
+Route::get('/bio', function () {return view('auth.bio');})->name('bio');
+
 Route::get('/register', function () {return view('auth.register');})->middleware('register')->name('register');
 
 Route::get('/register/media', [RegisterController::class, 'media'])->name('register.media');

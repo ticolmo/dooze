@@ -10,9 +10,6 @@ use Livewire\Attributes\Validate;
 class Data extends Component
 {
     public $form = false;
-    public $name;
-    #[Validate]
-    public $pseudo;
     public $bio; 
     public $titrelienone;
     public $lienone; 
@@ -24,8 +21,6 @@ class Data extends Component
     public function mount()
     {
         $this->test = uniqid();
-        $this->name = auth()->user()->name; 
-        $this->pseudo = auth()->user()->pseudo; 
         $this->bio = auth()->user()->bio; 
         $this->titrelienone = auth()->user()->titrelien1; 
         $this->lienone = auth()->user()->lien1; 
@@ -36,15 +31,42 @@ class Data extends Component
 
     public function rules(){
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'pseudo' => ['required', 'string', 'max:255', Rule::unique('users')->ignore($this->user)],
-            'bio' => ['nullable', 'string', 'max:200'],
+            'bestmemory' => ['nullable', 'string', 'max:255'],
+            'worsememory' => ['nullable', 'string', 'max:255'],
+            'bestplayer' => ['nullable', 'string', 'max:40'],
+            'bio' => ['nullable', 'string', 'max:255'],
             'titrelienone' => ['nullable', 'string', 'max:50'],
             'lienone' => ['nullable', 'string', 'max:100'],
             'titrelientwo' => ['nullable', 'string', 'max:50'],
             'lientwo' => ['nullable', 'string', 'max:100'],
         ];
     }
+
+    public function boot()
+    {
+        $this->withValidator(function ($validator) {
+            $validator->after(function ($validator) {
+                $count = 0;
+    
+                if (empty($this->bestmemory)) {
+                    $count++;
+                }
+                if (empty($this->worsememory)) {
+                    $count++;
+                }
+                if (empty($this->bestplayer)) {
+                    $count++;
+                }
+                if (empty($this->bio)) {
+                    $count++;
+                }
+                if ($count > 2){
+                    $validator->errors()->add('minimum', 'foo');
+                }
+            });
+        });
+    }
+
     public function update()
     {
         $this->validate(); 
@@ -52,6 +74,8 @@ class Data extends Component
         $this->user->update($this->all());
 
         $this->form = false;
+
+        $this->reset();
        
     }
     

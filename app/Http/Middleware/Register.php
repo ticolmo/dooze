@@ -23,7 +23,7 @@ class Register
             //$request->session()->forget('questionnaire');
             return $next($request); 
             }else{
-                return redirect()->route('createaccount');
+                return redirect()->route('createaccount.fan');
             }
          }
          return $next($request);

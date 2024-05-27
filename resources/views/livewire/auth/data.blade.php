@@ -23,7 +23,7 @@
     <div class="entete text-center">
         <span class="iconNav parentIcon">
             <i class="bi bi-pencil" x-on:click="form = ! form"></i>
-            <div class="explicatifIcon"> <span>Modifier la bio </span> </div>   
+            <div class="explicatifIcon"> <span>Modifie ta bio </span> </div>   
         </span>  
         <a href="{{route('profil', 'settings' )}}" class="bar" wire:navigate >
             <span class="iconNav parentIcon">
