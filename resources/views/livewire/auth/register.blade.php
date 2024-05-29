@@ -50,7 +50,10 @@
 
           {{-- DATE DE NAISSANCE --}}
 
-          <x-auth.birthday />
+          <livewire:auth.birthday />
+          @error('birthday')
+              <div class="invalid-feedback"> {{$message}} </div>
+            @enderror
 
           {{-- EMAIL --}}
           <div class="form-floating @error('email') is-invalid @enderror">
@@ -113,10 +116,10 @@
          
   
           {{-- CONDITIONS GENERALES --}}
-          <div class="form-check">
+          {{-- <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
             <label class="form-check-label" for="flexCheckDefault"> J'accepte les <a href="">Conditions générales de Dooze</a> </label>
-          </div> 
+          </div>  --}}
   
             
             <button class="w-100 btn btn-lg btn-primary" type="submit">Valider</button>

@@ -3,9 +3,11 @@
 namespace App\Actions\Fortify;
 
 use App\Models\User;
+use App\Rules\AgeMinimal;
+use App\Rules\Pseudo;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
 class CreateNewUser implements CreatesNewUsers
@@ -32,11 +34,18 @@ class CreateNewUser implements CreatesNewUsers
                 'required',
                 'min:5',
                 Rule::unique(User::class),
+                new Pseudo
             ],
             'password' => $this->passwordRules(),
+            'birthday' => [
+                'required',
+                'date',
+                "date_format:Y-m-d",
+                new AgeMinimal
+            ],
             'categorie' => ['required', 'string', 'max:10'],
             'pays' => ['required', 'string', 'max:60'],
-            'club_id' => ['nullable', 'string', 'max:4'],
+            'club_id' => ['required', 'string', 'max:4'],
             'langue_id' => ['required', 'string', 'max:1'],
             'bestmemory' => ['nullable', 'string', 'max:255'],
             'worsememory' => ['nullable', 'string', 'max:255'],

@@ -24,7 +24,7 @@
 
           <li class="nav-item recherche">
             <input x-model="search" placeholder="Club / Compétition" class="form-control" list="datalistOptions" id="exampleDataList"> 
-            <ul x-show="search.length > 1" @click.outside="search = ''">
+            <ul x-show="search.length > 2" @click.outside="search = ''">
                 <template x-for="item in filteredItems" :key='item'>
                     <li x-text="item" @click="$wire.redirectRecherche(item)"></li>
                 </template>

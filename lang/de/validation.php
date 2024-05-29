@@ -8,6 +8,7 @@ return [
     'active_url'           => ':Attribute ist keine gültige Internet-Adresse.',
     'after'                => ':Attribute muss ein Datum nach :date sein.',
     'after_or_equal'       => ':Attribute muss ein Datum nach :date oder gleich :date sein.',
+    'age_minimal'          => 'Das Mindestalter für die Kontoerstellung beträgt 16 Jahre.',    
     'alpha'                => ':Attribute darf nur aus Buchstaben bestehen.',
     'alpha_dash'           => ':Attribute darf nur aus Buchstaben, Zahlen, Binde- und Unterstrichen bestehen.',
     'alpha_num'            => ':Attribute darf nur aus Buchstaben und Zahlen bestehen.',
