@@ -17,9 +17,7 @@
     <div id="donate-button-container">
       <div id="donate-button"></div>
     </div>
- {{--    <div style="text-align: center">
-      <div id="paypal-donate-button-container" style="width:150px; height:auto"></div>
-    </div> --}}
+
   </div>
   @push('scripts')
   <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script> 

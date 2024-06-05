@@ -5,6 +5,10 @@
 {{$club->nom }}
 @endsection
 
+@section('navbar')
+  <livewire:partials.navbar :club="$club->nom" />
+@endsection
+
 
 @section('content')
 
@@ -41,8 +45,7 @@
   </div>
 
   <div id="bulletin">
-    @persist('bulletin')
-    <livewire:partials.navbar />
+    @persist('bulletin')    
    
     <x-club.bulletin 
       :scoreshomme="$club->scores_homme" 

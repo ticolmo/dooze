@@ -1,5 +1,9 @@
 @extends('layouts.home')
 
+@section('navbar')
+  <livewire:partials.navbar />
+@endsection
+
 @section('content')
 
 @if ((session()->has('deconnexion')))

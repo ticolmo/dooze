@@ -43,9 +43,10 @@
 
 <body>
 
-
+ 
 
 {{--   <livewire:partials.don/ > --}}
+
  
   {{ $slot }}
   <livewire:partials.cookies/ > 

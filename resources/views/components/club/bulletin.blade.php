@@ -1,4 +1,4 @@
-<div id="bulletinClub">
+<div id="bulletinClub" class="noMobile">
       <div class="logo">        
         <a href="{{$siteofficiel}}" target="_blank">
           <img class="logo1" src="{{Storage::url('logos/'.$nom.'.png')}}" alt="">

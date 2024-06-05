@@ -1,9 +1,4 @@
-<div x-data="{ open: $wire.entangle('club') }">    
-    @php
-    $langueEnCours = route('socialmedia', ['club' => 'servettefc']);    
-@endphp
-
-
+<div >    
     <div id="menuClub">
         <div wire:click="selectPage('news')"> <i class="bi bi-house-door"></i>              
                 <span class="choiceSpan" @if ($page == "news" || $page == "") style="border-bottom: 4px solid {{$couleur}}; @media screen and (max-width:767px) {.choiceSpan{color:{{$couleur}}}}}" @endif 
@@ -20,7 +15,7 @@
                     > {{ __('Social Media') }} </span> </a>
             </div>
 
-        <div wire:click="selectPage('match')" id="resultats"> <i><img class="logo1 animate__animated animate__flipInY" src="{{Storage::url('logos/'.$nom.'.png')}}" alt=""> </i>  Résultats</div>
+        {{-- <div wire:click="selectPage('match')" id="resultats"> <i><img class="logo1 animate__animated animate__flipInY" src="{{Storage::url('logos/'.$nom.'.png')}}" alt=""> </i>  Résultats</div> --}}
         {{-- <div wire:click="selectPage('live')">Live</div> --}}
     </div>    
     
@@ -41,7 +36,7 @@
         @endif
 
         @if ($page == "fans") 
-            <livewire:club.fans.index :$idclub :key="$idpagefans" :section="$section" lazy="on-load" /> 
+            <livewire:club.fans.index :$idclub :key="$idpagefans" :section="$section" {{-- lazy="on-load" --}} /> 
         @endif
 
         

@@ -42,13 +42,16 @@
 </head>
 
 <body>
-
-{{--   <livewire:partials.don/>  --}}
+  
+  @persist('jean')
+    @yield('navbar')
+  @endpersist
+  <livewire:partials.don/> 
 
   @yield('content')
   <livewire:partials.cookies/> 
   
-{{--   <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script> --}}
+  <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
 
   @livewireScriptConfig 
 </body>

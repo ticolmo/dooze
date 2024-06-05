@@ -184,7 +184,7 @@ Route::get('/club/{club}', [HomeClubController::class, 'club'])->name('club');
 
 Route::get('/club/{club}?page=socialmedia', [HomeClubController::class, 'club'])->name('socialmedia');
 
-/* Test */
+/* Tests */
 
 Route::view('/scores', 'tests.testscores');
 

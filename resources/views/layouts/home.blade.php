@@ -27,7 +27,9 @@
       
       
 <body>
-
+  @persist('jean')
+    @yield('navbar')
+  @endpersist
   
     <div id="accueil">
 
