@@ -60,7 +60,7 @@
     "Change my password": "Modifier mon mot de passe",
     "Remove my account": "Supprimer mon compte",
     "My Profile": "Mon Profil",
-    "My Account": "Mon Compte",
+    "My Account": "Mon compte",
     "Language": "Langue",
     "News":"Actualité",
     "Fans":"Fans",
@@ -79,5 +79,10 @@
     "Delete post": "Suppression de la publication",
     "Confirm deletion": "Confirmer la suppression",
     "No posts published": "Aucune publication postée",
-    "Are you sure you want to delete this post? After this operation, your post will be permanently deleted from your profile, the entire website and the Dooze database. It will no longer be possible to retrieve it.": "Etes-vous sûr de vouloir supprimer cette publication ? Après cette opération, votre message sera définivement supprimé de votre profil, de l'ensemble du site internet et de la base données de Dooze. Il ne sera plus possible de la récupérer."
+    "Are you sure you want to delete this post? After this operation, your post will be permanently deleted from your profile, the entire website and the Dooze database. It will no longer be possible to retrieve it.": "Etes-vous sûr de vouloir supprimer cette publication ? Après cette opération, votre message sera définivement supprimé de votre profil, de l'ensemble du site internet et de la base données de Dooze. Il ne sera plus possible de la récupérer.",
+    "Social Media": "Réseaux Sociaux",
+    "Password": "Mot de passe",
+    "Log In": "Connexion",
+    "Create a account": "Créer un compte"
+
 }

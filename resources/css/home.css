@@ -1,10 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import '../../node_modules/animate.css/animate.css';
 @import './page/home.css';
+@import './divers/cookies.css';
+@import './divers/diagram_register.css';
 
 
 * {
     box-sizing: border-box;
 }
+
+:root {
+    --couleur-hover: #dee2e6a3;
+    --transition-hover: all ease-in-out 0.3s;
+    --font-color: #1e1a19;
+    --height-menu:50px;
+}
+
 
 html,
 body {
@@ -17,18 +29,20 @@ body {
 body {
     font-family: 'Inter', sans-serif!important; 
     font-size: 14px!important;  
+    font-weight: 300!important;
 
     background-color: white;
-    color: #1e1a19;
+    color: var(--font-color);
 
 }
 
 .entete{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif!important;    
+    font-family: 'Inter','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif!important;    
 }
 
 .navbar{
-    font-size: 16px!important;  
+    font-size: 14px!important; 
+    color: var(--font-color); 
 }
 
 
@@ -57,6 +71,47 @@ li {
 /*Smartphone*/
 
 @media screen and (max-width:767px) {
+
+    .noMobile{
+        display:none;
+    }
+    #navigbar{
+        position: fixed;
+        z-index: 1000;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        width: 100%;
+        border-top: 0.5px solid rgba(32,36,39,.16);
+        
+    }
+
+    #navigbar ul {        
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        /* box-shadow: 0 -3px 6px rgba(32,36,39,.16); */
+        margin: 0!important;
+        height: 50px;
+    }
+
+    #navigbar .explicatifIcon{
+        display:none;
+    }
+    
+   /*  #activity #menuClub>div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    } */
+    #navigbar i {
+        font-size: 1.5rem;
+    }
+    #navigbar i img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
 
     .swiper {
         display: none;
@@ -377,9 +432,56 @@ li {
     #fleche {
         display: none;
     }
+    .noDesktop{
+        display:none;
+    }
+
+    #navigbar{
+        position: fixed;
+        z-index: 10000;
+        top: 0;
+        right: 0;
+        background-color: white;
+        width: 25%;
+        height: 70px;
+    }
+
+    #navigation {
+        display: flex;
+        justify-content:space-evenly;
+        align-items: center;
+        height: 50px;
+        padding: 0;
+        padding-top: 5px;
+
+    }
 
     main{
         padding-bottom: 100px;
+    }
+
+    h1.titre {
+        font-size: 30px!important; ;
+        font-weight: 600;
+    }
+    ul.avantages li{
+        list-style-type: disc!important;
+        font-weight: 350;
+        font-size: 15px;
+    }
+
+    .navTitle{
+        font-size: 30px!important; 
+        font-weight: 600;
+    }
+    .navAccountTitle{
+        font-size: 20px;
+        padding-left: 15px;
+    }
+    .navAccountBody{
+        font-size: 20px;
+        padding-left: 30px;
+
     }
 
     button#buttonnavbar {
@@ -408,10 +510,23 @@ li {
         width: 100%;
         height: 100%;
         overflow: hidden;
+        position: relative;
 
 
 
     }
+
+    #filtreVideo{
+        position: absolute;
+        z-index: 3; 
+        background-color:  rgba(30, 26, 25, 0.15) ; 
+        /*background: rgb(249,249,249);
+        background: radial-gradient(circle, rgba(249,249,249,0) 62%, rgba(128,128,128,0.20611572265625) 76%, rgba(30,26,25,1) 100%); 
+        */ width: 100%;
+        height: 100%;
+    }
+
+
 
     #myvideo {
         width: auto;
@@ -430,6 +545,24 @@ li {
         overflow: auto;
     }
 
+    #cookies{
+        position: fixed;
+        bottom: 0;
+        z-index: 1000;
+        background-color: white;
+        
+        width: 100%;
+        height: 20%;
+        display: flex;
+        padding:1%;
+        padding-left: 9%;
+        padding-right: 9%;
+    }
+
+    #cookies li {
+        list-style-type:disc!important;
+    }
+
     .nav-link {
         color: #1e1a19 !important;
 
@@ -439,6 +572,10 @@ li {
         color: #1e1a19 !important;
 
     }
+    #lienLogoDooze{
+       filter: grayscale(5%); 
+    }
+    
 
 
     #connect2 {
@@ -577,7 +714,7 @@ li {
         height:35px;
         width:auto;
     }
-    .rencontres {
+ /*    .rencontres {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -592,7 +729,7 @@ li {
     .rencontres span:nth-child(3){
         width: 40%;
         text-align: left;
-      }
+      } */
     .bottomcompet{
         margin-bottom: 50px;
     }

@@ -78,7 +78,7 @@ class ApiFootball
     }
 
 
-    public function getnextmatch(int $idClub): array
+    public function getnextmatch(int $idClub)
     {
         $response = $this->header()->get("https://v3.football.api-sports.io/fixtures", [
             'season' => 2023,
@@ -98,6 +98,7 @@ class ApiFootball
             if (isset($tableau['teams']['home']['name']) || isset($tableau['teams']['away']['name'])) {
                 $this->correctionIntitule($tableau); 
             }
+
             
             return $tableau;
         }

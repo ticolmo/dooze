@@ -15,7 +15,7 @@
     #activity{
         width: 100%;
     }
-
+/*
     #activity #menuClub {
         position: fixed;
         z-index: 1000;
@@ -43,7 +43,7 @@
         height: 1.5rem;
     }
 
-    button#buttonnavbar {
+     button#buttonnavbar {
         background: none;
         border: none;
         margin: 0;
@@ -57,7 +57,7 @@
         text-decoration: none;
         display: inline-block;
     }
-
+ */
    
 
 
@@ -70,7 +70,7 @@
 /* Tablette - Desktop */
 @media screen and (min-width:768px) {
 
-    .don {
+/*     .don {
         position: fixed;
         top: -100%;
         z-index: 3;
@@ -78,7 +78,7 @@
         padding: 10px;
         background-color: rgba(0, 0, 0, .4);
 
-    }
+    } */
     
     .donate {
 
@@ -180,7 +180,7 @@
     #activity #menuClub i{
         display: none;
     }
-    
+      /* --- */
     #activity #menuClub div {
         cursor: pointer;
         width: 100%;
@@ -193,6 +193,23 @@
         background-color: var(--couleur-hover);
     }
     #activity #menuClub div span{
+        height: 100%;
+    }
+
+    /* --- */
+    #activity #menuClub a {
+        display: inline-block;
+        cursor: pointer;
+        width: 100%;
+        line-height: var(--height-menu);
+        transition: var(--transition-hover);
+        display: flex;
+        justify-content: center;
+    }
+    #activity #menuClub a:hover{
+        background-color: var(--couleur-hover);
+    }
+    #activity #menuClub a span{
         height: 100%;
     }
 
@@ -216,6 +233,7 @@
         right: 0;
         width: 25%;
         height: 100%;
+        padding-top: 10%;
     }
 
     #infoclub {
@@ -317,10 +335,6 @@
 
     }
 
-    .animate__animated.animate__flipInY {
-
-        animation-delay: 1.5s;
-    }
 
     #site_officiel {
         display: none;

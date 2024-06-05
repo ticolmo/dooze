@@ -9,12 +9,12 @@ use Illuminate\Http\Request;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
-class Edit extends Component
+class Settings extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(public string $part)
     {
         //
     }
@@ -44,10 +44,17 @@ class Edit extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.auth.edit',[
+        if ($this->part == 'info'){
+           return view('components.auth.settings.info',[
             'langues'=> $this->listeLangue(),      
-            'listepays'=> $this->listePays(),
-            
-        ]);
+            'listepays'=> $this->listePays()            
+            ]); 
+        }else if ($this->part == 'password'){
+           return view('components.auth.settings.password'); 
+
+        }else if ($this->part == 'annulation'){
+           return view('components.auth.settings.annulation'); 
+        }
+        
     }
 }

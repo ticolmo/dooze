@@ -1,10 +1,11 @@
 <div>
-    
-    @if ($part == "settings")
-        <x-auth.edit />        
-    @endif
+    <div style="position:absolute; z-index:3;background-color:red;width:100%;height:100vh; text-align:center; padding-top:20%" wire:loading> 
+        <div class="spinner-border text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>             
+    </div>
 
-    @if($part == "")
+
     <div>
         <div> <i class="bi bi-envelope"></i>  Messagerie 
             @if ($newmessage > 0)
@@ -44,6 +45,6 @@
             @endif --}}
         </div>
     </div>
-    @endif
+
 
 </div>

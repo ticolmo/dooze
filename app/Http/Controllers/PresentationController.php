@@ -12,7 +12,7 @@ class PresentationController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request)
+    public function index(Request $request)
     {
         $clubs = Club::where('en_ligne',true)->select(['nom','url'])->orderBy('nom')->get();
         $compet = new ListeCompetition();
@@ -32,4 +32,6 @@ class PresentationController extends Controller
             'competitions' => $competitions
         ]);
     }
+
+
 }

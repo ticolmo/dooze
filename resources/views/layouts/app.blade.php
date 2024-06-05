@@ -16,10 +16,8 @@
   <title> @yield('title') - Dooze</title>
   @livewireStyles
   @vite(['resources/css/app.css', 'resources/js/app.js','resources/css/bootstrap.scss','resources/js/bootstrapjs.js'])
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
- 
- 
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"> 
   <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
   crossorigin="anonymous"></script>
   <script src=" https://cdn.jsdelivr.net/npm/twitter-widgets@2.0.0/index.min.js "></script>
@@ -29,6 +27,9 @@
 
   <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
   <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+  {{-- Cookies validés - RGPD --}}
+  <x-partials.rgpd />
+
 @php
     $langueEnCours = App::currentLocale();    
 @endphp
@@ -41,11 +42,17 @@
 </head>
 
 <body>
-
+  
+  @persist('navbar')
+    @yield('navbar')
+  @endpersist
+  <livewire:partials.don/> 
 
   @yield('content')
+  <livewire:partials.cookies/> 
+  
+  <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
 
-    
   @livewireScriptConfig 
 </body>
 

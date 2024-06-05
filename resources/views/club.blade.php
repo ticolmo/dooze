@@ -5,6 +5,10 @@
 {{$club->nom }}
 @endsection
 
+@section('navbar')
+  <livewire:partials.navbar :club="$club->nom" />
+@endsection
+
 
 @section('content')
 
@@ -21,28 +25,35 @@
           </svg> </a>
         </div>
         @if (!empty($club->auteur_credit))
-        <div id="credit"> Crédit:<a href="{{$club->lien_credit}}">{{$club->auteur_credit}}</a></div>  
+        <div id="credit"> Crédit: <a href="{{$club->lien_credit}}">{{$club->auteur_credit}}</a></div>  
         @endif  
       </div>
       
     </div>
     
   </div>
-    
   <div id="activity">
     <x-errors-validation />
-    <livewire:club.index :flux="$club->flux_rss_blogs" :nom="$club->nom" :idclub="$club->id_club" :couleur="$club->couleur_primary" :fluxrs="$club->flux_rss_reseaux_sociaux" />
+    <livewire:club.index 
+      :flux="$club->flux_rss_blogs" 
+      :nom="$club->nom" 
+      :idclub="$club->id_club" 
+      :couleur="$club->couleur_primary" 
+      :fluxrs="$club->flux_rss_reseaux_sociaux" 
+      :urlclub="$club->url" 
+      />
   </div>
 
   <div id="bulletin">
-    @persist('bulletin')
-    <livewire:partials.navbar />
-    <hr>
+    @persist('bulletin')    
+   
     <x-club.bulletin 
       :scoreshomme="$club->scores_homme" 
       :scoresfemme="$club->scores_femme"
       :nom="$club->nom"
-      :siteofficiel="$club->site_officiel"  />
+      :siteofficiel="$club->site_officiel"  
+      :chant="$club->chant" 
+      />
 
     @endpersist
   </div>

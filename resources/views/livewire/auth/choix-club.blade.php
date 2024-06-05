@@ -1,35 +1,38 @@
-<div>
 
 
-    <main id="" class="form-signin w-50 m-auto">
 
-      <div> Avoir un compte te permettra:</div>
-      <div> - poster des commentaires sur la page de ton club préféré et dans le secteur Visiteurs des autres clubs </div>
-      <div> - d'avoir une navigation plus facile sur Dooze </div>
-      <div> - d'être au courant des dernières nouveautés de Dooze</div>
+  <div class="w-75 m-auto">
 
-      <br>
-      <div> Après avoir choisi ton club, tu ne pourras pas le changer. Quand on aime un club, c'est pour la vie.</div>
-      <br>
-      <div> Si malgré tout tu souhaites changer de club, il faudra supprimer ton compte et en ouvrir un nouveau avec ton nouveau club. Tu pourras faire cela en cliquant sur 'Modifier mes données' dans la page de ton Profil.</div>
-      <br>
-      <!-- CHOIX DU CLUB -->
-      <form wire:submit="save"> 
-        <div class="form-floating">
-          <select class="form-select" id="floatingSelect" aria-label="Floating label select example"  wire:model="club">
-            <option selected>Club</option>
-            @foreach ($clubs as $club)
-            <option value="{{$club->id_club}}"> {{$club->nom}} </option>
-            @endforeach           
+    <h1 class="titre"> Créer un compte <span> Fan</span></h1>
 
-          </select>
-          <label for="floatingSelect">Sélectionne ton club préféré</label>
-        </div>
+    <ul class="avantages">
+      <li>Postez des commentaires sur la page de ton club préféré et dans l'espace Visiteurs des autres clubs</li>
+      <li>Navigation plus facile</li>
+      <li>Information des dernières nouveautés de Dooze </li>
+    </ul>
 
-        
-        <button class="w-50 btn btn-lg btn-primary" type="submit">Suivant</button>
+    <br>
+    <div> Quand on aime un club, c'est pour la vie! Après avoir choisi ton club, tu ne pourras pas le changer. </div>
+    <br>
+    <div> Si malgré tout tu souhaites changer de club, il faudra supprimer ton compte et en ouvrir un nouveau avec ton nouveau club. Tu pourras faire cela en cliquant sur 'Modifier mes données' dans la page de ton Profil.</div>
+    <br>
+    <!-- CHOIX DU CLUB -->
+    <form wire:submit="save"> 
+      <div class="form-floating">
+        <select class="form-select" id="floatingSelect" aria-label="Floating label select example"  wire:model="club">
+          <option selected>Club</option>
+          @foreach ($clubs as $club)
+          <option value="{{$club->id_club}}"> {{$club->nom}} </option>
+          @endforeach           
 
-      </form>
-    </main>
+        </select>
+        <label for="floatingSelect">Sélectionne ton club préféré</label>
+      </div>
 
-</div>
+      
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Suivant</button>
+
+    </form>
+  </div>
+
+

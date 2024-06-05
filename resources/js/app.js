@@ -1,26 +1,13 @@
 import './bootstrap';
 import './bootstrapjs.js';
 import './page/fans.js';
-import { createApp } from "vue";
-import rechercheclubs from "./components/rechercheClubs.vue";
+import './essential_audio.js';
 
-/* configuration Vue */
-/* const app = createApp({});
-app.component('rechercheclubs', rechercheclubs);
-app.mount('#app'); */
 
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
 
-var music = document.getElementById("chant");
-music.volume = 0.05;
-
-
-
-
-
- 
 /* $('.supporters').pagination({
   // Options de pagination
  
@@ -36,20 +23,20 @@ music.volume = 0.05;
   
 }); */
 
-$(function () {
+/* $(function () {
 
-  setTimeout(publier, 1000);
-  function publier() {
-    $(".don").animate({ "top": 0 }, 2500)
-  }
-  setTimeout(masquer, 80000);
+  setTimeout(function() {
+    $("#don").addClass("appar");
+  }, 3000);
+
+  setTimeout(masquer, 6000);
   function masquer() {
-    $(".don").animate({ "top": "-100%" }, 2000)
+    $("#don").removeClass("appar").addClass("dispar")
   }
-  $("#close1").click(function() {
+  $("#closeDon").click(function() {
     masquer();
   })
-});
+}); */
 
 /* apparition des réponse des commentaires */
 $(".commentaires").click(function () {
@@ -61,6 +48,8 @@ $(".commentairesvisiteur").click(function () {
   let id = $(this).attr("data-id");
   $('#reponsesvisiteur' + id).toggle();
 });
+
+
 
 
 

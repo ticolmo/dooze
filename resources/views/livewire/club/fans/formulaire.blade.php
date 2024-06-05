@@ -49,7 +49,7 @@
       <div class="explicatifIcon"><span>Image</span></div>  
       </label>      
       <label class="iconNav parentIcon" for="" id="gif" @click="$wire.getGif()" >
-        <i><img src="{{Storage::url('divers/gif.png')}}" alt="" </i>       
+        <i><img src="{{Storage::url('divers/gif.png')}}" alt="" /> </i>       
       <div class="explicatifIcon"><span>GIF</span></div>
       </label>
       <label class="iconNav parentIcon" for="" id="emoji" @click="emoji()"> 

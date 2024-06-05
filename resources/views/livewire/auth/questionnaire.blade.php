@@ -42,7 +42,7 @@
         <div class="">
           @if ($bonneReponse==true)
           <div style="margin: 30px; text-align:center"> 'Bravo ! Tu peux continuer!'</div>
-          <a class="w-100 btn btn-lg btn-primary" href="{{ route('register') }}" wire:navigate class="bouton-suivant">Suivant</a>
+          <a class="w-100 btn btn-lg btn-primary" href="{{ route('bio') }}" wire:navigate class="bouton-suivant">Suivant</a>
         @endif
         
         </div>

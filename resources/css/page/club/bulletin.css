@@ -1,7 +1,36 @@
 /******************************************************/
 /* Tablette - Desktop */
-@media screen and (min-width:768px) {    
+@media screen and (min-width:768px) {   
+    
+    /* div construite par Livewire */
+    #bulletin>div{
+        height: 100%; 
+    }
 
+    #nomClub{
+        font-size: 25px!important; 
+        font-weight: 600;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    
+
+    #bulletinClub{
+        position: relative;
+        padding-top: 40px;
+        height: 100%;
+    }
+
+    #chant{
+        position:absolute;
+        width: 80%;
+        text-align: center;
+        left: 10%;
+        bottom: 15%;
+        background-color: green;
+
+    }
     .match {
         width: 100%;
     }
@@ -45,9 +74,8 @@
         border-radius: 15px;
     } */
     .ligneMatch [class^="score"] {
-        font-size: 20px;
-        background-color: #1e1a19;
-        color: white;
+        font-size: 16px;
+        font-weight: 600!important;
         
     } 
     .ligneMatch .scoreTrait{

@@ -15,7 +15,7 @@ class LangueController extends Controller
         }else{
             $request->session()->put('choicelangue','en');   
         };
-        /* dd($request->session()->get('choicelangue')); */
+        
         return redirect()->back();
     }
 }

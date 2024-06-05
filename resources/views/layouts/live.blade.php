@@ -30,8 +30,7 @@
 </head>
 
 <body>
-  @include('partials.don')
-  @include('partials.navbarlive')
+ 
 
 {{--    configuration Vue  
   <div id=app>

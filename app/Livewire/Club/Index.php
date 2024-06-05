@@ -3,11 +3,12 @@
 namespace App\Livewire\Club;
 
 use Livewire\Component;
-use Livewire\Attributes\Url;
+use Livewire\Attributes\Url; 
 
 class Index extends Component
 {
     public $flux;
+    public $urlclub;
     public $nom;
     public $idclub;
     public $couleur;

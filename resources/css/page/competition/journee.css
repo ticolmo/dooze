@@ -48,9 +48,8 @@
         width:3%
     }
     #tableJournee [class^="score"] {
-        background-color: #1e1a19;
-        color: white;
-        font-weight: 700;
+        font-size: 16px;
+        font-weight: 600!important;
     }
 
     #tableJournee .status{

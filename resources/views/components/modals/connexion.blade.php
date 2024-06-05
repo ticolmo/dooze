@@ -13,7 +13,7 @@
         <div type="button" class="btn btn-primary" data-bs-target="#identification{{ $slot }}" data-bs-toggle="modal">S'identifier</div>
         <br>  
         <hr>        
-        <div> <a href="{{route('createaccount')}}" class="btn btn-light"> Créer un compte</a></div>
+        <div> <a href="{{route('createaccount.fan')}}" class="btn btn-light"> Créer un compte</a></div>
       </div>
       <div class="modal-footer" style="border-top:none!important">
       </div>
@@ -58,7 +58,7 @@
         </form>  
         
         <hr>        
-        <div> <a href="{{route('createaccount')}}" class="btn btn-light"> Créer un compte</a></div>
+        <div> <a href="{{route('createaccount.fan')}}" class="btn btn-light"> Créer un compte</a></div>
       </div>
       <div class="modal-footer" style="border-top:none!important">      </div>
     </div>

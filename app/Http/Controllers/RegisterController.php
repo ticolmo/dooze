@@ -31,5 +31,20 @@ class RegisterController extends Controller
         ]);
     }
 
+    public function media(){
+        $langue = Langue::select(['id_langue','intitule'])->get();
+        $clubs = Club::select(['id_club','nom'])->where('en_ligne', true)->get();
+        $pays = new Listepays();
+        $liste = $pays->getlist();
+        
+        return view('auth.register-media',[
+            'langues'=> $langue,
+            'clubs'=> $clubs,
+            'listepays'=> $liste,
+        ]);
+
+
+    }
+
    
 }

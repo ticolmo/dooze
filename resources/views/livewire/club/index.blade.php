@@ -1,19 +1,21 @@
-<div>    
-
+<div >    
     <div id="menuClub">
         <div wire:click="selectPage('news')"> <i class="bi bi-house-door"></i>              
                 <span class="choiceSpan" @if ($page == "news" || $page == "") style="border-bottom: 4px solid {{$couleur}}; @media screen and (max-width:767px) {.choiceSpan{color:{{$couleur}}}}}" @endif 
-                    >Actualité </span> 
+                    >{{ __('News') }} </span> 
             </div>
         <div wire:click="selectPage('fans')"> <i class="bi bi-chat-dots"></i>             
                 <span class="choiceSpan" @if ($page == "fans") style="border-bottom: 4px solid {{$couleur}}; @media screen and (max-width:767px) {.choiceSpan{color:{{$couleur}}}}}" @endif 
-                    > Fans</span>
+                    > {{ __('Fans') }}</span>
             </div>
-        <div wire:click="selectPage('socialmedia')"> <i class="bi bi-wifi"></i>             
-                <span class="choiceSpan" @if ($page == "socialmedia") style="border-bottom: 4px solid {{$couleur}}; @media screen and (max-width:767px) {.choiceSpan{color:{{$couleur}}}}}" @endif 
-                    >Réseaux Sociaux </span>
+
+        <div> <a href="{{route('socialmedia', "$urlclub")}}" wire:navigate >
+            <i class="bi bi-wifi" ></i>             
+                <span class="choiceSpan" @if ($page == "socialmedia") style="display:inline-block; border-bottom: 4px solid {{$couleur}}; @media screen and (max-width:767px) {.choiceSpan{color:{{$couleur}}}}}" @endif  
+                    > {{ __('Social Media') }} </span> </a>
             </div>
-        <div wire:click="selectPage('match')" id="resultats"> <i><img class="logo1 animate__animated animate__flipInY" src="{{Storage::url('logos/'.$nom.'.png')}}" alt=""> </i>  Résultats</div>
+
+        {{-- <div wire:click="selectPage('match')" id="resultats"> <i><img class="logo1 animate__animated animate__flipInY" src="{{Storage::url('logos/'.$nom.'.png')}}" alt=""> </i>  Résultats</div> --}}
         {{-- <div wire:click="selectPage('live')">Live</div> --}}
     </div>    
     
@@ -34,13 +36,14 @@
         @endif
 
         @if ($page == "fans") 
-            <livewire:club.fans.index :$idclub :key="$idpagefans" :section="$section" lazy="on-load" /> 
+            <livewire:club.fans.index :$idclub :key="$idpagefans" :section="$section" {{-- lazy="on-load" --}} /> 
         @endif
+
         
         @if ($page == "socialmedia")
         
-         <x-club.reseaux-sociaux :$fluxrs  /> 
-      {{--  <livewire:club.fans.reseaux-sociaux :$fluxrs  /> --}}
+         <x-club.reseaux-sociaux :$fluxrs /> 
+       {{-- <livewire:club.fans.reseaux-sociaux :$fluxrs :key="$idpagefans"  /> --}}
         @endif
 
         @if ($page == "comment")
@@ -56,8 +59,5 @@
     
     </div>
 
-    
-        
-
-
 </div>
+

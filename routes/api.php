@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\TimezoneController;
+use App\Http\Controllers\Api\CommentaireController;
 use App\Http\Controllers\Api\MailboxAdminController;
 
 /*
@@ -21,4 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 }); 
 
 Route::get('admin/mailbox', [MailboxAdminController::class, 'index']);
+
+Route::middleware('auth:sanctum')->get('comments', CommentaireController::class);
 

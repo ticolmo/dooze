@@ -27,4 +27,28 @@ display: none;
         width: 20%;
         height: 100%;
     }
+
+    #settings {
+        text-align: center;
+    }
+
+    #menuSettings {
+        height: var(--height-menu);
+        line-height: var(--height-menu);
+        position: relative;
+        
+    }
+    .closeSettings{
+        position: absolute;
+        right: 30px;
+        top:5px;
+    }
+    .choiceSection{
+        display: flex;
+        justify-content:center;
+        height: var(--height-menu);
+        line-height: var(--height-menu);
+        gap:20px
+    }
+    
 }

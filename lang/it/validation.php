@@ -8,6 +8,7 @@ return [
     'active_url'           => ':Attribute non è un URL valido.',
     'after'                => ':Attribute deve essere una data successiva al :date.',
     'after_or_equal'       => ':Attribute deve essere una data successiva o uguale al :date.',
+    'age_minimal'          => "L'età minima per creare un account è di 16 anni.",
     'alpha'                => ':Attribute può contenere solo lettere.',
     'alpha_dash'           => ':Attribute può contenere solo lettere, numeri e trattini.',
     'alpha_num'            => ':Attribute può contenere solo lettere e numeri.',

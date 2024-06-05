@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Events\AccountLogInEvent;
 use App\Models\Suppressioncompte;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Fortify\Contracts\LogoutResponse;
 
 
 class AccountController extends Controller
@@ -25,6 +26,9 @@ class AccountController extends Controller
    if ($fan->is_admin) {    
    return redirect()->route('admin.index');
    };
+
+/* $token = $fan->createToken('password');
+   dd($token->plainTextToken);  */
 
     event(new AccountLogInEvent($fan));
 
