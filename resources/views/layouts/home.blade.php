@@ -27,7 +27,7 @@
       
       
 <body>
-  @persist('jean')
+  @persist('navbar')
     @yield('navbar')
   @endpersist
   

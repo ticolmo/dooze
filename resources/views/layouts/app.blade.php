@@ -43,7 +43,7 @@
 
 <body>
   
-  @persist('jean')
+  @persist('navbar')
     @yield('navbar')
   @endpersist
   <livewire:partials.don/> 
