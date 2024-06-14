@@ -1,10 +1,10 @@
 <div x-data="{ compte: false, langue:false }">
-    <div style="text-align: center">
+    {{-- <div style="text-align: center">
         <a class="navbar-brand" href="/"  wire:navigate id="lienLogoDooze"><img id="logoDooze" src="{{Storage::url('logos/logo dooze 4')}}.png" alt=""></a>
     </div>
     <div style="text-align:right; padding-right:50px">
         <span class="" type="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-list"></i></span>
-    </div>
+    </div> --}}
     
     
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -23,10 +23,10 @@
             {{-- l'utilisateur n'est pas authentifié --}}
             @guest 
 
-        {{-- LOGIN --}}       
+        {{-- LOGIN        
                 <div >
                     <a href="{{route('login')}}" wire:navigate class="navTitle"> {{ __('Login') }}</a>
-                </div>
+                </div>--}}
 
         {{-- CREER UN COMPTE --}}
                 <div>
@@ -55,19 +55,23 @@
             {{-- l'utilisateur est authentifié --}}
             @auth
 
-        {{-- MON COMPTE --}}
+        {{-- MON COMPTE 
                 <div>
                     <a class="navTitle" href="{{route('profil')}}"> <i class="bi bi-person"></i>  {{ __('My Profile') }}</a>
-                </div>
+                </div>--}}
         
         {{-- DECONNEXION --}}
-                <div>
-                    <form action="{{route('logout')}}" method="post">
-                        @csrf
-                        <button id="buttonnavbar" class="navTitle" type="submit"><i class="bi bi-person-slash"></i>
-                        {{ __('Logout') }}</button>
-                    </form>
-                </div>
+            <div onclick="event.preventDefault(); document.getElementById('logout').submit();" class="navTitle">            
+              
+                <i class="bi bi-box-arrow-right"></i>
+                {{ __('Logout') }}
+                
+            </div>
+
+            {{-- formulaire caché de déconnexion --}}
+            <form id="logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
 
             @endauth
 

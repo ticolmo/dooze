@@ -20,7 +20,7 @@
 {{-- Résultats: hier, aujourd'hui, demain --}}
 
 <div style="text-align: right"> Fuseau horaire: </div>
-{{-- <livewire:home.resultats :$timezone/> --}}
+<livewire:home.resultats :$timezone/>
 
 <div class="dropdown">
   <input id="choose1" class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

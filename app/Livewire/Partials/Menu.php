@@ -4,10 +4,10 @@ namespace App\Livewire\Partials;
 
 use Livewire\Component;
 
-class NavbarHome extends Component
+class Menu extends Component
 {
     public function render()
     {
-        return view('livewire.partials.navbar-home');
+        return view('livewire.partials.menu');
     }
 }

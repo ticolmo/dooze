@@ -20,30 +20,16 @@
             <a role="link" aria-label="" class="iconNav" href="/" wire:navigate> 
               <i class="bi bi-search"></i>
             </a>
-          </li>  
+          </li>           
           
-          <li class="dropdown parentIcon noMobile">
-            <a role="link" aria-label="" class="dropdown-toggle iconNav" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-translate"></i>
-              <div class="explicatifIcon"> <span> {{ __("Language")}} </span> </div>   
-            </a>      
-             
-            <ul class="dropdown-menu scrollable-menu">
-              <li><a class="dropdown-item @if (App::isLocale('de')) selectLangue @endif" href="{{route('choicelanguage', 'de')}}">Deutsch</a></li>
-              <li><a class="dropdown-item @if (App::isLocale('en')) selectLangue @endif" href="{{route('choicelanguage', 'en')}}">English</a></li>
-              <li><a class="dropdown-item @if (App::isLocale('es')) selectLangue @endif" href="{{route('choicelanguage', 'es')}}">Español</a></li>            
-              <li><a class="dropdown-item @if (App::isLocale('fr')) selectLangue @endif" href="{{route('choicelanguage', 'fr')}}">Français</a></li>
-              <li><a class="dropdown-item @if (App::isLocale('it')) selectLangue @endif" href="{{route('choicelanguage', 'it')}}">Italiano</a></li>
-            </ul>
-          </li>
     
   
         {{-- l'utilisateur n'est pas authentifié --}}
         @guest         
           <li class="parentIcon">
-            <a role="link" aria-label="" class="iconNav" href="" role="button" >
+            <a role="link" aria-label="" class="iconNav" href="{{route('login')}}"  wire:navigate>
               <i class="bi bi-person"></i> 
-              <div class="explicatifIcon"> <span> {{ __('My Account') }}</span>  </div>
+              <div class="explicatifIcon"> <span> {{ __('Log In') }}</span>  </div>
             </a>            
   
           </li>
@@ -51,24 +37,12 @@
   
         {{-- l'utilisateur est authentifié --}}
         @auth         
-          <li class=" parentIcon">            
-            <a role="link" aria-label="" class="iconNav" href="{{route('profil')}}" >
+          <li class="parentIcon">            
+            <a role="link" aria-label="" class="iconNav" href="{{route('profil')}}" wire:navigate>
               <i class="bi bi-person"></i> 
               <div class="explicatifIcon"> <span> {{ __('My Account') }}</span>  </div>
             </a>
-          </li>
-
-          <li class=" parentIcon noMobile">            
-            <a role="link" aria-label="" href="" class="iconNav" onclick="event.preventDefault(); document.getElementById('logout').submit();">
-              <i class="bi bi-box-arrow-right"></i>
-              <div class="explicatifIcon"> <span> {{ __('Logout') }}</span>  </div>
-            </a>
-          </li>
-
-          {{-- formulaire caché de déconnexion --}}
-          <form id="logout" action="{{ route('logout') }}" method="POST" style="display: none;">
-              @csrf
-          </form>
+          </li>         
           
         @endauth
         
@@ -80,10 +54,18 @@
           </a>
         </li> 
 
+        {{-- Desktop / Menu  --}}
+        <li class="noMobile parentIcon iconNav">
+          <i class="bi bi-list" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i>  
+          <div class="explicatifIcon"> <span> Menu</span>  </div>  
+          <livewire:partials.menu  />
+        </li>
+
           
         </ul>
       </div>
 
+      
   
   </div>
 
