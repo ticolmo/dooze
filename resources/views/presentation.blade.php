@@ -1,5 +1,9 @@
 @extends('layouts.home')
 
+@section('navbar')
+  <livewire:partials.navbar />
+@endsection
+
 @section('content')
 <div>
     <p> En toute convivialité, le but de Dooze est de mettre en avant les sites web et medias des supporters de
@@ -17,7 +21,7 @@
     <h2> Proposez un club !</h2>
     <p> Vous trouvez le concept de Dooze original et intéressant. Vous souhaitez proposer votre club favori, n'hésitez pas à remplir la fiche contact et à fournir toutes les infos utiles.</p>
     <p><a href="#club">Listes des clubs</a></p>
-    <h2 id="don"> Fonctionnement: Don</h2>
+    <h2> Fonctionnement: Don</h2>
     <p>Dooze ne vend pas vos données à des fins publicitaires ou autres. Il ne diffuse pas non plus de publicité.</p>
     <p>Le site fonctionne uniquement par don. </p>
     <p>Pour que ce projet continue à fonctionner dans de bonnnes conditions, n'hésitez pas à faire un don. La moitié

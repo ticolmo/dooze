@@ -1,5 +1,10 @@
 @extends('layouts.home')
 
+@section('navbar')
+  <livewire:partials.navbar />
+@endsection
+
+
 @section('content')
 
     <main id="connect2" class="form-signin w-50 m-auto">

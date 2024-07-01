@@ -49,6 +49,12 @@ body {
     color: var(--font-color);
 
 }
+input::placeholder{
+    text-align: center;
+    color:var(--font-color);
+    opacity: 1!important; 
+}
+
 
 
 .entete {

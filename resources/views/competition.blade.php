@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('navbar')
+  <livewire:partials.navbar />
+@endsection
+
 @section('title')
 {{$nameCompetition}}
 @endsection
@@ -19,7 +23,7 @@
         <livewire:competition.index :$codeCompetition :$classement />
     </div>
     <div id="bulletinCompetition">
-        <livewire:partials.navbar />
+       
 
         <div id="infoCompetition">
             <div id="logoCompetition">

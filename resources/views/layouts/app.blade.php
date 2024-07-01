@@ -43,9 +43,9 @@
 
 <body>
   
-  @persist('navbar')
-    @yield('navbar')
-  @endpersist
+  
+  @yield('navbar')
+
   <livewire:partials.don/> 
 
   @yield('content')

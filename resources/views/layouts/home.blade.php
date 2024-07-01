@@ -28,9 +28,8 @@
       
 <body>
 
-    @persist('navbar')
-      @yield('navbar')
-    @endpersist
+   
+    @yield('navbar')    
   
     <div id="accueil">
 
