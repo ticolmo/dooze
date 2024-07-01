@@ -27,9 +27,6 @@ class AccountController extends Controller
    return redirect()->route('admin.index');
    };
 
-/* $token = $fan->createToken('password');
-   dd($token->plainTextToken);  */
-
     event(new AccountLogInEvent($fan));
 
     return view('auth',[

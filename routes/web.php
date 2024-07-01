@@ -52,9 +52,9 @@ Route::get('/createaccount/media', function () {return view('create-account-medi
 
 Route::get('/question', function () {return view('auth.question');})->name('question');
 
-Route::get('/bio', function () {return view('auth.bio');})->name('bio'); /* ne pas oublier de remettre le middl register */
+Route::get('/bio', function () {return view('auth.bio');})->middleware('register')->name('bio'); 
 
-Route::get('/register', function () {return view('auth.register');})->name('register'); /* ne pas oublier de remettre le middl register */
+Route::get('/register', function () {return view('auth.register');})->middleware('register')->name('register'); 
 
 Route::get('/register/media', [RegisterController::class, 'media'])->name('register.media');
 

@@ -13,9 +13,7 @@
 <ul class="nav nav-underline mb-3 " id="underline-tab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link active" id="underline-home-tab" data-bs-toggle="tab" data-bs-target="#underline-home" type="button" role="tab" aria-controls="underline-home" aria-selected="true">Corbeille
-       {{--  @if ($nbnewmessage > 0)  Mettre le nb corbeille
-        {{$nbnewmessage}} 
-        @endif --}}
+
     </button>
     </li>
     

@@ -37,12 +37,6 @@
     </form>
     
 
-    {{-- <div> {{$message->objet}} </div>
-    <br>
-    <div> <a href="{{route('profilpublic', $message->expediteur->id)}}"> {{$message->expediteur->name}} </a> <span> {{date_format($message->created_at,'d M Y H:i:s')}}</span> </div>
-
-    <div> {{$message->contenu}}</div> --}}
-
       
     
     

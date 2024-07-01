@@ -173,7 +173,7 @@ class Statistiques
             ]);                 
  
             $data = $response->json();
-           /*  dd($data); */
+           
             foreach($data['response'] as &$buteur){
                 $check = new NomEquipe(); 
                 $buteur['statistics']['0']['team']['name'] = $check->setnom($buteur['statistics']['0']['team']['name']);
